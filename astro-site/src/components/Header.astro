@@ -1,0 +1,51 @@
+---
+// "Leden inlog" wijst naar het besloten ledenportaal op de WordPress-subdomein-
+// installatie (bv. leden.vgsd.nl). Nog geen echte backend/domein, dus dit is een
+// placeholder — zie .env.example en TODO.md.
+const membersPortalUrl = import.meta.env.WORDPRESS_MEMBERS_URL ?? 'https://leden.vgsd.nl/';
+
+const navItems = [
+  { href: '/nieuws', label: 'Nieuws' },
+  { href: '/over-ons', label: 'Over ons' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-warm-50/90 backdrop-blur-sm border-b border-ink-900/5">
+  <div class="max-w-[1280px] mx-auto px-5 sm:px-8">
+    <div class="h-[72px] flex items-center justify-between gap-4">
+      <a href="/" class="flex items-center gap-2.5 shrink-0">
+        <span class="font-display font-bold text-lg tracking-tight text-ink-900">VGSD</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 font-medium text-[15px] text-ink-700">
+        {navItems.map((item) => (
+          <a href={item.href} class="hover:text-brand-600 transition-colors">{item.label}</a>
+        ))}
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a
+          href={membersPortalUrl}
+          class="hidden sm:inline-flex items-center justify-center rounded-full bg-brand-600 text-warm-50 px-5 py-2.5 text-sm font-semibold shadow-sm hover:bg-brand-700 transition-colors"
+        >
+          Leden inlog
+        </a>
+
+        <!-- Zero-JS mobiel menu via het native <details>-element. -->
+        <details class="relative md:hidden">
+          <summary class="list-none cursor-pointer grid h-10 w-10 place-items-center rounded-full text-ink-900 hover:bg-brand-50">
+            <span aria-hidden="true">&#9776;</span>
+            <span class="sr-only">Menu</span>
+          </summary>
+          <nav class="absolute right-0 mt-2 w-56 rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_20px_45px_-16px_rgba(58,14,24,0.25)] p-3 flex flex-col gap-1">
+            {navItems.map((item) => (
+              <a href={item.href} class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">{item.label}</a>
+            ))}
+            <a href={membersPortalUrl} class="block px-3 py-2 rounded-lg font-semibold text-brand-600 hover:bg-brand-50">Leden inlog</a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </div>
+</header>

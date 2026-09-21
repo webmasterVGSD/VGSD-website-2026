@@ -1,0 +1,39 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getPosts } from '../../lib/wordpress';
+import type { WPPost } from '../../lib/wordpress';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: WPPost;
+}
+
+const { post } = Astro.props;
+const dateFormat = new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout title={post.title}>
+  <Header />
+  <main class="py-20 sm:py-28">
+    <article class="max-w-[720px] mx-auto px-5 sm:px-8">
+      <h1 class="font-display font-bold text-3xl sm:text-4xl text-ink-900" set:html={post.title} />
+      <time datetime={post.date} class="mt-3 block text-sm text-ink-500">
+        {dateFormat.format(new Date(post.date))}
+      </time>
+      <div
+        class="mt-8 text-ink-700 leading-relaxed [&_p]:mt-4 [&_p:first-child]:mt-0 [&_a]:text-brand-600 [&_a]:underline"
+        set:html={post.content}
+      />
+    </article>
+  </main>
+  <Footer />
+</Layout>

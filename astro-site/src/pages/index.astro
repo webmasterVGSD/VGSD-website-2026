@@ -1,0 +1,43 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import { getPosts } from '../lib/wordpress';
+
+const posts = (await getPosts()).slice(0, 3);
+---
+
+<Layout title="Home">
+  <Header />
+  <main>
+    <section class="py-20 sm:py-28">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 text-center">
+        <h1 class="font-display font-bold text-4xl sm:text-5xl leading-tight tracking-tight text-ink-900">
+          Samen groeien in geloof en vriendschap
+        </h1>
+        <p class="mt-5 text-lg text-ink-700 leading-relaxed max-w-xl mx-auto">
+          VGSD is de christelijke studentenvereniging in Delft.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 sm:py-20 bg-warm-100/60">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8">
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Laatste nieuws</h2>
+
+        <div class="mt-8 grid sm:grid-cols-3 gap-6">
+          {posts.map((post) => (
+            <a
+              href={`/nieuws/${post.slug}`}
+              class="block rounded-2xl bg-warm-50 border border-ink-900/5 p-6 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] hover:shadow-[0_16px_32px_-16px_rgba(58,14,24,0.2)] transition-shadow"
+            >
+              <h3 class="font-display font-semibold text-lg text-ink-900" set:html={post.title} />
+              <div class="mt-2 text-ink-700 text-sm leading-relaxed" set:html={post.excerpt} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

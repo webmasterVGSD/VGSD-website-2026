@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kasten (verenigingshuizen) | VGSD</title>
+<meta name="description" content="Onze zes kasten verspreid door Delft en omstreken: verenigingshuizen waar leden samenwonen en veel activiteiten plaatsvinden. Bekijk ze op de kaart.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            50:  '#FBEEF0',
+            100: '#F3D9DD',
+            300: '#C77E8C',
+            500: '#93374B',
+            600: '#7A1F35',
+            700: '#5C1727',
+            900: '#3A0E18',
+          },
+          warm: {
+            50:  '#FDFAF6',
+            100: '#F7F1EA',
+          },
+          ink: {
+            900: '#241B1D',
+            700: '#4A3B3E',
+            500: '#77646A',
+          },
+        },
+        fontFamily: {
+          display: ['Outfit', 'sans-serif'],
+          body: ['"Plus Jakarta Sans"', 'sans-serif'],
+        },
+        maxWidth: {
+          'container': '1280px',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #FDFAF6;
+  }
+
+  /* Buttons: tactile press feedback, per design-eng principles */
+  .btn {
+    transition: transform 160ms var(--ease-out-strong), box-shadow 200ms var(--ease-out-strong), background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  }
+  .btn:active {
+    transform: scale(0.97);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px -8px rgba(122, 31, 53, 0.45);
+    }
+    .btn-ghost:hover {
+      background-color: #FBEEF0;
+    }
+  }
+
+  /* Nav link underline sweep */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: #7A1F35;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms var(--ease-out-strong);
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+  .nav-link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 600ms var(--ease-out-strong), transform 600ms var(--ease-out-strong);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-tilt {
+    transition: transform 260ms var(--ease-out-strong), box-shadow 260ms var(--ease-out-strong);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .card-tilt:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -16px rgba(58, 14, 24, 0.25);
+    }
+  }
+
+  .mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 300ms var(--ease-out-strong);
+  }
+  .mobile-menu.open {
+    max-height: 1000px;
+  }
+
+  /* Desktop nav dropdowns: anchored to their trigger, not centered (per popover convention) */
+  .dropdown-panel {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+    transform-origin: top left;
+    pointer-events: none;
+    transition: opacity 180ms var(--ease-out-strong), transform 180ms var(--ease-out-strong);
+  }
+  .dropdown-panel.open {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Mobile nav accordions */
+  .accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 250ms var(--ease-out-strong);
+  }
+  .accordion-panel.open {
+    max-height: 640px;
+  }
+
+  .caret {
+    transition: transform 200ms var(--ease-out-strong);
+  }
+  [aria-expanded="true"] .caret {
+    transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .btn:active,
+    .card-tilt:hover,
+    .btn-primary:hover {
+      transform: none;
+    }
+    .dropdown-panel,
+    .caret {
+      transition: none;
+    }
+  }
+
+  /* KASTEN MAP */
+  #kasten-map {
+    z-index: 0;
+  }
+  .kast-pin {
+    cursor: pointer;
+  }
+  .leaflet-container {
+    font-family: inherit;
+  }
+
+  /* KAST LIGHTBOX */
+  #kast-modal.open {
+    display: flex;
+  }
+</style>
+</head>
+
+<body class="font-body text-ink-900 antialiased">
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<!-- TODO: dit is nu het algemene contactnummer uit de footer; vervang door het nummer dat echt voor WhatsApp-chats met (potentiële) leden gebruikt gaat worden. -->
+<a href="https://wa.me/31633891980?text=Hoi%21%20Ik%20heb%20een%20vraag%20over%20VGSD." target="_blank" rel="noopener" aria-label="Chat met VGSD via WhatsApp" class="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_28px_-8px_rgba(0,0,0,0.4)] transition-transform hover:scale-105">
+  <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+</a>
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-warm-50/90 backdrop-blur-sm border-b border-ink-900/5">
+  <div class="max-w-container mx-auto px-5 sm:px-8">
+    <div class="h-[72px] flex items-center justify-between gap-4">
+      <a href="index.html#top" class="flex items-center gap-2.5 shrink-0">
+        <img src="images/logo/vgsd-logo.svg" alt="VGSD logo" class="h-9 w-9 object-contain">
+        <span class="font-display font-bold text-lg tracking-tight text-ink-900">VGSD</span>
+      </a>
+
+      <nav class="hidden xl:flex items-center gap-6 font-medium text-[15px] text-ink-700">
+        <a href="activiteiten.html" class="nav-link">Activiteiten</a>
+        <a href="open-avonden.html" class="nav-link">Open avonden</a>
+
+        <div class="relative">
+          <button type="button" data-dropdown-trigger="over-ons-panel" aria-expanded="false" aria-controls="over-ons-panel" class="nav-link flex items-center gap-1 text-brand-600">
+            Over ons
+            <i class="ph ph-caret-down text-xs caret"></i>
+          </button>
+          <div id="over-ons-panel" class="dropdown-panel absolute left-0 top-full mt-3 w-[30rem] rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_20px_45px_-16px_rgba(58,14,24,0.25)] p-6 grid grid-cols-2 gap-6">
+            <!-- TODO: onderstaande links wijzen nog naar "#": koppelen aan de echte pagina's zodra die bestaan. -->
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Wie we zijn</p>
+                <ul class="mt-3 space-y-1">
+                  <li><a href="geschiedenis.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Geschiedenis, grondslag en doel</a></li>
+                  <li><a href="verbanden.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Verbanden</a></li>
+                  <li><a href="besturen.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Besturen</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Onderdelen van de vereniging</p>
+                <ul class="mt-3 space-y-1">
+                  <li><a href="#" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Disputen</a></li>
+                  <li><a href="kasten.html" aria-current="page" class="block px-2 py-1.5 rounded-lg bg-brand-50 text-brand-600 font-semibold">Kasten (verenigingshuizen)</a></li>
+                  <li><a href="#" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">VVGSD (het voetbalteam)</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        <!-- TODO: "Fotoalbum" wijst nog naar "#": koppel aan de echte pagina zodra die bestaat. -->
+        <a href="#" class="nav-link">Fotoalbum</a>
+
+        <div class="relative">
+          <button type="button" data-dropdown-trigger="contact-panel" aria-expanded="false" aria-controls="contact-panel" class="nav-link flex items-center gap-1">
+            Contact
+            <i class="ph ph-caret-down text-xs caret"></i>
+          </button>
+          <div id="contact-panel" class="dropdown-panel absolute left-0 top-full mt-3 w-56 rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_20px_45px_-16px_rgba(58,14,24,0.25)] p-3">
+            <a href="index.html#contact" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Contact</a>
+            <!-- TODO: onderstaande links wijzen nog naar "#": koppelen aan de echte pagina's zodra die bestaan. -->
+            <a href="#" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Wonen in Delft</a>
+            <a href="#" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Langskomen</a>
+          </div>
+        </div>
+
+        <!-- TODO: "Veelgestelde vragen" wijst nog naar "#": koppel aan de echte pagina zodra die bestaat. -->
+        <a href="veelgestelde-vragen.html" class="nav-link">Veelgestelde vragen</a>
+      </nav>
+
+      <div class="hidden xl:flex items-center gap-4 shrink-0">
+        <!-- TODO: "Zakelijk" en "Log in" wijzen nog naar "#": koppelen zodra die pagina's/functionaliteit bestaan. -->
+        <div class="flex items-center gap-3 text-[13px] text-ink-500">
+          <a href="#" class="btn hover:text-brand-600">Zakelijk</a>
+          <span class="text-ink-900/10">|</span>
+          <a href="#" class="btn hover:text-brand-600">Log in</a>
+        </div>
+        <a href="index.html#word-lid" class="btn btn-primary inline-flex items-center rounded-full bg-brand-600 text-warm-50 px-5 py-2.5 text-sm font-semibold shadow-sm">
+          Lid worden
+        </a>
+      </div>
+
+      <button id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" class="xl:hidden grid h-10 w-10 place-items-center rounded-full text-ink-900 hover:bg-brand-50 transition-colors" aria-label="Menu openen">
+        <i class="ph ph-list text-2xl"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-nav" class="mobile-menu xl:hidden border-t border-ink-900/5 bg-warm-50">
+    <nav class="max-w-container mx-auto px-5 sm:px-8 py-4 flex flex-col gap-1 font-medium text-ink-700">
+      <a href="activiteiten.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Activiteiten</a>
+      <a href="open-avonden.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Open avonden</a>
+
+      <button type="button" data-accordion-trigger="over-ons-accordion" aria-expanded="true" aria-controls="over-ons-accordion" class="px-2 py-2.5 rounded-lg hover:bg-brand-50 flex items-center justify-between">
+        Over ons
+        <i class="ph ph-caret-down text-sm caret"></i>
+      </button>
+      <div id="over-ons-accordion" class="accordion-panel open pl-4">
+        <p class="px-2 pt-2 text-xs font-semibold uppercase tracking-wide text-ink-500">Wie we zijn</p>
+        <a href="geschiedenis.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Geschiedenis, grondslag en doel</a>
+        <a href="verbanden.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Verbanden</a>
+        <a href="besturen.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Besturen</a>
+        <p class="px-2 pt-2 text-xs font-semibold uppercase tracking-wide text-ink-500">Onderdelen van de vereniging</p>
+        <a href="#" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Disputen</a>
+        <a href="kasten.html" aria-current="page" class="block px-2 py-2 rounded-lg bg-brand-50 text-brand-600 font-semibold">Kasten (verenigingshuizen)</a>
+        <a href="#" class="block px-2 py-2 rounded-lg hover:bg-brand-50">VVGSD (het voetbalteam)</a>
+      </div>
+
+      <a href="#" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Fotoalbum</a>
+
+      <button type="button" data-accordion-trigger="contact-accordion" aria-expanded="false" aria-controls="contact-accordion" class="px-2 py-2.5 rounded-lg hover:bg-brand-50 flex items-center justify-between">
+        Contact
+        <i class="ph ph-caret-down text-sm caret"></i>
+      </button>
+      <div id="contact-accordion" class="accordion-panel pl-4">
+        <a href="index.html#contact" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Contact</a>
+        <a href="#" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Wonen in Delft</a>
+        <a href="#" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Langskomen</a>
+      </div>
+
+      <a href="veelgestelde-vragen.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Veelgestelde vragen</a>
+
+      <div class="mt-2 pt-3 border-t border-ink-900/5 flex items-center gap-4 px-2 text-[13px] text-ink-500">
+        <a href="#" class="hover:text-brand-600">Zakelijk</a>
+        <a href="#" class="hover:text-brand-600">Log in</a>
+      </div>
+
+      <a href="index.html#word-lid" class="btn btn-primary mt-2 inline-flex items-center justify-center rounded-full bg-brand-600 text-warm-50 px-5 py-2.5 text-sm font-semibold">
+        Lid worden
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- INTRO -->
+  <section class="pt-16 pb-10 sm:pt-20 sm:pb-12">
+    <div class="max-w-container mx-auto px-5 sm:px-8">
+      <div class="reveal max-w-2xl">
+        <h1 class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
+          Kasten
+        </h1>
+        <p class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[52ch]">
+          Verspreid door Delft en omstreken hebben we zes kasten: huizen waar leden samenwonen en waar veel van onze gezelligheid ontstaat. Klik op een pin of een kaartje voor een foto en meer informatie.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KASTEN MAP -->
+  <section class="pb-14 sm:pb-16">
+    <div class="max-w-container mx-auto px-5 sm:px-8">
+      <div id="kasten-map" class="reveal h-[420px] sm:h-[520px] rounded-2xl border border-ink-900/5 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] overflow-hidden"></div>
+    </div>
+  </section>
+
+  <!-- KASTEN GRID -->
+  <section class="pb-20 sm:pb-28">
+    <div class="max-w-container mx-auto px-5 sm:px-8">
+      <div id="kasten-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Kaartjes worden door JavaScript gevuld op basis van de "kasten"-lijst hieronder. -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="pb-24 sm:pb-32">
+    <div class="max-w-container mx-auto px-5 sm:px-8">
+      <div class="reveal rounded-[1.75rem] bg-brand-600 px-8 py-12 sm:px-14 sm:py-14 text-center">
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-warm-50">
+          Nieuwsgierig geworden?
+        </h2>
+        <p class="mt-3 text-brand-100 max-w-md mx-auto">
+          Kom gewoon een keer langs bij een open avond, vrijblijvend en zonder poespas.
+        </p>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-4">
+          <a href="open-avonden.html" class="btn btn-primary inline-flex items-center justify-center rounded-full bg-warm-50 text-brand-700 px-7 py-3.5 text-[15px] font-semibold shadow-sm">
+            Bekijk open avonden
+          </a>
+          <a href="index.html#word-lid" class="btn inline-flex items-center justify-center rounded-full border border-warm-50/40 text-warm-50 px-7 py-3.5 text-[15px] font-semibold">
+            Lid worden
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- KAST LIGHTBOX -->
+<div id="kast-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-8" aria-hidden="true">
+  <div class="absolute inset-0 bg-ink-900/70 backdrop-blur-sm" data-modal-close></div>
+  <div class="relative max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-2xl bg-warm-50 shadow-[0_30px_60px_-15px_rgba(58,14,24,0.4)]">
+    <button type="button" data-modal-close aria-label="Sluiten" class="btn absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center rounded-full bg-warm-50/90 text-ink-900 shadow-sm hover:bg-warm-50">
+      <i class="ph ph-x text-xl"></i>
+    </button>
+    <img id="kast-modal-foto" src="" alt="" class="w-full h-64 sm:h-80 object-cover rounded-t-2xl">
+    <div class="p-7 sm:p-8">
+      <h3 id="kast-modal-naam" class="font-display font-bold text-2xl text-ink-900"></h3>
+      <div id="kast-modal-tekst" class="mt-4 text-ink-700 leading-relaxed"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact" class="bg-brand-700 text-warm-50">
+  <div class="max-w-container mx-auto px-5 sm:px-8 py-16 sm:py-20">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr_1fr] gap-12">
+
+      <div>
+        <div class="flex items-center gap-2.5">
+          <img src="images/logo/vgsd-logo.svg" alt="VGSD logo" class="h-9 w-9 object-contain bg-warm-50 rounded-full p-1">
+          <span class="font-display font-bold text-lg tracking-tight">VGSD</span>
+        </div>
+        <p class="mt-4 text-brand-100 leading-relaxed max-w-xs text-[15px]">
+          Christelijke studentenvereniging voor geloof, gezelligheid, verdieping en studentikoze tradities.
+        </p>
+        <div class="mt-6 flex items-center gap-3">
+          <a href="#" aria-label="VGSD op Instagram" class="btn grid h-10 w-10 place-items-center rounded-full bg-warm-50/10 hover:bg-warm-50/20">
+            <i class="ph ph-instagram-logo text-lg"></i>
+          </a>
+          <a href="#" aria-label="VGSD op WhatsApp" class="btn grid h-10 w-10 place-items-center rounded-full bg-warm-50/10 hover:bg-warm-50/20">
+            <i class="ph ph-whatsapp-logo text-lg"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-display font-semibold text-sm uppercase tracking-wide text-brand-100">Contact</h3>
+        <ul class="mt-4 space-y-3 text-[15px] text-warm-50/95">
+          <li class="flex items-start gap-2.5">
+            <i class="ph ph-map-pin mt-0.5 text-brand-100"></i>
+            <span>Julianalaan 7<br>2628 BB Delft</span>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <i class="ph ph-envelope-simple text-brand-100"></i>
+            <a href="mailto:abactis@vgsd.nl" class="hover:underline">abactis@vgsd.nl</a>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <i class="ph ph-phone text-brand-100"></i>
+            <a href="tel:+31633891980" class="hover:underline">06 33 89 19 80</a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="open-avond" class="rounded-2xl bg-warm-50/10 border border-warm-50/15 p-6">
+        <h3 class="font-display font-semibold text-sm uppercase tracking-wide text-brand-100">Volgende open avond</h3>
+        <p id="activiteit-titel" class="mt-3 font-display font-semibold text-lg">Data volgen binnenkort</p>
+        <p id="activiteit-datum" class="text-brand-100 text-[15px]"></p>
+        <p id="activiteit-locatie" class="mt-1 flex items-center gap-1.5 text-warm-50/90 text-sm"></p>
+        <p id="activiteit-omschrijving" class="mt-2 text-warm-50/90 text-sm leading-relaxed"></p>
+        <a id="activiteit-cta" href="https://wa.me/31633891980?text=Hallo%2C%20ik%20ben%20...%20en%20ik%20zou%20me%20graag%20aanmelden%20voor%20een%20open%20avond." target="_blank" rel="noopener" class="btn btn-primary mt-5 inline-flex items-center justify-center rounded-full bg-warm-50 text-brand-700 px-5 py-2.5 text-sm font-semibold w-full sm:w-auto">
+          Meld je aan
+        </a>
+        <a href="open-avonden.html" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-warm-50/90 hover:text-warm-50">
+          Bekijk alle open avonden <i class="ph ph-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="mt-14 pt-6 border-t border-warm-50/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-brand-100">
+      <p>&copy; 2026 VGSD, studentenvereniging.</p>
+      <p>Met liefde gebouwd door studenten, voor studenten.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  // OPEN AVONDEN: zelfde kalender als op index.html. Zoek naar "const activiteiten"
+  // in dat bestand als je hier iets aanpast, en pas het daar ook aan.
+  const STANDAARD_LOCATIE = 'Immanuëlkerk (NGK), Delft';
+  const KRING_LOCATIE = 'Op kasten (verenigingshuizen)';
+
+  const activiteiten = [
+    { datum: '2026-09-22T18:30', titel: 'Kring', locatie: KRING_LOCATIE, omschrijving: 'Gezamenlijke maaltijd, gevolgd door het samen openen van de Bijbel.' },
+    { datum: '2026-12-17T20:00', titel: 'Sing-in', locatie: STANDAARD_LOCATIE, omschrijving: 'Samen God aanbidden door middel van zang.' },
+    { datum: '2027-04-01T20:00', titel: 'Plenaire Bijbelstudie', locatie: STANDAARD_LOCATIE, omschrijving: 'Een boeiende spreker, gevolgd door verdieping in kleine groepjes.' },
+    { datum: '2027-04-29T18:30', titel: 'Kring', locatie: KRING_LOCATIE, omschrijving: 'Gezamenlijke maaltijd, gevolgd door het samen openen van de Bijbel.' },
+    { datum: '2027-06-03T18:30', titel: 'Maaltijd en lezing', locatie: STANDAARD_LOCATIE, omschrijving: 'Samen eten en daarna je horizon verbreden met een lezing.' },
+    { datum: '2027-06-25T18:30', titel: 'BBQ en sing-in', locatie: STANDAARD_LOCATIE, omschrijving: 'De zomerse afsluiter: BBQ en het jaar afsluiten met aanbidding.' },
+  ];
+
+  (function renderVolgendeOpenAvond() {
+    const titelEl = document.getElementById('activiteit-titel');
+    const datumEl = document.getElementById('activiteit-datum');
+    const locatieEl = document.getElementById('activiteit-locatie');
+    const omschrijvingEl = document.getElementById('activiteit-omschrijving');
+    const ctaEl = document.getElementById('activiteit-cta');
+    if (!titelEl || !datumEl || !omschrijvingEl) return;
+
+    const now = new Date();
+    const aankomend = activiteiten
+      .map((item) => ({ ...item, when: new Date(item.datum) }))
+      .filter((item) => !Number.isNaN(item.when.getTime()) && item.when.getTime() > now.getTime())
+      .sort((a, b) => a.when - b.when)[0];
+
+    if (!aankomend) {
+      titelEl.textContent = 'Data volgen binnenkort';
+      datumEl.textContent = '';
+      if (locatieEl) locatieEl.textContent = '';
+      omschrijvingEl.textContent = '';
+      return;
+    }
+
+    const dagFormat = new Intl.DateTimeFormat('nl-NL', { weekday: 'long', day: 'numeric', month: 'long' });
+    const tijdFormat = new Intl.DateTimeFormat('nl-NL', { hour: '2-digit', minute: '2-digit' });
+    const dagLabel = dagFormat.format(aankomend.when);
+
+    titelEl.textContent = aankomend.titel;
+    datumEl.textContent = `${dagLabel.charAt(0).toUpperCase() + dagLabel.slice(1)}, ${tijdFormat.format(aankomend.when)} uur`;
+    if (locatieEl) locatieEl.innerHTML = `<i class="ph ph-map-pin"></i> ${aankomend.locatie}`;
+    omschrijvingEl.textContent = aankomend.omschrijving;
+    if (ctaEl) {
+      const bericht = `Hallo, ik ben ... en ik zou me graag aanmelden voor de open avond van ${aankomend.titel} op ${dagLabel}, ${tijdFormat.format(aankomend.when)} uur.`;
+      ctaEl.href = `https://wa.me/31633891980?text=${encodeURIComponent(bericht)}`;
+    }
+  })();
+
+  // KASTEN: pas hier namen, gebied, coördinaten, foto en tekst aan.
+  // AANNAME (nog te checken, zie TODO.md): coördinaten zijn een schatting op
+  // basis van de buurt/omgeving die is aangeleverd, geen exact adres (bewust,
+  // vanwege privacy).
+  // Volgorde van deze array bepaalt de volgorde van de kaartjes onder de kaart.
+  const kasten = [
+    {
+      naam: 'De BWS',
+      gebied: 'Bij station Delft',
+      lat: 52.0093, lon: 4.3548,
+      foto: 'images/photos/Kasten/Foto-BWS-sept-2024-scaled.jpg',
+      tekst: [
+        `Dit stokoude pand mag zich verheugen in grote naamsbekendheid binnen de gereformeerde academische wereld. Niet in het minst door illustere oudbewoners is de BWS bekend komen te staan als exponent van Delftsche studentikositeit. De weinigen die dat heden ten dage nog kunnen en willen uitdragen weten de weg naar De Kast al jaren te vinden. Zolang de bouwkundige staat mogelijkheden biedt voor menselijke bewoning zal de BWS de VGSD blijven verheffen.`,
+      ],
+    },
+    {
+      naam: 'Halte Boszicht',
+      gebied: 'Bij het Wilhelminapark',
+      lat: 52.0094, lon: 4.3492,
+      foto: 'images/photos/Kasten/Halte%20Boszicht.JPG',
+      fotoPositie: 'center 20%',
+      tekst: [
+        'De bewoners van Halte Boszicht...',
+        '<s>...kampen met te weinig koelkastruimte</s>',
+        '<s>...hebben nog nooit een bestuursjaar gedaan</s>',
+        '<s>...eten geen vlees</s>',
+        '<s>...zitten er warmpjes bij</s>',
+        '<s>...genieten van een frivole huisbaas</s>',
+        '<s>...kennen het fenomeen schimmel niet</s>',
+        '<s>...lusten geen kaas</s>',
+        '<s>...consumeren louter kinderporties</s>',
+        '<s>...behelpen zich met te kleine pannen</s>',
+        '<s>...vertoeven heerlijk op het dakterras</s>',
+        '<s>...gebruiken veilige en moderne elektra</s>',
+      ],
+    },
+    {
+      naam: 'Het Oostblok',
+      gebied: 'Delfgauw',
+      lat: 52.0096, lon: 4.3965,
+      foto: 'images/photos/Kasten/Foto-Oostblok-okt-2024.jpg',
+      fotoPositie: 'center 65%',
+      tekst: [
+        `Het enige adres van de VGSD kasten dat duidelijk naar Delft verwijst en tegelijkertijd de enige kast die niet binnen de bebouwde kom van Delft ligt. Al noemen ze zichzelf tegenwoordig liever ‘het Oostblok’. Echter, zoals elke vis zich meer thuis voelt in het open water, voelt de DSW'er zich op z'n plek buiten de kom. En dat bewoners van Delft zich daar wel in kunnen vinden, blijkt uit de verbastering van het lied ‘Wien Delfgauws bloed in d'aed'ren vloeit’. Het prachtige vergezicht dat onze kast te bieden heeft, het warme licht van de glastuinbouw en de rustieke invloed die op het balkon ervaren kan worden doen u zich wanen in een paradijslijk oord. Deze zaken geven een totaal nieuwe dimensie aan het begrip ‘wonen aan het water’. Overschrijd uw grens: kom eens langs in het prachtige Delfgauw, gemeente Pijnacker-Nootdorp.`,
+      ],
+    },
+    {
+      naam: 'De BaSIS',
+      gebied: 'Centrum Delft',
+      lat: 52.0086, lon: 4.3746,
+      foto: 'images/photos/Kasten/BaSIS-lustrumbundel-scaled.jpg',
+      tekst: [
+        `Op een steenworp afstand van de universiteit, de kerk en de soosboot staat de meest prominente kast van de VGSD, door haar 6 bewoners en ook haar ex-bewoners met veel trots steevast de BaSIS genoemd.`,
+        `Het pand werd begin 20ste eeuw gebouwd om in de jaren 80 een kast van de VGSD te worden. Sinds haar oprichting heeft het huis aan de basis gestaan van veel succesvolle VGSD-carrières en bracht zij een respectabele hoeveelheid bestuurders voort.`,
+        `Haar bewoners genieten van pasta rode meuk, een grote hoeveelheid "intellectuele" programma's en het sfeervolle, melodieuze geluid van de wasmachine op de achtergrond.`,
+        `Het huislied moet uiteraard ook genoemd worden.`,
+        `Al met al: De BaSIS Hoog!`,
+      ],
+    },
+    {
+      naam: 'Fort Juliana',
+      gebied: 'Bij de Oostpoort',
+      lat: 52.0099, lon: 4.3685,
+      foto: 'images/photos/Kasten/Fort.jpeg',
+      fotoPositie: 'center 25%',
+      tekst: [
+        `Een stukje authentiek Delftse geschiedenis, midden in de moderne chaos. In deze sinds 1913 bestaande vesting, worden bewoners beschermt door eeuwenoude muren tot in de hoogste torens toe. In dit gezaghebbende huis, wat zich als schuilplaats biedt voor al wat kruipt en ademt, huizen al sinds april 2010 VGSD'ers. Ze is opgericht op 31 maart 2010 toen de Hopman zijn voet over de drempel zette, en haar poorten opende. Ondertussen heeft ze alweer haar tweede lustrum mogen vieren!`,
+        `Als u behoefte heeft aan een knuffel van de natuur, kunt u ook bij het Fort terecht. De kast kent namelijk ook een echt paradijs met allerlei flora en fauna, die in de tuin kunt bezichtigen maar uiteraard ook in de gootsteen, en nog meer edele plaatsen in dit sierlijke huis. Ook zeer bekend is de blokhut achter in de tuin. Tussen dit alles scharrelde Juliana trots als eerste rondt; zo pikte ze hier en daar een graantje mee. De vraag was: voor hoelang? Die vraag is ondertussen beantwoord. Na een prachtige begrafenis heeft zij plaats mogen maken voor Beatrix, Irene en Margriet. Deze drie prachtige dames mogen voor de bewoners van het Fort regelmatig een bijdrage leveren aan de vele pannenkoeken die gebakken worden.`,
+        `Graag verwelkomen we amicalen en verenigingsgenoten hier in ons huis, waar het bier altijd koud klaar staat en er op elk moment een kamer omgetoverd kan worden tot disco! Uiteraard is er A-merk bier aangezien bier waar bier op staat geen bier is. Want zeg nou zelf; wat is de definitie van een definitie!? Bovendien heeft elk ding zo zijn voordeel en zijn nadeel. Verwelkom de Schie, zwemmen zul je, zet niets met pakjes neer, maar brainstorm tot de sjaarsvrouw gehuwd is!`,
+      ],
+    },
+    {
+      naam: 'De Derde Wereld',
+      gebied: 'Tanthof-west',
+      lat: 51.9819, lon: 4.3445,
+      foto: 'images/photos/Kasten/DerdeWereld.jpg',
+      tekst: [
+        `In het verre zuiden, in de mooiste wijk van Delft staat een wel heel bijzondere kast. Waar koffie op primietive ambachtelijke wijze bereid wordt en het aanrecht altijd bomvol gezelligheid staat.`,
+        `Als het aan de menselijke bewoners lag, was het hier altijd een puinhoop. Gelukkig beschikken wij over een hulp in de huishouding genaamd Vaatmans. Door mutualistische symbiose met onze vaatwasser is de gr soms enigszins opgeruimd.`,
+        `Wij vullen onze tijd met Boonanza, wielrennen, vanuit onze uitkijkkoepel naar Handhavers kijken en andere sogondernemingen.`,
+        `Al met al zijn wij stiekem best wel geblessed met ons stukkie Delft West.`,
+        `Met huurtoeslag trekkende groet,`,
+        `De bewoners van de Derde Wereld`,
+      ],
+    },
+  ];
+
+  function fotoThumb(kast) {
+    return kast.foto;
+  }
+  function fotoGroot(kast) {
+    return kast.foto;
+  }
+
+  // Lightbox
+  const modal = document.getElementById('kast-modal');
+  const modalFoto = document.getElementById('kast-modal-foto');
+  const modalNaam = document.getElementById('kast-modal-naam');
+  const modalTekst = document.getElementById('kast-modal-tekst');
+  let lastFocused = null;
+
+  function openKastModal(kast) {
+    modalFoto.src = fotoGroot(kast);
+    modalFoto.alt = kast.naam;
+    modalFoto.style.objectPosition = kast.fotoPositie || 'center';
+    modalNaam.textContent = kast.naam;
+    modalTekst.innerHTML = '';
+    kast.tekst.forEach((alinea) => {
+      const p = document.createElement('p');
+      p.className = 'mt-3 first:mt-0';
+      p.innerHTML = alinea;
+      modalTekst.appendChild(p);
+    });
+    lastFocused = document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeKastModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  modal.querySelectorAll('[data-modal-close]').forEach((el) => {
+    el.addEventListener('click', closeKastModal);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('open')) closeKastModal();
+  });
+
+  // Kaartjes-grid onder de kaart
+  const grid = document.getElementById('kasten-grid');
+  kasten.forEach((kast) => {
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'reveal card-tilt text-left rounded-2xl bg-warm-50 border border-ink-900/5 overflow-hidden shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)]';
+    card.innerHTML = `
+      <img src="${fotoThumb(kast)}" alt="${kast.naam}" class="w-full h-40 object-cover" style="object-position: ${kast.fotoPositie || 'center'}" loading="lazy">
+      <div class="p-6">
+        <h3 class="font-display font-semibold text-lg text-ink-900">${kast.naam}</h3>
+        <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">
+          Bekijk foto <i class="ph ph-arrow-right text-xs"></i>
+        </span>
+      </div>
+    `;
+    card.addEventListener('click', () => openKastModal(kast));
+    grid.appendChild(card);
+  });
+
+  // Interactieve kaart (Leaflet + OpenStreetMap tiles)
+  const map = L.map('kasten-map', { scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>-bijdragers',
+    maxZoom: 19,
+  }).addTo(map);
+
+  const kastIcon = L.divIcon({
+    className: '',
+    html: '<div class="grid h-10 w-10 place-items-center rounded-full bg-brand-600 text-warm-50 shadow-[0_8px_20px_-6px_rgba(58,14,24,0.5)] border-2 border-warm-50"><i class="ph-fill ph-house text-lg"></i></div>',
+    iconSize: [40, 40],
+    iconAnchor: [20, 36],
+    popupAnchor: [0, -32],
+  });
+
+  const bounds = [];
+  kasten.forEach((kast) => {
+    const marker = L.marker([kast.lat, kast.lon], { icon: kastIcon, alt: kast.naam, keyboard: true });
+    marker.bindTooltip(kast.naam, { direction: 'top', offset: [0, -32] });
+    marker.on('click', () => openKastModal(kast));
+    marker.addTo(map);
+    bounds.push([kast.lat, kast.lon]);
+  });
+  map.fitBounds(bounds, { padding: [40, 40] });
+
+  // Desktop nav dropdowns ("Over ons", "Contact")
+  const dropdownTriggers = Array.from(document.querySelectorAll('[data-dropdown-trigger]'));
+
+  function closeAllDropdowns() {
+    dropdownTriggers.forEach((trigger) => {
+      const panel = document.getElementById(trigger.dataset.dropdownTrigger);
+      trigger.setAttribute('aria-expanded', 'false');
+      if (panel) panel.classList.remove('open');
+    });
+  }
+
+  dropdownTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const panel = document.getElementById(trigger.dataset.dropdownTrigger);
+      const isOpen = panel && panel.classList.contains('open');
+      closeAllDropdowns();
+      if (panel && !isOpen) {
+        panel.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  document.addEventListener('click', closeAllDropdowns);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeAllDropdowns();
+  });
+
+  // Mobile nav accordions ("Over ons", "Contact")
+  document.querySelectorAll('[data-accordion-trigger]').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const panel = document.getElementById(trigger.dataset.accordionTrigger);
+      const isOpen = panel && panel.classList.contains('open');
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+      if (panel) panel.classList.toggle('open', !isOpen);
+    });
+  });
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.innerHTML = isOpen
+      ? '<i class="ph ph-x text-2xl"></i>'
+      : '<i class="ph ph-list text-2xl"></i>';
+  });
+
+  mobileNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.innerHTML = '<i class="ph ph-list text-2xl"></i>';
+    });
+  });
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i, 4) * 60}ms`;
+      observer.observe(el);
+    });
+
+    // Safety net: guarantee visibility even if an entry is missed (fast
+    // programmatic scrolls, screenshot tooling, slow observer callbacks).
+    window.setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) el.classList.add('is-visible');
+      });
+    }, 700);
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+  }
+</script>
+
+</body>
+</html>

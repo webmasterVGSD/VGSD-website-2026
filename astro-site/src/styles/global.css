@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Zelfde kleuren/fonts als de bestaande statische site (../../index.html),
+   zodat het straks consistent oogt als beide naast elkaar bestaan. */
+@theme {
+  --font-display: "Outfit", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+
+  --color-brand-50: #FBEEF0;
+  --color-brand-100: #F3D9DD;
+  --color-brand-300: #C77E8C;
+  --color-brand-500: #93374B;
+  --color-brand-600: #7A1F35;
+  --color-brand-700: #5C1727;
+  --color-brand-900: #3A0E18;
+
+  --color-warm-50: #FDFAF6;
+  --color-warm-100: #F7F1EA;
+
+  --color-ink-900: #241B1D;
+  --color-ink-700: #4A3B3E;
+  --color-ink-500: #77646A;
+}
+
+body {
+  background-color: var(--color-warm-50);
+}

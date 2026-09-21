@@ -1,0 +1,35 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import { getPages } from '../lib/wordpress';
+import type { WPPage } from '../lib/wordpress';
+
+export async function getStaticPaths() {
+  const pages = await getPages();
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+interface Props {
+  page: WPPage;
+}
+
+const { page } = Astro.props;
+---
+
+<Layout title={page.title}>
+  <Header />
+  <main class="py-20 sm:py-28">
+    <article class="max-w-[720px] mx-auto px-5 sm:px-8">
+      <h1 class="font-display font-bold text-3xl sm:text-4xl text-ink-900" set:html={page.title} />
+      <div
+        class="mt-8 text-ink-700 leading-relaxed [&_p]:mt-4 [&_p:first-child]:mt-0 [&_a]:text-brand-600 [&_a]:underline"
+        set:html={page.content}
+      />
+    </article>
+  </main>
+  <Footer />
+</Layout>
