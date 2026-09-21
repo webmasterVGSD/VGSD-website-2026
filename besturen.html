@@ -553,8 +553,9 @@
   // Het eerste bestuur in dat bestand is het "huidige bestuur" en komt groot bovenaan de pagina.
   // Per bestuur zijn alleen naam en praeses verplicht:
   //   naam, praeses, abactis, fiscus, assessor,
-  //   foto (pad naar de afbeelding), fotoPositie (CSS object-position, bv. "center 30%"),
+  //   foto ({ src: pad naar de afbeelding, positie: CSS object-position, bv. "50% 30%" }),
   //   quote ("tekst ~ bron", de bron mag ontbreken), tekst (alinea's gescheiden door een lege regel)
+  // De foto wordt in de beheerpagina geüpload en bijgesneden (admin/vgsd-foto.js).
   // Zonder foto verdwijnt het fotovlak; alleen het huidige bestuur toont dan een placeholder-icoon.
 
   const functieVelden = [
@@ -589,23 +590,32 @@
     return String(tekst || '').split(/\n\s*\n/).map((a) => a.trim()).filter(Boolean);
   }
 
+  // De foto van een bestuur als { src, positie }, of null als er geen is.
+  function fotoVan(bestuur) {
+    const foto = bestuur.foto;
+    if (!foto) return null;
+    if (typeof foto === 'string') return { src: foto, positie: '' };
+    return foto.src ? { src: foto.src, positie: foto.positie || '' } : null;
+  }
+
   // Toont de foto, of verbergt het fotovlak (foto-weg) als er geen foto is of die niet laadt.
   // Met `metPlaceholder` blijft in dat geval een placeholder-icoon staan.
   function setFoto(imgEl, wrapEl, bestuur, alt, metPlaceholder) {
     wrapEl.classList.remove('foto-fallback', 'foto-weg');
     imgEl.alt = alt;
-    imgEl.style.objectPosition = bestuur.fotoPositie || '';
+    const foto = fotoVan(bestuur);
+    imgEl.style.objectPosition = foto ? foto.positie : '';
     const geenFoto = () => {
       wrapEl.classList.add('foto-fallback');
       wrapEl.classList.toggle('foto-weg', !metPlaceholder);
     };
-    if (!bestuur.foto) {
+    if (!foto) {
       imgEl.removeAttribute('src');
       geenFoto();
       return;
     }
     imgEl.onerror = geenFoto;
-    imgEl.src = bestuur.foto;
+    imgEl.src = foto.src;
   }
 
   // Lightbox
@@ -728,7 +738,7 @@
     card.tabIndex = 0;
     card.className = 'bestuur-kaart cursor-pointer rounded-2xl bg-warm-50 border border-ink-900/5 overflow-hidden shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)]';
 
-    if (bestuur.foto) {
+    if (fotoVan(bestuur)) {
       const fotoWrap = document.createElement('div');
       fotoWrap.className = 'foto-wrap kaart-foto h-48';
       const img = document.createElement('img');

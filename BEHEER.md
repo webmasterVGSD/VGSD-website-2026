@@ -44,9 +44,19 @@ dienst nodig, zie `TODO.md`).
    Het nieuwe bestuur komt **bovenaan**; dat is het huidige bestuur en wordt op de website groot getoond.
 2. Vul de naam in (de achternaam van de praeses, zonder "Bestuur"; bij een herhaling een Romeins cijfer,
    bv. "de Jong III"), en de namen bij de functies. Fiscus en assessor zijn optioneel.
-3. Upload eventueel een foto (liggend, maximaal 1600 pixels breed) en vul optioneel een quote en
-   bestuurstekst in.
-4. Klik op **Opslaan / Publiceren**.
+3. Foto: klik op **Foto uploaden…** (of sleep een foto in het veld). De foto wordt automatisch
+   verkleind (maximaal 1600 pixels) en als JPEG bewaard, dus je hoeft hem niet zelf aan te passen.
+   Daarna verschijnt een kader dat laat zien hoe de foto op een kaartje komt te staan. **Sleep de foto
+   in dat kader** (of gebruik de pijltjestoetsen) om te bepalen welk deel zichtbaar blijft; de twee
+   kleine voorbeelden eronder laten het grote blok en de popup zien. Met *Uitlijning herstellen* ga je
+   terug naar de standaard. Met *Bestaande foto kiezen…* gebruik je een foto die al op de site staat.
+4. Vul optioneel een quote en bestuurstekst in.
+5. Klik op **Save** (opslaan). Na 1 tot 2 minuten staat het op de website. Tot die tijd kan het
+   voorbeeld in het foto-veld nog leeg zijn, omdat de foto dan nog niet online staat.
+
+Wat je in het kader ziet is een beperkte weergave: dezelfde foto wordt op de website ook in andere
+verhoudingen getoond. De foto zelf blijft dus altijd heel; alleen de uitlijning wordt opgeslagen
+(`"foto": { "src": "...", "positie": "50% 30%" }` in `data/besturen.json`).
 
 ## Waar staan de gegevens echt?
 

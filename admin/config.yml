@@ -36,7 +36,6 @@ collections:
             add_to_top: true
             collapsed: true
             summary: 'Bestuur {{naam}} — {{praeses}}'
-            thumbnail: foto
             hint: >-
               Nieuwste bestuur bovenaan. Het bovenste bestuur wordt op de website groot uitgelicht
               als huidig bestuur. Een nieuw bestuur voeg je toe met de knop bovenaan de lijst.
@@ -64,19 +63,12 @@ collections:
                 hint: Alleen invullen als het bestuur een assessor heeft.
               - name: foto
                 label: Foto
-                widget: image
+                widget: vgsd-foto
                 required: false
                 hint: >-
-                  Liefst een liggende groepsfoto, maximaal 1600 pixels breed. Zonder foto wordt op de
-                  website geen fotovlak getoond.
-              - name: fotoPositie
-                label: Uitlijning van de foto
-                widget: string
-                required: false
-                hint: >-
-                  Bepaalt welk deel van de foto zichtbaar blijft in het kader. Bijvoorbeeld
-                  "center 30%" (standaard) of "center 5%" als de hoofden anders wegvallen.
-                  Laat leeg voor de standaard.
+                  Liefst een liggende groepsfoto. Upload de foto, sleep hem in het kader om te bepalen
+                  welk deel zichtbaar blijft, en klik op Opslaan. De foto wordt automatisch verkleind.
+                  Zonder foto wordt op de website geen fotovlak getoond.
               - name: quote
                 label: Quote
                 widget: string

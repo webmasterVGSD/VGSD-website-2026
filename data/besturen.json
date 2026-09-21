@@ -11,7 +11,10 @@
       "praeses": "P.H.V. Bulthuis",
       "abactis": "D.A.E. van der Eijk",
       "fiscus": "K.D. van der Ploeg",
-      "foto": "/images/photos/besturen/bulthuis.jpg",
+      "foto": {
+        "src": "/images/photos/besturen/bulthuis.jpg",
+        "positie": "50% 30%"
+      },
       "quote": "Landrotten vriezen vast in hun gewoontes, zeelieden veranderen met de getijden.",
       "tekst": "Amicae amicique, Ahoi beste lezer,\n\nSedert 30 augustus 2025 staat bestuur Bulthuis met trots aan het roer der Vereniging van Gereformeerde Studenten te Delft, al was de inscheping van mijnheer de abactis een paar dagen later. We zijn aangetreden als 66ste bestuur der VGSD en mogen daarmee de vereniging leiden in het XIIIe lustrumjaar. Naast het lustrum zal dit jaar nog meer hoogtepunten kennen, en een paar daarvan hebben we al achter de rug en een paar hebben we nog voor de boeg.\n\nHet jaar begon met een nanovitiaat dat door ons als onbevaren volk georganiseerd moest worden. Dat was wat hectisch, maar toch voleindigd. In het eerste kwartaal zeilden we tussen de klippen door bij het organiseren van de integratie en installatie van de eerstejaars en het aanmeren in alle amicale en Delftsche havens. Dat ging niet zonder slag of stoot, zoals ook te zien aan corrosie op onze kledij, maar inmiddels zijn we bij de rood-witte boeien en varen we met volle zeilen.\n\nIn weerwil van het enorm gave verenigingsleven, hebben leden niet ongelimiteerd veel tijd. Die lange stoot op de scheepshoorn om niet met te grote zeilen te varen klonk al langer. Een van de grootste verandering voor dit jaar is het fuseren van drie commissies tot de S.U.P.E.R.-commissie om de zeilen wat in te binden.\n\nHiernaast zijn we op meer gebieden een andere, betere, koers gaan varen. Door kring in week 10 naar de donderdag te schuiven kunnen leden de dinsdagavond ervoor nog studeren, het aantal amicale activiteiten is nog nooit zo hoog geweest in een jaar, we denken buiten het schip en hebben de AZG teruggebracht naar een fijnere opzet én ons bestuurslogo is zo op de wind afgesteld dat deze evolueert wanneer wij ook groeien in onze taken.\n\nDrie heren met fiscale ambities als bemanningsleden maakt dat we alle zeilen bijzetten om de zeilen der bestuurstaken te trimmen. Onze stippen op de horizon reiken dit jaar namelijk verder dan het reilen en zeilen der VGSD op orde houden. Mijnheer de fiscus probeert bijna voltijd te studeren, mijnheer de abactis werkt ook, doet veel commissies en heeft inmiddels zijn bachelor gehaald en mijnheer de praeses werkt en studeert ook naast zijn bestuursfunctie.\n\nAan de eindstreep zijn we tevreden met alles wat we naast onze functies kunnen doen. Desondanks blijft het een grote eer om dit jaar aan het roer der VGSD te mogen staan en daar zijn we u dankbaar voor. We feliciteren u van harte met uw XIIIe lustrum en wensen u nog vele jaren met de wind in de zeilen toe.\n\nMet amicale groet,\n\nP.H.V. Bulthuis – h.t. praeses\n\nD.A.E. van der Eijk – h.t. abactis\n\nK.D. van der Ploeg – h.t. fiscus"
     },
@@ -21,7 +24,10 @@
       "abactis": "J.J. Pouwels",
       "fiscus": "M. Jongeneel",
       "assessor": "S. de Pooter",
-      "foto": "/images/photos/besturen/groen.jpg",
+      "foto": {
+        "src": "/images/photos/besturen/groen.jpg",
+        "positie": "50% 30%"
+      },
       "quote": "Semper virens",
       "tekst": "Voor de tweede keer in de afgelopen zeven jaar mocht de VGSD haar nimmer wijkende prominentie tonen door een viermansbestuur aan het roer te zetten van 's werelds vlaggenschip. Waar zij in vroeger tijden zwalkend de zeven zeeën bevoer, werd ze dit jaar met rechte koers naar groene weiden geleid. Drie schoonheden, schoner dan de hangende tuinen van Babylon, en een botte duftin brachten de VGSD waar zij aan toe was. Zij durfden het aan in het verschroeide veld, achtergelaten door de besturen die ons zijn voorgegaan, te planten. Zij plantten een boom, met mooie takken, als een woud dat schaduw geeft, duizelingwekkend hoog, zijn kruin raakte de wolken. Water deed hem groeien, de oervloed maakte hem groot: rivieren stroomden waar de boom was geplant, geulen leidden naar alle andere bomen op aarde. Zo werd hij de hoogste van alle bomen, zo kreeg hij brede takken en lange twijgen, door al het water uit de diepte. In zijn takken nestelden de vogels van de hemel, onder zijn twijgen wierpen de wilde dieren hun jongen, en in zijn schaduw woonden vele volken. Zo zorgden zij, die aan de groene tafel zitten, ervoor dat VGSD het wereldgebeuren weer bepaalde."
     },
@@ -31,28 +37,40 @@
       "abactis": "I. Verschelling",
       "fiscus": "E.R. Hoste",
       "assessor": "J. de Wit",
-      "foto": "/images/photos/besturen/van-stenis.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/van-stenis.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Wisse",
       "praeses": "C.W.X. Wisse",
       "abactis": "T.J. Koppelaar",
       "fiscus": "I. Enter",
-      "foto": "/images/photos/besturen/wisse.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/wisse.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Otten",
       "praeses": "J.W. Otten",
       "abactis": "L.I. Oosterhoff",
       "fiscus": "H.J. Huberts",
-      "foto": "/images/photos/besturen/otten.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/otten.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Timmer II",
       "praeses": "E.G. (Emily) Timmer",
       "abactis": "M.C. (Margot) Kruizinga",
       "fiscus": "S.C. (Sander) Oostdijk",
-      "foto": "/images/photos/besturen/timmer-ii.jpg",
+      "foto": {
+        "src": "/images/photos/besturen/timmer-ii.jpg",
+        "positie": "50% 30%"
+      },
       "tekst": "Het is een onweerstaanbaar drietal, het licht dat de vereniging door duistere tijden heen leidt. Met hun bijzondere samenstelling zijn ze een icoon geworden in de geschiedenis van VGSD. Voor het eerst is de meerderheid van het bestuur vrouw, het glazen plafond is doorbroken! Geel behakt gooien zij hun charmes in de strijd en met meneer de fiscus aan hun zij krijgen ze alles gedaan.\n\nDe wijsheid van mevrouw de praeses klinkt door in haar hamerslagen, de botte directheid van mevrouw de abactis vloeit uit haar pen, de daadkracht van meneer de fiscus is te zien in elke incasso. Juno ondersteunt dit bestuur met zijn kracht en snelheid geeft hij het bestuur elke keer weer een nieuw impuls.\n\nDit drietal heeft een oneindig enthousiasme en daarmee houden ze de leden in het gareel. De vrouwen zijn sexy, de fiscus is woest aantrekkelijk, het is het meest sprankelende trio in 60 jaar VGSD."
     },
     {
@@ -60,14 +78,20 @@
       "praeses": "A.T. Zwarts",
       "abactis": "G. de Wit",
       "fiscus": "A.J. van der Rande",
-      "foto": "/images/photos/besturen/zwarts.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/zwarts.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "aan het Rot",
       "praeses": "S.C. aan het Rot",
       "abactis": "J. Molenaar",
       "fiscus": "S. Bos",
-      "foto": "/images/photos/besturen/aan-het-rot.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/aan-het-rot.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Sonneveld",
@@ -89,7 +113,10 @@
       "abactis": "E.T. Zwarts",
       "fiscus": "M.T. de Gelder",
       "assessor": "W.K. Meijer",
-      "foto": "/images/photos/besturen/timmer.jpg",
+      "foto": {
+        "src": "/images/photos/besturen/timmer.jpg",
+        "positie": "50% 30%"
+      },
       "tekst": "Helaas al klaar, maar nog steeds legendarisch. In driedelig donkerblauw maakte zij Delft, omstreken en zusterlijk Nederland onveilig door een overschot aan amicaliteit en prominentie. Zaken en dingen die nog lang nadat zij gewisseld is door het nageslacht zullen worden verkondigd waren alomtegenwoordig. Iets dergelijks is de vereniging nog nooit overkomen.\n\nBlakend van enthousiasme, een tikkeltje conservatief en tegelijk vooruitstrevend. Actief, daadkrachtig en aanwezig, dat is wat haar omschrijft. Het middelpunt, het centrum van het universum – wat immers slechts door uw referentiekader gedefinieerd wordt – waaromheen alles draait en wervelt. Zij was een stabiele factor, een rationeel postulaat, een conditione sine qua non.\n\nDe rijpheid en wijsheid van mijnheer de praeses, de verbale superioriteit van de abactis, de fiscus als definitie van punctualiteit en de immer amicale en gesprekvaardige mijnheer de assessor doen haar boven alle voorgaande en toekomstige besturen uitstijgen. Da's mooi!"
     },
     {
@@ -98,7 +125,10 @@
       "abactis": "Bart van Langevelde",
       "fiscus": "Tom Oostdijk",
       "assessor": "Rick Balkenende",
-      "foto": "/images/photos/besturen/meessen.jpg",
+      "foto": {
+        "src": "/images/photos/besturen/meessen.jpg",
+        "positie": "50% 30%"
+      },
       "tekst": "Geen beschrijving kan haar typeren. Haar daadkracht is als een kudde geiten die afdaalt van Gileads bergen. Geen woorden kunnen haar vangen. Haar heldhaftigheid is groter dan die van Hector. Bestuur Meessen leidt met vaste hand de vereniging. Van haar eerste ademteug tot haar laatste hamerslag is zij bezielend. Nooit staat ze stil, nooit rust ze uit. Met een kracht die Hercules overtreft trekt zij de kar die de VGSD heet. Onverminderlijk is zij verleidelijk, actief en onervaren."
     },
     {
@@ -107,7 +137,10 @@
       "abactis": "Marnix de Jong",
       "fiscus": "Marieke van Bergen",
       "assessor": "Sytse Alkema",
-      "foto": "/images/photos/besturen/de-jong-ii.jpg",
+      "foto": {
+        "src": "/images/photos/besturen/de-jong-ii.jpg",
+        "positie": "50% 30%"
+      },
       "tekst": "Sinds haar aanstelling in september 2013 heeft bestuur De Jong niets anders gedaan dan de vereniging voorgaan en bezielen met onverschrokken enthousiasme en een hoge vernieuwingsdrang. Met een goede balans tussen mannelijke Delftse botheid en vrouwelijk begeerlijkheid slecht zij brutaal en gedurfd de heilige huisjes en schuurt zij de vastgeroeste patronen op om de vereniging weer als een goed geoliede Audi-motor te laten draaien. Met de poten in de modder maakt bestuur De Jong aan alle onverschilligheid een einde en geeft de vereniging weer vaste grond onder haar voeten.\n\nOnder haar bewind lossen langlopende problemen op als sneeuw voor de zon. Bestuur De Jong deinst nergens voor terug om haar beloften waar te maken. Een grootouder een actiepuntje laten uitvoeren of een 8e jaars in een commissie installeren, bestuur De Jong doet 't gewoon.\n\nNu al kloppen de opvolgers aan de deur, de bijl ligt aan de wortel van de boom. De toon is echter gezet, de toon waaraan komende besturen zich zullen kalibreren, de juiste toon."
     },
     {
@@ -116,7 +149,10 @@
       "abactis": "Matthijs Vonk",
       "fiscus": "Joan Belder",
       "assessor": "Bas de Vries",
-      "foto": "/images/photos/besturen/hellenthal.jpg",
+      "foto": {
+        "src": "/images/photos/besturen/hellenthal.jpg",
+        "positie": "50% 30%"
+      },
       "quote": "Bestuur Hellenthal is geniaal ~ Bestuur Hellenthal"
     },
     {
@@ -125,7 +161,10 @@
       "abactis": "Menco Schuurman",
       "fiscus": "Pieter Loof",
       "assessor": "Anne-Pieter Feenstra",
-      "foto": "/images/photos/besturen/meijer.jpg",
+      "foto": {
+        "src": "/images/photos/besturen/meijer.jpg",
+        "positie": "50% 30%"
+      },
       "quote": "We hit turbulence ~ S. Aoki, L. Luke & L. Jon"
     },
     {
@@ -134,7 +173,10 @@
       "abactis": "Roel van Tatenhove",
       "fiscus": "Benjamin Mul",
       "assessor": "Daphne van Dooren",
-      "foto": "/images/photos/besturen/van-spijker.jpg",
+      "foto": {
+        "src": "/images/photos/besturen/van-spijker.jpg",
+        "positie": "50% 30%"
+      },
       "tekst": "Bestuur Van Spijker kent het voorrecht om op de vijftigste Dies Natalis der VGSD geïnstalleerd te zijn. Deze stijlvolle dag was het begin van een jaar onder leiding van dit stijlvolle bestuur. Behalve donker driedelig wordt bestuur Van Spijker gekenmerkt door de rode das en het bestuurspochet. De voorkeur voor het stijlvolle is natuurlijk direct uit af te leiden uit de studiekeuze van het viertal. Enkele zaken die bestuur Van Spijker goed kan waarderen: een oude Saab, een Rietveldstoel, een bloemetjesjurk, the Stig, een appeltje, een Gelderland 4800, Bastogne-koeken, dasrood, Delftsch Blauw en natuurlijk de bestuursbak.\n\nOnder het ijzeren bewind van dit bestuur zal de vereniging genieten van het grootse tiende lustrum, 'Lustrum X'. Met vooruitziende, scherpe blik zien de vier bestuurders de toekomst met vertrouwen tegemoet."
     },
     {
@@ -143,7 +185,10 @@
       "abactis": "Bart Jan Peet",
       "fiscus": "Sebastiaan Maan",
       "assessor": "Mark Buitenhuis",
-      "foto": "/images/photos/besturen/bogerd.jpg",
+      "foto": {
+        "src": "/images/photos/besturen/bogerd.jpg",
+        "positie": "50% 30%"
+      },
       "tekst": "Vanaf de heugelijke dag waarop de VGSD haar 49ste dies natalis mocht vieren mag bestuur Bogerd het bewind over de VGSD voeren. Bestuur Bogerd wordt gevormd door een viertal bijzondere wezens. Kameraadschap, eendracht en saamhorigheid is wat hen samenbindt. Het viertal harten klopt slechts eensgezind ten dienste van de vereniging die de zinspreuk 'Vigilantiae Gravitas Studiosis Dignitas' voert.\n\nDit viertal adonissen mag nu de Vereniging van Gereformeerde Studenten te Delft een jaar aan de hand nemen richting grazige weiden en grootse vergezichten. Elk van de vier bevat een spoortje grottrol, een snufje adonis en een tikkeltje intellectueel. Het viertal vormt een bestuur dat gekenmerkt wordt door een rijke fietskettingcultuur, kindvriendelijkheid en snorren. Zonder de oogverblindend blauwe Bestuur Bogerd Bolide, voorlopig zonder Bestuur Bogerd Bolide Boem Box, zou dit bestuur niet compleet zijn. Maar Bestuur Bogerd is bovenal een bestuur dat barst van beestachtigheid, branie en balans."
     },
     {
@@ -151,7 +196,10 @@
       "praeses": "Ruud Buitenhuis",
       "abactis": "Johannes Keegstra",
       "fiscus": "Gertjan Meijer",
-      "foto": "/images/photos/besturen/buitenhuis.jpg",
+      "foto": {
+        "src": "/images/photos/besturen/buitenhuis.jpg",
+        "positie": "50% 30%"
+      },
       "tekst": "Bestuur Buitenhuis werd alom geëerd en bejubeld. Maar bejubeld worden is één ding, iets anders is het de Poolster te zijn die angstigen leidt, en houvast biedt aan hen die verdwaald zijn in de nacht. Bestuur Buitenhuis maakte met haar kordaatheid aan alle onzekerheden een einde.\n\nWie haar zag heeft de bliksem gezien. Haar heldere licht en donder doorkliefde de intellectuele stilte, de diepe duisternis van de vereniging.\n\nNu is de nieuwe dag aangebroken. Bestuur Buitenhuis is niet meer. Maar voelbaar is zij nog overal. Een rustig neuriënde echo, hoorbaar tussen de hectiek en nieuwe bedrijvigheid. Velen warmen zich nog steeds aan de gloed van haar reeds gedoofde licht."
     },
     {
@@ -160,7 +208,10 @@
       "abactis": "Wessel Bos",
       "fiscus": "Robert Heij",
       "assessor": "Joanne Haveman",
-      "foto": "/images/photos/besturen/dam.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/dam.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Gunnink",
@@ -168,8 +219,10 @@
       "abactis": "Wessel Jonker",
       "fiscus": "Arnout Dam",
       "assessor": "Gert de Rijke",
-      "foto": "/images/photos/besturen/gunnink.jpg",
-      "fotoPositie": "center 2%",
+      "foto": {
+        "src": "/images/photos/besturen/gunnink.jpg",
+        "positie": "50% 2%"
+      },
       "tekst": "Bestuur Gunnink zwaait de scepter. Kan iemand zich herinneren dat dit ooit anders is geweest? Zal het ooit anders kunnen zijn?\n\nEr zijn vele lovende kenmerken over Bestuur Gunnink op te sommen. Denkt u aan de welgevormde achterwerken die sedert 23 maart als het ware samensmolten met het bestuurlijke pluche.\n\nHet meest alomvattende kenmerk is echter dat het bestuur zich sinds de constitutie manifesteert door de dynamische balans. Zij vond het juiste equilibrium tussen losbandigheid & dichttikkerij, auto & Volvo, 2003 & 2004, bruin & donkerblauw, Hollander & Yankee, moraal & -rukker, Taijitu & fakkel, veiligheid & uitdaging, Madeleine & Yoshe.\n\nIn feite huist in elk facet van de vereniging een stukje van de ziel van dit bezielende bestuur. Ach, wellicht ligt de yogacursus wel aan de wieg van dit fenomeen?"
     },
     {
@@ -178,8 +231,10 @@
       "abactis": "Remmelt Oosterhuis",
       "fiscus": "Roel Fraanje",
       "assessor": "Jan Willem Vreugdenhil",
-      "foto": "/images/photos/besturen/de-jong.jpg",
-      "fotoPositie": "center 10%",
+      "foto": {
+        "src": "/images/photos/besturen/de-jong.jpg",
+        "positie": "50% 10%"
+      },
       "tekst": "Bestuur De Jong is een bestuur dat zich kenmerkt door pure, onvervalste dynamiek en levenslust. Dit is goed te zien aan de spontane foto's hieronder. Sommige foto's zijn bijna frivool te noemen.\n\nNiettemin is Bestuur De Jong wel degelijk een degelijk bestuur, hetgeen zich uit in een zekere mate van dichtgetiktheid, alsmede het zeer donkerblauwe pak.\n\nTopvleselijk begeren heeft sommigen de messen en andere scherpe voorwerpen doen wetten: de bijl ligt reeds aan de wortel van de boom, maar dat zal Bestuur De Jong niet verhinderen onverminderd vrucht te dragen. Toegewijd en betrokken is Bestuur De Jong tot in de poriën, en dat laat zij in heel haar optreden zien."
     },
     {
@@ -188,7 +243,10 @@
       "abactis": "Bert Belder",
       "fiscus": "Johan van Dijk",
       "assessor": "Stefan Bouwman",
-      "foto": "/images/photos/besturen/den-arend.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/den-arend.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Suurmond",
@@ -196,7 +254,10 @@
       "abactis": "Arend Ensing",
       "fiscus": "Robert Horlings",
       "assessor": "Reitse de Jong",
-      "foto": "/images/photos/besturen/suurmond.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/suurmond.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Smith",
@@ -204,7 +265,10 @@
       "abactis": "Martin Wildeman",
       "fiscus": "Bert van der Berg",
       "assessor": "Anne Dijksterhuis",
-      "foto": "/images/photos/besturen/smith.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/smith.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Voogt",
@@ -212,7 +276,10 @@
       "abactis": "Pim Geelhoed",
       "fiscus": "Joanne Klamer",
       "assessor": "Jaap Koster",
-      "foto": "/images/photos/besturen/voogt.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/voogt.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Steenbergen",
@@ -220,7 +287,10 @@
       "abactis": "Maarten Balk",
       "fiscus": "Matthan Caan",
       "assessor": "Jaap van der Linde",
-      "foto": "/images/photos/besturen/steenbergen.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/steenbergen.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "van den Dool",
@@ -228,7 +298,10 @@
       "abactis": "Ronald Bos",
       "fiscus": "Jaap Joosse",
       "assessor": "Rudolf de Vetten",
-      "foto": "/images/photos/besturen/van-den-dool.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/van-den-dool.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Caan",
@@ -236,7 +309,10 @@
       "abactis": "Wouter van der Zee",
       "fiscus": "Edward Bruijn",
       "assessor": "Hester van der Scheer",
-      "foto": "/images/photos/besturen/caan.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/caan.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Tigelaar",
@@ -244,8 +320,10 @@
       "abactis": "Ekke Oosterhuis",
       "fiscus": "Jaap Korf",
       "assessor": "Wijnand Bredemeijer",
-      "foto": "/images/photos/besturen/tigelaar.jpg",
-      "fotoPositie": "center 8%"
+      "foto": {
+        "src": "/images/photos/besturen/tigelaar.jpg",
+        "positie": "50% 8%"
+      }
     },
     {
       "naam": "Beute",
@@ -253,7 +331,10 @@
       "abactis": "Erik Kruizenga",
       "fiscus": "Jan Wolter Oosterhuis",
       "assessor": "Maarten Neelis",
-      "foto": "/images/photos/besturen/beute.jpg"
+      "foto": {
+        "src": "/images/photos/besturen/beute.jpg",
+        "positie": "50% 30%"
+      }
     },
     {
       "naam": "Triemstra",
