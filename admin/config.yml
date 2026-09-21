@@ -1,0 +1,170 @@
+# Beheeromgeving van de VGSD-website (Sveltia CMS). Uitleg voor de webmaster: zie BEHEER.md.
+# Hier staat welke formulieren de beheerder ziet. De gegevens zelf staan in de map data/.
+
+backend:
+  name: github
+  repo: webmasterVGSD/VGSD-website-2026
+  branch: main
+  commit_messages:
+    create: 'Beheer: {{collection}} "{{slug}}" toegevoegd'
+    update: 'Beheer: {{collection}} "{{slug}}" bijgewerkt'
+    delete: 'Beheer: {{collection}} "{{slug}}" verwijderd'
+    uploadMedia: 'Beheer: foto "{{path}}" toegevoegd'
+    deleteMedia: 'Beheer: foto "{{path}}" verwijderd'
+
+site_url: https://preview.vgsd.nl
+logo_url: https://preview.vgsd.nl/images/logo/vgsd-logo.svg
+
+# Foto's van besturen komen in deze map. De website leest het pad zoals het in de gegevens staat.
+media_folder: /images/photos/besturen
+public_folder: /images/photos/besturen
+
+collections:
+  # ---------------------------------------------------------------------------------------------
+  - name: besturen
+    label: Besturen
+    icon: groups
+    files:
+      - name: besturen
+        label: Alle besturen
+        file: data/besturen.json
+        fields:
+          - name: besturen
+            label: Besturen
+            label_singular: Bestuur
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: 'Bestuur {{naam}} — {{praeses}}'
+            thumbnail: foto
+            hint: >-
+              Nieuwste bestuur bovenaan. Het bovenste bestuur wordt op de website groot uitgelicht
+              als huidig bestuur. Een nieuw bestuur voeg je toe met de knop bovenaan de lijst.
+            fields:
+              - name: naam
+                label: Naam van het bestuur
+                widget: string
+                hint: >-
+                  De achternaam van de praeses, zonder het woord "Bestuur", bijvoorbeeld "de Jong".
+                  Komt dezelfde achternaam vaker voor, voeg dan een Romeins cijfer toe: "de Jong II".
+              - name: praeses
+                label: Praeses
+                widget: string
+              - name: abactis
+                label: Abactis
+                widget: string
+              - name: fiscus
+                label: Fiscus
+                widget: string
+                required: false
+              - name: assessor
+                label: Assessor
+                widget: string
+                required: false
+                hint: Alleen invullen als het bestuur een assessor heeft.
+              - name: foto
+                label: Foto
+                widget: image
+                required: false
+                hint: >-
+                  Liefst een liggende groepsfoto, maximaal 1600 pixels breed. Zonder foto wordt op de
+                  website geen fotovlak getoond.
+              - name: fotoPositie
+                label: Uitlijning van de foto
+                widget: string
+                required: false
+                hint: >-
+                  Bepaalt welk deel van de foto zichtbaar blijft in het kader. Bijvoorbeeld
+                  "center 30%" (standaard) of "center 5%" als de hoofden anders wegvallen.
+                  Laat leeg voor de standaard.
+              - name: quote
+                label: Quote
+                widget: string
+                required: false
+                hint: 'Bijvoorbeeld: We hit turbulence ~ S. Aoki. Het deel na het ~-teken (de bron) mag ontbreken.'
+              - name: tekst
+                label: Bestuurstekst
+                widget: text
+                required: false
+                hint: Laat een lege regel tussen alinea's.
+
+  # ---------------------------------------------------------------------------------------------
+  - name: instellingen
+    label: Instellingen
+    icon: settings
+    files:
+      - name: site
+        label: WhatsApp en contactgegevens
+        file: data/site.json
+        fields:
+          - name: whatsapp
+            label: WhatsApp-nummer
+            widget: string
+            pattern: ['^\d{8,15}$', 'Alleen cijfers, zonder plus of spaties. Bijvoorbeeld 31633891980.']
+            hint: >-
+              Internationaal formaat, alleen cijfers. Dit nummer wordt gebruikt voor de zwevende
+              WhatsApp-knop en alle "Meld je aan"-knoppen.
+          - name: contact
+            label: Contactgegevens
+            widget: object
+            fields:
+              - name: adres
+                label: Adres
+                widget: text
+                hint: Eén regel per adresregel (straat en huisnummer, dan postcode en plaats).
+              - name: email
+                label: E-mailadres (footer)
+                widget: string
+                type: email
+              - name: emailPr
+                label: E-mailadres PR (veelgestelde vragen)
+                widget: string
+                type: email
+              - name: telefoon
+                label: Telefoonnummer
+                widget: string
+                hint: Zoals het op de website moet staan, bijvoorbeeld 06 33 89 19 80.
+          - name: social
+            label: Sociale media
+            widget: object
+            fields:
+              - name: instagram
+                label: Instagram-link
+                widget: string
+                type: url
+                required: false
+                hint: De volledige link naar het Instagram-account. Leeg laten als er (nog) geen is.
+
+  # ---------------------------------------------------------------------------------------------
+  - name: open_avonden
+    label: Open avonden
+    icon: event
+    files:
+      - name: open_avonden
+        label: Kalender met open avonden
+        file: data/activiteiten.json
+        fields:
+          - name: openAvonden
+            label: Open avonden
+            label_singular: Open avond
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: '{{datum}} — {{titel}}'
+            hint: >-
+              De site toont automatisch de eerstvolgende open avond in de footer. Verlopen avonden
+              mogen blijven staan of worden opgeruimd.
+            fields:
+              - name: datum
+                label: Datum en tijd
+                widget: datetime
+                format: 'YYYY-MM-DD[T]HH:mm'
+              - name: titel
+                label: Titel
+                widget: string
+              - name: locatie
+                label: Locatie
+                widget: string
+              - name: omschrijving
+                label: Omschrijving
+                widget: text

@@ -216,6 +216,39 @@
     grid-template-rows: subgrid;
     row-gap: 0;
     margin-bottom: 1.5rem;
+    /* Eigen in-animatie (i.p.v. .reveal + .card-tilt, die elkaars transition overschreven
+       waardoor de fade abrupt was): zachte fade + lichte opwaartse beweging. */
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 520ms var(--ease-out-strong),
+      transform 520ms var(--ease-out-strong),
+      box-shadow 260ms var(--ease-out-strong);
+  }
+  .bestuur-kaart.zichtbaar {
+    opacity: 1;
+    transform: none;
+  }
+  /* Na de in-animatie: alleen nog de snelle hover-transitie, zonder vertraging. */
+  .bestuur-kaart.klaar {
+    transition:
+      transform 260ms var(--ease-out-strong),
+      box-shadow 260ms var(--ease-out-strong);
+    transition-delay: 0ms;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .bestuur-kaart.klaar:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -16px rgba(58, 14, 24, 0.25);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bestuur-kaart,
+    .bestuur-kaart.klaar {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
   .kaart-foto { grid-row: 1; }
   .kaart-titel { grid-row: 2; }
@@ -398,8 +431,9 @@
         <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Besturen van de afgelopen jaren</h2>
       </div>
       <div id="besturen-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Kaartjes worden door JavaScript gevuld op basis van de "besturen"-lijst hieronder. -->
+        <!-- Kaartjes worden door JavaScript gevuld uit data/besturen.json, per 12 tijdens het scrollen. -->
       </div>
+      <div id="besturen-sentinel" class="h-px" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -688,60 +722,139 @@
   // Kaartjes-grid: het archief, zonder het huidige bestuur (dat staat al groot bovenaan).
   // Elke kaart is een subgrid van 4 rijen (foto / titel / namen / "Lees meer"), zodat die
   // onderdelen per kaartenrij op dezelfde hoogte staan, ongeacht het aantal bestuursleden.
-  function renderArchief(archief) {
-    const grid = document.getElementById('besturen-grid');
-    archief.forEach((bestuur) => {
-      const card = document.createElement('div');
-      card.setAttribute('role', 'button');
-      card.tabIndex = 0;
-      card.className = 'bestuur-kaart reveal card-tilt cursor-pointer rounded-2xl bg-warm-50 border border-ink-900/5 overflow-hidden shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)]';
+  function maakKaart(bestuur) {
+    const card = document.createElement('div');
+    card.setAttribute('role', 'button');
+    card.tabIndex = 0;
+    card.className = 'bestuur-kaart cursor-pointer rounded-2xl bg-warm-50 border border-ink-900/5 overflow-hidden shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)]';
 
-      if (bestuur.foto) {
-        const fotoWrap = document.createElement('div');
-        fotoWrap.className = 'foto-wrap kaart-foto h-48';
-        const img = document.createElement('img');
-        img.className = 'foto-img w-full h-48 object-cover';
-        img.loading = 'lazy';
-        setFoto(img, fotoWrap, bestuur, `Bestuur ${bestuur.naam}`, false);
-        fotoWrap.appendChild(img);
-        card.appendChild(fotoWrap);
+    if (bestuur.foto) {
+      const fotoWrap = document.createElement('div');
+      fotoWrap.className = 'foto-wrap kaart-foto h-48';
+      const img = document.createElement('img');
+      img.className = 'foto-img w-full h-48 object-cover';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      setFoto(img, fotoWrap, bestuur, `Bestuur ${bestuur.naam}`, false);
+      fotoWrap.appendChild(img);
+      card.appendChild(fotoWrap);
+    }
+
+    const titel = document.createElement('h3');
+    titel.className = 'kaart-titel px-6 pt-6 font-display font-semibold text-lg text-ink-900';
+    titel.textContent = `Bestuur ${bestuur.naam}`;
+
+    const namen = document.createElement('ul');
+    namen.className = 'kaart-namen px-6 pt-2 space-y-0.5 text-sm text-ink-700';
+    namen.innerHTML = functiesVoor(bestuur)
+      .map(({ label, naam }) => `<li><span class="text-ink-500">${label}:</span> ${esc(naam)}</li>`)
+      .join('');
+
+    const voet = document.createElement('div');
+    voet.className = 'kaart-voet px-6 pt-3 pb-6';
+    if (bestuur.tekst || bestuur.quote) {
+      voet.innerHTML = `
+        <span class="inline-flex items-center gap-1 text-sm font-semibold text-brand-600">
+          Lees meer <i class="ph ph-arrow-right text-xs"></i>
+        </span>`;
+    }
+
+    card.append(titel, namen, voet);
+    card.addEventListener('click', () => openBestuurModal(bestuur));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openBestuurModal(bestuur);
       }
-
-      const titel = document.createElement('h3');
-      titel.className = 'kaart-titel px-6 pt-6 font-display font-semibold text-lg text-ink-900';
-      titel.textContent = `Bestuur ${bestuur.naam}`;
-
-      const namen = document.createElement('ul');
-      namen.className = 'kaart-namen px-6 pt-2 space-y-0.5 text-sm text-ink-700';
-      namen.innerHTML = functiesVoor(bestuur)
-        .map(({ label, naam }) => `<li><span class="text-ink-500">${label}:</span> ${esc(naam)}</li>`)
-        .join('');
-
-      const voet = document.createElement('div');
-      voet.className = 'kaart-voet px-6 pt-3 pb-6';
-      if (bestuur.tekst || bestuur.quote) {
-        voet.innerHTML = `
-          <span class="inline-flex items-center gap-1 text-sm font-semibold text-brand-600">
-            Lees meer <i class="ph ph-arrow-right text-xs"></i>
-          </span>`;
-      }
-
-      card.append(titel, namen, voet);
-      card.addEventListener('click', () => openBestuurModal(bestuur));
-      card.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          openBestuurModal(bestuur);
-        }
-      });
-      grid.appendChild(card);
     });
+    return card;
+  }
+
+  // Laadt het archief per BATCH kaarten, pas als je het einde van de pagina nadert, en laat
+  // elke kaart zacht inschuiven zodra hij in beeld komt. BATCH is een veelvoud van 2 en 3, zodat
+  // elke batch complete rijen vult (op 2 én 3 kolommen). Alles loopt via één scroll-meting per
+  // beeldframe (geen IntersectionObserver), zodat het voorspelbaar en vloeiend blijft.
+  const BATCH = 12;
+  const VOORSPRONG = 1000; // px onder het scherm waarbij de volgende batch alvast wordt geladen
+
+  function laadArchiefTijdensScrollen(archief) {
+    const grid = document.getElementById('besturen-grid');
+    const sentinel = document.getElementById('besturen-sentinel');
+    const minderBeweging = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let volgende = 0;
+    let wachtend = []; // kaarten die nog niet zijn ingeschoven
+    let gepland = false;
+
+    function toonKaart(kaart) {
+      kaart.classList.add('zichtbaar');
+      // Na de in-animatie terug naar de snelle hover-transitie (zonder stagger-vertraging).
+      window.setTimeout(() => {
+        kaart.classList.add('klaar');
+        kaart.style.transitionDelay = '';
+      }, 700);
+    }
+
+    function toonKaartenInBeeld() {
+      const hoogte = window.innerHeight;
+      // getBoundingClientRect() dwingt eerst de beginstand (onzichtbaar) door te rekenen, zodat
+      // het toevoegen van "zichtbaar" daarna daadwerkelijk animeert.
+      wachtend = wachtend.filter((kaart) => {
+        const r = kaart.getBoundingClientRect();
+        if (r.top < hoogte - 30 && r.bottom > 0) {
+          toonKaart(kaart);
+          return false;
+        }
+        return true;
+      });
+    }
+
+    function voegBatchToe() {
+      const einde = Math.min(volgende + BATCH, archief.length);
+      for (let i = volgende; i < einde; i += 1) {
+        const kaart = maakKaart(archief[i]);
+        grid.appendChild(kaart);
+        if (minderBeweging) {
+          kaart.classList.add('zichtbaar', 'klaar');
+        } else {
+          // Lichte stagger van links naar rechts binnen een rij.
+          kaart.style.transitionDelay = `${(i % 3) * 70}ms`;
+          wachtend.push(kaart);
+        }
+      }
+      volgende = einde;
+    }
+
+    function controleer() {
+      gepland = false;
+      // Direct opnieuw meten na elke batch, zodat een hoog scherm of een snelle scroll niet blijft hangen.
+      while (volgende < archief.length && sentinel.getBoundingClientRect().top < window.innerHeight + VOORSPRONG) {
+        voegBatchToe();
+      }
+      toonKaartenInBeeld();
+
+      if (volgende >= archief.length) sentinel.remove();
+      if (volgende >= archief.length && wachtend.length === 0) {
+        window.removeEventListener('scroll', plan);
+        window.removeEventListener('resize', plan);
+      }
+    }
+
+    // Maximaal één meting per beeldframe tijdens scrollen of het aanpassen van het venster.
+    function plan() {
+      if (gepland) return;
+      gepland = true;
+      window.requestAnimationFrame(controleer);
+    }
+
+    window.addEventListener('scroll', plan, { passive: true });
+    window.addEventListener('resize', plan);
+    controleer();
   }
 
   VGSD.laad('besturen')
     .then(({ besturen }) => {
       renderHuidigBestuur(besturen[0]);
-      renderArchief(besturen.slice(1));
+      laadArchiefTijdensScrollen(besturen.slice(1));
       VGSD.initReveal();
     })
     .catch((fout) => {
