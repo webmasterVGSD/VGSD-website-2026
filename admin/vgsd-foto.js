@@ -348,14 +348,19 @@
                   'Sleep de foto in het kader (of gebruik de pijltjestoetsen) om te bepalen welk deel zichtbaar blijft. ' +
                   'Dit kader laat zien hoe het op een kaartje in het overzicht staat.')
               ),
-          this.state.laadFout ? null : h('div', { style: { display: 'flex', gap: '12px', flexWrap: 'wrap' } },
-            h('div', { style: { flex: '1 1 160px', maxWidth: '260px' } },
-              this.kader('groot', positie),
-              h('p', { style: { margin: '4px 0 0', opacity: 0.7, fontSize: '0.85em' } }, 'Groot uitgelicht blok')
-            ),
-            h('div', { style: { flex: '1 1 200px', maxWidth: '320px' } },
-              this.kader('popup', positie),
-              h('p', { style: { margin: '4px 0 0', opacity: 0.7, fontSize: '0.85em' } }, 'Popup')
+          this.state.laadFout ? null : h('div', null,
+            h('p', { style: { margin: '0 0 6px', opacity: 0.7, fontSize: '0.85em' } },
+              'Dit is dezelfde foto en uitlijning als hierboven — deze twee zijn alleen ter controle, ' +
+              'zodat je kunt zien of er niets belangrijks wegvalt op de andere plekken waar de foto op de site verschijnt:'),
+            h('div', { style: { display: 'flex', gap: '12px', flexWrap: 'wrap' } },
+              h('div', { style: { flex: '1 1 160px', maxWidth: '260px' } },
+                this.kader('groot', positie),
+                h('p', { style: { margin: '4px 0 0', opacity: 0.7, fontSize: '0.85em' } }, 'Groot uitgelicht blok (alleen voor het huidige bestuur, bovenaan de pagina)')
+              ),
+              h('div', { style: { flex: '1 1 200px', maxWidth: '320px' } },
+                this.kader('popup', positie),
+                h('p', { style: { margin: '4px 0 0', opacity: 0.7, fontSize: '0.85em' } }, 'Popup (na klikken op "Lees meer")')
+              )
             )
           ),
           h('div', { style: { display: 'flex', gap: '8px', flexWrap: 'wrap' } },
