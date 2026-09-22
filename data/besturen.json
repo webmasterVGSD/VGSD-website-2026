@@ -1,16 +1,6 @@
 {
   "besturen": [
     {
-      "naam": "de Jong III",
-      "praeses": "J. de Jong",
-      "abactis": "H.H.M. Luhrman",
-      "fiscus": "E.J. Groen",
-      "assessor": "",
-      "foto": "",
-      "quote": "",
-      "tekst": ""
-    },
-    {
       "naam": "Bulthuis",
       "praeses": "P.H.V. Bulthuis",
       "abactis": "D.A.E. van der Eijk",
@@ -22,6 +12,16 @@
         "positie": "50% 49%",
         "src": "/images/photos/besturen/bulthuis.jpg"
       }
+    },
+    {
+      "naam": "de Jong III",
+      "praeses": "J. de Jong",
+      "abactis": "H.H.M. Luhrman",
+      "fiscus": "E.J. Groen",
+      "assessor": "",
+      "foto": "",
+      "quote": "",
+      "tekst": ""
     },
     {
       "naam": "Groen",
