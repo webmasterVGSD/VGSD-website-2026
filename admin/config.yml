@@ -5,6 +5,7 @@ backend:
   name: github
   repo: webmasterVGSD/VGSD-website-2026
   branch: main
+  base_url: https://vgsd-cms-auth.webmaster-484.workers.dev
   commit_messages:
     create: 'Beheer: {{collection}} "{{slug}}" toegevoegd'
     update: 'Beheer: {{collection}} "{{slug}}" bijgewerkt'
