@@ -1,21 +1,29 @@
 {
-  "bronUrl": "https://playpass.com/x-tu-delft2/mel-26-27-19-00-20-00-RyMJz3Y",
-  "teamNaam": "VVGSD",
-  "standKolommen": {
-    "gespeeld": "Matches Played",
-    "gewonnen": "Wins",
-    "gelijk": "Draws",
-    "verloren": "Losses",
-    "doelpuntenVoor": "Goals For",
-    "doelpuntenTegen": "Goals Against",
-    "doelsaldo": "Goal Difference",
-    "punten": "Points"
+  "groepsfoto": {
+    "foto": "/images/photos/vvgsd/groepsfoto-2024-2025.jpg"
   },
-  "standHandmatig": false,
-  "standTeams": [],
-  "schemaHandmatig": false,
-  "schemaWedstrijden": [],
-  "groepsfoto": "/images/photos/vvgsd/groepsfoto-2024-2025.jpg",
-  "topscorers": [],
-  "verslagen": []
+  "statistieken": {
+    "topscorers": []
+  },
+  "wedstrijdverslagen": {
+    "verslagen": []
+  },
+  "standEnSchema": {
+    "bronUrl": "https://playpass.com/x-tu-delft2/mel-26-27-19-00-20-00-RyMJz3Y",
+    "teamNaam": "VVGSD",
+    "standKolommen": {
+      "gespeeld": "Matches Played",
+      "gewonnen": "Wins",
+      "gelijk": "Draws",
+      "verloren": "Losses",
+      "doelpuntenVoor": "Goals For",
+      "doelpuntenTegen": "Goals Against",
+      "doelsaldo": "Goal Difference",
+      "punten": "Points"
+    },
+    "standHandmatig": false,
+    "standTeams": [],
+    "schemaHandmatig": false,
+    "schemaWedstrijden": []
+  }
 }

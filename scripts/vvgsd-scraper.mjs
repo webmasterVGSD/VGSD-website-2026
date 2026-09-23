@@ -5,9 +5,10 @@
 // getest worden met: node scripts/vvgsd-scraper.mjs
 //
 // De koppeling van "onze veldnaam" (bv. "punten") naar "de koptekst op Playpass" (bv. "Points")
-// staat niet hier in de code, maar in data/vvgsd-instellingen.json (standKolommen), bewerkbaar
-// via de beheerpagina (collectie "VVGSD"). Verandert Playpass een koptekst, dan pas je alleen
-// dat veldje aan — geen code-wijziging nodig. Dit script raakt de bestaande gegevens niet aan
+// staat niet hier in de code, maar in data/vvgsd-instellingen.json (standEnSchema.standKolommen),
+// bewerkbaar via de beheerpagina (collectie "VVGSD", kopje "Stand en schema"). Verandert Playpass
+// een koptekst, dan pas je alleen dat veldje aan — geen code-wijziging nodig. Dit script raakt
+// de bestaande gegevens niet aan
 // als het te weinig/rare data binnenkrijgt (bv. de pagina is onbereikbaar of van opzet
 // veranderd), zodat een storing bij Playpass nooit goede gegevens overschrijft met niets.
 import { readFile, writeFile } from 'node:fs/promises';
@@ -160,11 +161,12 @@ async function haalWedstrijdenOp(robinPad) {
 
 async function main() {
   const instellingen = await leesJson(INSTELLINGEN_PAD, null);
-  if (!instellingen || !instellingen.bronUrl) {
-    throw new Error('data/vvgsd-instellingen.json ontbreekt of heeft geen "bronUrl".');
+  const standEnSchema = instellingen && instellingen.standEnSchema;
+  if (!standEnSchema || !standEnSchema.bronUrl) {
+    throw new Error('data/vvgsd-instellingen.json ontbreekt of heeft geen "standEnSchema.bronUrl".');
   }
 
-  const hoofdHtml = await haalOp(instellingen.bronUrl, {});
+  const hoofdHtml = await haalOp(standEnSchema.bronUrl, {});
   const standingsFrameSrc = /id="standings"[^>]*src="([^"]+)"/.exec(hoofdHtml);
   if (!standingsFrameSrc) throw new Error('Kon de link naar de standenpagina niet vinden op de bronpagina.');
   const robinPad = standingsFrameSrc[1].replace(/\/standings$/, '');
@@ -173,7 +175,7 @@ async function main() {
     'Turbo-Frame': 'standings',
     Accept: 'text/html',
   });
-  const teams = parseStandings(standHtml, instellingen.standKolommen);
+  const teams = parseStandings(standHtml, standEnSchema.standKolommen);
   const wedstrijden = await haalWedstrijdenOp(robinPad);
 
   const nu = new Date().toISOString();

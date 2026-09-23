@@ -158,28 +158,29 @@
   // vvgsd.html, wedstrijdschema.html en stand.html niet te weten welke van de twee het is.
   async function laadVvgsd() {
     const instellingen = await laad('vvgsd-instellingen');
+    const standEnSchema = instellingen.standEnSchema || {};
 
-    let standTeams = instellingen.standTeams || [];
+    let standTeams = standEnSchema.standTeams || [];
     let standBijgewerkt = null;
-    if (!instellingen.standHandmatig) {
+    if (!standEnSchema.standHandmatig) {
       const auto = await laad('vvgsd-stand-auto').catch(() => ({ teams: [], bijgewerkt: null }));
       standTeams = auto.teams || [];
       standBijgewerkt = auto.bijgewerkt || null;
     }
 
-    let wedstrijden = instellingen.schemaWedstrijden || [];
+    let wedstrijden = standEnSchema.schemaWedstrijden || [];
     let schemaBijgewerkt = null;
-    if (!instellingen.schemaHandmatig) {
+    if (!standEnSchema.schemaHandmatig) {
       const auto = await laad('vvgsd-schema-auto').catch(() => ({ wedstrijden: [], bijgewerkt: null }));
       wedstrijden = auto.wedstrijden || [];
       schemaBijgewerkt = auto.bijgewerkt || null;
     }
 
     return {
-      teamNaam: instellingen.teamNaam || 'VVGSD',
-      groepsfoto: instellingen.groepsfoto || null,
-      topscorers: instellingen.topscorers || [],
-      verslagen: instellingen.verslagen || [],
+      teamNaam: standEnSchema.teamNaam || 'VVGSD',
+      groepsfoto: (instellingen.groepsfoto && instellingen.groepsfoto.foto) || null,
+      topscorers: (instellingen.statistieken && instellingen.statistieken.topscorers) || [],
+      verslagen: (instellingen.wedstrijdverslagen && instellingen.wedstrijdverslagen.verslagen) || [],
       stand: standTeams.slice().sort((a, b) => (a.positie || 0) - (b.positie || 0)),
       standBijgewerkt,
       wedstrijden: wedstrijden

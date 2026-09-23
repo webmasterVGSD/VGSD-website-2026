@@ -92,16 +92,19 @@ De pagina's `vvgsd.html`, `wedstrijdschema.html` en `stand.html` horen bij het v
 **stand en het wedstrijdschema komen automatisch binnen**: een schema (GitHub Action) haalt die
 elke 3 uur op van Playpass (de plek waar de TU Delft-studentencompetitie het bijhoudt) en zet ze
 in `data/vvgsd-stand-auto.json` / `data/vvgsd-schema-auto.json`. Daar hoef je normaal niets voor
-te doen. Open **VVGSD** in de beheerpagina voor de rest:
+te doen. Open **VVGSD** in de beheerpagina voor de rest — dat formulier is opgedeeld in vier
+inklapbare kopjes:
 
-- **Groepsfoto, Topscorers, Wedstrijdverslagen**: gewoon invullen zoals bij de andere formulieren
-  (foto uploaden; topscorers en verslagen zijn lijstjes met een knop om er één toe te voegen).
-- **Bron op Playpass**: de link naar de poule van VVGSD. Verandert die (nieuw seizoen), pas 'm hier aan.
-- **Koppeling kolomkoppen (standKolommen)**: als de automatische stand ineens leeg of fout is, is de
-  kans groot dat Playpass een koptekst heeft hernoemd (bijvoorbeeld "Points" werd iets anders). Ga
-  naar de standenpagina op Playpass, houd de muis boven de kolomkop om de volledige naam te zien, en
-  zet die naam bij het juiste veld hier. Geen code-wijziging nodig.
-- **"Stand handmatig invoeren" / "Wedstrijdschema handmatig invoeren"**: laatste redmiddel, voor als
+- **Groepsfoto**: de foto bovenaan `vvgsd.html`, gewoon uploaden.
+- **Statistieken**: de lijst topscorers (naam + aantal doelpunten), met een knop om er één toe te voegen.
+- **Wedstrijdverslagen**: lijst met verslagen (titel, datum, tekst), ook met een toevoegknop.
+- **Stand en schema**: hier staat alles rond de automatische ophaling en de noodrem:
+  - **Bron op Playpass**: de link naar de poule van VVGSD. Verandert die (nieuw seizoen), pas 'm hier aan.
+  - **Koppeling kolomkoppen op Playpass**: als de automatische stand ineens leeg of fout is, is de
+    kans groot dat Playpass een koptekst heeft hernoemd (bijvoorbeeld "Points" werd iets anders). Ga
+    naar de standenpagina op Playpass, houd de muis boven de kolomkop om de volledige naam te zien, en
+    zet die naam bij het juiste veld hier. Geen code-wijziging nodig.
+  - **"Stand handmatig invoeren" / "Wedstrijdschema handmatig invoeren"**: laatste redmiddel, voor als
   de automatische ophaling om wat voor reden dan ook niet meer werkt (bijvoorbeeld Playpass is
   helemaal van opzet veranderd). Zet de schakelaar aan en vul de tabel/lijst daaronder zelf in — de
   site gebruikt dan die gegevens in plaats van de automatische. Zet 'm weer uit zodra het probleem
