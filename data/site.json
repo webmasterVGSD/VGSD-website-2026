@@ -1,5 +1,7 @@
 {
-  "whatsapp": "31643739334",
+  "whatsapp": {
+    "nummer": "31643739334"
+  },
   "contact": {
     "adres": "Julianalaan 7\n2628 BB Delft",
     "email": "abactis@vgsd.nl",

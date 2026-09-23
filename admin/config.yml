@@ -478,12 +478,16 @@ collections:
         file: data/site.json
         fields:
           - name: whatsapp
-            label: WhatsApp-nummer
-            widget: string
-            pattern: ['^\d{8,15}$', 'Alleen cijfers, zonder plus of spaties. Bijvoorbeeld 31633891980.']
-            hint: >-
-              Internationaal formaat, alleen cijfers. Dit nummer wordt gebruikt voor de zwevende
-              WhatsApp-knop en alle "Meld je aan"-knoppen.
+            label: WhatsApp
+            widget: object
+            fields:
+              - name: nummer
+                label: WhatsApp-nummer
+                widget: string
+                pattern: ['^\d{8,15}$', 'Alleen cijfers, zonder plus of spaties. Bijvoorbeeld 31633891980.']
+                hint: >-
+                  Internationaal formaat, alleen cijfers. Dit nummer wordt gebruikt voor de zwevende
+                  WhatsApp-knop en alle "Meld je aan"-knoppen.
           - name: contact
             label: Contactgegevens
             widget: object

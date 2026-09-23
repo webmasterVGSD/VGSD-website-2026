@@ -28,7 +28,7 @@
   }
 
   function maakWaLink(site, tekst) {
-    return `https://wa.me/${site.whatsapp}${tekst ? `?text=${encodeURIComponent(tekst)}` : ''}`;
+    return `https://wa.me/${site.whatsapp.nummer}${tekst ? `?text=${encodeURIComponent(tekst)}` : ''}`;
   }
 
   function vulSiteGegevens(site) {
