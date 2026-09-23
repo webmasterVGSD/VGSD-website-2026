@@ -261,8 +261,8 @@ collections:
             label: Groepsfoto
             widget: image
             required: false
-            media_folder: /images/photos/VVGSD
-            public_folder: /images/photos/VVGSD
+            media_folder: /images/photos/vvgsd
+            public_folder: /images/photos/vvgsd
             hint: Foto voor bovenaan de VVGSD-pagina. Snijd de foto van tevoren zelf bij indien nodig.
           - name: topscorers
             label: Topscorers
