@@ -1,0 +1,46 @@
+name: VVGSD-stand en -schema bijwerken
+
+# Haalt automatisch de stand en het wedstrijdschema van het VGSD-voetbalteam (VVGSD) op van
+# Playpass (zie data/vvgsd-instellingen.json) en commit de gegevens als er iets veranderd is.
+# Verandert Playpass een koptekst zoals "Points", dan hoeft alleen data/vvgsd-instellingen.json
+# aangepast te worden (via de beheerpagina, collectie "VVGSD") — niet dit workflow-bestand.
+#
+# Let op bij het eerste gebruik: dit werkt alleen als de repo-instelling "Workflow permissions"
+# (Settings -> Actions -> General) op "Read and write permissions" staat, anders mag deze
+# workflow niet automatisch committen.
+
+on:
+  schedule:
+    # Elke 3 uur. Tijden in cron zijn UTC.
+    - cron: '0 */3 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code ophalen
+        uses: actions/checkout@v4
+
+      - name: Node.js instellen
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Scraper draaien
+        run: node scripts/vvgsd-scraper.mjs
+
+      - name: Wijzigingen committen (alleen als er iets veranderd is)
+        run: |
+          git config user.name "VVGSD-scraper"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- data/vvgsd-stand-auto.json data/vvgsd-schema-auto.json; then
+            echo "Geen wijzigingen, niets te committen."
+          else
+            git add data/vvgsd-stand-auto.json data/vvgsd-schema-auto.json
+            git commit -m "VVGSD: stand en wedstrijdschema automatisch bijgewerkt"
+            git push
+          fi

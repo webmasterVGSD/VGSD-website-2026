@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Verbanden | VGSD</title>
-<meta name="description" content="De VGSD staat niet op zichzelf: we maken deel uit van vier verbanden — zusterverenigingen, de VeRa, broederverenigingen en IFES.">
+<title>Wedstrijdschema | VVGSD | VGSD</title>
+<meta name="description" content="Het volledige wedstrijdschema van VVGSD, automatisch bijgewerkt met de uitslagen.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,16 +113,6 @@
     transform: translateY(0);
   }
 
-  .card-tilt {
-    transition: transform 260ms var(--ease-out-strong), box-shadow 260ms var(--ease-out-strong);
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .card-tilt:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -16px rgba(58, 14, 24, 0.25);
-    }
-  }
-
   .mobile-menu {
     max-height: 0;
     overflow: hidden;
@@ -173,7 +163,6 @@
       transition: none;
     }
     .btn:active,
-    .card-tilt:hover,
     .btn-primary:hover {
       transform: none;
     }
@@ -181,6 +170,11 @@
     .caret {
       transition: none;
     }
+  }
+
+  /* Eigen wedstrijden van VVGSD lichter uitgelicht binnen het schema. */
+  .wedstrijd-eigen {
+    background-color: #FBEEF0;
   }
 </style>
 </head>
@@ -217,7 +211,7 @@
                 <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Wie we zijn</p>
                 <ul class="mt-3 space-y-1">
                   <li><a href="geschiedenis.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Geschiedenis</a></li>
-                  <li><a href="verbanden.html" aria-current="page" class="block px-2 py-1.5 rounded-lg bg-brand-50 text-brand-600 font-semibold">Verbanden</a></li>
+                  <li><a href="verbanden.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Verbanden</a></li>
                   <li><a href="besturen.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Besturen</a></li>
                 </ul>
               </div>
@@ -226,7 +220,7 @@
                 <ul class="mt-3 space-y-1">
                   <li><a href="#" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Disputen</a></li>
                   <li><a href="kasten.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Kasten (verenigingshuizen)</a></li>
-                  <li><a href="vvgsd.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">VVGSD (het voetbalteam)</a></li>
+                  <li><a href="vvgsd.html" aria-current="page" class="block px-2 py-1.5 rounded-lg bg-brand-50 text-brand-600 font-semibold">VVGSD (het voetbalteam)</a></li>
                 </ul>
               </div>
             </div>
@@ -282,12 +276,12 @@
       <div id="over-ons-accordion" class="accordion-panel open pl-4">
         <p class="px-2 pt-2 text-xs font-semibold uppercase tracking-wide text-ink-500">Wie we zijn</p>
         <a href="geschiedenis.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Geschiedenis</a>
-        <a href="verbanden.html" aria-current="page" class="block px-2 py-2 rounded-lg bg-brand-50 text-brand-600 font-semibold">Verbanden</a>
+        <a href="verbanden.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Verbanden</a>
         <a href="besturen.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Besturen</a>
         <p class="px-2 pt-2 text-xs font-semibold uppercase tracking-wide text-ink-500">Onderdelen van de vereniging</p>
         <a href="#" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Disputen</a>
         <a href="kasten.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Kasten (verenigingshuizen)</a>
-        <a href="vvgsd.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">VVGSD (het voetbalteam)</a>
+        <a href="vvgsd.html" aria-current="page" class="block px-2 py-2 rounded-lg bg-brand-50 text-brand-600 font-semibold">VVGSD (het voetbalteam)</a>
       </div>
 
       <a href="#" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Fotoalbum</a>
@@ -322,100 +316,28 @@
   <section class="pt-16 pb-10 sm:pt-20 sm:pb-14">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
-        <h1 class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
-          Verbanden
+        <a href="vvgsd.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700">
+          <i class="ph ph-arrow-left text-xs"></i> Terug naar VVGSD
+        </a>
+        <h1 class="mt-4 font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
+          Wedstrijdschema
         </h1>
         <p class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
-          De VGSD staat niet op zichzelf. We maken deel uit van vier verbanden: zusterverenigingen door heel Nederland, de VeRa in Delft, twee broederverenigingen en de wereldwijde organisatie IFES.
+          Het volledige programma van de poule waarin VVGSD speelt. Onze eigen wedstrijden zijn lichtroze uitgelicht.
         </p>
+        <p id="schema-bijgewerkt" class="mt-2 text-sm text-ink-500"></p>
+        <a href="stand.html" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700">
+          Bekijk de stand <i class="ph ph-arrow-right text-xs"></i>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- VERBANDEN -->
-  <section class="pb-20 sm:pb-28">
-    <div class="max-w-container mx-auto px-5 sm:px-8">
-      <div class="grid sm:grid-cols-2 gap-6">
-
-        <div class="reveal rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] p-7 sm:p-8">
-          <div class="grid h-11 w-11 place-items-center rounded-full bg-brand-50 text-brand-600">
-            <i class="ph ph-buildings text-xl"></i>
-          </div>
-          <h2 class="mt-4 font-display font-semibold text-xl text-ink-900">Zusterverenigingen</h2>
-          <p class="mt-3 text-ink-700 leading-relaxed">
-            We hebben zusters in Rotterdam, Wageningen, Groningen, Enschede, Leiden, Utrecht, Nijmegen, Arnhem, Deventer, Leeuwarden, Zwolle en Dronten. Bestuurders en leden van deze verenigingen trekken veel met elkaar op: ze bezoeken elkaars constitutieborrels, elkaars Dies Natalis en elkaars feesten. Veel zusterverenigingen lijken op de VGSD, dus vandaar dat we het goed met elkaar kunnen vinden. De VGSD is over het algemeen wat studentikozer en daadkrachtiger dan zusterverenigingen, wat ons een unieke vereniging maakt binnen het landelijke verband.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Rotterdam</span>
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Wageningen</span>
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Groningen</span>
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Enschede</span>
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Leiden</span>
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Utrecht</span>
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Nijmegen</span>
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Arnhem</span>
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Deventer</span>
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Leeuwarden</span>
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Zwolle</span>
-            <span class="rounded-full bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1">Dronten</span>
-          </div>
-        </div>
-
-        <div class="reveal rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] p-7 sm:p-8">
-          <div class="grid h-11 w-11 place-items-center rounded-full bg-brand-50 text-brand-600">
-            <i class="ph ph-bank text-xl"></i>
-          </div>
-          <h2 class="mt-4 font-display font-semibold text-xl text-ink-900">VeRa</h2>
-          <p class="mt-3 text-ink-700 leading-relaxed">
-            De VeRa (VerenigingsRaad) is een overlegorgaan tussen studenten en de TU Delft. Alle grote en oude verenigingen in Delft leveren stof tot nadenken en het dagelijks bestuur van de VeRa overlegt met de afgevaardigde van grote partijen van de TU Delft. De VeRa heeft een groot draagvlak en dus een belangrijke stem binnen de studentenwereld in Delft.
-          </p>
-        </div>
-
-        <div class="reveal rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] p-7 sm:p-8">
-          <div class="grid h-11 w-11 place-items-center rounded-full bg-brand-50 text-brand-600">
-            <i class="ph ph-handshake text-xl"></i>
-          </div>
-          <h2 class="mt-4 font-display font-semibold text-xl text-ink-900">Broederverenigingen</h2>
-          <p class="mt-3 text-ink-700 leading-relaxed">
-            We hebben binnen Delft banden met twee broederverenigingen: CSR en CSFR. We organiseren een aantal keer per jaar een gezamenlijke activiteit (broeder-lezing, barbecue, avond van zang en gebed). Daarnaast nemen we samen deel aan initiatieven als Hartige Samaritaan, Happietaria, Passion Week en Student Alpha. Zo zijn we samen christelijke studenten verenigd in Delft.
-          </p>
-        </div>
-
-        <div class="reveal rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] p-7 sm:p-8">
-          <div class="grid h-11 w-11 place-items-center rounded-full bg-brand-50 text-brand-600">
-            <i class="ph ph-globe-hemisphere-west text-xl"></i>
-          </div>
-          <h2 class="mt-4 font-display font-semibold text-xl text-ink-900">IFES</h2>
-          <p class="mt-3 text-ink-700 leading-relaxed">
-            IFES is een wereldwijde organisatie waar wij als VGSD ook bij aangesloten zijn. IFES organiseert conferenties door het jaar heen. Voorbeelden hiervan zijn de Read-it (voor kringleiders), de Live-it (tijdens Hemelvaart) en de Lead-it (voor aankomend bestuurders binnen VGS-Nederland/Ichtus/Navigators).
-          </p>
-          <p class="mt-3 text-ink-700 leading-relaxed">
-            Naast deze conferenties levert IFES ons ook een stafwerker. De stafwerker is er om geestelijke groei te stimuleren en om mensen, commissies (in het bijzonder de Bijbelkringcommissie, de BKC) of bestuurders te coachen. Daarnaast kun je altijd een bakje koffie of een biertje met hem drinken!
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BAND -->
+  <!-- SCHEMA -->
   <section class="pb-24 sm:pb-32">
     <div class="max-w-container mx-auto px-5 sm:px-8">
-      <div class="reveal rounded-[1.75rem] bg-brand-600 px-8 py-12 sm:px-14 sm:py-14 text-center">
-        <h2 class="font-display font-bold text-2xl sm:text-3xl text-warm-50">
-          Nieuwsgierig geworden?
-        </h2>
-        <p class="mt-3 text-brand-100 max-w-md mx-auto">
-          Kom gewoon een keer langs bij een open avond, vrijblijvend en zonder poespas.
-        </p>
-        <div class="mt-7 flex flex-wrap items-center justify-center gap-4">
-          <a href="open-avonden.html" class="btn btn-primary inline-flex items-center justify-center rounded-full bg-warm-50 text-brand-700 px-7 py-3.5 text-[15px] font-semibold shadow-sm">
-            Bekijk open avonden
-          </a>
-          <a href="index.html#word-lid" class="btn inline-flex items-center justify-center rounded-full border border-warm-50/40 text-warm-50 px-7 py-3.5 text-[15px] font-semibold">
-            Lid worden
-          </a>
-        </div>
+      <div id="schema-lijst" class="max-w-3xl space-y-8">
+        <p class="text-ink-500">Bezig met laden…</p>
       </div>
     </div>
   </section>
@@ -546,6 +468,90 @@
   });
 
   VGSD.initReveal();
+
+  // Wedstrijdschema: gegroepeerd per datum, eigen wedstrijden van VVGSD uitgelicht.
+  function renderSchema(data) {
+    const lijstEl = document.getElementById('schema-lijst');
+    const bijgewerktEl = document.getElementById('schema-bijgewerkt');
+
+    if (data.schemaBijgewerkt) {
+      const format = new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
+      bijgewerktEl.textContent = `Automatisch bijgewerkt op ${format.format(new Date(data.schemaBijgewerkt))} uur.`;
+    }
+
+    if (!data.wedstrijden.length) {
+      lijstEl.innerHTML = '<p class="text-ink-500">Nog geen wedstrijdschema beschikbaar.</p>';
+      return;
+    }
+
+    const perDatum = new Map();
+    data.wedstrijden.forEach((w) => {
+      if (!perDatum.has(w.datum)) perDatum.set(w.datum, []);
+      perDatum.get(w.datum).push(w);
+    });
+
+    const dagFormat = new Intl.DateTimeFormat('nl-NL', { weekday: 'long', day: 'numeric', month: 'long' });
+    const groepen = [...perDatum.entries()].sort(([a], [b]) => a.localeCompare(b));
+
+    lijstEl.replaceChildren(...groepen.map(([datum, wedstrijden]) => {
+      const groep = document.createElement('div');
+      groep.className = 'reveal';
+
+      const kop = document.createElement('h2');
+      kop.className = 'font-display font-semibold text-lg text-ink-900';
+      const label = dagFormat.format(new Date(`${datum}T00:00:00`));
+      kop.textContent = label.charAt(0).toUpperCase() + label.slice(1);
+      groep.appendChild(kop);
+
+      const lijst = document.createElement('div');
+      lijst.className = 'mt-3 rounded-2xl bg-warm-50 border border-ink-900/5 divide-y divide-ink-900/5 overflow-hidden shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)]';
+
+      wedstrijden
+        .sort((a, b) => (a.tijd || '').localeCompare(b.tijd || ''))
+        .forEach((w) => {
+          const eigen = w.thuis === data.teamNaam || w.uit === data.teamNaam;
+          const rij = document.createElement('div');
+          rij.className = `flex flex-wrap items-center justify-between gap-3 px-5 py-3.5 ${eigen ? 'wedstrijd-eigen' : ''}`;
+
+          const links = document.createElement('div');
+          links.className = 'flex items-center gap-3 min-w-0';
+          const tijd = document.createElement('span');
+          tijd.className = 'text-sm text-ink-500 tabular-nums shrink-0';
+          tijd.textContent = w.tijd || '';
+          const teams = document.createElement('span');
+          teams.className = `truncate ${eigen ? 'font-semibold text-brand-700' : 'text-ink-900'}`;
+          teams.textContent = `${w.thuis} – ${w.uit}`;
+          links.append(tijd, teams);
+
+          const rechts = document.createElement('div');
+          rechts.className = 'flex items-center gap-4 shrink-0';
+          if (w.veld) {
+            const veld = document.createElement('span');
+            veld.className = 'text-xs text-ink-500 hidden sm:inline';
+            veld.textContent = w.veld;
+            rechts.appendChild(veld);
+          }
+          const uitslag = document.createElement('span');
+          uitslag.className = `font-display font-bold tabular-nums ${eigen ? 'text-brand-700' : 'text-ink-900'}`;
+          uitslag.textContent = w.gespeeld ? `${w.thuisScore} - ${w.uitScore}` : 'vs';
+          rechts.appendChild(uitslag);
+
+          rij.append(links, rechts);
+          lijst.appendChild(rij);
+        });
+
+      groep.appendChild(lijst);
+      return groep;
+    }));
+    VGSD.initReveal();
+  }
+
+  VGSD.laadVvgsd()
+    .then(renderSchema)
+    .catch((fout) => {
+      console.error('VGSD: wedstrijdschema laden mislukt.', fout);
+      document.getElementById('schema-lijst').innerHTML = '<p class="text-ink-500">Het wedstrijdschema kon niet geladen worden.</p>';
+    });
 </script>
 
 </body>

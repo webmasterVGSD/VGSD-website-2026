@@ -249,6 +249,201 @@ collections:
                 default: false
 
   # ---------------------------------------------------------------------------------------------
+  - name: vvgsd
+    label: VVGSD
+    icon: sports_soccer
+    files:
+      - name: vvgsd
+        label: Voetbalteam
+        file: data/vvgsd-instellingen.json
+        fields:
+          - name: groepsfoto
+            label: Groepsfoto
+            widget: image
+            required: false
+            media_folder: /images/photos/VVGSD
+            public_folder: /images/photos/VVGSD
+            hint: Foto voor bovenaan de VVGSD-pagina. Snijd de foto van tevoren zelf bij indien nodig.
+          - name: topscorers
+            label: Topscorers
+            label_singular: Topscorer
+            widget: list
+            collapsed: true
+            summary: '{{naam}} — {{aantalDoelpunten}}'
+            fields:
+              - name: naam
+                label: Naam
+                widget: string
+              - name: aantalDoelpunten
+                label: Aantal doelpunten
+                widget: number
+                value_type: int
+          - name: verslagen
+            label: Wedstrijdverslagen
+            label_singular: Verslag
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: '{{datum}} — {{titel}}'
+            fields:
+              - name: titel
+                label: Titel
+                widget: string
+              - name: datum
+                label: Datum
+                widget: date
+              - name: tekst
+                label: Tekst
+                widget: text
+                hint: Laat een lege regel tussen alinea's.
+          - name: bronUrl
+            label: Bron op Playpass
+            widget: string
+            hint: >-
+              De link naar de poule van VVGSD op Playpass. Verandert deze (bv. een nieuw seizoen),
+              pas hem dan hier aan — de automatische bijwerking gebruikt deze link.
+          - name: teamNaam
+            label: Teamnaam zoals die op Playpass staat
+            widget: string
+            hint: 'Nu: "VVGSD". Wordt gebruikt om VVGSD te herkennen en uit te lichten in de stand en het schema.'
+          - name: standKolommen
+            label: Koppeling kolomkoppen op Playpass (automatische stand)
+            widget: object
+            hint: >-
+              Voor elk van deze velden: de Engelse koptekst zoals die op de Playpass-standenpagina
+              staat (beweeg over een kolomkop op Playpass om de volledige naam te zien, bv. "Points").
+              Verandert Playpass een koptekst, pas 'm dan hier aan — dan werkt de automatische
+              bijwerking weer, zonder dat er iets in de code hoeft te veranderen.
+            fields:
+              - name: gespeeld
+                label: Kolomkop voor "gespeeld"
+                widget: string
+              - name: gewonnen
+                label: Kolomkop voor "gewonnen"
+                widget: string
+              - name: gelijk
+                label: Kolomkop voor "gelijkgespeeld"
+                widget: string
+              - name: verloren
+                label: Kolomkop voor "verloren"
+                widget: string
+              - name: doelpuntenVoor
+                label: Kolomkop voor "doelpunten voor"
+                widget: string
+              - name: doelpuntenTegen
+                label: Kolomkop voor "doelpunten tegen"
+                widget: string
+              - name: doelsaldo
+                label: Kolomkop voor "doelsaldo"
+                widget: string
+              - name: punten
+                label: Kolomkop voor "punten"
+                widget: string
+          - name: standHandmatig
+            label: Stand handmatig invoeren (i.p.v. automatisch)
+            widget: boolean
+            default: false
+            hint: >-
+              Alleen aanzetten als de automatische bijwerking niet meer werkt (bv. omdat Playpass
+              van opzet is veranderd). Zet 'm aan en vul de tabel hieronder in; de site gebruikt
+              dan deze tabel in plaats van de automatisch opgehaalde stand.
+          - name: standTeams
+            label: Handmatige stand
+            label_singular: Team
+            widget: list
+            collapsed: true
+            summary: '{{positie}}. {{naam}} — {{punten}} pt'
+            fields:
+              - name: positie
+                label: Positie
+                widget: number
+                value_type: int
+              - name: naam
+                label: Teamnaam
+                widget: string
+              - name: gespeeld
+                label: Gespeeld
+                widget: number
+                value_type: int
+              - name: gewonnen
+                label: Gewonnen
+                widget: number
+                value_type: int
+              - name: gelijk
+                label: Gelijk
+                widget: number
+                value_type: int
+              - name: verloren
+                label: Verloren
+                widget: number
+                value_type: int
+              - name: doelpuntenVoor
+                label: Doelpunten voor
+                widget: number
+                value_type: int
+              - name: doelpuntenTegen
+                label: Doelpunten tegen
+                widget: number
+                value_type: int
+              - name: doelsaldo
+                label: Doelsaldo
+                widget: number
+                value_type: int
+              - name: punten
+                label: Punten
+                widget: number
+                value_type: int
+          - name: schemaHandmatig
+            label: Wedstrijdschema handmatig invoeren (i.p.v. automatisch)
+            widget: boolean
+            default: false
+            hint: Zelfde idee als bij de stand hierboven, maar dan voor het wedstrijdschema.
+          - name: schemaWedstrijden
+            label: Handmatig wedstrijdschema
+            label_singular: Wedstrijd
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: '{{datum}} — {{thuis}} - {{uit}}'
+            fields:
+              - name: datum
+                label: Datum
+                widget: date
+              - name: tijd
+                label: Tijd
+                widget: string
+                hint: 'Bijvoorbeeld 19:00.'
+              - name: thuis
+                label: Thuisteam
+                widget: string
+              - name: uit
+                label: Uitteam
+                widget: string
+              - name: gespeeld
+                label: Gespeeld
+                widget: boolean
+                default: false
+              - name: thuisScore
+                label: Doelpunten thuisteam
+                widget: number
+                value_type: int
+                required: false
+              - name: uitScore
+                label: Doelpunten uitteam
+                widget: number
+                value_type: int
+                required: false
+              - name: veld
+                label: Veld
+                widget: string
+                required: false
+              - name: wedstrijdnummer
+                label: Wedstrijdnummer
+                widget: number
+                value_type: int
+                required: false
+
+  # ---------------------------------------------------------------------------------------------
   - name: instellingen
     label: Instellingen
     icon: settings

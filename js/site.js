@@ -151,5 +151,43 @@
   });
   ready.catch((fout) => console.error('VGSD: gegevens laden mislukt.', fout));
 
-  window.VGSD = { ready, laad, waLink: maakWaLink, vulSiteGegevens, initReveal };
+  // VVGSD (voetbalteam): stand en wedstrijdschema komen automatisch van Playpass
+  // (data/vvgsd-stand-auto.json en data/vvgsd-schema-auto.json, bijgewerkt door
+  // scripts/vvgsd-scraper.mjs via een GitHub Action). Staat in de beheerpagina "handmatig
+  // invoeren" aan, dan gebruiken we in plaats daarvan de lijst die daar is ingevuld. Zo hoeft
+  // vvgsd.html, wedstrijdschema.html en stand.html niet te weten welke van de twee het is.
+  async function laadVvgsd() {
+    const instellingen = await laad('vvgsd-instellingen');
+
+    let standTeams = instellingen.standTeams || [];
+    let standBijgewerkt = null;
+    if (!instellingen.standHandmatig) {
+      const auto = await laad('vvgsd-stand-auto').catch(() => ({ teams: [], bijgewerkt: null }));
+      standTeams = auto.teams || [];
+      standBijgewerkt = auto.bijgewerkt || null;
+    }
+
+    let wedstrijden = instellingen.schemaWedstrijden || [];
+    let schemaBijgewerkt = null;
+    if (!instellingen.schemaHandmatig) {
+      const auto = await laad('vvgsd-schema-auto').catch(() => ({ wedstrijden: [], bijgewerkt: null }));
+      wedstrijden = auto.wedstrijden || [];
+      schemaBijgewerkt = auto.bijgewerkt || null;
+    }
+
+    return {
+      teamNaam: instellingen.teamNaam || 'VVGSD',
+      groepsfoto: instellingen.groepsfoto || null,
+      topscorers: instellingen.topscorers || [],
+      verslagen: instellingen.verslagen || [],
+      stand: standTeams.slice().sort((a, b) => (a.positie || 0) - (b.positie || 0)),
+      standBijgewerkt,
+      wedstrijden: wedstrijden
+        .slice()
+        .sort((a, b) => `${a.datum}T${a.tijd || ''}`.localeCompare(`${b.datum}T${b.tijd || ''}`)),
+      schemaBijgewerkt,
+    };
+  }
+
+  window.VGSD = { ready, laad, laadVvgsd, waLink: maakWaLink, vulSiteGegevens, initReveal };
 })();

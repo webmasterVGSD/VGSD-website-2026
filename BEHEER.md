@@ -13,6 +13,7 @@ staat in formulieren op de beheerpagina.
 | **Open avonden** | De kalender met open avonden (de eerstvolgende komt automatisch in de footer) |
 | **Besturen** | Een nieuw bestuur toevoegen, of namen, foto, quote en bestuurstekst aanpassen |
 | **Geschiedenis** | De tekst bovenaan `geschiedenis.html`, en de stappen in de tijdlijn (toevoegen, aanpassen, volgorde) |
+| **VVGSD** | Groepsfoto, topscorers, wedstrijdverslagen, en (indien nodig) de handmatige invoer/instellingen voor de stand en het wedstrijdschema van het voetbalteam |
 | **Instellingen** | WhatsApp-nummer, adres, e-mailadressen, telefoonnummer en Instagram-link |
 
 Na het opslaan staat de wijziging na ongeveer 1 tot 2 minuten op de website.
@@ -85,12 +86,37 @@ verwijderen en de volgorde wijzigen werkt hetzelfde als bij de activiteitenkaart
 "Dit is de huidige/laatste stap" alleen aan bij de laatste stap in de lijst (die krijgt een iets
 groter bolletje op de tijdlijn).
 
+## VVGSD: stand en wedstrijdschema (automatisch, met handmatige noodrem)
+
+De pagina's `vvgsd.html`, `wedstrijdschema.html` en `stand.html` horen bij het voetbalteam. De
+**stand en het wedstrijdschema komen automatisch binnen**: een schema (GitHub Action) haalt die
+elke 3 uur op van Playpass (de plek waar de TU Delft-studentencompetitie het bijhoudt) en zet ze
+in `data/vvgsd-stand-auto.json` / `data/vvgsd-schema-auto.json`. Daar hoef je normaal niets voor
+te doen. Open **VVGSD** in de beheerpagina voor de rest:
+
+- **Groepsfoto, Topscorers, Wedstrijdverslagen**: gewoon invullen zoals bij de andere formulieren
+  (foto uploaden; topscorers en verslagen zijn lijstjes met een knop om er één toe te voegen).
+- **Bron op Playpass**: de link naar de poule van VVGSD. Verandert die (nieuw seizoen), pas 'm hier aan.
+- **Koppeling kolomkoppen (standKolommen)**: als de automatische stand ineens leeg of fout is, is de
+  kans groot dat Playpass een koptekst heeft hernoemd (bijvoorbeeld "Points" werd iets anders). Ga
+  naar de standenpagina op Playpass, houd de muis boven de kolomkop om de volledige naam te zien, en
+  zet die naam bij het juiste veld hier. Geen code-wijziging nodig.
+- **"Stand handmatig invoeren" / "Wedstrijdschema handmatig invoeren"**: laatste redmiddel, voor als
+  de automatische ophaling om wat voor reden dan ook niet meer werkt (bijvoorbeeld Playpass is
+  helemaal van opzet veranderd). Zet de schakelaar aan en vul de tabel/lijst daaronder zelf in — de
+  site gebruikt dan die gegevens in plaats van de automatische. Zet 'm weer uit zodra het probleem
+  verholpen is (of de code is aangepast) om weer automatisch bij te werken.
+
 ## Waar staan de gegevens echt?
 
 In de map `data/` (`besturen.json`, `site.json`, `activiteiten.json`, `activiteiten-overzicht.json`,
-`geschiedenis.json`). De formulieren staan beschreven in `admin/config.yml`. `js/site.js`,
-`activiteiten.html` en `geschiedenis.html` lezen die gegevens en bouwen daarmee de pagina op.
-Bewerk je de bestanden liever met de hand, dan kan dat ook; let op de haakjes en komma's.
+`geschiedenis.json`, `vvgsd-instellingen.json`, en de twee automatisch gegenereerde bestanden
+`vvgsd-stand-auto.json`/`vvgsd-schema-auto.json` die je niet met de hand hoeft te bewerken). De
+formulieren staan beschreven in `admin/config.yml`. `js/site.js`, `activiteiten.html`,
+`geschiedenis.html`, `vvgsd.html`, `wedstrijdschema.html` en `stand.html` lezen die gegevens en
+bouwen daarmee de pagina op. De VVGSD-scraper zelf staat in `scripts/vvgsd-scraper.mjs`, en draait
+volgens het schema in `.github/workflows/vvgsd-scraper.yml`. Bewerk je de bestanden liever met de
+hand, dan kan dat ook; let op de haakjes en komma's.
 
 ## Sveltia CMS bijwerken
 
