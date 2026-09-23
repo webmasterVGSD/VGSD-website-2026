@@ -291,7 +291,10 @@ collections:
                 widget: string
               - name: datum
                 label: Datum
-                widget: date
+                widget: datetime
+                format: 'YYYY-MM-DD'
+                time_format: false
+                picker_utc: true
               - name: tekst
                 label: Tekst
                 widget: text
@@ -408,7 +411,10 @@ collections:
             fields:
               - name: datum
                 label: Datum
-                widget: date
+                widget: datetime
+                format: 'YYYY-MM-DD'
+                time_format: false
+                picker_utc: true
               - name: tijd
                 label: Tijd
                 widget: string
