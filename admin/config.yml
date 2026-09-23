@@ -17,10 +17,126 @@ site_url: https://preview.vgsd.nl
 logo_url: https://preview.vgsd.nl/images/logo/vgsd-logo.svg
 
 # Foto's van besturen komen in deze map. De website leest het pad zoals het in de gegevens staat.
+# Andere collecties (zoals Activiteiten) wijzen hun foto's naar een eigen map via media_folder/
+# public_folder op het foto-veld zelf; dit is alleen de standaardmap voor de rest.
 media_folder: /images/photos/besturen
 public_folder: /images/photos/besturen
 
+# Elke pagina van de site heeft hieronder een eigen collectie, in dezelfde volgorde als het menu
+# op de site (zo vind je snel wat je zoekt in het menu links): Activiteiten, Open avonden,
+# Besturen, Geschiedenis, en dan Instellingen voor de gegevens die op de hele site gebruikt
+# worden (WhatsApp, contact, social media).
 collections:
+  # ---------------------------------------------------------------------------------------------
+  - name: activiteiten_overzicht
+    label: Activiteiten
+    icon: celebration
+    files:
+      - name: activiteiten_overzicht
+        label: Activiteitenpagina
+        file: data/activiteiten-overzicht.json
+        fields:
+          - name: intro
+            label: Tekst bovenaan de pagina
+            widget: object
+            fields:
+              - name: titel
+                label: Titel (H1)
+                widget: string
+              - name: tekst
+                label: Hoofdtekst
+                widget: text
+              - name: subtekst
+                label: Tweede regel
+                widget: text
+                hint: >-
+                  Hierna volgt altijd automatisch de vaste zin "Bekijk alle open avonden" met een
+                  link — dat stukje staat niet hier en kan niet worden aangepast.
+          - name: kaarten
+            label: Activiteitenkaarten
+            label_singular: Activiteit
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: '{{titel}}'
+            hint: >-
+              Eén kaart per activiteit. Slepen aan de linkerkant van een kaart (of de pijltjes in
+              het menu ⋮) verandert de volgorde op de site. Nieuwe kaart toevoegen kan met de knop
+              hieronder; verwijderen via het menu ⋮ op de kaart zelf.
+            fields:
+              - name: titel
+                label: Titel
+                widget: string
+              - name: icoon
+                label: Icoon
+                widget: string
+                hint: >-
+                  De naam van een icoon van phosphoricons.com (zoek daar het icoon op en gebruik de
+                  naam die daar staat, bijvoorbeeld "book-open-text" of "trophy"), zonder "ph-" ervoor.
+              - name: highlight
+                label: Rood uitgelicht
+                widget: boolean
+                default: false
+                hint: >-
+                  Zet dit aan om de kaart rood (in plaats van wit) te maken, voor de belangrijkste of
+                  meest kenmerkende activiteiten. Zet niet te veel rode kaarten vlak na elkaar in de
+                  volgorde — verspreid ze liever over de lijst.
+              - name: foto
+                label: Foto
+                widget: vgsd-foto-activiteiten
+                required: false
+                media_folder: /images/photos/Activiteiten
+                public_folder: /images/photos/Activiteiten
+                hint: >-
+                  Upload de foto, sleep hem in het kader om te bepalen welk deel zichtbaar blijft, en
+                  klik op Opslaan. De foto wordt automatisch verkleind. Zonder foto toont de kaart
+                  alleen het icoon en de tekst.
+              - name: tekst
+                label: Korte omschrijving
+                widget: text
+                hint: Staat altijd zichtbaar op de kaart, ook als hij is ingeklapt.
+              - name: leesMeer
+                label: Uitgebreide tekst ("Lees meer")
+                widget: text
+                required: false
+                hint: >-
+                  Laat dit leeg voor kaarten zonder "Lees meer"-knop (bijvoorbeeld omdat de korte
+                  omschrijving al genoeg zegt). Laat een lege regel tussen alinea's.
+
+  # ---------------------------------------------------------------------------------------------
+  - name: open_avonden
+    label: Open avonden
+    icon: event
+    files:
+      - name: open_avonden
+        label: Kalender met open avonden
+        file: data/activiteiten.json
+        fields:
+          - name: openAvonden
+            label: Open avonden
+            label_singular: Open avond
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: '{{datum}} — {{titel}}'
+            hint: >-
+              De site toont automatisch de eerstvolgende open avond in de footer. Verlopen avonden
+              mogen blijven staan of worden opgeruimd.
+            fields:
+              - name: datum
+                label: Datum en tijd
+                widget: datetime
+                format: 'YYYY-MM-DD[T]HH:mm'
+              - name: titel
+                label: Titel
+                widget: string
+              - name: locatie
+                label: Locatie
+                widget: string
+              - name: omschrijving
+                label: Omschrijving
+                widget: text
+
   # ---------------------------------------------------------------------------------------------
   - name: besturen
     label: Besturen
@@ -82,6 +198,57 @@ collections:
                 hint: Laat een lege regel tussen alinea's.
 
   # ---------------------------------------------------------------------------------------------
+  - name: geschiedenis
+    label: Geschiedenis
+    icon: history_edu
+    files:
+      - name: geschiedenis
+        label: Geschiedenispagina
+        file: data/geschiedenis.json
+        fields:
+          - name: intro
+            label: Tekst bovenaan de pagina
+            widget: object
+            fields:
+              - name: titel
+                label: Titel (H1)
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+              - name: sectieTitel
+                label: Titel boven de tijdlijn
+                widget: string
+              - name: sectieTekst
+                label: Tekst boven de tijdlijn
+                widget: text
+          - name: tijdlijn
+            label: Tijdlijn
+            label_singular: Tijdlijnstap
+            widget: list
+            collapsed: true
+            summary: '{{periode}} — {{titel}}'
+            hint: >-
+              Van oud naar nieuw, van boven naar onder. Slepen verandert de volgorde. Zet "Dit is de
+              huidige/laatste stap" alleen aan bij de laatste stap in de lijst (die krijgt een iets
+              groter bolletje op de tijdlijn).
+            fields:
+              - name: periode
+                label: Periode
+                widget: string
+                hint: 'Bijvoorbeeld "Begin 1961" of "Vandaag".'
+              - name: titel
+                label: Titel
+                widget: string
+              - name: tekst
+                label: Tekst
+                widget: text
+              - name: huidig
+                label: Dit is de huidige/laatste stap
+                widget: boolean
+                default: false
+
+  # ---------------------------------------------------------------------------------------------
   - name: instellingen
     label: Instellingen
     icon: settings
@@ -127,37 +294,3 @@ collections:
                 type: url
                 required: false
                 hint: De volledige link naar het Instagram-account. Leeg laten als er (nog) geen is.
-
-  # ---------------------------------------------------------------------------------------------
-  - name: open_avonden
-    label: Open avonden
-    icon: event
-    files:
-      - name: open_avonden
-        label: Kalender met open avonden
-        file: data/activiteiten.json
-        fields:
-          - name: openAvonden
-            label: Open avonden
-            label_singular: Open avond
-            widget: list
-            add_to_top: true
-            collapsed: true
-            summary: '{{datum}} — {{titel}}'
-            hint: >-
-              De site toont automatisch de eerstvolgende open avond in de footer. Verlopen avonden
-              mogen blijven staan of worden opgeruimd.
-            fields:
-              - name: datum
-                label: Datum en tijd
-                widget: datetime
-                format: 'YYYY-MM-DD[T]HH:mm'
-              - name: titel
-                label: Titel
-                widget: string
-              - name: locatie
-                label: Locatie
-                widget: string
-              - name: omschrijving
-                label: Omschrijving
-                widget: text

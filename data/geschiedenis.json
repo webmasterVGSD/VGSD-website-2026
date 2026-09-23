@@ -1,0 +1,46 @@
+{
+  "intro": {
+    "titel": "Geschiedenis",
+    "tekst": "Hoe de VGSD in 1961 in Delft ontstond, en waar de vereniging sindsdien voor staat.",
+    "sectieTitel": "Van onvrede tot oprichting",
+    "sectieTekst": "De geschiedenis van de VGSD gaat terug tot 1961, maar het verhaal begint al iets eerder."
+  },
+  "tijdlijn": [
+    {
+      "periode": "Eind jaren vijftig",
+      "titel": "Onvrede bij de SSR",
+      "tekst": "De SSR (toen een algemeen christelijke vereniging, tegenwoordig de Koornbeurs) is voor gereformeerde studenten in Delft de meest voor de hand liggende studentenvereniging. Een groeiend aantal van hen voelt zich echter niet meer thuis bij de levensstijl die er in zwang raakt — anderen worden om diezelfde reden al geen lid meer.",
+      "huidig": false
+    },
+    {
+      "periode": "1950 & 1957",
+      "titel": "Elders ontstaan al VGS'en",
+      "tekst": "In diezelfde tijd worden in andere studentensteden al Verenigingen van Gereformeerde Studenten opgericht, zoals de VGSR (1950) en de VGSL (1957). Het idee om ook in Delft zo'n vereniging te beginnen ontstaat, en er wordt contact gezocht met de VGSL, waarvan de activiteiten worden bijgewoond.",
+      "huidig": false
+    },
+    {
+      "periode": "Begin 1961",
+      "titel": "Het besluit valt",
+      "tekst": "Er wordt besloten tot oprichting van de Vereniging van Gereformeerde Studenten te Delft.",
+      "huidig": false
+    },
+    {
+      "periode": "23 maart 1961",
+      "titel": "De VGSD is een feit",
+      "tekst": "Op de oprichtingsvergadering ondertekenen vier Delftse studenten de oprichtingsakte, met als doel: de onderlinge vorming van studenten tot christenacademicus — óók door de techniek te leren verstaan in het licht van Gods Woord. Daarmee is de VGSD officieel opgericht.",
+      "huidig": false
+    },
+    {
+      "periode": "Jaartal volgt",
+      "titel": "Open voor alle christenen",
+      "tekst": "Waar de VGSD aanvankelijk uitsluitend openstond voor gereformeerde studenten, stelt de vereniging zich op enig moment open voor christenen uit alle richtingen.",
+      "huidig": false
+    },
+    {
+      "periode": "Vandaag",
+      "titel": "Eén vereniging, veel tradities",
+      "tekst": "Inmiddels telt de VGSD zo'n 30 actieve leden, afkomstig uit uiteenlopende christelijke stromingen — van gereformeerd en PKN tot evangelisch en katholiek. Die diversiteit aan achtergronden is precies waar de vereniging haar gezelligheid en verdieping uit put.",
+      "huidig": true
+    }
+  ]
+}

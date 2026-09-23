@@ -9,9 +9,11 @@ staat in formulieren op de beheerpagina.
 
 | Formulier | Waarvoor |
 |---|---|
-| **Besturen** | Een nieuw bestuur toevoegen, of namen, foto, quote en bestuurstekst aanpassen |
-| **Instellingen** | WhatsApp-nummer, adres, e-mailadressen, telefoonnummer en Instagram-link |
+| **Activiteiten** | De tekst bovenaan `activiteiten.html`, en de activiteitenkaarten zelf: titel, icoon, foto, tekst, "Lees meer"-tekst, kleur (rood/wit) en volgorde |
 | **Open avonden** | De kalender met open avonden (de eerstvolgende komt automatisch in de footer) |
+| **Besturen** | Een nieuw bestuur toevoegen, of namen, foto, quote en bestuurstekst aanpassen |
+| **Geschiedenis** | De tekst bovenaan `geschiedenis.html`, en de stappen in de tijdlijn (toevoegen, aanpassen, volgorde) |
+| **Instellingen** | WhatsApp-nummer, adres, e-mailadressen, telefoonnummer en Instagram-link |
 
 Na het opslaan staat de wijziging na ongeveer 1 tot 2 minuten op de website.
 
@@ -58,11 +60,37 @@ Wat je in het kader ziet is een beperkte weergave: dezelfde foto wordt op de web
 verhoudingen getoond. De foto zelf blijft dus altijd heel; alleen de uitlijning wordt opgeslagen
 (`"foto": { "src": "...", "positie": "50% 30%" }` in `data/besturen.json`).
 
+## Een activiteitenkaart toevoegen, aanpassen of verwijderen
+
+1. Open **Activiteiten → Activiteitenpagina**.
+2. Bovenaan het formulier staat de tekst die boven de kaarten op de pagina staat (titel en twee
+   alinea's); die kun je los aanpassen.
+3. Daaronder staat de lijst **Activiteitenkaarten**. Nieuwe kaart: knop **Add Activiteit** (komt
+   bovenaan de lijst). Verwijderen: menu **⋮** op de kaart zelf. Volgorde wijzigen: sleep de kaart
+   aan het handvat (**≡**) links op de kaartbalk naar de gewenste plek.
+4. Per kaart vul je een titel, een icoonnaam (zoek deze op [phosphoricons.com](https://phosphoricons.com),
+   bijvoorbeeld "book-open-text"), en een korte omschrijving in (die staat altijd op de kaart).
+   "Uitgebreide tekst" is optioneel: laat die leeg als de kaart geen "Lees meer"-knop moet krijgen.
+5. Foto (optioneel): zelfde bijsnij-werking als bij Besturen — uploaden of slepen, dan het kader
+   verslepen om te bepalen welk deel zichtbaar blijft. Zonder foto toont de kaart alleen het icoon.
+6. **Rood uitgelicht**: zet dit aan voor de belangrijkste of meest kenmerkende activiteiten (op de
+   site krijgt de kaart dan een rode in plaats van een witte achtergrond). Zet dit niet bij te veel
+   kaarten na elkaar in de volgorde — verspreid ze liever over de lijst voor een rustiger geheel.
+
+## Een stap aan de geschiedenis-tijdlijn toevoegen
+
+Open **Geschiedenis → Geschiedenispagina**. Bovenaan staat de tekst boven de tijdlijn; daaronder de
+lijst **Tijdlijn** (periode, titel, tekst — van oud naar nieuw, van boven naar onder). Toevoegen,
+verwijderen en de volgorde wijzigen werkt hetzelfde als bij de activiteitenkaarten hierboven. Zet
+"Dit is de huidige/laatste stap" alleen aan bij de laatste stap in de lijst (die krijgt een iets
+groter bolletje op de tijdlijn).
+
 ## Waar staan de gegevens echt?
 
-In de map `data/` (`besturen.json`, `site.json`, `activiteiten.json`). De formulieren staan beschreven in
-`admin/config.yml`. `js/site.js` leest de gegevens op elke pagina. Bewerk je de bestanden liever met de hand,
-dan kan dat ook; let op de haakjes en komma's.
+In de map `data/` (`besturen.json`, `site.json`, `activiteiten.json`, `activiteiten-overzicht.json`,
+`geschiedenis.json`). De formulieren staan beschreven in `admin/config.yml`. `js/site.js`,
+`activiteiten.html` en `geschiedenis.html` lezen die gegevens en bouwen daarmee de pagina op.
+Bewerk je de bestanden liever met de hand, dan kan dat ook; let op de haakjes en komma's.
 
 ## Sveltia CMS bijwerken
 
