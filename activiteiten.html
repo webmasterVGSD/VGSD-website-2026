@@ -185,10 +185,10 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/activiteiten" data-blokken="intro kaarten">
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<!-- Nummer komt uit data/site.json (zie js/site.js). -->
+<!-- Nummer komt uit data/instellingen/whatsapp.json (zie js/site.js). -->
 <a href="#" data-wa data-wa-tekst="Hoi! Ik heb een vraag over VGSD." aria-label="Chat met VGSD via WhatsApp" class="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_28px_-8px_rgba(0,0,0,0.4)] transition-transform hover:scale-105">
   <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
 </a>
@@ -322,14 +322,14 @@
   <section class="pt-16 pb-14 sm:pt-20 sm:pb-16">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
-        <h1 id="activiteiten-titel" class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
+        <h1 id="activiteiten-titel" data-inhoud="intro.titel" class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
           Activiteiten
         </h1>
-        <p id="activiteiten-tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[52ch]">
+        <p id="activiteiten-tekst" data-inhoud="intro.tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[52ch]">
           Bij VGSD is altijd wel iets te doen. Van verdieping in de Bijbel tot een avond in de soos: hieronder vind je alles wat we doorheen het jaar organiseren.
         </p>
         <p class="mt-3 text-ink-500 leading-relaxed max-w-[52ch] text-[15px]">
-          <span id="activiteiten-subtekst">Nog geen lid? Sommige van deze avonden stellen we speciaal open voor nieuwe gezichten.</span> Bekijk alle <a href="open-avonden.html" class="text-brand-600 hover:underline">open avonden</a>.
+          <span id="activiteiten-subtekst" data-inhoud="intro.subtekst">Nog geen lid? Sommige van deze avonden stellen we speciaal open voor nieuwe gezichten.</span> Bekijk alle <a href="open-avonden.html" class="text-brand-600 hover:underline">open avonden</a>.
         </p>
       </div>
     </div>
@@ -339,7 +339,7 @@
   <section class="pb-20 sm:pb-28">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div id="activiteiten-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Kaarten worden hier automatisch ingevuld vanuit data/activiteiten-overzicht.json (zie admin/config.yml en het script onderaan de pagina). -->
+        <!-- Kaarten worden hier automatisch ingevuld vanuit data/paginas/activiteiten/kaarten.json (zie admin/config.yml en het script onderaan de pagina). -->
       </div>
     </div>
   </section>
@@ -493,19 +493,11 @@
 
   VGSD.initReveal();
 
-  // Activiteitenoverzicht: vult de introtekst en bouwt de kaarten vanuit
-  // data/activiteiten-overzicht.json (bewerkbaar via de beheerpagina, collectie "Activiteiten").
+  // Activiteitenoverzicht: bouwt de kaarten vanuit data/paginas/activiteiten/kaarten.json
+  // (bewerkbaar via de beheerpagina, Activiteiten > Activiteitenkaarten). De introtekst wordt
+  // door js/site.js ingevuld (data-inhoud-attributen).
   function alineas(tekst) {
     return String(tekst || '').split(/\n\s*\n/).map((a) => a.trim()).filter(Boolean);
-  }
-
-  function vulActiviteitenIntro(intro) {
-    const titelEl = document.getElementById('activiteiten-titel');
-    const tekstEl = document.getElementById('activiteiten-tekst');
-    const subtekstEl = document.getElementById('activiteiten-subtekst');
-    if (titelEl && intro.titel) titelEl.textContent = intro.titel;
-    if (tekstEl && intro.tekst) tekstEl.textContent = intro.tekst;
-    if (subtekstEl && intro.subtekst) subtekstEl.textContent = intro.subtekst;
   }
 
   function maakActiviteitKaart(kaart, index) {
@@ -601,11 +593,8 @@
     VGSD.initReveal();
   }
 
-  VGSD.laad('activiteiten-overzicht')
-    .then((data) => {
-      vulActiviteitenIntro(data.intro || {});
-      renderActiviteitenKaarten(data.kaarten || []);
-    })
+  VGSD.inhoud
+    .then(({ pagina }) => renderActiviteitenKaarten((pagina.kaarten && pagina.kaarten.kaarten) || []))
     .catch((fout) => console.error('VGSD: activiteitenoverzicht laden mislukt.', fout));
 </script>
 

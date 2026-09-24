@@ -185,10 +185,10 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased" data-pagina="paginas/open-avonden">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/open-avonden" data-blokken="intro leeg cta">
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<!-- Nummer komt uit data/site.json (zie js/site.js). -->
+<!-- Nummer komt uit data/instellingen/whatsapp.json (zie js/site.js). -->
 <a href="#" data-wa data-wa-tekst="Hoi! Ik heb een vraag over VGSD." aria-label="Chat met VGSD via WhatsApp" class="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_28px_-8px_rgba(0,0,0,0.4)] transition-transform hover:scale-105">
   <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
 </a>
@@ -343,7 +343,7 @@
       <div id="open-avonden-lijst" class="space-y-4">
         <!-- JS-gerenderd uit data/activiteiten.json. -->
       </div>
-      <p id="open-avonden-leeg" data-inhoud="leegTekst" class="hidden reveal text-ink-500 text-[15px]">
+      <p id="open-avonden-leeg" data-inhoud="leeg.tekst" class="hidden reveal text-ink-500 text-[15px]">
         Er zijn nog geen open avonden ingepland. Kom snel terug voor de nieuwe data.
       </p>
     </div>

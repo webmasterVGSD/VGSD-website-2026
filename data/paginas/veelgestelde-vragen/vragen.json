@@ -1,8 +1,4 @@
 {
-  "intro": {
-    "titel": "Veelgestelde vragen",
-    "tekst": "Twijfel je nog of de VGSD iets voor jou is, of wil je gewoon meer weten voordat je langskomt? Hieronder de antwoorden op de vragen die we het vaakst krijgen."
-  },
   "vragen": [
     {
       "vraag": "Hoe word ik lid?",
@@ -48,9 +44,5 @@
       "vraag": "Wat kost het om lid te zijn?",
       "antwoord": "De contributie bedraagt €12 per maand. De hoofdelijke omslag is gelijk voor iedereen, dus als jongerejaars hoef je niet meer te betalen dan iemand die al langer lid is.\n\nDeze contributie is niet voldoende om de weekenden te betalen. Voor deze weekenden is het normaal om extra te betalen."
     }
-  ],
-  "cta": {
-    "titel": "Meer vragen?",
-    "tekst": "Heb je nog meer vragen, of weet je nog niet zeker of je lid wordt en wil je een keertje langskomen? Stuur een mail of gebruik de WhatsApp-knop rechtsonder in beeld."
-  }
+  ]
 }

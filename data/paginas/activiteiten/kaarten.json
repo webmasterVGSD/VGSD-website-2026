@@ -1,15 +1,13 @@
 {
-  "intro": {
-    "titel": "Activiteiten",
-    "tekst": "Bij VGSD is altijd wel iets te doen. Van verdieping in de Bijbel tot een avond in de soos: hieronder vind je alles wat we doorheen het jaar organiseren.",
-    "subtekst": "Nog geen lid? Sommige van deze avonden stellen we speciaal open voor nieuwe gezichten."
-  },
   "kaarten": [
     {
       "titel": "Dies Natalis",
       "icoon": "cake",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/Dies/feest-dies-2025-scaled.jpg", "positie": "50% 40%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/Dies/feest-dies-2025-scaled.jpg",
+        "positie": "50% 40%"
+      },
       "tekst": "De verjaardag van de vereniging (opgericht op 23 maart 1961), gevierd met een groots gala en een episch feest.",
       "leesMeer": "De historie van onze vereniging begint op 23 maart 1961. Elk jaar vieren we deze verjaardag, ook wel de Dies Natalis genoemd. Dit doen wij door een groot gala te houden met een uitgebreid diner en een episch feest, dit alles georganiseerd door de diescommissie. Dit is bij uitstek het hoogtepunt van het jaar, waar we tot de vroege uurtjes op de dansvloer staan met onze zusters en broeders."
     },
@@ -17,7 +15,10 @@
       "titel": "Bijbelkring",
       "icoon": "book-open-text",
       "highlight": true,
-      "foto": { "src": "/images/photos/Activiteiten/bible-wood-scaled.jpg", "positie": "50% 100%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/bible-wood-scaled.jpg",
+        "positie": "50% 100%"
+      },
       "tekst": "Tweewekelijks eten, bijbellezen, zingen en bidden in groepjes van ongeveer zes, aan de hand van het bijbelkringboekje.",
       "leesMeer": "Een belangrijke activiteit van de VGSD is de tweewekelijkse Bijbelkringavond, waar groepjes van ongeveer zes personen samen eten, Bijbel lezen, zingen en bidden. Er wordt gepraat over verschillende onderwerpen aan de hand van het bijbelkringboekje. Dit boekje wordt samengesteld door de bijbelkringcommissie (BKC). De onderwerpen variëren van \"Openbaring\" tot \"Heiligheid\" en \"Salomo\".\n\nDe onderwerpen worden ingeleid door een plenaire bijbelstudie (PBS). Een spreker (bijvoorbeeld een dominee, theoloog, IFES-stafwerker of oud-lid) komt dan een lezing geven over het onderwerp. Hij of zij deelt daarin eigen ervaringen, waarna er gelegenheid is om vragen te stellen.\n\nDoor de serieuze insteek en de gezellige sfeer spelen de bijbelkringavonden een belangrijke rol in de persoonlijke ontwikkeling van de leden. Daarnaast leer je de mensen van je kring goed kennen en zo ontstaan hier ook echte vriendschappen."
     },
@@ -25,7 +26,10 @@
       "titel": "Soos",
       "icoon": "beer-stein",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/ThemaSoosch-JG-21-5.jpg", "positie": "50% 15%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/ThemaSoosch-JG-21-5.jpg",
+        "positie": "50% 15%"
+      },
       "tekst": "Elke donderdagavond gezelligheid op de Soosboot, met soms een heus thema van een commissie, jaargroep of dispuut.",
       "leesMeer": "Soos is met haar gezelligheid, gastvrijheid en gelegenheid voor goede gesprekken het kloppende hart van de vereniging. Elke donderdagavond zijn we als VGSD te vinden op onze Soosboot. Deze boot ligt op de Schie, tegenover de Koperen Kat. Regelmatig wordt soos door een commissie, jaargroep of dispuut voorzien van een bepaald thema, met alle aankleding en attributen van dien.\n\nKom vooral een keer langs om het zelf mee te maken, je bent van harte welkom!"
     },
@@ -33,7 +37,10 @@
       "titel": "Lustrum",
       "icoon": "trophy",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/Lustrum/Lustrum-Reis-Porto3-scaled.jpg", "positie": "50% 50%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/Lustrum/Lustrum-Reis-Porto3-scaled.jpg",
+        "positie": "50% 50%"
+      },
       "tekst": "Om de vijf jaar een extra groot feestjaar, met een speciale lustrumweek en een buitenlandse lustrumreis (laatst naar Porto).",
       "leesMeer": "Een lustrum is een viering van een 5-jarig bestaan. Dan pakken wij extra groots uit om feest te vieren. Het hele jaar door worden er extra activiteiten georganiseerd, zoals ons eigen bier brouwen en weerwolven over meerdere dagen. Daarnaast staat één week speciaal in het teken van het lustrum, waarin er dagelijks prachtige activiteiten worden georganiseerd om eens extra gek te doen. En uiteraard kan een mooi feestje daarbij niet ontbreken!\n\nDaarnaast gaan we dan ook met de hele vereniging op lustrumreis naar het buitenland. Afgelopen keer gingen we massaal naar Porto, waar we heerlijk hebben gegeten, port hebben geproefd in een van de porthuizen en genoten van het heerlijke Portugese weer. Oftewel, dit wordt een van de beste herinneringen van je studententijd."
     },
@@ -41,7 +48,10 @@
       "titel": "Lezingen",
       "icoon": "presentation",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/20240716_0017.jpg", "positie": "50% 50%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/20240716_0017.jpg",
+        "positie": "50% 50%"
+      },
       "tekst": "Vier keer per jaar een academische lezing over uiteenlopende onderwerpen, van hedonisme tot Tolkien, vaak interactief.",
       "leesMeer": "Ongeveer 4 keer per jaar hebben we een academische lezing. Onze Programma-Commissie bedenkt twee halfjaarthema's waarin de academische lezingen worden gegeven en regelt hier vervolgens de sprekers voor. Ze zijn bedoeld om onze kennis te verbreden en te prikkelen om hierover na te denken. Zo zijn er lezingen gegeven over hedonisme, Tolkien en criminologie. Veel van de lezingen krijgen een interactieve invulling, waardoor het zelfs voor de kortste spanningsbogen interessant blijft om te luisteren."
     },
@@ -57,7 +67,10 @@
       "titel": "ALV's",
       "icoon": "gavel",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/ALV-scaled.jpg", "positie": "50% 50%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/ALV-scaled.jpg",
+        "positie": "50% 50%"
+      },
       "tekst": "De Algemene Ledenvergadering, waar officiële besluiten worden genomen, meestal met de nodige ludieke voorstellen ertussendoor.",
       "leesMeer": "ALV staat voor Algemene Leden Vergadering. Een ALV werkt ongeveer zoals de Tweede Kamer vergadert: hier worden de belangrijke besluiten genomen voor de vereniging, zoals de ledeninstallatie, plannen presenteren en het beleid goedkeuren. Maar net als in de Tweede Kamer worden hier ook voorstellen ingediend, meestal met een ludieke toon, waardoor de lange vergaderingen toch erg leuk blijven. Denk bijvoorbeeld aan een brief sturen naar de koning, of het regelen van hamburgers omdat leden om 2 uur 's nachts honger hebben."
     },
@@ -65,7 +78,10 @@
       "titel": "Avond van Zang en Gebed",
       "icoon": "music-notes",
       "highlight": true,
-      "foto": { "src": "/images/photos/Activiteiten/signal-2022-06-01-10-12-08-978.jpg", "positie": "50% 50%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/signal-2022-06-01-10-12-08-978.jpg",
+        "positie": "50% 50%"
+      },
       "tekst": "Vier keer per jaar de hele vereniging samen God aanbidden met zang en gebed, onder leiding van de eigen band.",
       "leesMeer": "Zo een vier keer per jaar hebben wij een AZG, een Avond van Zang en Gebed, waar we met de hele vereniging God lofprijzen, bezingen en tot Hem bidden. Onder leiding van onze eigen band zingen we een aantal liederen en hebben we een korte overdenking met elkaar. Een prachtige activiteit om samen als vereniging onze Heer te aanbidden. Eén van deze avonden is een broeder-AZG, waarbij we een AZG hebben met de andere christelijke studentenverenigingen in Delft."
     },
@@ -73,7 +89,10 @@
       "titel": "Verenigingsmaaltijden",
       "icoon": "cooking-pot",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/IMG_9464-scaled.jpg", "positie": "50% 50%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/IMG_9464-scaled.jpg",
+        "positie": "50% 50%"
+      },
       "tekst": "Naast het dagelijkse eten op de kasten, maandelijks een verenigingsmaaltijd, plus het jaarlijkse kerstdiner in foute kersttrui.",
       "leesMeer": "Naast dat onze kasten elke avond met elkaar eten, eten we ongeveer eens per maand samen als vereniging voor een activiteit. Hiervoor koken een paar leden een heerlijke maaltijd, of kookt elk huis een prachtig gerecht. Hierna kunnen we met z'n allen heerlijk genieten en een goede tijd samen hebben.\n\nDaarnaast hebben we ook het jaarlijkse kerstdiner, waar we allemaal in onze foute kerstkleding bij elkaar komen. Met de kaarsen op tafel, het eten op de gourmetstellen en de wijn in de glazen kan er goed kerst gevierd worden."
     },
@@ -81,7 +100,10 @@
       "titel": "Eerstejaarsweekend",
       "icoon": "backpack",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/EJW/EJW-1.jpg", "positie": "50% 50%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/EJW/EJW-1.jpg",
+        "positie": "50% 50%"
+      },
       "tekst": "Het eerste weekend van je studietijd: samen eten, spelletjes spelen en gezellig borrelen.",
       "leesMeer": "Elk jaar gaan de eerstejaars samen op weekend om elkaar en de vereniging beter te leren kennen. Er wordt samen gegeten, spelletjes gespeeld en geborreld. En uiteraard mag de brascompetitie niet ontbreken."
     },
@@ -89,7 +111,10 @@
       "titel": "Sporten",
       "icoon": "soccer-ball",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/Sporten/sport-1.jpg", "positie": "50% 0%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/Sporten/sport-1.jpg",
+        "positie": "50% 0%"
+      },
       "tekst": "Van het voetbalteam dat elke maandag competitie speelt tot samen zwemmen, wielrennen, hardlopen, wintersporten, hiken of zeilen.",
       "leesMeer": "Binnen de vereniging zijn er verschillende groepjes die samen sporten. Zo hebben we een voetbalteam dat elke maandagavond een competitiewedstrijd speelt tegen andere studententeams uit Delft. Maar er zijn ook leden die samen zwemmen, wielrennen of hardlopen. Of die samen op wintersport gaan, in de zomer samen gaan hiken of samen een paar dagen gaan zeilen."
     },
@@ -97,7 +122,10 @@
       "titel": "Werkgroepen",
       "icoon": "notebook",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/Werkgroep.jpg", "positie": "50% 0%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/Werkgroep.jpg",
+        "positie": "50% 0%"
+      },
       "tekst": "Twee keer per jaar een reeks van drie avonden waarin leden zelf een onderwerp voorbereiden om samen dieper in te duiken.",
       "leesMeer": "Naast onze studie en het geloof is het ook erg leuk om nieuwe dingen te ontdekken en over nieuwe onderwerpen na te denken. Hiervoor hebben wij zo een twee keer per jaar een werkgroepsronde van drie avonden, waarin leden zelf een onderwerp voorbereiden om met een paar andere leden dieper in te duiken. Denk hierbij aan een boek lezen, een geluidsversterker in elkaar zetten, leer bewerken, voedingswaarden in ons voedsel of leren over vuurwapens."
     },
@@ -105,7 +133,10 @@
       "titel": "Zeilweekend",
       "icoon": "sailboat",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/Zeilweekend/Zeilweekend-4.jpeg", "positie": "50% 50%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/Zeilweekend/Zeilweekend-4.jpeg",
+        "positie": "50% 50%"
+      },
       "tekst": "Een weekend de Friese wateren onveilig maken, met 's avonds overnachten op de eilandjes bij een kampvuur.",
       "leesMeer": "Elk jaar wordt er een zeilweekend georganiseerd, waarbij we de Friese wateren onveilig maken en 's avonds overnachten op de eilandjes met een kampvuur."
     },
@@ -121,7 +152,10 @@
       "titel": "Maïzena",
       "icoon": "flag-checkered",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/Maizena/maizena.26-09-20241.jpg", "positie": "50% 50%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/Maizena/maizena.26-09-20241.jpg",
+        "positie": "50% 50%"
+      },
       "tekst": "Studentikoze spellen die de onderlinge band versterken, van een autorally met opdrachten tot spelshows met een studententwist.",
       "leesMeer": "Het zit al een beetje in de naam, maar maïzena-activiteiten hebben als doel om nog meer verbondenheid binnen de vereniging te creëren. Hierbij worden vaak studentikoze spellen gedaan. Zo hebben we een keer een autorally gehad waarbij we een route moesten afleggen en onderweg opdrachten uitvoeren voor punten. Of spelshows, zoals Miljoenenjacht of Ik hou van Holland met een studententwist."
     },
@@ -137,7 +171,10 @@
       "titel": "Liftweekend",
       "icoon": "thumbs-up",
       "highlight": false,
-      "foto": { "src": "/images/photos/Activiteiten/Liftweekend/Liftweekend-1-scaled.jpg", "positie": "50% 50%" },
+      "foto": {
+        "src": "/images/photos/Activiteiten/Liftweekend/Liftweekend-1-scaled.jpg",
+        "positie": "50% 50%"
+      },
       "tekst": "Voor de volledige studentenervaring: liften naar bijvoorbeeld Zuid-Duitsland, zonder reiskosten en met epische verhalen.",
       "leesMeer": "Wil je echt voor de volledige studentenervaring gaan? Dan ga je mee op liftweekend: naar bijvoorbeeld Zuid-Duitsland kamperen zonder reiskosten en met epische verhalen!"
     }

@@ -1,8 +1,8 @@
 name: VVGSD-stand en -schema bijwerken
 
 # Haalt automatisch de stand en het wedstrijdschema van het VGSD-voetbalteam (VVGSD) op van
-# Playpass (zie data/vvgsd-instellingen.json) en commit de gegevens als er iets veranderd is.
-# Verandert Playpass een koptekst zoals "Points", dan hoeft alleen data/vvgsd-instellingen.json
+# Playpass (zie data/paginas/vvgsd/standEnSchema.json) en commit de gegevens als er iets veranderd is.
+# Verandert Playpass een koptekst zoals "Points", dan hoeft alleen data/paginas/vvgsd/standEnSchema.json
 # aangepast te worden (via de beheerpagina, collectie "VVGSD") — niet dit workflow-bestand.
 #
 # Let op bij het eerste gebruik: dit werkt alleen als de repo-instelling "Workflow permissions"

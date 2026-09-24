@@ -1,11 +1,7 @@
 {
-  "intro": {
-    "titel": "Geschiedenis",
-    "tekst": "Hoe de VGSD in 1961 in Delft ontstond, en waar de vereniging sindsdien voor staat.",
-    "sectieTitel": "Van onvrede tot oprichting",
-    "sectieTekst": "De geschiedenis van de VGSD gaat terug tot 1961, maar het verhaal begint al iets eerder."
-  },
-  "tijdlijn": [
+  "titel": "Van onvrede tot oprichting",
+  "tekst": "De geschiedenis van de VGSD gaat terug tot 1961, maar het verhaal begint al iets eerder.",
+  "stappen": [
     {
       "periode": "Eind jaren vijftig",
       "titel": "Onvrede bij de SSR",

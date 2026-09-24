@@ -22,202 +22,198 @@ logo_url: https://preview.vgsd.nl/images/logo/vgsd-logo.svg
 media_folder: /images/photos/besturen
 public_folder: /images/photos/besturen
 
-# Elke pagina van de site heeft hieronder een eigen collectie, in ongeveer dezelfde volgorde als
-# het menu op de site (zo vind je snel wat je zoekt in het menu links), en dan Instellingen voor de
-# gegevens die op de hele site gebruikt worden (WhatsApp, contact, social media, footer).
-# Teksten van pagina's staan in data/paginas/; js/site.js vult ze in via data-inhoud-attributen.
+# Elke pagina van de site heeft hieronder een eigen collectie (ongeveer in de volgorde van het
+# menu op de site). Binnen een collectie is elk blok van die pagina een eigen bestand in data/
+# (bv. data/paginas/home/hero.json), zodat je na een klik op een pagina meteen alle blokken ziet.
+# js/site.js laadt die blokken via <body data-pagina="..." data-blokken="..."> en vult de pagina.
+# Instellingen (data/instellingen/) worden op alle pagina's gebruikt.
 collections:
-  # ---------------------------------------------------------------------------------------------
   - name: homepage
     label: Homepage
     icon: home
     files:
-      - name: homepage
-        label: Homepage
-        file: data/paginas/home.json
+      - name: hero
+        label: Bovenaan de pagina
+        file: data/paginas/home/hero.json
         fields:
-          - name: hero
-            label: Bovenaan de pagina
-            widget: object
-            fields:
-              - name: titel
-                label: Grote titel
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
-              - name: knopLidWorden
-                label: Tekst op de rode knop
-                widget: string
-              - name: knopOpenAvonden
-                label: Tekst op de tweede knop (naar open avonden)
-                widget: string
-              - name: foto
-                label: Foto
-                widget: image
-                media_folder: /images/photos/home
-                public_folder: /images/photos/home
-                hint: >-
-                  Liefst een staande of vierkante foto (hij wordt rechts naast de titel getoond, ongeveer
-                  even hoog als breed). Liefst niet groter dan 1600 pixels.
-              - name: fotoAlt
-                label: Omschrijving van de foto
-                widget: string
-                hint: Voor blinden/slechtzienden en Google, bijvoorbeeld "Leden van VGSD lachen samen op de soosboot".
-              - name: labelTitel
-                label: Wit labeltje op de foto — vetgedrukte regel
-                widget: string
-              - name: labelTekst
-                label: Wit labeltje op de foto — kleine regel
-                widget: string
-          - name: overOns
-            label: Blok "Over ons" (met foto)
-            widget: object
+          - name: titel
+            label: Grote titel
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+          - name: knopLidWorden
+            label: Tekst op de rode knop
+            widget: string
+          - name: knopOpenAvonden
+            label: Tekst op de tweede knop (naar open avonden)
+            widget: string
+          - name: foto
+            label: Foto
+            widget: image
+            media_folder: /images/photos/home
+            public_folder: /images/photos/home
+            hint: >-
+              Liefst een staande of vierkante foto (hij wordt rechts naast de titel getoond,
+              ongeveer even hoog als breed). Liefst niet groter dan 1600 pixels.
+          - name: fotoAlt
+            label: Omschrijving van de foto
+            widget: string
+            hint: >-
+              Voor blinden/slechtzienden en Google, bijvoorbeeld "Leden van VGSD lachen samen op de
+              soosboot".
+          - name: labelTitel
+            label: Wit labeltje op de foto — vetgedrukte regel
+            widget: string
+          - name: labelTekst
+            label: Wit labeltje op de foto — kleine regel
+            widget: string
+      - name: overOns
+        label: Blok "Over ons" (met foto)
+        file: data/paginas/home/overOns.json
+        fields:
+          - name: titel
+            label: Titel
+            widget: string
+          - name: tekst
+            label: Tekst
+            widget: text
+            hint: >-
+              Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
+              link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
+          - name: foto
+            label: Foto
+            widget: image
+            media_folder: /images/photos/home
+            public_folder: /images/photos/home
+          - name: fotoAlt
+            label: Omschrijving van de foto
+            widget: string
+      - name: pijlers
+        label: Blok "Waar we voor staan" (pijlers)
+        file: data/paginas/home/pijlers.json
+        fields:
+          - name: titel
+            label: Titel
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+          - name: kaarten
+            label: Pijlers
+            label_singular: Pijler
+            widget: list
+            collapsed: true
+            summary: '{{titel}}'
+            hint: Slepen verandert de volgorde. Vier kaarten past het mooist naast elkaar.
             fields:
               - name: titel
                 label: Titel
                 widget: string
+              - name: icoon
+                label: Icoon
+                widget: string
+                hint: >-
+                  De naam van een icoon van phosphoricons.com, zonder "ph-" ervoor (bijvoorbeeld
+                  "cross" of "confetti").
+              - name: highlight
+                label: Rood uitgelicht
+                widget: boolean
+                default: false
               - name: tekst
                 label: Tekst
+                widget: text
+      - name: leden
+        label: Blok "Leden aan het woord"
+        file: data/paginas/home/leden.json
+        fields:
+          - name: titel
+            label: Titel
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+          - name: verhalen
+            label: Verhalen
+            label_singular: Verhaal
+            widget: list
+            collapsed: true
+            summary: '{{naam}}'
+            hint: Drie verhalen past het mooist naast elkaar.
+            fields:
+              - name: naam
+                label: Naam
+                widget: string
+              - name: foto
+                label: Pasfoto
+                widget: image
+                required: false
+                media_folder: /images/photos/leden
+                public_folder: /images/photos/leden
+                hint: Wordt als klein rondje getoond; een vierkante foto van het gezicht werkt het best.
+              - name: tekst
+                label: Verhaal
                 widget: text
                 hint: >-
                   Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
                   link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
+      - name: instagram
+        label: Blok "Volg ons op Instagram"
+        file: data/paginas/home/instagram.json
+        fields:
+          - name: titel
+            label: Titel
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+          - name: knop
+            label: Tekst op de knop
+            widget: string
+            hint: De link van de knop is de Instagram-link uit Instellingen.
+          - name: fotos
+            label: Foto's
+            label_singular: Foto
+            widget: list
+            required: false
+            collapsed: true
+            summary: '{{omschrijving}}'
+            hint: >-
+              Zes foto's vullen precies één rij. Zolang deze lijst leeg is, staan er lege tegels op
+              de site. Vierkante foto's werken het best.
+            fields:
               - name: foto
                 label: Foto
                 widget: image
-                media_folder: /images/photos/home
-                public_folder: /images/photos/home
-              - name: fotoAlt
+                media_folder: /images/photos/instagram
+                public_folder: /images/photos/instagram
+              - name: omschrijving
                 label: Omschrijving van de foto
                 widget: string
-          - name: pijlers
-            label: Blok "Waar we voor staan" (pijlers)
-            widget: object
-            fields:
-              - name: titel
-                label: Titel
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
-              - name: kaarten
-                label: Pijlers
-                label_singular: Pijler
-                widget: list
-                collapsed: true
-                summary: '{{titel}}'
-                hint: Slepen verandert de volgorde. Vier kaarten past het mooist naast elkaar.
-                fields:
-                  - name: titel
-                    label: Titel
-                    widget: string
-                  - name: icoon
-                    label: Icoon
-                    widget: string
-                    hint: >-
-                      De naam van een icoon van phosphoricons.com, zonder "ph-" ervoor (bijvoorbeeld
-                      "cross" of "confetti").
-                  - name: highlight
-                    label: Rood uitgelicht
-                    widget: boolean
-                    default: false
-                  - name: tekst
-                    label: Tekst
-                    widget: text
-          - name: leden
-            label: Blok "Leden aan het woord"
-            widget: object
-            fields:
-              - name: titel
-                label: Titel
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
-              - name: verhalen
-                label: Verhalen
-                label_singular: Verhaal
-                widget: list
-                collapsed: true
-                summary: '{{naam}}'
-                hint: Drie verhalen past het mooist naast elkaar.
-                fields:
-                  - name: naam
-                    label: Naam
-                    widget: string
-                  - name: foto
-                    label: Pasfoto
-                    widget: image
-                    required: false
-                    media_folder: /images/photos/leden
-                    public_folder: /images/photos/leden
-                    hint: Wordt als klein rondje getoond; een vierkante foto van het gezicht werkt het best.
-                  - name: tekst
-                    label: Verhaal
-                    widget: text
-                    hint: >-
-                      Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
-                      link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
-          - name: instagram
-            label: Blok "Volg ons op Instagram"
-            widget: object
-            fields:
-              - name: titel
-                label: Titel
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
-              - name: knop
-                label: Tekst op de knop
-                widget: string
-                hint: De link van de knop is de Instagram-link uit Instellingen.
-              - name: fotos
-                label: Foto's
-                label_singular: Foto
-                widget: list
-                required: false
-                collapsed: true
-                summary: '{{omschrijving}}'
-                hint: >-
-                  Zes foto's vullen precies één rij. Zolang deze lijst leeg is, staan er lege tegels op
-                  de site. Vierkante foto's werken het best.
-                fields:
-                  - name: foto
-                    label: Foto
-                    widget: image
-                    media_folder: /images/photos/instagram
-                    public_folder: /images/photos/instagram
-                  - name: omschrijving
-                    label: Omschrijving van de foto
-                    widget: string
-
-  # ---------------------------------------------------------------------------------------------
-  - name: activiteiten_overzicht
+  - name: activiteiten
     label: Activiteiten
     icon: celebration
     files:
-      - name: activiteiten_overzicht
-        label: Activiteitenpagina
-        file: data/activiteiten-overzicht.json
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/activiteiten/intro.json
         fields:
-          - name: intro
-            label: Tekst bovenaan de pagina
-            widget: object
-            fields:
-              - name: titel
-                label: Titel (H1)
-                widget: string
-              - name: tekst
-                label: Hoofdtekst
-                widget: text
-              - name: subtekst
-                label: Tweede regel
-                widget: text
-                hint: >-
-                  Hierna volgt altijd automatisch de vaste zin "Bekijk alle open avonden" met een
-                  link — dat stukje staat niet hier en kan niet worden aangepast.
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Hoofdtekst
+            widget: text
+          - name: subtekst
+            label: Tweede regel
+            widget: text
+            hint: >-
+              Hierna volgt altijd automatisch de vaste zin "Bekijk alle open avonden" met een link —
+              dat stukje staat niet hier en kan niet worden aangepast.
+      - name: kaarten
+        label: Activiteitenkaarten
+        file: data/paginas/activiteiten/kaarten.json
+        fields:
           - name: kaarten
             label: Activiteitenkaarten
             label_singular: Activiteit
@@ -238,15 +234,16 @@ collections:
                 widget: string
                 hint: >-
                   De naam van een icoon van phosphoricons.com (zoek daar het icoon op en gebruik de
-                  naam die daar staat, bijvoorbeeld "book-open-text" of "trophy"), zonder "ph-" ervoor.
+                  naam die daar staat, bijvoorbeeld "book-open-text" of "trophy"), zonder "ph-"
+                  ervoor.
               - name: highlight
                 label: Rood uitgelicht
                 widget: boolean
                 default: false
                 hint: >-
-                  Zet dit aan om de kaart rood (in plaats van wit) te maken, voor de belangrijkste of
-                  meest kenmerkende activiteiten. Zet niet te veel rode kaarten vlak na elkaar in de
-                  volgorde — verspreid ze liever over de lijst.
+                  Zet dit aan om de kaart rood (in plaats van wit) te maken, voor de belangrijkste
+                  of meest kenmerkende activiteiten. Zet niet te veel rode kaarten vlak na elkaar in
+                  de volgorde — verspreid ze liever over de lijst.
               - name: foto
                 label: Foto
                 widget: vgsd-foto-activiteiten
@@ -254,9 +251,9 @@ collections:
                 media_folder: /images/photos/Activiteiten
                 public_folder: /images/photos/Activiteiten
                 hint: >-
-                  Upload de foto, sleep hem in het kader om te bepalen welk deel zichtbaar blijft, en
-                  klik op Opslaan. De foto wordt automatisch verkleind. Zonder foto toont de kaart
-                  alleen het icoon en de tekst.
+                  Upload de foto, sleep hem in het kader om te bepalen welk deel zichtbaar blijft,
+                  en klik op Opslaan. De foto wordt automatisch verkleind. Zonder foto toont de
+                  kaart alleen het icoon en de tekst.
               - name: tekst
                 label: Korte omschrijving
                 widget: text
@@ -268,13 +265,11 @@ collections:
                 hint: >-
                   Laat dit leeg voor kaarten zonder "Lees meer"-knop (bijvoorbeeld omdat de korte
                   omschrijving al genoeg zegt). Laat een lege regel tussen alinea's.
-
-  # ---------------------------------------------------------------------------------------------
   - name: open_avonden
     label: Open avonden
     icon: event
     files:
-      - name: open_avonden
+      - name: kalender
         label: Kalender met open avonden
         file: data/activiteiten.json
         fields:
@@ -292,7 +287,7 @@ collections:
               - name: datum
                 label: Datum en tijd
                 widget: datetime
-                format: 'YYYY-MM-DD[T]HH:mm'
+                format: YYYY-MM-DD[T]HH:mm
               - name: titel
                 label: Titel
                 widget: string
@@ -302,45 +297,59 @@ collections:
               - name: omschrijving
                 label: Omschrijving
                 widget: text
-      - name: open_avonden_pagina
-        label: Teksten op de pagina
-        file: data/paginas/open-avonden.json
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/open-avonden/intro.json
         fields:
-          - name: intro
-            label: Tekst bovenaan de pagina
-            widget: object
-            fields:
-              - name: titel
-                label: Titel (H1)
-                widget: string
-              - name: tekst
-                label: Hoofdtekst
-                widget: text
-              - name: subtekst
-                label: Tweede alinea (grijs)
-                widget: text
-                hint: >-
-                  Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
-                  link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
-          - name: leegTekst
-            label: Tekst als er geen open avonden gepland zijn
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Hoofdtekst
             widget: text
-          - name: cta
-            label: Rood blok onderaan
-            widget: object
-            fields:
-              - name: titel
-                label: Titel
-                widget: string
-              - name: tekst
-                label: Tekst
-                widget: text
-
-  # ---------------------------------------------------------------------------------------------
+          - name: subtekst
+            label: Tweede alinea (grijs)
+            widget: text
+            hint: >-
+              Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
+              link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
+      - name: leeg
+        label: Tekst als er geen open avonden gepland zijn
+        file: data/paginas/open-avonden/leeg.json
+        fields:
+          - name: tekst
+            label: Tekst
+            widget: text
+      - name: cta
+        label: Rood blok onderaan
+        file: data/paginas/open-avonden/cta.json
+        fields:
+          - name: titel
+            label: Titel
+            widget: string
+          - name: tekst
+            label: Tekst
+            widget: text
   - name: besturen
     label: Besturen
     icon: groups
     files:
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/besturen/intro.json
+        fields:
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+            hint: >-
+              Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
+              link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
+          - name: eerdereBesturenTitel
+            label: Kop boven de oudere besturen
+            widget: string
       - name: besturen
         label: Alle besturen
         file: data/besturen.json
@@ -351,7 +360,7 @@ collections:
             widget: list
             add_to_top: true
             collapsed: true
-            summary: 'Bestuur {{naam}} — {{praeses}}'
+            summary: Bestuur {{naam}} — {{praeses}}
             hint: >-
               Nieuwste bestuur bovenaan. Het bovenste bestuur wordt op de website groot uitgelicht
               als huidig bestuur. Een nieuw bestuur voeg je toe met de knop bovenaan de lijst.
@@ -361,7 +370,8 @@ collections:
                 widget: string
                 hint: >-
                   De achternaam van de praeses, zonder het woord "Bestuur", bijvoorbeeld "de Jong".
-                  Komt dezelfde achternaam vaker voor, voeg dan een Romeins cijfer toe: "de Jong II".
+                  Komt dezelfde achternaam vaker voor, voeg dan een Romeins cijfer toe: "de Jong
+                  II".
               - name: praeses
                 label: Praeses
                 widget: string
@@ -382,67 +392,47 @@ collections:
                 widget: vgsd-foto
                 required: false
                 hint: >-
-                  Liefst een liggende groepsfoto. Upload de foto, sleep hem in het kader om te bepalen
-                  welk deel zichtbaar blijft, en klik op Opslaan. De foto wordt automatisch verkleind.
-                  Zonder foto wordt op de website geen fotovlak getoond.
+                  Liefst een liggende groepsfoto. Upload de foto, sleep hem in het kader om te
+                  bepalen welk deel zichtbaar blijft, en klik op Opslaan. De foto wordt automatisch
+                  verkleind. Zonder foto wordt op de website geen fotovlak getoond.
               - name: quote
                 label: Quote
                 widget: string
                 required: false
-                hint: 'Bijvoorbeeld: We hit turbulence ~ S. Aoki. Het deel na het ~-teken (de bron) mag ontbreken.'
+                hint: >-
+                  Bijvoorbeeld: We hit turbulence ~ S. Aoki. Het deel na het ~-teken (de bron) mag
+                  ontbreken.
               - name: tekst
                 label: Bestuurstekst
                 widget: text
                 required: false
                 hint: Laat een lege regel tussen alinea's.
-      - name: besturen_pagina
-        label: Teksten op de pagina
-        file: data/paginas/besturen.json
-        fields:
-          - name: intro
-            label: Tekst bovenaan de pagina
-            widget: object
-            fields:
-              - name: titel
-                label: Titel (H1)
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
-                hint: >-
-                  Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
-                  link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
-          - name: eerdereBesturenTitel
-            label: Kop boven de oudere besturen
-            widget: string
-
-  # ---------------------------------------------------------------------------------------------
   - name: geschiedenis
     label: Geschiedenis
     icon: history_edu
     files:
-      - name: geschiedenis
-        label: Geschiedenispagina
-        file: data/geschiedenis.json
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/geschiedenis/intro.json
         fields:
-          - name: intro
-            label: Tekst bovenaan de pagina
-            widget: object
-            fields:
-              - name: titel
-                label: Titel (H1)
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
-              - name: sectieTitel
-                label: Titel boven de tijdlijn
-                widget: string
-              - name: sectieTekst
-                label: Tekst boven de tijdlijn
-                widget: text
-          - name: tijdlijn
-            label: Tijdlijn
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+      - name: tijdlijn
+        label: Tijdlijn
+        file: data/paginas/geschiedenis/tijdlijn.json
+        fields:
+          - name: titel
+            label: Titel boven de tijdlijn
+            widget: string
+          - name: tekst
+            label: Tekst boven de tijdlijn
+            widget: text
+          - name: stappen
+            label: Stappen
             label_singular: Tijdlijnstap
             widget: list
             collapsed: true
@@ -455,7 +445,7 @@ collections:
               - name: periode
                 label: Periode
                 widget: string
-                hint: 'Bijvoorbeeld "Begin 1961" of "Vandaag".'
+                hint: Bijvoorbeeld "Begin 1961" of "Vandaag".
               - name: titel
                 label: Titel
                 widget: string
@@ -466,26 +456,24 @@ collections:
                 label: Dit is de huidige/laatste stap
                 widget: boolean
                 default: false
-
-  # ---------------------------------------------------------------------------------------------
   - name: verbanden
     label: Verbanden
     icon: handshake
     files:
-      - name: verbanden
-        label: Verbandenpagina
-        file: data/paginas/verbanden.json
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/verbanden/intro.json
         fields:
-          - name: intro
-            label: Tekst bovenaan de pagina
-            widget: object
-            fields:
-              - name: titel
-                label: Titel (H1)
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+      - name: kaarten
+        label: Verbanden (kaarten)
+        file: data/paginas/verbanden/kaarten.json
+        fields:
           - name: kaarten
             label: Verbanden
             label_singular: Verband
@@ -500,7 +488,9 @@ collections:
               - name: icoon
                 label: Icoon
                 widget: string
-                hint: De naam van een icoon van phosphoricons.com, zonder "ph-" ervoor (bijvoorbeeld "handshake").
+                hint: >-
+                  De naam van een icoon van phosphoricons.com, zonder "ph-" ervoor (bijvoorbeeld
+                  "handshake").
               - name: tekst
                 label: Tekst
                 widget: text
@@ -517,26 +507,24 @@ collections:
                   label: Tekst
                   widget: string
                 hint: Bijvoorbeeld de steden van de zusterverenigingen. Mag leeg blijven.
-
-  # ---------------------------------------------------------------------------------------------
   - name: kasten
     label: Kasten
     icon: house
     files:
-      - name: kasten
-        label: Kastenpagina
-        file: data/paginas/kasten.json
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/kasten/intro.json
         fields:
-          - name: intro
-            label: Tekst bovenaan de pagina
-            widget: object
-            fields:
-              - name: titel
-                label: Titel (H1)
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+      - name: kasten
+        label: Kasten
+        file: data/paginas/kasten/kasten.json
+        fields:
           - name: kasten
             label: Kasten
             label_singular: Kast
@@ -544,8 +532,8 @@ collections:
             collapsed: true
             summary: '{{naam}} — {{gebied}}'
             hint: >-
-              Slepen verandert de volgorde van de kaartjes onder de kaart. Elke kast krijgt een pin op
-              de kaart.
+              Slepen verandert de volgorde van de kaartjes onder de kaart. Elke kast krijgt een pin
+              op de kaart.
             fields:
               - name: naam
                 label: Naam
@@ -553,15 +541,15 @@ collections:
               - name: gebied
                 label: Gebied
                 widget: string
-                hint: 'Bijvoorbeeld "Bij station Delft". Wordt nu alleen in het beheer gebruikt.'
+                hint: Bijvoorbeeld "Bij station Delft". Wordt nu alleen in het beheer gebruikt.
               - name: lat
                 label: Breedtegraad (pin op de kaart)
                 widget: number
                 value_type: float
                 hint: >-
-                  Rechtsklik in Google Maps op de plek en klik op de coördinaten om ze te kopiëren: het
-                  eerste getal (bv. 52.0093) komt hier, het tweede hieronder. Bewust een plek in de buurt
-                  en geen exact adres, vanwege de privacy van de bewoners.
+                  Rechtsklik in Google Maps op de plek en klik op de coördinaten om ze te kopiëren:
+                  het eerste getal (bv. 52.0093) komt hier, het tweede hieronder. Bewust een plek in
+                  de buurt en geen exact adres, vanwege de privacy van de bewoners.
               - name: lon
                 label: Lengtegraad (pin op de kaart)
                 widget: number
@@ -574,304 +562,290 @@ collections:
                 media_folder: /images/photos/Kasten
                 public_folder: /images/photos/Kasten
                 hint: >-
-                  Upload de foto, sleep hem in het kader om te bepalen welk deel zichtbaar blijft op het
-                  kaartje, en klik op Opslaan. De foto wordt automatisch verkleind.
+                  Upload de foto, sleep hem in het kader om te bepalen welk deel zichtbaar blijft op
+                  het kaartje, en klik op Opslaan. De foto wordt automatisch verkleind.
               - name: tekst
                 label: Tekst (in de popup)
                 widget: text
                 hint: >-
                   Laat een lege regel tussen alinea's. Opmaak: **vet**, ~~doorgestreept~~ en
                   [linktekst](adres) voor een link.
-
-  # ---------------------------------------------------------------------------------------------
   - name: vvgsd
     label: VVGSD
     icon: sports_soccer
     files:
-      - name: vvgsd_teksten
-        label: Teksten op de pagina's
-        file: data/paginas/vvgsd.json
+      - name: hoofdpagina
+        label: Teksten op de VVGSD-pagina
+        file: data/paginas/vvgsd/hoofdpagina.json
         fields:
-          - name: hoofdpagina
-            label: VVGSD-pagina
-            widget: object
-            fields:
-              - name: titel
-                label: Titel (H1)
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
-              - name: kopVolgendeWedstrijd
-                label: Kopje boven de eerstvolgende wedstrijd
-                widget: string
-              - name: kopTopscorers
-                label: Kop boven de topscorers
-                widget: string
-              - name: kopVerslagen
-                label: Kop boven de wedstrijdverslagen
-                widget: string
-              - name: ctaTitel
-                label: Titel rood blok onderaan
-                widget: string
-              - name: ctaTekst
-                label: Tekst rood blok onderaan
-                widget: text
-          - name: stand
-            label: Standpagina
-            widget: object
-            fields:
-              - name: titel
-                label: Titel (H1)
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
-          - name: schema
-            label: Wedstrijdschemapagina
-            widget: object
-            fields:
-              - name: titel
-                label: Titel (H1)
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
-
-      - name: vvgsd
-        label: Voetbalteam
-        file: data/vvgsd-instellingen.json
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+          - name: kopVolgendeWedstrijd
+            label: Kopje boven de eerstvolgende wedstrijd
+            widget: string
+          - name: kopTopscorers
+            label: Kop boven de topscorers
+            widget: string
+          - name: kopVerslagen
+            label: Kop boven de wedstrijdverslagen
+            widget: string
+          - name: ctaTitel
+            label: Titel rood blok onderaan
+            widget: string
+          - name: ctaTekst
+            label: Tekst rood blok onderaan
+            widget: text
+      - name: groepsfoto
+        label: Groepsfoto
+        file: data/paginas/vvgsd/groepsfoto.json
         fields:
-          - name: groepsfoto
+          - name: foto
             label: Groepsfoto
-            widget: object
+            widget: image
+            required: false
+            media_folder: /images/photos/vvgsd
+            public_folder: /images/photos/vvgsd
+            hint: Foto voor bovenaan de VVGSD-pagina. Snijd de foto van tevoren zelf bij indien nodig.
+      - name: statistieken
+        label: Topscorers
+        file: data/paginas/vvgsd/statistieken.json
+        fields:
+          - name: topscorers
+            label: Topscorers
+            label_singular: Topscorer
+            widget: list
+            collapsed: true
+            summary: '{{naam}} — {{aantalDoelpunten}}'
             fields:
-              - name: foto
-                label: Groepsfoto
-                widget: image
-                required: false
-                media_folder: /images/photos/vvgsd
-                public_folder: /images/photos/vvgsd
-                hint: Foto voor bovenaan de VVGSD-pagina. Snijd de foto van tevoren zelf bij indien nodig.
-
-          - name: statistieken
-            label: Statistieken
-            widget: object
-            fields:
-              - name: topscorers
-                label: Topscorers
-                label_singular: Topscorer
-                widget: list
-                collapsed: true
-                summary: '{{naam}} — {{aantalDoelpunten}}'
-                fields:
-                  - name: naam
-                    label: Naam
-                    widget: string
-                  - name: aantalDoelpunten
-                    label: Aantal doelpunten
-                    widget: number
-                    value_type: int
-
-          - name: wedstrijdverslagen
+              - name: naam
+                label: Naam
+                widget: string
+              - name: aantalDoelpunten
+                label: Aantal doelpunten
+                widget: number
+                value_type: int
+      - name: wedstrijdverslagen
+        label: Wedstrijdverslagen
+        file: data/paginas/vvgsd/wedstrijdverslagen.json
+        fields:
+          - name: verslagen
             label: Wedstrijdverslagen
-            widget: object
+            label_singular: Verslag
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: '{{datum}} — {{titel}}'
             fields:
-              - name: verslagen
-                label: Wedstrijdverslagen
-                label_singular: Verslag
-                widget: list
-                add_to_top: true
-                collapsed: true
-                summary: '{{datum}} — {{titel}}'
-                fields:
-                  - name: titel
-                    label: Titel
-                    widget: string
-                  - name: datum
-                    label: Datum
-                    widget: datetime
-                    format: 'YYYY-MM-DD'
-                    time_format: false
-                    picker_utc: true
-                  - name: tekst
-                    label: Tekst
-                    widget: text
-                    hint: Laat een lege regel tussen alinea's.
-
-          - name: standEnSchema
-            label: Stand en schema
+              - name: titel
+                label: Titel
+                widget: string
+              - name: datum
+                label: Datum
+                widget: datetime
+                format: YYYY-MM-DD
+                time_format: false
+                picker_utc: true
+              - name: tekst
+                label: Tekst
+                widget: text
+                hint: Laat een lege regel tussen alinea's.
+      - name: standEnSchema
+        label: Stand en schema (Playpass-koppeling en handmatige invoer)
+        file: data/paginas/vvgsd/standEnSchema.json
+        fields:
+          - name: bronUrl
+            label: Bron op Playpass
+            widget: string
+            hint: >-
+              De link naar de poule van VVGSD op Playpass. Verandert deze (bv. een nieuw seizoen),
+              pas hem dan hier aan — de automatische bijwerking gebruikt deze link.
+          - name: teamNaam
+            label: Teamnaam zoals die op Playpass staat
+            widget: string
+            hint: >-
+              Nu: "VVGSD". Wordt gebruikt om VVGSD te herkennen en uit te lichten in de stand en het
+              schema.
+          - name: standKolommen
+            label: Koppeling kolomkoppen op Playpass (automatische stand)
             widget: object
+            hint: >-
+              Voor elk van deze velden: de Engelse koptekst zoals die op de Playpass-standenpagina
+              staat (beweeg over een kolomkop op Playpass om de volledige naam te zien, bv.
+              "Points"). Verandert Playpass een koptekst, pas 'm dan hier aan — dan werkt de
+              automatische bijwerking weer, zonder dat er iets in de code hoeft te veranderen.
             fields:
-              - name: bronUrl
-                label: Bron op Playpass
+              - name: gespeeld
+                label: Kolomkop voor "gespeeld"
                 widget: string
-                hint: >-
-                  De link naar de poule van VVGSD op Playpass. Verandert deze (bv. een nieuw seizoen),
-                  pas hem dan hier aan — de automatische bijwerking gebruikt deze link.
-              - name: teamNaam
-                label: Teamnaam zoals die op Playpass staat
+              - name: gewonnen
+                label: Kolomkop voor "gewonnen"
                 widget: string
-                hint: 'Nu: "VVGSD". Wordt gebruikt om VVGSD te herkennen en uit te lichten in de stand en het schema.'
-              - name: standKolommen
-                label: Koppeling kolomkoppen op Playpass (automatische stand)
-                widget: object
-                hint: >-
-                  Voor elk van deze velden: de Engelse koptekst zoals die op de Playpass-standenpagina
-                  staat (beweeg over een kolomkop op Playpass om de volledige naam te zien, bv. "Points").
-                  Verandert Playpass een koptekst, pas 'm dan hier aan — dan werkt de automatische
-                  bijwerking weer, zonder dat er iets in de code hoeft te veranderen.
-                fields:
-                  - name: gespeeld
-                    label: Kolomkop voor "gespeeld"
-                    widget: string
-                  - name: gewonnen
-                    label: Kolomkop voor "gewonnen"
-                    widget: string
-                  - name: gelijk
-                    label: Kolomkop voor "gelijkgespeeld"
-                    widget: string
-                  - name: verloren
-                    label: Kolomkop voor "verloren"
-                    widget: string
-                  - name: doelpuntenVoor
-                    label: Kolomkop voor "doelpunten voor"
-                    widget: string
-                  - name: doelpuntenTegen
-                    label: Kolomkop voor "doelpunten tegen"
-                    widget: string
-                  - name: doelsaldo
-                    label: Kolomkop voor "doelsaldo"
-                    widget: string
-                  - name: punten
-                    label: Kolomkop voor "punten"
-                    widget: string
-              - name: standHandmatig
-                label: Stand handmatig invoeren (i.p.v. automatisch)
+              - name: gelijk
+                label: Kolomkop voor "gelijkgespeeld"
+                widget: string
+              - name: verloren
+                label: Kolomkop voor "verloren"
+                widget: string
+              - name: doelpuntenVoor
+                label: Kolomkop voor "doelpunten voor"
+                widget: string
+              - name: doelpuntenTegen
+                label: Kolomkop voor "doelpunten tegen"
+                widget: string
+              - name: doelsaldo
+                label: Kolomkop voor "doelsaldo"
+                widget: string
+              - name: punten
+                label: Kolomkop voor "punten"
+                widget: string
+          - name: standHandmatig
+            label: Stand handmatig invoeren (i.p.v. automatisch)
+            widget: boolean
+            default: false
+            hint: >-
+              Alleen aanzetten als de automatische bijwerking niet meer werkt (bv. omdat Playpass
+              van opzet is veranderd). Zet 'm aan en vul de tabel hieronder in; de site gebruikt dan
+              deze tabel in plaats van de automatisch opgehaalde stand.
+          - name: standTeams
+            label: Handmatige stand
+            label_singular: Team
+            widget: list
+            collapsed: true
+            summary: '{{positie}}. {{naam}} — {{punten}} pt'
+            fields:
+              - name: positie
+                label: Positie
+                widget: number
+                value_type: int
+              - name: naam
+                label: Teamnaam
+                widget: string
+              - name: gespeeld
+                label: Gespeeld
+                widget: number
+                value_type: int
+              - name: gewonnen
+                label: Gewonnen
+                widget: number
+                value_type: int
+              - name: gelijk
+                label: Gelijk
+                widget: number
+                value_type: int
+              - name: verloren
+                label: Verloren
+                widget: number
+                value_type: int
+              - name: doelpuntenVoor
+                label: Doelpunten voor
+                widget: number
+                value_type: int
+              - name: doelpuntenTegen
+                label: Doelpunten tegen
+                widget: number
+                value_type: int
+              - name: doelsaldo
+                label: Doelsaldo
+                widget: number
+                value_type: int
+              - name: punten
+                label: Punten
+                widget: number
+                value_type: int
+          - name: schemaHandmatig
+            label: Wedstrijdschema handmatig invoeren (i.p.v. automatisch)
+            widget: boolean
+            default: false
+            hint: Zelfde idee als bij de stand hierboven, maar dan voor het wedstrijdschema.
+          - name: schemaWedstrijden
+            label: Handmatig wedstrijdschema
+            label_singular: Wedstrijd
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: '{{datum}} — {{thuis}} - {{uit}}'
+            fields:
+              - name: datum
+                label: Datum
+                widget: datetime
+                format: YYYY-MM-DD
+                time_format: false
+                picker_utc: true
+              - name: tijd
+                label: Tijd
+                widget: string
+                hint: Bijvoorbeeld 19:00.
+              - name: thuis
+                label: Thuisteam
+                widget: string
+              - name: uit
+                label: Uitteam
+                widget: string
+              - name: gespeeld
+                label: Gespeeld
                 widget: boolean
                 default: false
-                hint: >-
-                  Alleen aanzetten als de automatische bijwerking niet meer werkt (bv. omdat Playpass
-                  van opzet is veranderd). Zet 'm aan en vul de tabel hieronder in; de site gebruikt
-                  dan deze tabel in plaats van de automatisch opgehaalde stand.
-              - name: standTeams
-                label: Handmatige stand
-                label_singular: Team
-                widget: list
-                collapsed: true
-                summary: '{{positie}}. {{naam}} — {{punten}} pt'
-                fields:
-                  - name: positie
-                    label: Positie
-                    widget: number
-                    value_type: int
-                  - name: naam
-                    label: Teamnaam
-                    widget: string
-                  - name: gespeeld
-                    label: Gespeeld
-                    widget: number
-                    value_type: int
-                  - name: gewonnen
-                    label: Gewonnen
-                    widget: number
-                    value_type: int
-                  - name: gelijk
-                    label: Gelijk
-                    widget: number
-                    value_type: int
-                  - name: verloren
-                    label: Verloren
-                    widget: number
-                    value_type: int
-                  - name: doelpuntenVoor
-                    label: Doelpunten voor
-                    widget: number
-                    value_type: int
-                  - name: doelpuntenTegen
-                    label: Doelpunten tegen
-                    widget: number
-                    value_type: int
-                  - name: doelsaldo
-                    label: Doelsaldo
-                    widget: number
-                    value_type: int
-                  - name: punten
-                    label: Punten
-                    widget: number
-                    value_type: int
-              - name: schemaHandmatig
-                label: Wedstrijdschema handmatig invoeren (i.p.v. automatisch)
-                widget: boolean
-                default: false
-                hint: Zelfde idee als bij de stand hierboven, maar dan voor het wedstrijdschema.
-              - name: schemaWedstrijden
-                label: Handmatig wedstrijdschema
-                label_singular: Wedstrijd
-                widget: list
-                add_to_top: true
-                collapsed: true
-                summary: '{{datum}} — {{thuis}} - {{uit}}'
-                fields:
-                  - name: datum
-                    label: Datum
-                    widget: datetime
-                    format: 'YYYY-MM-DD'
-                    time_format: false
-                    picker_utc: true
-                  - name: tijd
-                    label: Tijd
-                    widget: string
-                    hint: 'Bijvoorbeeld 19:00.'
-                  - name: thuis
-                    label: Thuisteam
-                    widget: string
-                  - name: uit
-                    label: Uitteam
-                    widget: string
-                  - name: gespeeld
-                    label: Gespeeld
-                    widget: boolean
-                    default: false
-                  - name: thuisScore
-                    label: Doelpunten thuisteam
-                    widget: number
-                    value_type: int
-                    required: false
-                  - name: uitScore
-                    label: Doelpunten uitteam
-                    widget: number
-                    value_type: int
-                    required: false
-                  - name: veld
-                    label: Veld
-                    widget: string
-                    required: false
-                  - name: wedstrijdnummer
-                    label: Wedstrijdnummer
-                    widget: number
-                    value_type: int
-                    required: false
-
-  # ---------------------------------------------------------------------------------------------
+              - name: thuisScore
+                label: Doelpunten thuisteam
+                widget: number
+                value_type: int
+                required: false
+              - name: uitScore
+                label: Doelpunten uitteam
+                widget: number
+                value_type: int
+                required: false
+              - name: veld
+                label: Veld
+                widget: string
+                required: false
+              - name: wedstrijdnummer
+                label: Wedstrijdnummer
+                widget: number
+                value_type: int
+                required: false
+      - name: stand
+        label: Teksten op de standpagina
+        file: data/paginas/vvgsd/stand.json
+        fields:
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+      - name: schema
+        label: Teksten op de wedstrijdschemapagina
+        file: data/paginas/vvgsd/schema.json
+        fields:
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
   - name: veelgestelde_vragen
     label: Veelgestelde vragen
     icon: help
     files:
-      - name: veelgestelde_vragen
-        label: Veelgestelde vragen
-        file: data/paginas/veelgestelde-vragen.json
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/veelgestelde-vragen/intro.json
         fields:
-          - name: intro
-            label: Tekst bovenaan de pagina
-            widget: object
-            fields:
-              - name: titel
-                label: Titel (H1)
-                widget: string
-              - name: tekst
-                label: Tekst onder de titel
-                widget: text
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+      - name: vragen
+        label: Vragen en antwoorden
+        file: data/paginas/veelgestelde-vragen/vragen.json
+        fields:
           - name: vragen
             label: Vragen
             label_singular: Vraag
@@ -889,97 +863,94 @@ collections:
                 hint: >-
                   Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
                   link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
-          - name: cta
-            label: Rood blok onderaan
-            widget: object
-            fields:
-              - name: titel
-                label: Titel
-                widget: string
-              - name: tekst
-                label: Tekst
-                widget: text
-                hint: De knop eronder mailt altijd naar het PR-adres uit Instellingen.
-
-  # ---------------------------------------------------------------------------------------------
+      - name: cta
+        label: Rood blok onderaan
+        file: data/paginas/veelgestelde-vragen/cta.json
+        fields:
+          - name: titel
+            label: Titel
+            widget: string
+          - name: tekst
+            label: Tekst
+            widget: text
+            hint: De knop eronder mailt altijd naar het PR-adres uit Instellingen.
   - name: instellingen
     label: Instellingen
     icon: settings
     files:
-      - name: site
-        label: Algemene instellingen (WhatsApp, contact, footer)
-        file: data/site.json
+      - name: whatsapp
+        label: WhatsApp
+        file: data/instellingen/whatsapp.json
         fields:
-          - name: whatsapp
-            label: WhatsApp
-            widget: object
-            fields:
-              - name: nummer
-                label: WhatsApp-nummer
-                widget: string
-                pattern: ['^\d{8,15}$', 'Alleen cijfers, zonder plus of spaties. Bijvoorbeeld 31633891980.']
-                hint: >-
-                  Internationaal formaat, alleen cijfers. Dit nummer wordt gebruikt voor de zwevende
-                  WhatsApp-knop en alle "Meld je aan"-knoppen.
-          - name: contact
-            label: Contactgegevens
-            widget: object
-            fields:
-              - name: adres
-                label: Adres
-                widget: text
-                hint: Eén regel per adresregel (straat en huisnummer, dan postcode en plaats).
-              - name: email
-                label: E-mailadres (footer)
-                widget: string
-                type: email
-              - name: emailPr
-                label: E-mailadres PR (veelgestelde vragen)
-                widget: string
-                type: email
-              - name: telefoon
-                label: Telefoonnummer
-                widget: string
-                hint: Zoals het op de website moet staan, bijvoorbeeld 06 33 89 19 80.
-          - name: social
-            label: Sociale media
-            widget: object
-            fields:
-              - name: instagram
-                label: Instagram-link
-                widget: string
-                type: url
-                required: false
-                hint: De volledige link naar het Instagram-account. Leeg laten als er (nog) geen is.
-          - name: cta
-            label: Rood blok "Nieuwsgierig geworden?" onderaan pagina's
-            widget: object
+          - name: nummer
+            label: WhatsApp-nummer
+            widget: string
+            pattern:
+              - ^\d{8,15}$
+              - Alleen cijfers, zonder plus of spaties. Bijvoorbeeld 31633891980.
             hint: >-
-              Staat onderaan Activiteiten, Besturen, Geschiedenis, Kasten en Verbanden. (Open avonden,
-              VVGSD en Veelgestelde vragen hebben een eigen versie, die pas je bij die pagina aan.)
-            fields:
-              - name: titel
-                label: Titel
-                widget: string
-              - name: tekst
-                label: Tekst
-                widget: text
-              - name: knopOpenAvonden
-                label: Tekst op de witte knop (naar open avonden)
-                widget: string
-              - name: knopLidWorden
-                label: Tekst op de tweede knop (lid worden)
-                widget: string
-          - name: footer
-            label: Footer (onderaan elke pagina)
-            widget: object
-            fields:
-              - name: tekst
-                label: Korte omschrijving onder het logo
-                widget: text
-              - name: copyright
-                label: Regel linksonder
-                widget: string
-              - name: slogan
-                label: Regel rechtsonder
-                widget: string
+              Internationaal formaat, alleen cijfers. Dit nummer wordt gebruikt voor de zwevende
+              WhatsApp-knop en alle "Meld je aan"-knoppen.
+      - name: contact
+        label: Contactgegevens
+        file: data/instellingen/contact.json
+        fields:
+          - name: adres
+            label: Adres
+            widget: text
+            hint: Eén regel per adresregel (straat en huisnummer, dan postcode en plaats).
+          - name: email
+            label: E-mailadres (footer)
+            widget: string
+            type: email
+          - name: emailPr
+            label: E-mailadres PR (veelgestelde vragen)
+            widget: string
+            type: email
+          - name: telefoon
+            label: Telefoonnummer
+            widget: string
+            hint: Zoals het op de website moet staan, bijvoorbeeld 06 33 89 19 80.
+      - name: social
+        label: Sociale media
+        file: data/instellingen/social.json
+        fields:
+          - name: instagram
+            label: Instagram-link
+            widget: string
+            type: url
+            required: false
+            hint: De volledige link naar het Instagram-account. Leeg laten als er (nog) geen is.
+      - name: cta
+        label: Rood blok "Nieuwsgierig geworden?" onderaan pagina's
+        file: data/instellingen/cta.json
+        fields:
+          - name: titel
+            label: Titel
+            widget: string
+            hint: >-
+              Staat onderaan Activiteiten, Besturen, Geschiedenis, Kasten en Verbanden. (Open
+              avonden, VVGSD en Veelgestelde vragen hebben een eigen versie, die pas je bij die
+              pagina aan.)
+          - name: tekst
+            label: Tekst
+            widget: text
+          - name: knopOpenAvonden
+            label: Tekst op de witte knop (naar open avonden)
+            widget: string
+          - name: knopLidWorden
+            label: Tekst op de tweede knop (lid worden)
+            widget: string
+      - name: footer
+        label: Footer (onderaan elke pagina)
+        file: data/instellingen/footer.json
+        fields:
+          - name: tekst
+            label: Korte omschrijving onder het logo
+            widget: text
+          - name: copyright
+            label: Regel linksonder
+            widget: string
+          - name: slogan
+            label: Regel rechtsonder
+            widget: string

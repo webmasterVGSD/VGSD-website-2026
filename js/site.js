@@ -1,11 +1,11 @@
-// Gedeeld script voor alle pagina's. Leest de gegevens uit de map data/ (site.json en
-// activiteiten.json) en vult daarmee overal het WhatsApp-nummer, de contactgegevens en
-// de "volgende open avond" in de footer in. Zo staan die gegevens op één plek.
+// Gedeeld script voor alle pagina's. Leest de gegevens uit de map data/ (data/instellingen/ en
+// activiteiten.json) en vult daarmee overal het WhatsApp-nummer, de contactgegevens, de footer
+// en de "volgende open avond" in de footer in. Zo staan die gegevens op één plek.
 //
 // Hoe een pagina dit gebruikt:
 //   data-wa                    -> href wordt een WhatsApp-link (optioneel data-wa-tekst="voorgetypte tekst")
-//   data-site-tekst="pad"      -> tekst wordt de waarde uit site.json, bv. "contact.email"
-//   data-site-adres            -> adres uit site.json, regels gescheiden door regeleinden
+//   data-site-tekst="pad"      -> tekst uit data/instellingen/, bv. "contact.email" (= contact.json, veld email)
+//   data-site-adres            -> adres uit contact.json, regels gescheiden door regeleinden
 //   data-site-mailto="pad"     -> href wordt mailto:<waarde>
 //   data-site-tel="pad"        -> href wordt tel:<waarde>
 //   data-site-social="naam"    -> href wordt de social-link (bv. "instagram"), leeg = ongemoeid
@@ -17,6 +17,19 @@
     if (!antwoord.ok) throw new Error(`data/${naam}.json kon niet worden geladen (${antwoord.status})`);
     return antwoord.json();
   }
+
+  // Elk blok in de beheerpagina is een eigen bestand: data/<map>/<blok>.json. Deze functie laadt
+  // de genoemde blokken en geeft ze terug als één object { blok: inhoud, ... }. Een ontbrekend
+  // blok wordt een leeg object, zodat de rest van de pagina gewoon werkt.
+  async function laadBlokken(map, blokken) {
+    const inhoud = await Promise.all(blokken.map((blok) => laad(`${map}/${blok}`).catch((fout) => {
+      console.error('VGSD:', fout.message);
+      return {};
+    })));
+    return Object.fromEntries(blokken.map((blok, i) => [blok, inhoud[i]]));
+  }
+
+  const INSTELLINGEN_BLOKKEN = ['whatsapp', 'contact', 'social', 'cta', 'footer'];
 
   function waarde(obj, pad) {
     return pad.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
@@ -145,7 +158,9 @@
   }
 
   // --- Paginateksten uit de beheerpagina ------------------------------------------------------
-  // Een pagina met <body data-pagina="paginas/home"> laadt data/paginas/home.json en vult daarmee:
+  // Een pagina met <body data-pagina="paginas/home" data-blokken="hero overOns ..."> laadt
+  // data/paginas/home/hero.json, .../overOns.json enz. (één bestand per blok in de beheerpagina)
+  // en vult daarmee, met paden die beginnen met de bloknaam (bv. "hero.titel"):
   //   data-inhoud="pad"           -> tekst (bv. "hero.titel")
   //   data-inhoud-rijk="pad"      -> alinea's met opmaak (zie rijkeTekst), optioneel
   //                                  data-alinea-klasse="..." voor de class van elke <p>
@@ -279,7 +294,7 @@
     });
   }
 
-  const ready = Promise.all([laad('site'), laad('activiteiten')]).then(([site, activiteiten]) => {
+  const ready = Promise.all([laadBlokken('instellingen', INSTELLINGEN_BLOKKEN), laad('activiteiten')]).then(([site, activiteiten]) => {
     vulSiteGegevens(site);
     vulVolgendeOpenAvond(site, activiteiten.openAvonden);
     return { site, openAvonden: activiteiten.openAvonden };
@@ -288,10 +303,11 @@
 
   // Paginateksten: klaar als de pagina gevuld is. Pagina's met eigen scripts wachten hierop
   // (VGSD.inhoud.then(({ pagina, site }) => ...)). Zonder data-pagina is `pagina` leeg.
-  const paginaNaam = document.body && document.body.dataset.pagina;
+  const paginaMap = document.body && document.body.dataset.pagina;
+  const paginaBlokken = ((document.body && document.body.dataset.blokken) || '').split(/\s+/).filter(Boolean);
   const inhoud = Promise.all([
     ready.catch(() => ({ site: {} })),
-    paginaNaam ? laad(paginaNaam) : Promise.resolve({}),
+    paginaMap ? laadBlokken(paginaMap, paginaBlokken) : Promise.resolve({}),
   ]).then(([{ site }, pagina]) => {
     vulInhoud(document, pagina, site, false);
     initReveal();
@@ -305,7 +321,7 @@
   // invoeren" aan, dan gebruiken we in plaats daarvan de lijst die daar is ingevuld. Zo hoeft
   // vvgsd.html, wedstrijdschema.html en stand.html niet te weten welke van de twee het is.
   async function laadVvgsd() {
-    const instellingen = await laad('vvgsd-instellingen');
+    const instellingen = await laadBlokken('paginas/vvgsd', ['groepsfoto', 'statistieken', 'wedstrijdverslagen', 'standEnSchema']);
     const standEnSchema = instellingen.standEnSchema || {};
 
     let standTeams = standEnSchema.standTeams || [];
@@ -338,5 +354,5 @@
     };
   }
 
-  window.VGSD = { ready, inhoud, laad, laadVvgsd, waLink: maakWaLink, vulSiteGegevens, initReveal, rijkeTekst };
+  window.VGSD = { ready, inhoud, laad, laadBlokken, laadVvgsd, waLink: maakWaLink, vulSiteGegevens, initReveal, rijkeTekst };
 })();

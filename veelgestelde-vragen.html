@@ -195,10 +195,10 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased" data-pagina="paginas/veelgestelde-vragen">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/veelgestelde-vragen" data-blokken="intro vragen cta">
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<!-- Nummer komt uit data/site.json (zie js/site.js). -->
+<!-- Nummer komt uit data/instellingen/whatsapp.json (zie js/site.js). -->
 <a href="#" data-wa data-wa-tekst="Hoi! Ik heb een vraag over VGSD." aria-label="Chat met VGSD via WhatsApp" class="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_28px_-8px_rgba(0,0,0,0.4)] transition-transform hover:scale-105">
   <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
 </a>
@@ -344,8 +344,8 @@
   <!-- FAQ LIJST -->
   <section class="pb-16 sm:pb-20">
     <div class="max-w-container mx-auto px-5 sm:px-8">
-      <div id="faq-lijst" data-inhoud-lijst="vragen" class="reveal max-w-3xl divide-y divide-ink-900/10 border-t border-b border-ink-900/10">
-        <!-- Vragen komen uit data/paginas/veelgestelde-vragen.json (beheerpagina: Veelgestelde vragen). -->
+      <div id="faq-lijst" data-inhoud-lijst="vragen.vragen" class="reveal max-w-3xl divide-y divide-ink-900/10 border-t border-b border-ink-900/10">
+        <!-- Vragen komen uit data/paginas/veelgestelde-vragen/vragen.json (beheerpagina: Veelgestelde vragen). -->
         <template>
           <div class="faq-item">
             <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 py-5 text-left" aria-expanded="false">

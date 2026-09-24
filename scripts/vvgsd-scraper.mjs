@@ -5,7 +5,7 @@
 // getest worden met: node scripts/vvgsd-scraper.mjs
 //
 // De koppeling van "onze veldnaam" (bv. "punten") naar "de koptekst op Playpass" (bv. "Points")
-// staat niet hier in de code, maar in data/vvgsd-instellingen.json (standEnSchema.standKolommen),
+// staat niet hier in de code, maar in data/paginas/vvgsd/standEnSchema.json (standKolommen),
 // bewerkbaar via de beheerpagina (collectie "VVGSD", kopje "Stand en schema"). Verandert Playpass
 // een koptekst, dan pas je alleen dat veldje aan — geen code-wijziging nodig. Dit script raakt
 // de bestaande gegevens niet aan
@@ -17,7 +17,7 @@ import { fileURLToPath } from 'node:url';
 
 const HIER = path.dirname(fileURLToPath(import.meta.url));
 const DATA_MAP = path.join(HIER, '..', 'data');
-const INSTELLINGEN_PAD = path.join(DATA_MAP, 'vvgsd-instellingen.json');
+const INSTELLINGEN_PAD = path.join(DATA_MAP, 'paginas', 'vvgsd', 'standEnSchema.json');
 const STAND_PAD = path.join(DATA_MAP, 'vvgsd-stand-auto.json');
 const SCHEMA_PAD = path.join(DATA_MAP, 'vvgsd-schema-auto.json');
 
@@ -160,10 +160,9 @@ async function haalWedstrijdenOp(robinPad) {
 // --- Hoofdprogramma ----------------------------------------------------------------------------
 
 async function main() {
-  const instellingen = await leesJson(INSTELLINGEN_PAD, null);
-  const standEnSchema = instellingen && instellingen.standEnSchema;
+  const standEnSchema = await leesJson(INSTELLINGEN_PAD, null);
   if (!standEnSchema || !standEnSchema.bronUrl) {
-    throw new Error('data/vvgsd-instellingen.json ontbreekt of heeft geen "standEnSchema.bronUrl".');
+    throw new Error('data/paginas/vvgsd/standEnSchema.json ontbreekt of heeft geen "bronUrl".');
   }
 
   const hoofdHtml = await haalOp(standEnSchema.bronUrl, {});

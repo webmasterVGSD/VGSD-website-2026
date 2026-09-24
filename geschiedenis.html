@@ -203,10 +203,10 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/geschiedenis" data-blokken="intro tijdlijn">
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<!-- Nummer komt uit data/site.json (zie js/site.js). -->
+<!-- Nummer komt uit data/instellingen/whatsapp.json (zie js/site.js). -->
 <a href="#" data-wa data-wa-tekst="Hoi! Ik heb een vraag over VGSD." aria-label="Chat met VGSD via WhatsApp" class="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_28px_-8px_rgba(0,0,0,0.4)] transition-transform hover:scale-105">
   <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
 </a>
@@ -340,10 +340,10 @@
   <section class="pt-16 pb-10 sm:pt-20 sm:pb-14">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
-        <h1 id="geschiedenis-titel" class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
+        <h1 id="geschiedenis-titel" data-inhoud="intro.titel" class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
           Geschiedenis
         </h1>
-        <p id="geschiedenis-tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[52ch]">
+        <p id="geschiedenis-tekst" data-inhoud="intro.tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[52ch]">
           Hoe de VGSD in 1961 in Delft ontstond, en waar de vereniging sindsdien voor staat.
         </p>
       </div>
@@ -354,14 +354,14 @@
   <section class="pb-20 sm:pb-28">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
-        <h2 id="geschiedenis-sectietitel" class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Van onvrede tot oprichting</h2>
-        <p id="geschiedenis-sectietekst" class="mt-3 text-ink-700 leading-relaxed max-w-[60ch]">
+        <h2 id="geschiedenis-sectietitel" data-inhoud="tijdlijn.titel" class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Van onvrede tot oprichting</h2>
+        <p id="geschiedenis-sectietekst" data-inhoud="tijdlijn.tekst" class="mt-3 text-ink-700 leading-relaxed max-w-[60ch]">
           De geschiedenis van de VGSD gaat terug tot 1961, maar het verhaal begint al iets eerder.
         </p>
       </div>
 
       <ol id="geschiedenis-tijdlijn" class="reveal tijdlijn mt-10 max-w-2xl pl-8 space-y-10">
-        <!-- Stappen worden hier automatisch ingevuld vanuit data/geschiedenis.json (zie admin/config.yml en het script onderaan de pagina). -->
+        <!-- Stappen worden hier automatisch ingevuld vanuit data/paginas/geschiedenis/tijdlijn.json (zie admin/config.yml en het script onderaan de pagina). -->
       </ol>
     </div>
   </section>
@@ -515,19 +515,9 @@
 
   VGSD.initReveal();
 
-  // Geschiedenispagina: vult de introtekst en bouwt de tijdlijn vanuit data/geschiedenis.json
-  // (bewerkbaar via de beheerpagina, collectie "Geschiedenis").
-  function vulGeschiedenisIntro(intro) {
-    const titelEl = document.getElementById('geschiedenis-titel');
-    const tekstEl = document.getElementById('geschiedenis-tekst');
-    const sectieTitelEl = document.getElementById('geschiedenis-sectietitel');
-    const sectieTekstEl = document.getElementById('geschiedenis-sectietekst');
-    if (titelEl && intro.titel) titelEl.textContent = intro.titel;
-    if (tekstEl && intro.tekst) tekstEl.textContent = intro.tekst;
-    if (sectieTitelEl && intro.sectieTitel) sectieTitelEl.textContent = intro.sectieTitel;
-    if (sectieTekstEl && intro.sectieTekst) sectieTekstEl.textContent = intro.sectieTekst;
-  }
-
+  // Geschiedenispagina: bouwt de tijdlijn vanuit data/paginas/geschiedenis/tijdlijn.json
+  // (bewerkbaar via de beheerpagina, Geschiedenis > Tijdlijn). De teksten erboven worden door
+  // js/site.js ingevuld (data-inhoud-attributen).
   function maakTijdlijnStap(stap) {
     const li = document.createElement('li');
     li.className = 'relative';
@@ -561,11 +551,8 @@
     VGSD.initReveal();
   }
 
-  VGSD.laad('geschiedenis')
-    .then((data) => {
-      vulGeschiedenisIntro(data.intro || {});
-      renderTijdlijn(data.tijdlijn || []);
-    })
+  VGSD.inhoud
+    .then(({ pagina }) => renderTijdlijn((pagina.tijdlijn && pagina.tijdlijn.stappen) || []))
     .catch((fout) => console.error('VGSD: geschiedenis laden mislukt.', fout));
 </script>
 

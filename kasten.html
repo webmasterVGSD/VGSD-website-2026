@@ -202,10 +202,10 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased" data-pagina="paginas/kasten">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/kasten" data-blokken="intro kasten">
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<!-- Nummer komt uit data/site.json (zie js/site.js). -->
+<!-- Nummer komt uit data/instellingen/whatsapp.json (zie js/site.js). -->
 <a href="#" data-wa data-wa-tekst="Hoi! Ik heb een vraag over VGSD." aria-label="Chat met VGSD via WhatsApp" class="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_28px_-8px_rgba(0,0,0,0.4)] transition-transform hover:scale-105">
   <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
 </a>
@@ -471,7 +471,7 @@
 <script src="js/site.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-  // KASTEN: namen, gebied, coördinaten, foto en tekst komen uit data/paginas/kasten.json
+  // KASTEN: namen, gebied, coördinaten, foto en tekst komen uit data/paginas/kasten/kasten.json
   // (beheerpagina: Kasten). De volgorde daar bepaalt de volgorde van de kaartjes onder de kaart.
   // Coördinaten zijn bewust een schatting op basis van de buurt, geen exact adres (privacy).
   let kasten = [];
@@ -574,7 +574,7 @@
   }
 
   VGSD.inhoud.then(({ pagina }) => {
-    kasten = (pagina.kasten || []).filter((kast) => Number.isFinite(kast.lat) && Number.isFinite(kast.lon));
+    kasten = ((pagina.kasten && pagina.kasten.kasten) || []).filter((kast) => Number.isFinite(kast.lat) && Number.isFinite(kast.lon));
     tekenKasten();
   });
 

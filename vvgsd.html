@@ -185,10 +185,10 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased" data-pagina="paginas/vvgsd">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/vvgsd" data-blokken="hoofdpagina">
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<!-- Nummer komt uit data/site.json (zie js/site.js). -->
+<!-- Nummer komt uit data/instellingen/whatsapp.json (zie js/site.js). -->
 <a href="#" data-wa data-wa-tekst="Hoi! Ik heb een vraag over VGSD." aria-label="Chat met VGSD via WhatsApp" class="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_28px_-8px_rgba(0,0,0,0.4)] transition-transform hover:scale-105">
   <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
 </a>
@@ -368,7 +368,7 @@
         <h2 data-inhoud="hoofdpagina.kopTopscorers" class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Topscorers</h2>
       </div>
       <div id="vvgsd-topscorers" class="reveal mt-6 rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] divide-y divide-ink-900/5 max-w-lg overflow-hidden">
-        <!-- Wordt gevuld vanuit data/vvgsd-instellingen.json -->
+        <!-- Wordt gevuld vanuit data/paginas/vvgsd/ (beheerpagina: VVGSD) -->
       </div>
     </div>
   </section>
@@ -380,7 +380,7 @@
         <h2 data-inhoud="hoofdpagina.kopVerslagen" class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Wedstrijdverslagen</h2>
       </div>
       <div id="vvgsd-verslagen" class="mt-6 grid sm:grid-cols-2 gap-6">
-        <!-- Wordt gevuld vanuit data/vvgsd-instellingen.json -->
+        <!-- Wordt gevuld vanuit data/paginas/vvgsd/ (beheerpagina: VVGSD) -->
       </div>
     </div>
   </section>

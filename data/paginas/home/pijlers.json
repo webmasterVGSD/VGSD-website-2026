@@ -1,0 +1,30 @@
+{
+  "titel": "Waar we voor staan",
+  "tekst": "Vier pijlers die bij VGSD altijd samenkomen, hoe druk je studieleven ook is.",
+  "kaarten": [
+    {
+      "titel": "Christelijk",
+      "icoon": "cross",
+      "highlight": true,
+      "tekst": "Techniek leren verstaan in het licht van Gods Woord. Samen bijbellezen, bidden, zingen, twijfelen en op conferentie."
+    },
+    {
+      "titel": "Gezelligheid",
+      "icoon": "confetti",
+      "highlight": false,
+      "tekst": "Ruim veertig borrels per jaar en maandelijks een feest bij een VGS-vereniging, van Leiden tot Utrecht."
+    },
+    {
+      "titel": "Academisch",
+      "icoon": "graduation-cap",
+      "highlight": false,
+      "tekst": "Verdiepende en verbredende onderwerpen tijdens lezingen, werkgroepen en conferenties, naast je studie."
+    },
+    {
+      "titel": "Studentikoos",
+      "icoon": "coat-hanger",
+      "highlight": true,
+      "tekst": "De verenigingsdas prominent omgeknoopt, samen liften en op actie, waarbij spullen van andere verenigingen worden gebrast."
+    }
+  ]
+}

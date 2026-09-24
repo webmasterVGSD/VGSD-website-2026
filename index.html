@@ -182,10 +182,10 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased" data-pagina="paginas/home">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/home" data-blokken="hero overOns pijlers leden instagram">
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<!-- Nummer komt uit data/site.json (zie js/site.js). -->
+<!-- Nummer komt uit data/instellingen/whatsapp.json (zie js/site.js). -->
 <a href="#" data-wa data-wa-tekst="Hoi! Ik heb een vraag over VGSD." aria-label="Chat met VGSD via WhatsApp" class="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_28px_-8px_rgba(0,0,0,0.4)] transition-transform hover:scale-105">
   <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
 </a>
@@ -411,7 +411,7 @@
       </div>
 
       <div data-inhoud-lijst="pijlers.kaarten" class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Kaarten komen uit data/paginas/home.json (beheerpagina: Homepage > Pijlers). -->
+        <!-- Kaarten komen uit data/paginas/home/pijlers.json (beheerpagina: Homepage > Pijlers). -->
         <template data-als="highlight">
           <div class="reveal card-tilt rounded-2xl bg-brand-600 border border-brand-700 p-7 shadow-[0_16px_32px_-16px_rgba(58,14,24,0.4)]">
             <span class="grid h-12 w-12 place-items-center rounded-full bg-warm-50/15 text-warm-50">
@@ -447,7 +447,7 @@
       </div>
 
       <div data-inhoud-lijst="leden.verhalen" class="mt-14 grid sm:grid-cols-3 gap-6 items-start">
-        <!-- Verhalen komen uit data/paginas/home.json (beheerpagina: Homepage > Leden aan het woord). -->
+        <!-- Verhalen komen uit data/paginas/home/leden.json (beheerpagina: Homepage > Leden aan het woord). -->
         <template>
           <div class="reveal card-tilt rounded-2xl bg-warm-50 border border-ink-900/5 p-7 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)]">
             <i class="ph-fill ph-quotes text-2xl text-brand-300"></i>

@@ -130,15 +130,27 @@ inklapbare kopjes:
 
 ## Waar staan de gegevens echt?
 
-In de map `data/` (de teksten van de pagina's in `data/paginas/`, en verder `besturen.json`,
-`site.json`, `activiteiten.json`, `activiteiten-overzicht.json`, `geschiedenis.json`, `vvgsd-instellingen.json`, en de twee automatisch gegenereerde bestanden
-`vvgsd-stand-auto.json`/`vvgsd-schema-auto.json` die je niet met de hand hoeft te bewerken). De
-formulieren staan beschreven in `admin/config.yml`. `js/site.js` vult de teksten uit `data/paginas/`
-in op alle plekken met een `data-inhoud`-attribuut in de HTML (de uitleg staat bovenaan die functie).
-Daarnaast lezen `activiteiten.html`, `geschiedenis.html`, `kasten.html`, `veelgestelde-vragen.html`, `vvgsd.html`,
-`wedstrijdschema.html` en `stand.html` de gegevens met een eigen script en bouwen daarmee de pagina op. De VVGSD-scraper zelf staat in `scripts/vvgsd-scraper.mjs`, en draait
-volgens het schema in `.github/workflows/vvgsd-scraper.yml`. Bewerk je de bestanden liever met de
-hand, dan kan dat ook; let op de haakjes en komma's.
+In de map `data/`. Elk blok dat je in de beheerpagina ziet is een eigen bestand:
+
+- `data/paginas/<pagina>/<blok>.json`: de teksten, foto's en lijsten per pagina (bijvoorbeeld
+  `data/paginas/home/hero.json` = Homepage > Bovenaan de pagina). Ook de VVGSD-gegevens (groepsfoto,
+  topscorers, verslagen, Playpass-koppeling) staan in `data/paginas/vvgsd/`.
+- `data/instellingen/<blok>.json`: WhatsApp, contactgegevens, sociale media, het gedeelde rode blok
+  en de footer; die worden op elke pagina gebruikt.
+- `data/besturen.json` (alle besturen) en `data/activiteiten.json` (de kalender met open avonden).
+- `data/vvgsd-stand-auto.json`/`data/vvgsd-schema-auto.json`: automatisch gegenereerd, niet met de
+  hand bewerken.
+
+De formulieren staan beschreven in `admin/config.yml`. Elke pagina heeft bovenaan
+`<body data-pagina="paginas/home" data-blokken="hero overOns ...">`: `js/site.js` laadt die blokken
+en vult ze in op alle plekken met een `data-inhoud`-attribuut (de uitleg staat bovenaan die functie
+in `js/site.js`). Een nieuw blok toevoegen = een bestand in de map, een regel in `admin/config.yml`,
+de bloknaam in `data-blokken`, en `data-inhoud`-attributen in de HTML. `activiteiten.html`,
+`besturen.html`, `geschiedenis.html`, `kasten.html`, `veelgestelde-vragen.html`, `vvgsd.html`,
+`wedstrijdschema.html` en `stand.html` bouwen daarnaast lijsten op met een eigen script. De
+VVGSD-scraper staat in `scripts/vvgsd-scraper.mjs` en draait volgens het schema in
+`.github/workflows/vvgsd-scraper.yml`. Bewerk je de bestanden liever met de hand, dan kan dat ook;
+let op de haakjes en komma's.
 
 ## Sveltia CMS bijwerken
 

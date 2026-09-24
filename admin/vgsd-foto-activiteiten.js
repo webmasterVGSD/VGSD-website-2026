@@ -3,7 +3,7 @@
 // maar met één (bredere) kader-verhouding, passend bij de foto's op een activiteitenkaart, en
 // zonder de extra "groot uitgelicht blok"/"popup"-voorbeelden die alleen voor besturen gelden.
 //
-// Opgeslagen waarde in data/activiteiten-overzicht.json:
+// Opgeslagen waarde in data/paginas/activiteiten/kaarten.json (en data/paginas/kasten/kasten.json):
 //   "foto": { "src": "/images/...jpg", "positie": "50% 30%" }  ("positie" is een CSS object-position)
 // activiteiten.html leest dat via dezelfde soort fotoVan()-functie als besturen.html.
 //
