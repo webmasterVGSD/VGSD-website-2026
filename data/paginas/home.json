@@ -1,0 +1,55 @@
+{
+  "hero": {
+    "titel": "Samen groeien in geloof en vriendschap",
+    "tekst": "VGSD is de plek voor christelijke studenten om samen te eten, te bidden en vrienden voor het leven te maken.",
+    "knopLidWorden": "Lid worden",
+    "knopOpenAvonden": "Bekijk open avonden",
+    "foto": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=900&h=1000&fit=crop&q=80",
+    "fotoAlt": "Studenten van VGSD die samen lachen tijdens een ontmoeting",
+    "labelTitel": "Altijd welkom",
+    "labelTekst": "nieuwe leden het hele jaar"
+  },
+  "overOns": {
+    "titel": "Een thuis tijdens je studietijd",
+    "tekst": "Elke week komen we samen. Om na te denken over het geloof, elkaar op te zoeken en gewoon gezellig samen te zijn. Geen verplicht nummer, maar een vaste plek in een drukke week.\n\nNieuw in de stad, of je geloof aan het ontdekken? Bij VGSD ben je welkom, precies zoals je bent.",
+    "foto": "/images/photos/verenigingsfotos/verenigingsfoto-2025.jpg",
+    "fotoAlt": "De VGSD in verenigingskleding tijdens het eerstejaarsweekend 2025"
+  },
+  "pijlers": {
+    "titel": "Waar we voor staan",
+    "tekst": "Vier pijlers die bij VGSD altijd samenkomen, hoe druk je studieleven ook is.",
+    "kaarten": [
+      { "titel": "Christelijk", "icoon": "cross", "highlight": true, "tekst": "Techniek leren verstaan in het licht van Gods Woord. Samen bijbellezen, bidden, zingen, twijfelen en op conferentie." },
+      { "titel": "Gezelligheid", "icoon": "confetti", "highlight": false, "tekst": "Ruim veertig borrels per jaar en maandelijks een feest bij een VGS-vereniging, van Leiden tot Utrecht." },
+      { "titel": "Academisch", "icoon": "graduation-cap", "highlight": false, "tekst": "Verdiepende en verbredende onderwerpen tijdens lezingen, werkgroepen en conferenties, naast je studie." },
+      { "titel": "Studentikoos", "icoon": "coat-hanger", "highlight": true, "tekst": "De verenigingsdas prominent omgeknoopt, samen liften en op actie, waarbij spullen van andere verenigingen worden gebrast." }
+    ]
+  },
+  "leden": {
+    "titel": "Leden aan het woord",
+    "tekst": "Wat VGSD voor onze leden betekent, in hun eigen woorden.",
+    "verhalen": [
+      {
+        "naam": "Sven van der Ploeg",
+        "foto": "/images/photos/Persoonlijk%20verhaal/IMG_9979-scaled.jpg",
+        "tekst": "Toen ik ging studeren in Delft wilde ik mij graag aansluiten bij een christelijke studentenvereniging. Maar na mijn keuzestress over een studie stond ik voor een nieuw dilemma: bij welke vereniging sluit ik mij aan? Ik zocht nog een slaapplek voor tijdens de OWee en op Halte Boszicht hadden ze nog wel een plekje. Zo begon mijn avontuur binnen de VGSD. Een warm bad van gezelligheid, gastvrijheid en openheid. Inschrijven leek de enige logische optie. Zo kwam ik in een wervelstorm van kring, soos, bijbelstudie, verhuizen (ja ik kon gelijk op een kast), nieuwe vrienden, bier, port, zingen, brallen, ALV, convocaten, interessante gesprekken, verenigingsweekend en ga zo maar door. Kortom, studeren werd een hobby."
+      },
+      {
+        "naam": "Marinka Jongeneel",
+        "foto": "/images/photos/Persoonlijk%20verhaal/marinka-e1739366747816.jpg",
+        "tekst": "Vanaf het eerste moment dat ik lid werd, voelde ik mij welkom door de gezellige sfeer en de hechtheid. Ik vind vooral de balans tussen gezelligheid en diepgang heel fijn. Tijdens bijbelkring heb ik hele mooie open gesprekken gehad over het geloof, waardoor ik daarin echt ben gegroeid. Daarnaast heb ik mijzelf op een leuke en leerzame manier kunnen ontwikkelen door actief te zijn in commissies. In een ontspannen en gezellige omgeving heb ik veel geleerd over organiseren en samenwerken. Voor mij is de VGSD niet alleen een plek om te groeien, maar ook een vriendengroep waar ik heerlijk kan ontspannen na een drukke studiedag."
+      },
+      {
+        "naam": "Elias Hoste",
+        "foto": "/images/photos/Persoonlijk%20verhaal/IMG_7718-scaled-e1714345628433.jpg",
+        "tekst": "De VGSD is voor mij een hechte groep mensen waar ik mezelf kan ontwikkelen op sociaal, academisch en christelijk vlak. Je ziet elkaar bij elke activiteit, waardoor je snel goede vriendschappen kan opbouwen. Door de verschillende commissies leer je veel over samenwerken, leiding geven en andere meer specifieke vaardigheden, en bij kring bestudeer je met een klein aantal VGSD'ers het geloof en leer je elkaar ondertussen veel beter kennen."
+      }
+    ]
+  },
+  "instagram": {
+    "titel": "Volg ons op Instagram",
+    "tekst": "Een kijkje in het verenigingsleven, week in, week uit.",
+    "knop": "Bekijk op Instagram",
+    "fotos": []
+  }
+}

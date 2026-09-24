@@ -1,0 +1,45 @@
+{
+  "intro": {
+    "titel": "Verbanden",
+    "tekst": "De VGSD staat niet op zichzelf. We maken deel uit van vier verbanden: zusterverenigingen door heel Nederland, de VeRa in Delft, twee broederverenigingen en de wereldwijde organisatie IFES."
+  },
+  "kaarten": [
+    {
+      "titel": "Zusterverenigingen",
+      "icoon": "buildings",
+      "tekst": "We hebben zusters in Rotterdam, Wageningen, Groningen, Enschede, Leiden, Utrecht, Nijmegen, Arnhem, Deventer, Leeuwarden, Zwolle en Dronten. Bestuurders en leden van deze verenigingen trekken veel met elkaar op: ze bezoeken elkaars constitutieborrels, elkaars Dies Natalis en elkaars feesten. Veel zusterverenigingen lijken op de VGSD, dus vandaar dat we het goed met elkaar kunnen vinden. De VGSD is over het algemeen wat studentikozer en daadkrachtiger dan zusterverenigingen, wat ons een unieke vereniging maakt binnen het landelijke verband.",
+      "labels": [
+        "Rotterdam",
+        "Wageningen",
+        "Groningen",
+        "Enschede",
+        "Leiden",
+        "Utrecht",
+        "Nijmegen",
+        "Arnhem",
+        "Deventer",
+        "Leeuwarden",
+        "Zwolle",
+        "Dronten"
+      ]
+    },
+    {
+      "titel": "VeRa",
+      "icoon": "bank",
+      "tekst": "De VeRa (VerenigingsRaad) is een overlegorgaan tussen studenten en de TU Delft. Alle grote en oude verenigingen in Delft leveren stof tot nadenken en het dagelijks bestuur van de VeRa overlegt met de afgevaardigde van grote partijen van de TU Delft. De VeRa heeft een groot draagvlak en dus een belangrijke stem binnen de studentenwereld in Delft.",
+      "labels": []
+    },
+    {
+      "titel": "Broederverenigingen",
+      "icoon": "handshake",
+      "tekst": "We hebben binnen Delft banden met twee broederverenigingen: CSR en CSFR. We organiseren een aantal keer per jaar een gezamenlijke activiteit (broeder-lezing, barbecue, avond van zang en gebed). Daarnaast nemen we samen deel aan initiatieven als Hartige Samaritaan, Happietaria, Passion Week en Student Alpha. Zo zijn we samen christelijke studenten verenigd in Delft.",
+      "labels": []
+    },
+    {
+      "titel": "IFES",
+      "icoon": "globe-hemisphere-west",
+      "tekst": "IFES is een wereldwijde organisatie waar wij als VGSD ook bij aangesloten zijn. IFES organiseert conferenties door het jaar heen. Voorbeelden hiervan zijn de Read-it (voor kringleiders), de Live-it (tijdens Hemelvaart) en de Lead-it (voor aankomend bestuurders binnen VGS-Nederland/Ichtus/Navigators).\n\nNaast deze conferenties levert IFES ons ook een stafwerker. De stafwerker is er om geestelijke groei te stimuleren en om mensen, commissies (in het bijzonder de Bijbelkringcommissie, de BKC) of bestuurders te coachen. Daarnaast kun je altijd een bakje koffie of een biertje met hem drinken!",
+      "labels": []
+    }
+  ]
+}

@@ -193,7 +193,7 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/vvgsd">
 
 <!-- WHATSAPP FLOATING BUTTON -->
 <!-- Nummer komt uit data/site.json (zie js/site.js). -->
@@ -333,10 +333,10 @@
         <a href="vvgsd.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700">
           <i class="ph ph-arrow-left text-xs"></i> Terug naar VVGSD
         </a>
-        <h1 class="mt-4 font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
+        <h1 data-inhoud="stand.titel" class="mt-4 font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
           Stand
         </h1>
-        <p class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
+        <p data-inhoud="stand.tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
           De actuele stand van de poule waarin VVGSD speelt. Onze eigen positie is lichtroze uitgelicht.
         </p>
         <p id="stand-bijgewerkt" class="mt-2 text-sm text-ink-500"></p>
@@ -386,7 +386,7 @@
           <img src="images/logo/vgsd-logo.svg" alt="VGSD logo" class="h-9 w-9 object-contain bg-warm-50 rounded-full p-1">
           <span class="font-display font-bold text-lg tracking-tight">VGSD</span>
         </div>
-        <p class="mt-4 text-brand-100 leading-relaxed max-w-xs text-[15px]">
+        <p data-site-tekst="footer.tekst" class="mt-4 text-brand-100 leading-relaxed max-w-xs text-[15px]">
           Christelijke studentenvereniging voor geloof, gezelligheid, verdieping en studentikoze tradities.
         </p>
         <div class="mt-6 flex items-center gap-3">
@@ -434,8 +434,8 @@
     </div>
 
     <div class="mt-14 pt-6 border-t border-warm-50/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-brand-100">
-      <p>&copy; 2026 VGSD, studentenvereniging.</p>
-      <p>Met liefde gebouwd door studenten, voor studenten.</p>
+      <p data-site-tekst="footer.copyright">&copy; 2026 VGSD, studentenvereniging.</p>
+      <p data-site-tekst="footer.slogan">Met liefde gebouwd door studenten, voor studenten.</p>
     </div>
   </div>
 </footer>

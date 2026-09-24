@@ -10,5 +10,16 @@
   },
   "social": {
     "instagram": "https://www.instagram.com/vgsdelft/"
+  },
+  "cta": {
+    "titel": "Nieuwsgierig geworden?",
+    "tekst": "Kom gewoon een keer langs bij een open avond, vrijblijvend en zonder poespas.",
+    "knopOpenAvonden": "Bekijk open avonden",
+    "knopLidWorden": "Lid worden"
+  },
+  "footer": {
+    "tekst": "Christelijke studentenvereniging voor geloof, gezelligheid, verdieping en studentikoze tradities.",
+    "copyright": "© 2026 VGSD, studentenvereniging.",
+    "slogan": "Met liefde gebouwd door studenten, voor studenten."
   }
 }

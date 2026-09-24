@@ -22,11 +22,177 @@ logo_url: https://preview.vgsd.nl/images/logo/vgsd-logo.svg
 media_folder: /images/photos/besturen
 public_folder: /images/photos/besturen
 
-# Elke pagina van de site heeft hieronder een eigen collectie, in dezelfde volgorde als het menu
-# op de site (zo vind je snel wat je zoekt in het menu links): Activiteiten, Open avonden,
-# Besturen, Geschiedenis, en dan Instellingen voor de gegevens die op de hele site gebruikt
-# worden (WhatsApp, contact, social media).
+# Elke pagina van de site heeft hieronder een eigen collectie, in ongeveer dezelfde volgorde als
+# het menu op de site (zo vind je snel wat je zoekt in het menu links), en dan Instellingen voor de
+# gegevens die op de hele site gebruikt worden (WhatsApp, contact, social media, footer).
+# Teksten van pagina's staan in data/paginas/; js/site.js vult ze in via data-inhoud-attributen.
 collections:
+  # ---------------------------------------------------------------------------------------------
+  - name: homepage
+    label: Homepage
+    icon: home
+    files:
+      - name: homepage
+        label: Homepage
+        file: data/paginas/home.json
+        fields:
+          - name: hero
+            label: Bovenaan de pagina
+            widget: object
+            fields:
+              - name: titel
+                label: Grote titel
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+              - name: knopLidWorden
+                label: Tekst op de rode knop
+                widget: string
+              - name: knopOpenAvonden
+                label: Tekst op de tweede knop (naar open avonden)
+                widget: string
+              - name: foto
+                label: Foto
+                widget: image
+                media_folder: /images/photos/home
+                public_folder: /images/photos/home
+                hint: >-
+                  Liefst een staande of vierkante foto (hij wordt rechts naast de titel getoond, ongeveer
+                  even hoog als breed). Liefst niet groter dan 1600 pixels.
+              - name: fotoAlt
+                label: Omschrijving van de foto
+                widget: string
+                hint: Voor blinden/slechtzienden en Google, bijvoorbeeld "Leden van VGSD lachen samen op de soosboot".
+              - name: labelTitel
+                label: Wit labeltje op de foto — vetgedrukte regel
+                widget: string
+              - name: labelTekst
+                label: Wit labeltje op de foto — kleine regel
+                widget: string
+          - name: overOns
+            label: Blok "Over ons" (met foto)
+            widget: object
+            fields:
+              - name: titel
+                label: Titel
+                widget: string
+              - name: tekst
+                label: Tekst
+                widget: text
+                hint: >-
+                  Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
+                  link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
+              - name: foto
+                label: Foto
+                widget: image
+                media_folder: /images/photos/home
+                public_folder: /images/photos/home
+              - name: fotoAlt
+                label: Omschrijving van de foto
+                widget: string
+          - name: pijlers
+            label: Blok "Waar we voor staan" (pijlers)
+            widget: object
+            fields:
+              - name: titel
+                label: Titel
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+              - name: kaarten
+                label: Pijlers
+                label_singular: Pijler
+                widget: list
+                collapsed: true
+                summary: '{{titel}}'
+                hint: Slepen verandert de volgorde. Vier kaarten past het mooist naast elkaar.
+                fields:
+                  - name: titel
+                    label: Titel
+                    widget: string
+                  - name: icoon
+                    label: Icoon
+                    widget: string
+                    hint: >-
+                      De naam van een icoon van phosphoricons.com, zonder "ph-" ervoor (bijvoorbeeld
+                      "cross" of "confetti").
+                  - name: highlight
+                    label: Rood uitgelicht
+                    widget: boolean
+                    default: false
+                  - name: tekst
+                    label: Tekst
+                    widget: text
+          - name: leden
+            label: Blok "Leden aan het woord"
+            widget: object
+            fields:
+              - name: titel
+                label: Titel
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+              - name: verhalen
+                label: Verhalen
+                label_singular: Verhaal
+                widget: list
+                collapsed: true
+                summary: '{{naam}}'
+                hint: Drie verhalen past het mooist naast elkaar.
+                fields:
+                  - name: naam
+                    label: Naam
+                    widget: string
+                  - name: foto
+                    label: Pasfoto
+                    widget: image
+                    required: false
+                    media_folder: /images/photos/leden
+                    public_folder: /images/photos/leden
+                    hint: Wordt als klein rondje getoond; een vierkante foto van het gezicht werkt het best.
+                  - name: tekst
+                    label: Verhaal
+                    widget: text
+                    hint: >-
+                      Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
+                      link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
+          - name: instagram
+            label: Blok "Volg ons op Instagram"
+            widget: object
+            fields:
+              - name: titel
+                label: Titel
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+              - name: knop
+                label: Tekst op de knop
+                widget: string
+                hint: De link van de knop is de Instagram-link uit Instellingen.
+              - name: fotos
+                label: Foto's
+                label_singular: Foto
+                widget: list
+                required: false
+                collapsed: true
+                summary: '{{omschrijving}}'
+                hint: >-
+                  Zes foto's vullen precies één rij. Zolang deze lijst leeg is, staan er lege tegels op
+                  de site. Vierkante foto's werken het best.
+                fields:
+                  - name: foto
+                    label: Foto
+                    widget: image
+                    media_folder: /images/photos/instagram
+                    public_folder: /images/photos/instagram
+                  - name: omschrijving
+                    label: Omschrijving van de foto
+                    widget: string
+
   # ---------------------------------------------------------------------------------------------
   - name: activiteiten_overzicht
     label: Activiteiten
@@ -136,6 +302,39 @@ collections:
               - name: omschrijving
                 label: Omschrijving
                 widget: text
+      - name: open_avonden_pagina
+        label: Teksten op de pagina
+        file: data/paginas/open-avonden.json
+        fields:
+          - name: intro
+            label: Tekst bovenaan de pagina
+            widget: object
+            fields:
+              - name: titel
+                label: Titel (H1)
+                widget: string
+              - name: tekst
+                label: Hoofdtekst
+                widget: text
+              - name: subtekst
+                label: Tweede alinea (grijs)
+                widget: text
+                hint: >-
+                  Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
+                  link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
+          - name: leegTekst
+            label: Tekst als er geen open avonden gepland zijn
+            widget: text
+          - name: cta
+            label: Rood blok onderaan
+            widget: object
+            fields:
+              - name: titel
+                label: Titel
+                widget: string
+              - name: tekst
+                label: Tekst
+                widget: text
 
   # ---------------------------------------------------------------------------------------------
   - name: besturen
@@ -196,6 +395,26 @@ collections:
                 widget: text
                 required: false
                 hint: Laat een lege regel tussen alinea's.
+      - name: besturen_pagina
+        label: Teksten op de pagina
+        file: data/paginas/besturen.json
+        fields:
+          - name: intro
+            label: Tekst bovenaan de pagina
+            widget: object
+            fields:
+              - name: titel
+                label: Titel (H1)
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+                hint: >-
+                  Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
+                  link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
+          - name: eerdereBesturenTitel
+            label: Kop boven de oudere besturen
+            widget: string
 
   # ---------------------------------------------------------------------------------------------
   - name: geschiedenis
@@ -249,10 +468,176 @@ collections:
                 default: false
 
   # ---------------------------------------------------------------------------------------------
+  - name: verbanden
+    label: Verbanden
+    icon: handshake
+    files:
+      - name: verbanden
+        label: Verbandenpagina
+        file: data/paginas/verbanden.json
+        fields:
+          - name: intro
+            label: Tekst bovenaan de pagina
+            widget: object
+            fields:
+              - name: titel
+                label: Titel (H1)
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+          - name: kaarten
+            label: Verbanden
+            label_singular: Verband
+            widget: list
+            collapsed: true
+            summary: '{{titel}}'
+            hint: Slepen verandert de volgorde op de site.
+            fields:
+              - name: titel
+                label: Titel
+                widget: string
+              - name: icoon
+                label: Icoon
+                widget: string
+                hint: De naam van een icoon van phosphoricons.com, zonder "ph-" ervoor (bijvoorbeeld "handshake").
+              - name: tekst
+                label: Tekst
+                widget: text
+                hint: >-
+                  Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
+                  link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
+              - name: labels
+                label: Labeltjes onder de tekst
+                label_singular: Labeltje
+                widget: list
+                required: false
+                field:
+                  name: label
+                  label: Tekst
+                  widget: string
+                hint: Bijvoorbeeld de steden van de zusterverenigingen. Mag leeg blijven.
+
+  # ---------------------------------------------------------------------------------------------
+  - name: kasten
+    label: Kasten
+    icon: house
+    files:
+      - name: kasten
+        label: Kastenpagina
+        file: data/paginas/kasten.json
+        fields:
+          - name: intro
+            label: Tekst bovenaan de pagina
+            widget: object
+            fields:
+              - name: titel
+                label: Titel (H1)
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+          - name: kasten
+            label: Kasten
+            label_singular: Kast
+            widget: list
+            collapsed: true
+            summary: '{{naam}} — {{gebied}}'
+            hint: >-
+              Slepen verandert de volgorde van de kaartjes onder de kaart. Elke kast krijgt een pin op
+              de kaart.
+            fields:
+              - name: naam
+                label: Naam
+                widget: string
+              - name: gebied
+                label: Gebied
+                widget: string
+                hint: 'Bijvoorbeeld "Bij station Delft". Wordt nu alleen in het beheer gebruikt.'
+              - name: lat
+                label: Breedtegraad (pin op de kaart)
+                widget: number
+                value_type: float
+                hint: >-
+                  Rechtsklik in Google Maps op de plek en klik op de coördinaten om ze te kopiëren: het
+                  eerste getal (bv. 52.0093) komt hier, het tweede hieronder. Bewust een plek in de buurt
+                  en geen exact adres, vanwege de privacy van de bewoners.
+              - name: lon
+                label: Lengtegraad (pin op de kaart)
+                widget: number
+                value_type: float
+                hint: Het tweede getal, bijvoorbeeld 4.3548.
+              - name: foto
+                label: Foto
+                widget: vgsd-foto-activiteiten
+                required: false
+                media_folder: /images/photos/Kasten
+                public_folder: /images/photos/Kasten
+                hint: >-
+                  Upload de foto, sleep hem in het kader om te bepalen welk deel zichtbaar blijft op het
+                  kaartje, en klik op Opslaan. De foto wordt automatisch verkleind.
+              - name: tekst
+                label: Tekst (in de popup)
+                widget: text
+                hint: >-
+                  Laat een lege regel tussen alinea's. Opmaak: **vet**, ~~doorgestreept~~ en
+                  [linktekst](adres) voor een link.
+
+  # ---------------------------------------------------------------------------------------------
   - name: vvgsd
     label: VVGSD
     icon: sports_soccer
     files:
+      - name: vvgsd_teksten
+        label: Teksten op de pagina's
+        file: data/paginas/vvgsd.json
+        fields:
+          - name: hoofdpagina
+            label: VVGSD-pagina
+            widget: object
+            fields:
+              - name: titel
+                label: Titel (H1)
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+              - name: kopVolgendeWedstrijd
+                label: Kopje boven de eerstvolgende wedstrijd
+                widget: string
+              - name: kopTopscorers
+                label: Kop boven de topscorers
+                widget: string
+              - name: kopVerslagen
+                label: Kop boven de wedstrijdverslagen
+                widget: string
+              - name: ctaTitel
+                label: Titel rood blok onderaan
+                widget: string
+              - name: ctaTekst
+                label: Tekst rood blok onderaan
+                widget: text
+          - name: stand
+            label: Standpagina
+            widget: object
+            fields:
+              - name: titel
+                label: Titel (H1)
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+          - name: schema
+            label: Wedstrijdschemapagina
+            widget: object
+            fields:
+              - name: titel
+                label: Titel (H1)
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+
       - name: vvgsd
         label: Voetbalteam
         file: data/vvgsd-instellingen.json
@@ -469,12 +854,60 @@ collections:
                     required: false
 
   # ---------------------------------------------------------------------------------------------
+  - name: veelgestelde_vragen
+    label: Veelgestelde vragen
+    icon: help
+    files:
+      - name: veelgestelde_vragen
+        label: Veelgestelde vragen
+        file: data/paginas/veelgestelde-vragen.json
+        fields:
+          - name: intro
+            label: Tekst bovenaan de pagina
+            widget: object
+            fields:
+              - name: titel
+                label: Titel (H1)
+                widget: string
+              - name: tekst
+                label: Tekst onder de titel
+                widget: text
+          - name: vragen
+            label: Vragen
+            label_singular: Vraag
+            widget: list
+            collapsed: true
+            summary: '{{vraag}}'
+            hint: Slepen verandert de volgorde op de site.
+            fields:
+              - name: vraag
+                label: Vraag
+                widget: string
+              - name: antwoord
+                label: Antwoord
+                widget: text
+                hint: >-
+                  Laat een lege regel tussen alinea's. Opmaak: **vet**, [linktekst](adres) voor een
+                  link, en {emailPr}, {email} of {telefoon} voor het adres/nummer uit Instellingen.
+          - name: cta
+            label: Rood blok onderaan
+            widget: object
+            fields:
+              - name: titel
+                label: Titel
+                widget: string
+              - name: tekst
+                label: Tekst
+                widget: text
+                hint: De knop eronder mailt altijd naar het PR-adres uit Instellingen.
+
+  # ---------------------------------------------------------------------------------------------
   - name: instellingen
     label: Instellingen
     icon: settings
     files:
       - name: site
-        label: WhatsApp en contactgegevens
+        label: Algemene instellingen (WhatsApp, contact, footer)
         file: data/site.json
         fields:
           - name: whatsapp
@@ -518,3 +951,35 @@ collections:
                 type: url
                 required: false
                 hint: De volledige link naar het Instagram-account. Leeg laten als er (nog) geen is.
+          - name: cta
+            label: Rood blok "Nieuwsgierig geworden?" onderaan pagina's
+            widget: object
+            hint: >-
+              Staat onderaan Activiteiten, Besturen, Geschiedenis, Kasten en Verbanden. (Open avonden,
+              VVGSD en Veelgestelde vragen hebben een eigen versie, die pas je bij die pagina aan.)
+            fields:
+              - name: titel
+                label: Titel
+                widget: string
+              - name: tekst
+                label: Tekst
+                widget: text
+              - name: knopOpenAvonden
+                label: Tekst op de witte knop (naar open avonden)
+                widget: string
+              - name: knopLidWorden
+                label: Tekst op de tweede knop (lid worden)
+                widget: string
+          - name: footer
+            label: Footer (onderaan elke pagina)
+            widget: object
+            fields:
+              - name: tekst
+                label: Korte omschrijving onder het logo
+                widget: text
+              - name: copyright
+                label: Regel linksonder
+                widget: string
+              - name: slogan
+                label: Regel rechtsonder
+                widget: string

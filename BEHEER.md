@@ -9,12 +9,30 @@ staat in formulieren op de beheerpagina.
 
 | Formulier | Waarvoor |
 |---|---|
+| **Homepage** | Alle teksten en foto's op de homepage: titel en foto bovenaan, het "Over ons"-blok, de vier pijlers, de verhalen van leden (met pasfoto) en de Instagram-foto's |
 | **Activiteiten** | De tekst bovenaan `activiteiten.html`, en de activiteitenkaarten zelf: titel, icoon, foto, tekst, "Lees meer"-tekst, kleur (rood/wit) en volgorde |
-| **Open avonden** | De kalender met open avonden (de eerstvolgende komt automatisch in de footer) |
-| **Besturen** | Een nieuw bestuur toevoegen, of namen, foto, quote en bestuurstekst aanpassen |
+| **Open avonden** | De kalender met open avonden (de eerstvolgende komt automatisch in de footer), en de teksten op de pagina zelf |
+| **Besturen** | Een nieuw bestuur toevoegen, of namen, foto, quote en bestuurstekst aanpassen; plus de introtekst bovenaan de pagina |
 | **Geschiedenis** | De tekst bovenaan `geschiedenis.html`, en de stappen in de tijdlijn (toevoegen, aanpassen, volgorde) |
-| **VVGSD** | Groepsfoto, topscorers, wedstrijdverslagen, en (indien nodig) de handmatige invoer/instellingen voor de stand en het wedstrijdschema van het voetbalteam |
-| **Instellingen** | WhatsApp-nummer, adres, e-mailadressen, telefoonnummer en Instagram-link |
+| **Verbanden** | De introtekst en de kaarten (titel, icoon, tekst, labeltjes zoals de steden) |
+| **Kasten** | De introtekst en per kast: naam, plek op de kaart, foto (met bijsnijden) en de tekst in de popup |
+| **VVGSD** | De teksten op de drie voetbalpagina's, groepsfoto, topscorers, wedstrijdverslagen, en (indien nodig) de handmatige invoer/instellingen voor de stand en het wedstrijdschema |
+| **Veelgestelde vragen** | De introtekst, de vragen en antwoorden (toevoegen, aanpassen, volgorde) en het rode blok onderaan |
+| **Instellingen** | WhatsApp-nummer, adres, e-mailadressen, telefoonnummer, Instagram-link, het rode blok "Nieuwsgierig geworden?" dat onder meerdere pagina's staat, en de teksten in de footer |
+
+Wat (nog) niet via de beheerpagina kan: het menu bovenaan, de vormgeving (kleuren, lettertypes,
+opbouw van de pagina's) en de titel die in het browsertabblad staat. Daarvoor moet de code worden
+aangepast.
+
+**Opmaak in langere teksten.** In de grotere tekstvakken kun je een lege regel laten voor een nieuwe
+alinea, en daarnaast:
+
+- `**vet**` voor **vetgedrukte** tekst
+- `[linktekst](adres)` voor een link, bijvoorbeeld `[de activiteitenpagina](activiteiten.html)` of
+  `[Instagram](https://www.instagram.com/vgsdelft/)`
+- `~~doorgestreept~~` voor doorgestreepte tekst (gebruikt bij Halte Boszicht op de kastenpagina)
+- `{emailPr}`, `{email}` of `{telefoon}`: wordt het e-mailadres/telefoonnummer uit Instellingen, als
+  aanklikbare link. Zo hoef je een nieuw adres maar op één plek aan te passen.
 
 Na het opslaan staat de wijziging na ongeveer 1 tot 2 minuten op de website.
 
@@ -112,12 +130,13 @@ inklapbare kopjes:
 
 ## Waar staan de gegevens echt?
 
-In de map `data/` (`besturen.json`, `site.json`, `activiteiten.json`, `activiteiten-overzicht.json`,
-`geschiedenis.json`, `vvgsd-instellingen.json`, en de twee automatisch gegenereerde bestanden
+In de map `data/` (de teksten van de pagina's in `data/paginas/`, en verder `besturen.json`,
+`site.json`, `activiteiten.json`, `activiteiten-overzicht.json`, `geschiedenis.json`, `vvgsd-instellingen.json`, en de twee automatisch gegenereerde bestanden
 `vvgsd-stand-auto.json`/`vvgsd-schema-auto.json` die je niet met de hand hoeft te bewerken). De
-formulieren staan beschreven in `admin/config.yml`. `js/site.js`, `activiteiten.html`,
-`geschiedenis.html`, `vvgsd.html`, `wedstrijdschema.html` en `stand.html` lezen die gegevens en
-bouwen daarmee de pagina op. De VVGSD-scraper zelf staat in `scripts/vvgsd-scraper.mjs`, en draait
+formulieren staan beschreven in `admin/config.yml`. `js/site.js` vult de teksten uit `data/paginas/`
+in op alle plekken met een `data-inhoud`-attribuut in de HTML (de uitleg staat bovenaan die functie).
+Daarnaast lezen `activiteiten.html`, `geschiedenis.html`, `kasten.html`, `veelgestelde-vragen.html`, `vvgsd.html`,
+`wedstrijdschema.html` en `stand.html` de gegevens met een eigen script en bouwen daarmee de pagina op. De VVGSD-scraper zelf staat in `scripts/vvgsd-scraper.mjs`, en draait
 volgens het schema in `.github/workflows/vvgsd-scraper.yml`. Bewerk je de bestanden liever met de
 hand, dan kan dat ook; let op de haakjes en komma's.
 

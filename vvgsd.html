@@ -185,7 +185,7 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/vvgsd">
 
 <!-- WHATSAPP FLOATING BUTTON -->
 <!-- Nummer komt uit data/site.json (zie js/site.js). -->
@@ -322,10 +322,10 @@
   <section class="pt-16 pb-10 sm:pt-20 sm:pb-14">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
-        <h1 class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
+        <h1 data-inhoud="hoofdpagina.titel" class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
           VVGSD
         </h1>
-        <p class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
+        <p data-inhoud="hoofdpagina.tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
           Het voetbalteam van de VGSD speelt in een studentencompetitie tussen verenigingen en studies van de TU Delft. Hier vind je de eerstvolgende wedstrijd, onze topscorers en de wedstrijdverslagen.
         </p>
         <div class="mt-5 flex flex-wrap gap-3">
@@ -352,7 +352,7 @@
         </div>
 
         <div class="rounded-2xl bg-brand-600 p-7 sm:p-8 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.35)] flex flex-col">
-          <p class="text-xs font-semibold uppercase tracking-wide text-brand-100">Eerstvolgende wedstrijd</p>
+          <p data-inhoud="hoofdpagina.kopVolgendeWedstrijd" class="text-xs font-semibold uppercase tracking-wide text-brand-100">Eerstvolgende wedstrijd</p>
           <div id="vvgsd-volgende-wedstrijd" class="mt-3 flex-1">
             <p class="text-warm-50/80">Bezig met laden…</p>
           </div>
@@ -365,7 +365,7 @@
   <section class="pb-20 sm:pb-24">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
-        <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Topscorers</h2>
+        <h2 data-inhoud="hoofdpagina.kopTopscorers" class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Topscorers</h2>
       </div>
       <div id="vvgsd-topscorers" class="reveal mt-6 rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] divide-y divide-ink-900/5 max-w-lg overflow-hidden">
         <!-- Wordt gevuld vanuit data/vvgsd-instellingen.json -->
@@ -377,7 +377,7 @@
   <section class="pb-24 sm:pb-32">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
-        <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Wedstrijdverslagen</h2>
+        <h2 data-inhoud="hoofdpagina.kopVerslagen" class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Wedstrijdverslagen</h2>
       </div>
       <div id="vvgsd-verslagen" class="mt-6 grid sm:grid-cols-2 gap-6">
         <!-- Wordt gevuld vanuit data/vvgsd-instellingen.json -->
@@ -389,10 +389,10 @@
   <section class="pb-24 sm:pb-32">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal rounded-[1.75rem] bg-brand-600 px-8 py-12 sm:px-14 sm:py-14 text-center">
-        <h2 class="font-display font-bold text-2xl sm:text-3xl text-warm-50">
+        <h2 data-inhoud="hoofdpagina.ctaTitel" class="font-display font-bold text-2xl sm:text-3xl text-warm-50">
           Zelf meevoetballen?
         </h2>
-        <p class="mt-3 text-brand-100 max-w-md mx-auto">
+        <p data-inhoud="hoofdpagina.ctaTekst" class="mt-3 text-brand-100 max-w-md mx-auto">
           Kom gewoon een keer langs bij een open avond, vrijblijvend en zonder poespas.
         </p>
         <div class="mt-7 flex flex-wrap items-center justify-center gap-4">
@@ -419,7 +419,7 @@
           <img src="images/logo/vgsd-logo.svg" alt="VGSD logo" class="h-9 w-9 object-contain bg-warm-50 rounded-full p-1">
           <span class="font-display font-bold text-lg tracking-tight">VGSD</span>
         </div>
-        <p class="mt-4 text-brand-100 leading-relaxed max-w-xs text-[15px]">
+        <p data-site-tekst="footer.tekst" class="mt-4 text-brand-100 leading-relaxed max-w-xs text-[15px]">
           Christelijke studentenvereniging voor geloof, gezelligheid, verdieping en studentikoze tradities.
         </p>
         <div class="mt-6 flex items-center gap-3">
@@ -467,8 +467,8 @@
     </div>
 
     <div class="mt-14 pt-6 border-t border-warm-50/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-brand-100">
-      <p>&copy; 2026 VGSD, studentenvereniging.</p>
-      <p>Met liefde gebouwd door studenten, voor studenten.</p>
+      <p data-site-tekst="footer.copyright">&copy; 2026 VGSD, studentenvereniging.</p>
+      <p data-site-tekst="footer.slogan">Met liefde gebouwd door studenten, voor studenten.</p>
     </div>
   </div>
 </footer>

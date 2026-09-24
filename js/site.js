@@ -144,12 +144,160 @@
     }, 700);
   }
 
+  // --- Paginateksten uit de beheerpagina ------------------------------------------------------
+  // Een pagina met <body data-pagina="paginas/home"> laadt data/paginas/home.json en vult daarmee:
+  //   data-inhoud="pad"           -> tekst (bv. "hero.titel")
+  //   data-inhoud-rijk="pad"      -> alinea's met opmaak (zie rijkeTekst), optioneel
+  //                                  data-alinea-klasse="..." voor de class van elke <p>
+  //   data-inhoud-foto="pad"      -> src van een <img>; de waarde mag een pad zijn of { src, positie }
+  //   data-inhoud-alt="pad"       -> alt-tekst van een <img>
+  //   data-inhoud-href="pad"      -> link
+  //   data-inhoud-icoon="pad"     -> Phosphor-icoon op een <i> (naam zonder "ph-")
+  //   data-inhoud-lijst="pad"     -> herhaalt de <template> in dit element voor elk item in de lijst;
+  //                                  binnen de template gelden dezelfde attributen, met paden vanaf
+  //                                  het item ("." is het item zelf). <template data-als="veld">
+  //                                  wordt gebruikt voor items waarbij dat veld aan staat.
+  //   data-inhoud-optioneel       -> (binnen een lijst) element weghalen als de waarde leeg is
+  // Een lege waarde laat de bestaande tekst in de HTML staan, zodat een half ingevuld formulier
+  // nooit een gat in de pagina slaat.
+  function leeg(w) {
+    return w == null || w === '' || (typeof w === 'object' && !Array.isArray(w) && !w.src && 'src' in w);
+  }
+
+  function pakWaarde(obj, pad) {
+    return pad === '.' ? obj : waarde(obj, pad);
+  }
+
+  // Zet tekst uit de beheerpagina om in alinea's. Ondersteunt:
+  //   lege regel = nieuwe alinea, enkele Enter = nieuwe regel,
+  //   **vet**, ~~doorgestreept~~, [linktekst](adres),
+  //   {email}, {emailPr}, {telefoon} = het adres/nummer uit Instellingen (als link).
+  function rijkeTekst(tekst, site, alineaKlasse) {
+    return String(tekst || '')
+      .split(/\n\s*\n/)
+      .map((a) => a.trim())
+      .filter(Boolean)
+      .map((alinea) => {
+        const p = document.createElement('p');
+        if (alineaKlasse) p.className = alineaKlasse;
+        alinea.split('\n').forEach((regel, i) => {
+          if (i > 0) p.appendChild(document.createElement('br'));
+          voegInlineToe(p, regel, site);
+        });
+        return p;
+      });
+  }
+
+  function voegInlineToe(ouder, regel, site) {
+    const patroon = /\*\*(.+?)\*\*|~~(.+?)~~|\[([^\]]+)\]\(([^)\s]+)\)|\{(email|emailPr|telefoon)\}/g;
+    let vanaf = 0;
+    let m;
+    while ((m = patroon.exec(regel))) {
+      if (m.index > vanaf) ouder.appendChild(document.createTextNode(regel.slice(vanaf, m.index)));
+      if (m[1] != null) {
+        const b = document.createElement('strong');
+        voegInlineToe(b, m[1], site);
+        ouder.appendChild(b);
+      } else if (m[2] != null) {
+        const s = document.createElement('s');
+        voegInlineToe(s, m[2], site);
+        ouder.appendChild(s);
+      } else if (m[3] != null) {
+        const a = document.createElement('a');
+        a.href = /^(https?:|mailto:|tel:|#|\/|[\w-]+\.html)/i.test(m[4]) ? m[4] : `https://${m[4]}`;
+        if (/^https?:/i.test(a.getAttribute('href'))) {
+          a.target = '_blank';
+          a.rel = 'noopener';
+        }
+        a.textContent = m[3];
+        ouder.appendChild(a);
+      } else {
+        const contact = (site && site.contact) || {};
+        const w = contact[m[5]] || '';
+        const a = document.createElement('a');
+        a.href = m[5] === 'telefoon' ? `tel:${telLink(w)}` : `mailto:${w}`;
+        a.textContent = w;
+        ouder.appendChild(a);
+      }
+      vanaf = patroon.lastIndex;
+    }
+    if (vanaf < regel.length) ouder.appendChild(document.createTextNode(regel.slice(vanaf)));
+  }
+
+  function fotoSrc(w) {
+    return typeof w === 'string' ? w : (w && w.src) || '';
+  }
+
+  // Vult alle data-inhoud-*-elementen binnen `wortel` met gegevens uit `data`.
+  function vulInhoud(wortel, data, site, binnenLijst) {
+    // Eerst de lijsten, van buiten naar binnen: geneste lijsten worden gevuld bij het klonen.
+    Array.from(wortel.querySelectorAll('[data-inhoud-lijst]')).forEach((el) => {
+      const items = pakWaarde(data, el.dataset.inhoudLijst);
+      // Lege lijst: laat de bestaande HTML staan (bv. de lege Instagram-tegels), of haal een
+      // optioneel element binnen een lijst weg (bv. de plaatsnamen onder een verband).
+      if (!Array.isArray(items) || !items.length) {
+        if (binnenLijst && el.hasAttribute('data-inhoud-optioneel')) el.remove();
+        return;
+      }
+      const templates = Array.from(el.querySelectorAll(':scope > template'));
+      const standaard = templates.find((t) => !t.dataset.als) || templates[0];
+      if (!standaard) return;
+      el.querySelectorAll(':scope > :not(template)').forEach((kind) => kind.remove());
+      items.forEach((item) => {
+        const t = templates.find((tpl) => tpl.dataset.als && item && item[tpl.dataset.als]) || standaard;
+        const kloon = t.content.cloneNode(true);
+        vulInhoud(kloon, item, site, true);
+        el.appendChild(kloon);
+      });
+      el.removeAttribute('data-inhoud-lijst');
+    });
+
+    const vul = (attr, fn) => {
+      wortel.querySelectorAll(`[data-${attr}]`).forEach((el) => {
+        const naam = attr.replace(/-(\w)/g, (_, c) => c.toUpperCase());
+        const w = pakWaarde(data, el.dataset[naam]);
+        el.removeAttribute(`data-${attr}`);
+        if (leeg(w) || (Array.isArray(w) && !w.length)) {
+          if (binnenLijst && el.hasAttribute('data-inhoud-optioneel')) el.remove();
+          return;
+        }
+        fn(el, w);
+      });
+    };
+
+    vul('inhoud', (el, w) => { el.textContent = w; });
+    vul('inhoud-rijk', (el, w) => { el.replaceChildren(...rijkeTekst(w, site, el.dataset.alineaKlasse)); });
+    vul('inhoud-foto', (el, w) => {
+      el.src = fotoSrc(w);
+      if (w && w.positie) el.style.objectPosition = w.positie;
+    });
+    vul('inhoud-alt', (el, w) => { el.alt = w; });
+    vul('inhoud-href', (el, w) => { el.href = w; });
+    vul('inhoud-icoon', (el, w) => {
+      el.className = el.className.replace(/\bph-(?!fill\b)[\w-]+/g, '').trim();
+      el.classList.add(`ph-${w}`);
+    });
+  }
+
   const ready = Promise.all([laad('site'), laad('activiteiten')]).then(([site, activiteiten]) => {
     vulSiteGegevens(site);
     vulVolgendeOpenAvond(site, activiteiten.openAvonden);
     return { site, openAvonden: activiteiten.openAvonden };
   });
   ready.catch((fout) => console.error('VGSD: gegevens laden mislukt.', fout));
+
+  // Paginateksten: klaar als de pagina gevuld is. Pagina's met eigen scripts wachten hierop
+  // (VGSD.inhoud.then(({ pagina, site }) => ...)). Zonder data-pagina is `pagina` leeg.
+  const paginaNaam = document.body && document.body.dataset.pagina;
+  const inhoud = Promise.all([
+    ready.catch(() => ({ site: {} })),
+    paginaNaam ? laad(paginaNaam) : Promise.resolve({}),
+  ]).then(([{ site }, pagina]) => {
+    vulInhoud(document, pagina, site, false);
+    initReveal();
+    return { pagina, site };
+  });
+  inhoud.catch((fout) => console.error('VGSD: paginateksten laden mislukt.', fout));
 
   // VVGSD (voetbalteam): stand en wedstrijdschema komen automatisch van Playpass
   // (data/vvgsd-stand-auto.json en data/vvgsd-schema-auto.json, bijgewerkt door
@@ -190,5 +338,5 @@
     };
   }
 
-  window.VGSD = { ready, laad, laadVvgsd, waLink: maakWaLink, vulSiteGegevens, initReveal };
+  window.VGSD = { ready, inhoud, laad, laadVvgsd, waLink: maakWaLink, vulSiteGegevens, initReveal, rijkeTekst };
 })();

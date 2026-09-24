@@ -262,7 +262,7 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/besturen">
 
 <!-- WHATSAPP FLOATING BUTTON -->
 <!-- Nummer komt uit data/site.json (zie js/site.js). -->
@@ -399,18 +399,20 @@
   <section class="pt-16 pb-10 sm:pt-20 sm:pb-14">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
-        <h1 class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
+        <h1 data-inhoud="intro.titel" class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
           Besturen
         </h1>
-        <p class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
-          Elk jaar krijgt de VGSD een nieuw bestuur, bestaande uit 3 of 4 leden. De besturen worden genoemd naar de achternaam van de praeses (voorzitter). De overige functies zijn: abactis (secretaris), fiscus (penningmeester) en eventueel een assessor.
-        </p>
-        <p class="mt-4 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
-          Lijkt het jou ook leuk en leerzaam om deel uit te maken van een bestuur? Bij de VGSD krijg je die kans!
-        </p>
-        <p class="mt-4 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
-          Aan het begin van het collegejaar 2026-2027 is alweer ons 67e bestuur aangetreden!
-        </p>
+        <div data-inhoud-rijk="intro.tekst" data-alinea-klasse="mt-4 first:mt-5 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
+          <p class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
+            Elk jaar krijgt de VGSD een nieuw bestuur, bestaande uit 3 of 4 leden. De besturen worden genoemd naar de achternaam van de praeses (voorzitter). De overige functies zijn: abactis (secretaris), fiscus (penningmeester) en eventueel een assessor.
+          </p>
+          <p class="mt-4 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
+            Lijkt het jou ook leuk en leerzaam om deel uit te maken van een bestuur? Bij de VGSD krijg je die kans!
+          </p>
+          <p class="mt-4 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
+            Aan het begin van het collegejaar 2026-2027 is alweer ons 67e bestuur aangetreden!
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -428,7 +430,7 @@
   <section class="pb-20 sm:pb-28">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
-        <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Besturen van de afgelopen jaren</h2>
+        <h2 data-inhoud="eerdereBesturenTitel" class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Besturen van de afgelopen jaren</h2>
       </div>
       <div id="besturen-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Kaartjes worden door JavaScript gevuld uit data/besturen.json, per 12 tijdens het scrollen. -->
@@ -441,18 +443,18 @@
   <section class="pb-24 sm:pb-32">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal rounded-[1.75rem] bg-brand-600 px-8 py-12 sm:px-14 sm:py-14 text-center">
-        <h2 class="font-display font-bold text-2xl sm:text-3xl text-warm-50">
+        <h2 data-site-tekst="cta.titel" class="font-display font-bold text-2xl sm:text-3xl text-warm-50">
           Nieuwsgierig geworden?
         </h2>
-        <p class="mt-3 text-brand-100 max-w-md mx-auto">
+        <p data-site-tekst="cta.tekst" class="mt-3 text-brand-100 max-w-md mx-auto">
           Kom gewoon een keer langs bij een open avond, vrijblijvend en zonder poespas.
         </p>
         <div class="mt-7 flex flex-wrap items-center justify-center gap-4">
           <a href="open-avonden.html" class="btn btn-primary inline-flex items-center justify-center rounded-full bg-warm-50 text-brand-700 px-7 py-3.5 text-[15px] font-semibold shadow-sm">
-            Bekijk open avonden
+            <span data-site-tekst="cta.knopOpenAvonden">Bekijk open avonden</span>
           </a>
           <a href="index.html#word-lid" class="btn inline-flex items-center justify-center rounded-full border border-warm-50/40 text-warm-50 px-7 py-3.5 text-[15px] font-semibold">
-            Lid worden
+            <span data-site-tekst="cta.knopLidWorden">Lid worden</span>
           </a>
         </div>
       </div>
@@ -493,7 +495,7 @@
           <img src="images/logo/vgsd-logo.svg" alt="VGSD logo" class="h-9 w-9 object-contain bg-warm-50 rounded-full p-1">
           <span class="font-display font-bold text-lg tracking-tight">VGSD</span>
         </div>
-        <p class="mt-4 text-brand-100 leading-relaxed max-w-xs text-[15px]">
+        <p data-site-tekst="footer.tekst" class="mt-4 text-brand-100 leading-relaxed max-w-xs text-[15px]">
           Christelijke studentenvereniging voor geloof, gezelligheid, verdieping en studentikoze tradities.
         </p>
         <div class="mt-6 flex items-center gap-3">
@@ -541,8 +543,8 @@
     </div>
 
     <div class="mt-14 pt-6 border-t border-warm-50/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-brand-100">
-      <p>&copy; 2026 VGSD, studentenvereniging.</p>
-      <p>Met liefde gebouwd door studenten, voor studenten.</p>
+      <p data-site-tekst="footer.copyright">&copy; 2026 VGSD, studentenvereniging.</p>
+      <p data-site-tekst="footer.slogan">Met liefde gebouwd door studenten, voor studenten.</p>
     </div>
   </div>
 </footer>

@@ -1,0 +1,19 @@
+{
+  "hoofdpagina": {
+    "titel": "VVGSD",
+    "tekst": "Het voetbalteam van de VGSD speelt in een studentencompetitie tussen verenigingen en studies van de TU Delft. Hier vind je de eerstvolgende wedstrijd, onze topscorers en de wedstrijdverslagen.",
+    "kopVolgendeWedstrijd": "Eerstvolgende wedstrijd",
+    "kopTopscorers": "Topscorers",
+    "kopVerslagen": "Wedstrijdverslagen",
+    "ctaTitel": "Zelf meevoetballen?",
+    "ctaTekst": "Kom gewoon een keer langs bij een open avond, vrijblijvend en zonder poespas."
+  },
+  "stand": {
+    "titel": "Stand",
+    "tekst": "De actuele stand van de poule waarin VVGSD speelt. Onze eigen positie is lichtroze uitgelicht."
+  },
+  "schema": {
+    "titel": "Wedstrijdschema",
+    "tekst": "Het volledige programma van de poule waarin VVGSD speelt. Onze eigen wedstrijden zijn lichtroze uitgelicht."
+  }
+}

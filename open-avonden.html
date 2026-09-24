@@ -185,7 +185,7 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/open-avonden">
 
 <!-- WHATSAPP FLOATING BUTTON -->
 <!-- Nummer komt uit data/site.json (zie js/site.js). -->
@@ -322,15 +322,17 @@
   <section class="pt-16 pb-14 sm:pt-20 sm:pb-16">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
-        <h1 class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
+        <h1 data-inhoud="intro.titel" class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
           Open avonden
         </h1>
-        <p class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[52ch]">
+        <p data-inhoud="intro.tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[52ch]">
           Een open avond is gewoon een van onze normale activiteiten, alleen dan speciaal opengesteld voor nieuwe gezichten. Geen lidmaatschap nodig, geen verplichtingen: kom gewoon eens langs en proef de sfeer.
         </p>
-        <p class="mt-3 text-ink-500 leading-relaxed max-w-[52ch] text-[15px]">
-          Hieronder staan alle open avonden van dit verenigingsjaar op een rij. Benieuwd naar wat een avond precies inhoudt? Bekijk het volledige <a href="activiteiten.html" class="text-brand-600 hover:underline">activiteitenoverzicht</a>.
-        </p>
+        <div data-inhoud-rijk="intro.subtekst" data-alinea-klasse="mt-3 text-ink-500 leading-relaxed max-w-[52ch] text-[15px] [&_a]:text-brand-600 [&_a:hover]:underline">
+          <p class="mt-3 text-ink-500 leading-relaxed max-w-[52ch] text-[15px]">
+            Hieronder staan alle open avonden van dit verenigingsjaar op een rij. Benieuwd naar wat een avond precies inhoudt? Bekijk het volledige <a href="activiteiten.html" class="text-brand-600 hover:underline">activiteitenoverzicht</a>.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -341,7 +343,7 @@
       <div id="open-avonden-lijst" class="space-y-4">
         <!-- JS-gerenderd uit data/activiteiten.json. -->
       </div>
-      <p id="open-avonden-leeg" class="hidden reveal text-ink-500 text-[15px]">
+      <p id="open-avonden-leeg" data-inhoud="leegTekst" class="hidden reveal text-ink-500 text-[15px]">
         Er zijn nog geen open avonden ingepland. Kom snel terug voor de nieuwe data.
       </p>
     </div>
@@ -351,10 +353,10 @@
   <section class="pb-24 sm:pb-32">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal rounded-[1.75rem] bg-brand-600 px-8 py-12 sm:px-14 sm:py-14 text-center">
-        <h2 class="font-display font-bold text-2xl sm:text-3xl text-warm-50">
+        <h2 data-inhoud="cta.titel" class="font-display font-bold text-2xl sm:text-3xl text-warm-50">
           Nieuwsgierig geworden?
         </h2>
-        <p class="mt-3 text-brand-100 max-w-md mx-auto">
+        <p data-inhoud="cta.tekst" class="mt-3 text-brand-100 max-w-md mx-auto">
           Meld je vrijblijvend aan voor een open avond, of stuur ons gewoon een berichtje met je vragen.
         </p>
         <div class="mt-7 flex flex-wrap items-center justify-center gap-4">
@@ -381,7 +383,7 @@
           <img src="images/logo/vgsd-logo.svg" alt="VGSD logo" class="h-9 w-9 object-contain bg-warm-50 rounded-full p-1">
           <span class="font-display font-bold text-lg tracking-tight">VGSD</span>
         </div>
-        <p class="mt-4 text-brand-100 leading-relaxed max-w-xs text-[15px]">
+        <p data-site-tekst="footer.tekst" class="mt-4 text-brand-100 leading-relaxed max-w-xs text-[15px]">
           Christelijke studentenvereniging voor geloof, gezelligheid, verdieping en studentikoze tradities.
         </p>
         <div class="mt-6 flex items-center gap-3">
@@ -426,8 +428,8 @@
     </div>
 
     <div class="mt-14 pt-6 border-t border-warm-50/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-brand-100">
-      <p>&copy; 2026 VGSD, studentenvereniging.</p>
-      <p>Met liefde gebouwd door studenten, voor studenten.</p>
+      <p data-site-tekst="footer.copyright">&copy; 2026 VGSD, studentenvereniging.</p>
+      <p data-site-tekst="footer.slogan">Met liefde gebouwd door studenten, voor studenten.</p>
     </div>
   </div>
 </footer>
