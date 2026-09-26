@@ -1,19 +1,6 @@
 {
   "besturen": [
     {
-      "naam": "testset",
-      "praeses": "setset",
-      "abactis": "setset",
-      "fiscus": "",
-      "assessor": "",
-      "foto": {
-        "positie": "50% 77%",
-        "src": "/images/photos/besturen/vgsd-logo.jpg"
-      },
-      "quote": "",
-      "tekst": ""
-    },
-    {
       "naam": "de Jong III",
       "praeses": "J. de Jong",
       "abactis": "H.H.M. Luhrman",
