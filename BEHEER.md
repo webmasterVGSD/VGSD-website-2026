@@ -18,6 +18,7 @@ staat in formulieren op de beheerpagina.
 | **Kasten** | De introtekst en per kast: naam, plek op de kaart, foto (met bijsnijden) en de tekst in de popup |
 | **VVGSD** | De teksten op de drie voetbalpagina's, groepsfoto, topscorers, wedstrijdverslagen, en (indien nodig) de handmatige invoer/instellingen voor de stand en het wedstrijdschema |
 | **Veelgestelde vragen** | De introtekst, de vragen en antwoorden (toevoegen, aanpassen, volgorde) en het rode blok onderaan |
+| **Zakelijk (sponsors)** | De pagina `zakelijk.html`: logo's van sponsors en partners (met of zonder link), de uitgelichte sponsoractie (Poliswijzer; uit te zetten als die afloopt), SponsorKliks (tekst, uitleg, uitgelichte winkels en winkels per categorie), het blok "Partner worden" en de logo's onder TrafficToday |
 | **Instellingen** | WhatsApp-nummer, adres, e-mailadressen, telefoonnummer, Instagram-link, het rode blok "Nieuwsgierig geworden?" dat onder meerdere pagina's staat, en de teksten in de footer |
 
 Wat (nog) niet via de beheerpagina kan: het menu bovenaan, de vormgeving (kleuren, lettertypes,
@@ -95,6 +96,18 @@ verhoudingen getoond. De foto zelf blijft dus altijd heel; alleen de uitlijning 
 6. **Rood uitgelicht**: zet dit aan voor de belangrijkste of meest kenmerkende activiteiten (op de
    site krijgt de kaart dan een rode in plaats van een witte achtergrond). Zet dit niet bij te veel
    kaarten na elkaar in de volgorde — verspreid ze liever over de lijst voor een rustiger geheel.
+
+## Een sponsorlogo toevoegen of weghalen
+
+Open **Zakelijk (sponsors) → Sponsors en partners (logo's)** (of **TrafficToday** voor de logo's
+onderaan). Klik op **Sponsor toevoegen**, vul de naam in, upload het logo en vul eventueel de website
+in: dan is het logo klikbaar. Gebruik liefst een PNG met transparante achtergrond van hooguit zo'n
+600 pixels breed; logo's staan in `images/logos/`. Slepen verandert de volgorde, het prullenbakje
+haalt een sponsor weg.
+
+Het mailadres bij "Partner worden" is het **PR-adres uit Instellingen → Contactgegevens**. Het staat
+bewust niet in de HTML van de pagina maar wordt door het script ingevuld, zodat spambots die de
+broncode doorzoeken het niet vinden. Er is daarom ook geen formulier: bedrijven mailen gewoon.
 
 ## Een stap aan de geschiedenis-tijdlijn toevoegen
 

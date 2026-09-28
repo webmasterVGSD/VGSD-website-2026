@@ -874,6 +874,207 @@ collections:
             label: Tekst
             widget: text
             hint: De knop eronder mailt altijd naar het PR-adres uit Instellingen.
+  - name: zakelijk
+    label: Zakelijk (sponsors)
+    icon: work
+    files:
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/zakelijk/intro.json
+        fields:
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+      - name: partners
+        label: Sponsors en partners (logo's)
+        file: data/paginas/zakelijk/partners.json
+        fields:
+          - name: titel
+            label: Kopje boven de logo's
+            widget: string
+          - name: partners
+            label: Sponsors en partners
+            label_singular: Sponsor
+            widget: list
+            collapsed: true
+            summary: '{{naam}}'
+            hint: Slepen verandert de volgorde op de site.
+            fields:
+              - name: naam
+                label: Naam van het bedrijf
+                widget: string
+                hint: Wordt niet getoond, maar gebruikt voor schermlezers en zoekmachines.
+              - name: logo
+                label: Logo
+                widget: image
+                media_folder: /images/logos
+                public_folder: /images/logos
+                hint: >-
+                  Liefst een PNG met transparante achtergrond, niet breder dan zo'n 600 pixels. Het
+                  logo wordt passend in een wit tegeltje gezet.
+              - name: link
+                label: Website (optioneel)
+                widget: string
+                required: false
+                hint: Met een adres (https://...) wordt het logo klikbaar. Leeg = niet klikbaar.
+      - name: actie
+        label: Uitgelichte sponsoractie (Poliswijzer)
+        file: data/paginas/zakelijk/actie.json
+        fields:
+          - name: tonen
+            label: Tonen op de site
+            widget: boolean
+            default: true
+            hint: Zet uit als de actie is afgelopen; dan verdwijnt het hele blok.
+          - name: titel
+            label: Titel
+            widget: string
+          - name: logo
+            label: Logo
+            widget: image
+            media_folder: /images/logos
+            public_folder: /images/logos
+          - name: tekst
+            label: Tekst
+            widget: text
+            hint: "Laat een lege regel tussen alinea's. Opmaak: **vet** en [linktekst](adres)."
+          - name: knopTekst
+            label: Tekst op de knop
+            widget: string
+          - name: link
+            label: Link achter de knop
+            widget: string
+            hint: De unieke link van de VGSD, zodat de bijdrage bij ons terechtkomt.
+      - name: sponsorkliks
+        label: SponsorKliks
+        file: data/paginas/zakelijk/sponsorkliks.json
+        fields:
+          - name: titel
+            label: Titel
+            widget: string
+          - name: tekst
+            label: Tekst
+            widget: text
+            hint: "Laat een lege regel tussen alinea's. Opmaak: **vet** en [linktekst](adres)."
+          - name: link
+            label: Link naar onze SponsorKliks-winkelpagina
+            widget: string
+          - name: knopTekst
+            label: Tekst op de knop
+            widget: string
+          - name: uitleg
+            label: Uitgebreide uitleg (uitklapbaar)
+            widget: text
+            hint: >-
+              Laat een lege regel tussen alinea's; een **vetgedrukte** eerste regel werkt als
+              tussenkopje.
+          - name: uitgelicht
+            label: Uitgelichte winkels (met logo)
+            label_singular: Winkel
+            widget: list
+            collapsed: true
+            summary: '{{naam}}'
+            fields:
+              - name: naam
+                label: Naam
+                widget: string
+              - name: logo
+                label: Logo
+                widget: image
+                media_folder: /images/logos
+                public_folder: /images/logos
+              - name: commissie
+                label: Commissie
+                widget: string
+                required: false
+                hint: Bijvoorbeeld "2,5% commissie per bestelling".
+              - name: link
+                label: SponsorKliks-link van deze winkel
+                widget: string
+          - name: categorieen
+            label: Winkels per categorie
+            label_singular: Categorie
+            widget: list
+            collapsed: true
+            summary: '{{naam}}'
+            hint: >-
+              De links van een winkel vind je op onze SponsorKliks-winkelpagina: klik met de
+              rechtermuisknop op de winkel en kies "Link kopiëren".
+            fields:
+              - name: naam
+                label: Categorie
+                widget: string
+              - name: winkels
+                label: Winkels
+                label_singular: Winkel
+                widget: list
+                collapsed: true
+                summary: '{{naam}}'
+                fields:
+                  - name: naam
+                    label: Naam
+                    widget: string
+                  - name: link
+                    label: SponsorKliks-link
+                    widget: string
+      - name: partnerWorden
+        label: Partner worden (rood blok)
+        file: data/paginas/zakelijk/partnerWorden.json
+        fields:
+          - name: titel
+            label: Titel
+            widget: string
+          - name: tekst
+            label: Tekst
+            widget: text
+            hint: >-
+              Laat een lege regel tussen alinea's. Het mailadres ernaast is het PR-adres uit
+              Instellingen → Contactgegevens.
+      - name: traffictoday
+        label: TrafficToday (onderaan)
+        file: data/paginas/zakelijk/traffictoday.json
+        fields:
+          - name: titel
+            label: Titel
+            widget: string
+          - name: logo
+            label: Logo van TrafficToday
+            widget: image
+            required: false
+            media_folder: /images/logos
+            public_folder: /images/logos
+          - name: tekst
+            label: Tekst (optioneel)
+            widget: text
+            required: false
+          - name: partners
+            label: Logo's
+            label_singular: Logo
+            widget: list
+            collapsed: true
+            summary: '{{naam}}'
+            hint: Slepen verandert de volgorde op de site.
+            fields:
+              - name: naam
+                label: Naam van het bedrijf
+                widget: string
+                hint: Wordt niet getoond, maar gebruikt voor schermlezers en zoekmachines.
+              - name: logo
+                label: Logo
+                widget: image
+                media_folder: /images/logos
+                public_folder: /images/logos
+                hint: >-
+                  Liefst een PNG met transparante achtergrond, niet breder dan zo'n 600 pixels. Het
+                  logo wordt passend in een wit tegeltje gezet.
+              - name: link
+                label: Website (optioneel)
+                widget: string
+                required: false
+                hint: Met een adres (https://...) wordt het logo klikbaar. Leeg = niet klikbaar.
   - name: instellingen
     label: Instellingen
     icon: settings

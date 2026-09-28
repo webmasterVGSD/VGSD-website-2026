@@ -1,0 +1,22 @@
+{
+  "titel": "TrafficToday",
+  "tekst": "",
+  "logo": "/images/logos/traffictoday.png",
+  "partners": [
+    {
+      "naam": "Boeketcadeau",
+      "logo": "/images/logos/boeketcadeau.png",
+      "link": ""
+    },
+    {
+      "naam": "inShared",
+      "logo": "/images/logos/inshared.png",
+      "link": ""
+    },
+    {
+      "naam": "Rotimshop",
+      "logo": "/images/logos/rotimshop.png",
+      "link": ""
+    }
+  ]
+}

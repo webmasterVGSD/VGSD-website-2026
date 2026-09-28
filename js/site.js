@@ -6,7 +6,7 @@
 //   data-wa                    -> href wordt een WhatsApp-link (optioneel data-wa-tekst="voorgetypte tekst")
 //   data-site-tekst="pad"      -> tekst uit data/instellingen/, bv. "contact.email" (= contact.json, veld email)
 //   data-site-adres            -> adres uit contact.json, regels gescheiden door regeleinden
-//   data-site-mailto="pad"     -> href wordt mailto:<waarde>
+//   data-site-mailto="pad"     -> href wordt mailto:<waarde> (optioneel data-mail-onderwerp="onderwerp")
 //   data-site-tel="pad"        -> href wordt tel:<waarde>
 //   data-site-social="naam"    -> href wordt de social-link (bv. "instagram"), leeg = ongemoeid
 (function () {
@@ -64,7 +64,7 @@
     });
     document.querySelectorAll('[data-site-mailto]').forEach((el) => {
       const w = waarde(site, el.dataset.siteMailto);
-      if (w) el.href = `mailto:${w}`;
+      if (w) el.href = `mailto:${w}${el.dataset.mailOnderwerp ? `?subject=${encodeURIComponent(el.dataset.mailOnderwerp)}` : ''}`;
     });
     document.querySelectorAll('[data-site-tel]').forEach((el) => {
       const w = waarde(site, el.dataset.siteTel);

@@ -1,0 +1,35 @@
+{
+  "titel": "Onze sponsors en partners",
+  "partners": [
+    {
+      "naam": "Studenten Wegwijzer",
+      "logo": "/images/logos/studenten-wegwijzer.png",
+      "link": ""
+    },
+    {
+      "naam": "Fundex",
+      "logo": "/images/logos/fundex.png",
+      "link": "https://www.fundex.nl/"
+    },
+    {
+      "naam": "De Wijnstok",
+      "logo": "/images/logos/de-wijnstok.png",
+      "link": ""
+    },
+    {
+      "naam": "PrintPlezier",
+      "logo": "/images/logos/printplezier.png",
+      "link": ""
+    },
+    {
+      "naam": "Van Loenen",
+      "logo": "/images/logos/van-loenen.png",
+      "link": ""
+    },
+    {
+      "naam": "Dressme",
+      "logo": "/images/logos/dressme.png",
+      "link": ""
+    }
+  ]
+}

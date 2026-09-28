@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Open avonden | VGSD</title>
-<meta name="description" content="Alle open avonden van VGSD dit verenigingsjaar op een rij: kom gewoon eens langs, vrijblijvend en zonder poespas.">
+<title>Sponsors &amp; partners | VGSD</title>
+<meta name="description" content="De sponsors en partners van de VGSD, gratis sponsoren via SponsorKliks, en partner worden van de Vereniging van Gereformeerde Studenten te Delft.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,6 +163,35 @@
     transform: rotate(180deg);
   }
 
+  /* Logo's van sponsors: witte tegel, logo passend in het midden */
+  .logo-kaart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 3 / 2;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    border: 1px solid rgba(36, 27, 29, 0.05);
+    box-shadow: 0 8px 24px -12px rgba(58, 14, 24, 0.12);
+  }
+  .logo-kaart img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  /* "Uitgebreide uitleg" SponsorKliks */
+  .uitleg summary {
+    list-style: none;
+  }
+  .uitleg summary::-webkit-details-marker {
+    display: none;
+  }
+  .uitleg[open] .caret {
+    transform: rotate(180deg);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -185,7 +214,7 @@
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased" data-pagina="paginas/open-avonden" data-blokken="intro leeg cta">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/zakelijk" data-blokken="intro partners actie sponsorkliks partnerWorden traffictoday">
 
 <!-- WHATSAPP FLOATING BUTTON -->
 <!-- Nummer komt uit data/instellingen/whatsapp.json (zie js/site.js). -->
@@ -204,7 +233,7 @@
 
       <nav class="hidden xl:flex items-center gap-6 font-medium text-[15px] text-ink-700">
         <a href="activiteiten.html" class="nav-link">Activiteiten</a>
-        <a href="open-avonden.html" aria-current="page" class="nav-link text-brand-600">Open avonden</a>
+        <a href="open-avonden.html" class="nav-link">Open avonden</a>
 
         <div class="relative">
           <button type="button" data-dropdown-trigger="over-ons-panel" aria-expanded="false" aria-controls="over-ons-panel" class="nav-link flex items-center gap-1">
@@ -255,7 +284,7 @@
       <div class="hidden xl:flex items-center gap-4 shrink-0">
         <!-- TODO: "Log in" wijst nog naar "#": koppelen zodra die functionaliteit bestaat. -->
         <div class="flex items-center gap-3 text-[13px] text-ink-500">
-          <a href="zakelijk.html" class="btn hover:text-brand-600">Zakelijk</a>
+          <a href="zakelijk.html" aria-current="page" class="btn font-semibold text-brand-600">Zakelijk</a>
           <span class="text-ink-900/10">|</span>
           <a href="#" class="btn hover:text-brand-600">Log in</a>
         </div>
@@ -273,7 +302,7 @@
   <div id="mobile-nav" class="mobile-menu xl:hidden border-t border-ink-900/5 bg-warm-50">
     <nav class="max-w-container mx-auto px-5 sm:px-8 py-4 flex flex-col gap-1 font-medium text-ink-700">
       <a href="activiteiten.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Activiteiten</a>
-      <a href="open-avonden.html" aria-current="page" class="px-2 py-2.5 rounded-lg bg-brand-50 text-brand-600">Open avonden</a>
+      <a href="open-avonden.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Open avonden</a>
 
       <button type="button" data-accordion-trigger="over-ons-accordion" aria-expanded="false" aria-controls="over-ons-accordion" class="px-2 py-2.5 rounded-lg hover:bg-brand-50 flex items-center justify-between">
         Over ons
@@ -305,7 +334,7 @@
       <a href="veelgestelde-vragen.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Veelgestelde vragen</a>
 
       <div class="mt-2 pt-3 border-t border-ink-900/5 flex items-center gap-4 px-2 text-[13px] text-ink-500">
-        <a href="zakelijk.html" class="hover:text-brand-600">Zakelijk</a>
+        <a href="zakelijk.html" aria-current="page" class="font-semibold text-brand-600">Zakelijk</a>
         <a href="#" class="hover:text-brand-600">Log in</a>
       </div>
 
@@ -319,54 +348,153 @@
 <main>
 
   <!-- INTRO -->
-  <section class="pt-16 pb-14 sm:pt-20 sm:pb-16">
+  <section class="pt-16 pb-10 sm:pt-20 sm:pb-14">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
         <h1 data-inhoud="intro.titel" class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
-          Open avonden
+          Sponsors &amp; partners
         </h1>
-        <p data-inhoud="intro.tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[52ch]">
-          Een open avond is gewoon een van onze normale activiteiten, alleen dan speciaal opengesteld voor nieuwe gezichten. Geen lidmaatschap nodig, geen verplichtingen: kom gewoon eens langs en proef de sfeer.
+        <p data-inhoud="intro.tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[56ch]">
+          De VGSD kan niet zonder de steun van haar sponsors en partners.
         </p>
-        <div data-inhoud-rijk="intro.subtekst" data-alinea-klasse="mt-3 text-ink-500 leading-relaxed max-w-[52ch] text-[15px] [&_a]:text-brand-600 [&_a:hover]:underline">
-          <p class="mt-3 text-ink-500 leading-relaxed max-w-[52ch] text-[15px]">
-            Hieronder staan alle open avonden van dit verenigingsjaar op een rij. Benieuwd naar wat een avond precies inhoudt? Bekijk het volledige <a href="activiteiten.html" class="text-brand-600 hover:underline">activiteitenoverzicht</a>.
-          </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS EN PARTNERS -->
+  <section class="pb-16 sm:pb-20">
+    <div class="max-w-container mx-auto px-5 sm:px-8">
+      <h2 data-inhoud="partners.titel" class="reveal font-display font-semibold text-2xl text-ink-900">Onze sponsors en partners</h2>
+      <div data-inhoud-lijst="partners.partners" class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <!-- Logo's komen uit data/paginas/zakelijk/partners.json (beheerpagina: Zakelijk). Met link = klikbaar. -->
+        <template>
+          <div class="reveal logo-kaart">
+            <img data-inhoud-foto="logo" data-inhoud-alt="naam" alt="" loading="lazy">
+          </div>
+        </template>
+        <template data-als="link">
+          <a data-inhoud-href="link" target="_blank" rel="noopener sponsored" class="reveal logo-kaart card-tilt">
+            <img data-inhoud-foto="logo" data-inhoud-alt="naam" alt="" loading="lazy">
+          </a>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <!-- UITGELICHTE SPONSORACTIE (bv. Poliswijzer). Verdwijnt als "Tonen" in de beheerpagina uit staat. -->
+  <section id="actie" class="pb-16 sm:pb-20">
+    <div class="max-w-container mx-auto px-5 sm:px-8">
+      <div class="reveal rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] p-7 sm:p-10 grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] gap-8 items-center">
+        <div class="flex items-center justify-center rounded-xl bg-white p-6 sm:p-8 min-h-[8rem]">
+          <img data-inhoud-foto="actie.logo" data-inhoud-alt="actie.titel" alt="" class="max-h-20 w-auto max-w-full object-contain" loading="lazy">
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-brand-600">Sponsoractie</p>
+          <h2 data-inhoud="actie.titel" class="mt-2 font-display font-semibold text-2xl text-ink-900"></h2>
+          <div data-inhoud-rijk="actie.tekst" data-alinea-klasse="mt-3 text-ink-700 leading-relaxed"></div>
+          <a data-inhoud-href="actie.link" href="#" target="_blank" rel="noopener sponsored" class="btn btn-primary mt-6 inline-flex items-center gap-2 rounded-full bg-brand-600 text-warm-50 px-6 py-3 text-[15px] font-semibold shadow-sm">
+            <span data-inhoud="actie.knopTekst"></span>
+            <i class="ph ph-arrow-up-right text-sm"></i>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OPEN AVONDEN LIJST -->
+  <!-- SPONSORKLIKS -->
+  <section class="py-16 sm:py-24 bg-warm-100">
+    <div class="max-w-container mx-auto px-5 sm:px-8">
+      <div class="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-10 lg:gap-16">
+        <div class="reveal">
+          <img src="/images/logos/sponsorkliks.png" alt="SponsorKliks" class="h-14 w-auto" loading="lazy">
+          <h2 data-inhoud="sponsorkliks.titel" class="mt-6 font-display font-bold text-3xl sm:text-4xl leading-tight tracking-tight text-ink-900"></h2>
+          <div data-inhoud-rijk="sponsorkliks.tekst" data-alinea-klasse="mt-4 text-ink-700 leading-relaxed max-w-[60ch]"></div>
+          <div class="mt-7 flex flex-wrap items-center gap-4">
+            <a data-inhoud-href="sponsorkliks.link" href="#" target="_blank" rel="noopener" class="btn btn-primary inline-flex items-center gap-2 rounded-full bg-brand-600 text-warm-50 px-6 py-3 text-[15px] font-semibold shadow-sm">
+              <span data-inhoud="sponsorkliks.knopTekst"></span>
+              <i class="ph ph-arrow-up-right text-sm"></i>
+            </a>
+          </div>
+          <details class="uitleg mt-6 rounded-2xl bg-warm-50 border border-ink-900/5">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer px-5 py-4 font-semibold text-ink-900">
+              Uitgebreide uitleg
+              <i class="ph ph-caret-down caret text-sm"></i>
+            </summary>
+            <div data-inhoud-rijk="sponsorkliks.uitleg" data-alinea-klasse="mt-3 first:mt-0 text-ink-700 leading-relaxed text-[15px]" class="px-5 pb-5"></div>
+          </details>
+        </div>
+
+        <div class="reveal">
+          <div data-inhoud-lijst="sponsorkliks.uitgelicht" class="grid sm:grid-cols-2 gap-4">
+            <template>
+              <a data-inhoud-href="link" target="_blank" rel="noopener sponsored" class="card-tilt flex flex-col rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] p-5">
+                <div class="flex h-20 items-center justify-center rounded-xl bg-white p-4">
+                  <img data-inhoud-foto="logo" data-inhoud-alt="naam" alt="" class="max-h-12 w-auto max-w-full object-contain" loading="lazy">
+                </div>
+                <p data-inhoud="naam" class="mt-4 font-display font-semibold text-lg text-ink-900"></p>
+                <p data-inhoud="commissie" data-inhoud-optioneel class="text-sm text-ink-500"></p>
+              </a>
+            </template>
+          </div>
+
+          <div data-inhoud-lijst="sponsorkliks.categorieen" class="mt-8 space-y-6">
+            <template>
+              <div>
+                <h3 data-inhoud="naam" class="text-xs font-semibold uppercase tracking-wide text-ink-500"></h3>
+                <div data-inhoud-lijst="winkels" data-inhoud-optioneel class="mt-3 flex flex-wrap gap-2">
+                  <template>
+                    <a data-inhoud-href="link" data-inhoud="naam" target="_blank" rel="noopener sponsored" class="btn rounded-full bg-warm-50 border border-ink-900/10 px-3.5 py-1.5 text-sm font-medium text-ink-700 hover:border-brand-300 hover:text-brand-600"></a>
+                  </template>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER WORDEN -->
+  <section class="py-16 sm:py-24">
+    <div class="max-w-container mx-auto px-5 sm:px-8">
+      <div class="reveal rounded-[1.75rem] bg-brand-600 px-8 py-12 sm:px-14 sm:py-14 grid lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-10 items-center">
+        <div>
+          <h2 data-inhoud="partnerWorden.titel" class="font-display font-bold text-2xl sm:text-3xl text-warm-50"></h2>
+          <div data-inhoud-rijk="partnerWorden.tekst" data-alinea-klasse="mt-4 text-brand-100 leading-relaxed max-w-[60ch]"></div>
+        </div>
+        <div class="rounded-2xl bg-warm-50/10 border border-warm-50/15 p-6 sm:p-7">
+          <p class="text-sm font-semibold uppercase tracking-wide text-brand-100">Neem contact op</p>
+          <!-- Het adres staat bewust niet in de HTML maar komt uit Instellingen (via js/site.js), zodat spambots die de
+               broncode doorzoeken het niet vinden. -->
+          <p class="mt-2 font-display font-semibold text-xl text-warm-50 break-all" data-site-tekst="contact.emailPr"></p>
+          <a href="#" data-site-mailto="contact.emailPr" data-mail-onderwerp="Partnerschap met de VGSD" class="btn btn-primary mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-warm-50 text-brand-700 px-6 py-3 text-[15px] font-semibold shadow-sm w-full sm:w-auto">
+            <i class="ph ph-envelope-simple"></i>
+            Stuur ons een mail
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAFFICTODAY -->
   <section class="pb-20 sm:pb-28">
     <div class="max-w-container mx-auto px-5 sm:px-8">
-      <div id="open-avonden-lijst" class="space-y-4">
-        <!-- JS-gerenderd uit data/activiteiten.json. -->
+      <div class="reveal flex flex-wrap items-center gap-x-5 gap-y-3">
+        <h2 data-inhoud="traffictoday.titel" class="font-display font-semibold text-2xl text-ink-900">TrafficToday</h2>
+        <img data-inhoud-foto="traffictoday.logo" alt="" class="h-8 w-auto" loading="lazy">
       </div>
-      <p id="open-avonden-leeg" data-inhoud="leeg.tekst" class="hidden reveal text-ink-500 text-[15px]">
-        Er zijn nog geen open avonden ingepland. Kom snel terug voor de nieuwe data.
-      </p>
-    </div>
-  </section>
-
-  <!-- CTA BAND -->
-  <section class="pb-24 sm:pb-32">
-    <div class="max-w-container mx-auto px-5 sm:px-8">
-      <div class="reveal rounded-[1.75rem] bg-brand-600 px-8 py-12 sm:px-14 sm:py-14 text-center">
-        <h2 data-inhoud="cta.titel" class="font-display font-bold text-2xl sm:text-3xl text-warm-50">
-          Nieuwsgierig geworden?
-        </h2>
-        <p data-inhoud="cta.tekst" class="mt-3 text-brand-100 max-w-md mx-auto">
-          Meld je vrijblijvend aan voor een open avond, of stuur ons gewoon een berichtje met je vragen.
-        </p>
-        <div class="mt-7 flex flex-wrap items-center justify-center gap-4">
-          <a href="#" data-wa data-wa-tekst="Hallo, ik ben ... en ik zou me graag aanmelden voor een open avond." target="_blank" rel="noopener" class="btn btn-primary inline-flex items-center justify-center rounded-full bg-warm-50 text-brand-700 px-7 py-3.5 text-[15px] font-semibold shadow-sm">
-            Meld je aan
+      <div data-inhoud-rijk="traffictoday.tekst" data-alinea-klasse="mt-3 text-ink-700 leading-relaxed max-w-[60ch]"></div>
+      <div data-inhoud-lijst="traffictoday.partners" class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <template>
+          <div class="reveal logo-kaart">
+            <img data-inhoud-foto="logo" data-inhoud-alt="naam" alt="" loading="lazy">
+          </div>
+        </template>
+        <template data-als="link">
+          <a data-inhoud-href="link" target="_blank" rel="noopener sponsored" class="reveal logo-kaart card-tilt">
+            <img data-inhoud-foto="logo" data-inhoud-alt="naam" alt="" loading="lazy">
           </a>
-          <a href="index.html#word-lid" class="btn inline-flex items-center justify-center rounded-full border border-warm-50/40 text-warm-50 px-7 py-3.5 text-[15px] font-semibold">
-            Lid worden
-          </a>
-        </div>
+        </template>
       </div>
     </div>
   </section>
@@ -414,7 +542,7 @@
         </ul>
       </div>
 
-      <div class="rounded-2xl bg-warm-50/10 border border-warm-50/15 p-6">
+      <div id="open-avond" class="rounded-2xl bg-warm-50/10 border border-warm-50/15 p-6">
         <h3 class="font-display font-semibold text-sm uppercase tracking-wide text-brand-100">Volgende open avond</h3>
         <p id="activiteit-titel" class="mt-3 font-display font-semibold text-lg">Data volgen binnenkort</p>
         <p id="activiteit-datum" class="text-brand-100 text-[15px]"></p>
@@ -422,6 +550,9 @@
         <p id="activiteit-omschrijving" class="mt-2 text-warm-50/90 text-sm leading-relaxed"></p>
         <a id="activiteit-cta" href="#" data-wa data-wa-tekst="Hallo, ik ben ... en ik zou me graag aanmelden voor een open avond." target="_blank" rel="noopener" class="btn btn-primary mt-5 inline-flex items-center justify-center rounded-full bg-warm-50 text-brand-700 px-5 py-2.5 text-sm font-semibold w-full sm:w-auto">
           Meld je aan
+        </a>
+        <a href="open-avonden.html" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-warm-50/90 hover:text-warm-50">
+          Bekijk alle open avonden <i class="ph ph-arrow-right text-xs"></i>
         </a>
       </div>
 
@@ -436,82 +567,6 @@
 
 <script src="js/site.js"></script>
 <script>
-  // Volledig jaaroverzicht van alle open avonden, chronologisch, met een
-  // status-badge (geweest / eerstvolgende / aankomend) per avond.
-  VGSD.ready.then(({ site, openAvonden: activiteiten }) => {
-    const lijstEl = document.getElementById('open-avonden-lijst');
-    const leegEl = document.getElementById('open-avonden-leeg');
-    if (!lijstEl) return;
-
-    if (!activiteiten.length) {
-      lijstEl.classList.add('hidden');
-      if (leegEl) leegEl.classList.remove('hidden');
-      return;
-    }
-
-    const now = new Date();
-    const maandDagFormat = new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 'short' });
-    const volledigFormat = new Intl.DateTimeFormat('nl-NL', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-    const tijdFormat = new Intl.DateTimeFormat('nl-NL', { hour: '2-digit', minute: '2-digit' });
-
-    const gesorteerd = activiteiten
-      .map((item) => ({ ...item, when: new Date(item.datum) }))
-      .filter((item) => !Number.isNaN(item.when.getTime()))
-      .sort((a, b) => a.when - b.when);
-
-    const eerstvolgende = gesorteerd.find((item) => item.when.getTime() > now.getTime());
-
-    lijstEl.innerHTML = gesorteerd.map((item, i) => {
-      const isGeweest = item.when.getTime() <= now.getTime();
-      const isEerstvolgende = eerstvolgende && item.when.getTime() === eerstvolgende.when.getTime();
-      const [dag, maand] = maandDagFormat.format(item.when).replace('.', '').split(' ');
-      const volledigLabel = volledigFormat.format(item.when);
-      const volledigLabelHoofdletter = volledigLabel.charAt(0).toUpperCase() + volledigLabel.slice(1);
-
-      const kaartKleur = isEerstvolgende
-        ? 'bg-brand-600 border-brand-700'
-        : 'bg-warm-50 border-ink-900/5';
-      const datumKleur = isEerstvolgende ? 'text-warm-50' : (isGeweest ? 'text-ink-500' : 'text-brand-600');
-      const titelKleur = isEerstvolgende ? 'text-warm-50' : 'text-ink-900';
-      const bodyKleur = isEerstvolgende ? 'text-brand-100' : 'text-ink-700';
-      const metaKleur = isEerstvolgende ? 'text-warm-50/90' : 'text-ink-500';
-      const kaartOpacity = isGeweest && !isEerstvolgende ? 'opacity-60' : '';
-
-      const badge = isEerstvolgende
-        ? '<span class="inline-flex items-center rounded-full bg-warm-50/15 text-warm-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide">Eerstvolgende</span>'
-        : (isGeweest
-          ? '<span class="inline-flex items-center rounded-full bg-ink-900/5 text-ink-500 px-3 py-1 text-xs font-semibold uppercase tracking-wide">Geweest</span>'
-          : '');
-
-      const berichtItem = `Hallo, ik ben ... en ik zou me graag aanmelden voor de open avond van ${item.titel} op ${volledigLabel}, ${tijdFormat.format(item.when)} uur.`;
-      const cta = isGeweest
-        ? ''
-        : `<a href="${VGSD.waLink(site, berichtItem)}" target="_blank" rel="noopener" class="btn ${isEerstvolgende ? 'btn-primary bg-warm-50 text-brand-700' : 'btn-ghost border border-brand-600 text-brand-600'} mt-4 sm:mt-0 shrink-0 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold">Meld je aan</a>`;
-
-      return `
-        <div class="reveal card-tilt rounded-2xl border p-6 sm:p-7 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] flex flex-col sm:flex-row sm:items-center gap-5 ${kaartKleur} ${kaartOpacity}" style="transition-delay:${Math.min(i, 6) * 60}ms">
-          <div class="flex items-center gap-4 sm:gap-5 sm:w-56 shrink-0">
-            <div class="grid h-16 w-16 shrink-0 place-items-center rounded-2xl ${isEerstvolgende ? 'bg-warm-50/15' : 'bg-brand-50'} ${datumKleur}">
-              <span class="font-display font-bold text-xl leading-none">${dag}</span>
-              <span class="text-[11px] font-semibold uppercase tracking-wide leading-none mt-1">${maand}</span>
-            </div>
-            <div class="min-w-0">
-              ${badge}
-              <h3 class="mt-1.5 font-display font-semibold text-lg ${titelKleur}">${item.titel}</h3>
-            </div>
-          </div>
-          <div class="flex-1 min-w-0">
-            <p class="text-sm ${metaKleur}">${volledigLabelHoofdletter}, ${tijdFormat.format(item.when)} uur</p>
-            <p class="mt-0.5 flex items-center gap-1.5 text-sm ${metaKleur}"><i class="ph ph-map-pin"></i> ${item.locatie}</p>
-            <p class="mt-2 leading-relaxed text-[15px] ${bodyKleur}">${item.omschrijving}</p>
-          </div>
-          ${cta}
-        </div>
-      `;
-    }).join('');
-    VGSD.initReveal();
-  });
-
   // Desktop nav dropdowns ("Over ons", "Contact")
   const dropdownTriggers = Array.from(document.querySelectorAll('[data-dropdown-trigger]'));
 
@@ -567,6 +622,11 @@
       menuToggle.setAttribute('aria-expanded', 'false');
       menuToggle.innerHTML = '<i class="ph ph-list text-2xl"></i>';
     });
+  });
+
+  // Sponsoractie verbergen als "Tonen" in de beheerpagina uit staat.
+  VGSD.inhoud.then(({ pagina }) => {
+    if (!(pagina.actie && pagina.actie.tonen)) document.getElementById('actie').remove();
   });
 
   VGSD.initReveal();

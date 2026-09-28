@@ -1,0 +1,150 @@
+{
+  "titel": "Shop via SponsorKliks en steun ons gratis",
+  "tekst": "Door bestellingen te plaatsen via de links hieronder steun je de VGSD. De producten worden voor jou niet duurder, maar de webwinkel maakt een percentage van je bestelling over naar de VGSD. Dit percentage varieert van 1% tot gemiddeld 10%.\n\nDit gaat via het bedrijf SponsorKliks. Bedrijven sluiten zich bij hen aan en via ons kunnen zij doorverwezen worden. Inmiddels hebben meer dan 300 bedrijven zich aangesloten bij SponsorKliks; hieronder lichten we er een aantal uit.",
+  "uitleg": "Met SponsorKliks kun je een financiële bijdrage leveren aan de VGSD, zonder dat het jou een cent extra kost! Bij SponsorKliks hebben wij een eigen virtueel winkelcentrum: een pagina met allemaal winkellogo's. Vanaf die pagina kun je met één klik shoppen bij Bol, Coolblue, Expedia, HEMA en honderden andere winkels. Voor het doorsturen van een klant betalen de deelnemende winkels, na een aankoop, een commissie aan ons. Boek een hotel of bestel online een pizza via Thuisbezorgd en de VGSD ontvangt geld.\n\n**Hoe werkt het?**\nWebwinkels betalen een commissie voor elke bestelling die via SponsorKliks gedaan wordt. 75% van deze commissie stort SponsorKliks op de bankrekening van de VGSD. Of je nu rechtstreeks naar bijvoorbeeld Bol gaat of via SponsorKliks naar de site of app van Bol, je betaalt hetzelfde. Alleen in het laatste geval keert Bol een commissie uit en profiteert de VGSD er direct van.\n\n**Je blijft anoniem**\nNoch SponsorKliks, noch de VGSD weet wie er iets besteld heeft. SponsorKliks weet alleen bij welke webwinkel iets is besteld, voor welk orderbedrag en dat de commissie voor de VGSD is bedoeld. Daarom is het belangrijk dat je je online bestellingen via SponsorKliks laat lopen: een rechtstreekse bestelling levert de VGSD niets op.\n\n**Let op: geen commissie op boeken**\nIn Nederland geldt per wet een vaste boekenprijs, daardoor mag er geen commissie op boeken worden gegeven.",
+  "link": "https://www.sponsorkliks.com/products/shops.php?club=15628",
+  "knopTekst": "Naar onze SponsorKliks-winkelpagina",
+  "uitgelicht": [
+    {
+      "naam": "Bol",
+      "logo": "/images/logos/bol.png",
+      "commissie": "2–2,5% commissie per bestelling",
+      "link": "https://www.bol.com/nl/nl/?Referrer=ADVNLPPcef576004fcf26f700d25cb3b1680008968&utm_source=8968&utm_medium=Affiliates&utm_campaign=CPS&utm_content=txl"
+    },
+    {
+      "naam": "HEMA",
+      "logo": "/images/logos/hema.png",
+      "commissie": "2,5% commissie per bestelling",
+      "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3025&shop=HEMA&link=aHR0cHMlM0ElMkYlMkZwYXJ0bmVyLmhlbWEubmwlMkZjJTNGYyUzRDI1NDM2JTI2bSUzRDEwNzQyNTclMjZhJTNEOTU0NzElMjZyJTNEU0tfMTU2Mjg="
+    }
+  ],
+  "categorieen": [
+    {
+      "naam": "Computers & elektronica",
+      "winkels": [
+        {
+          "naam": "MediaMarkt",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=2158&shop=MediaMarkt&link=aHR0cHMlM0ElMkYlMkZjbGsudHJhZGVkb3VibGVyLmNvbSUyRmNsaWNrJTNGcCUzRDI2MjMzNiUyNmElM0QyMDQwOTgzJTI2ZyUzRDIyNjI3MzkwJTI2RVBJJTNEU0tfMTU2Mjg="
+        },
+        {
+          "naam": "Coolblue",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=61&shop=Coolblue&link=aHR0cHMlM0ElMkYlMkZ3d3cuYXdpbjEuY29tJTJGYXdjbGljay5waHAlM0ZnaWQlM0Q0OTgwMjUlMjZtaWQlM0Q4NTE2MSUyNmF3aW5hZmZpZCUzRDMyODg0MSUyNmxpbmtpZCUzRDM3MTYxMTUlMjZjbGlja3JlZiUzRFNLXzE1NjI4"
+        },
+        {
+          "naam": "Expert",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=2339&shop=Expert&link=aHR0cHMlM0ElMkYlMkZ3d3cuZXhwZXJ0Lm5sJTJGdHQlMkYlM0Z0dCUzRDU1MTVfMTJfOTU0NzFfU0sxNTYyOCUyNnIlM0QlMjUyRg=="
+        },
+        {
+          "naam": "Samsung",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=2333&shop=Samsung+NL&link=aHR0cHMlM0ElMkYlMkZ3d3cuYXdpbjEuY29tJTJGY3JlYWQucGhwJTNGYXdpbm1pZCUzRDgzMzAlMjZhd2luYWZmaWQlM0QzMjg4NDElMjZjbGlja3JlZiUzRFNLXzE1NjI4JTI2cCUzRGh0dHAlM0ElMkYlMkZ3d3cuc2Ftc3VuZy5ubCUyRg=="
+        },
+        {
+          "naam": "Acer",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3766&shop=Acer+NL&link=aHR0cHMlM0ElMkYlMkZ3d3cuYXdpbjEuY29tJTJGY3JlYWQucGhwJTNGYXdpbm1pZCUzRDE3MTMzJTI2YXdpbmFmZmlkJTNEMzI4ODQxJTI2Y2xpY2tyZWYlM0RTS18xNTYyOA=="
+        },
+        {
+          "naam": "HP Store",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=2269&shop=HP+Store&link=aHR0cHMlM0ElMkYlMkZjbGsudHJhZGVkb3VibGVyLmNvbSUyRmNsaWNrJTNGcCUzRDI0ODQ5MiUyNmElM0QyMDQwOTgzJTI2ZyUzRDIzODI5MTg0JTI2RVBJJTNEU0tfMTU2Mjg="
+        },
+        {
+          "naam": "Asus",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3846&shop=Asus+NL&link=aHR0cHMlM0ElMkYlMkZjbGsudHJhZGVkb3VibGVyLmNvbSUyRmNsaWNrJTNGcCUzRDMzMjA4MiUyNmElM0QyMDQwOTgzJTI2ZyUzRDI1Mjc2MTI0JTI2RVBJJTNEU0tfMTU2Mjg="
+        },
+        {
+          "naam": "Philips",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=144&shop=Philips+&link=aHR0cHMlM0ElMkYlMkZwcmYuaG4lMkZjbGljayUyRmNhbXJlZiUzQTExMDFsOTlnVyUyRnB1YnJlZiUzQVNLXzE1NjI4"
+        },
+        {
+          "naam": "Conrad",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=1797&shop=Conrad&link=aHR0cCUzQSUyRiUyRnd3dy5jb25yYWQtZWxlY3Ryb25pYy5ubCUyRnR0JTJGJTNGdHQlM0Q5MjBfMTJfOTU0NzFfU0sxNTYyOCUyNnIlM0Q="
+        },
+        {
+          "naam": "Allekabels",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=2244&shop=Allekabels+&link=aHR0cCUzQSUyRiUyRnd3dy5hd2luMS5jb20lMkZhd2NsaWNrLnBocCUzRmdpZCUzRDMxOTE2OSUyNm1pZCUzRDkyMTMlMjZhd2luYWZmaWQlM0QzMjg4NDElMjZsaW5raWQlM0QyMDE3MjY3JTI2Y2xpY2tyZWYlM0RTS18xNTYyOA=="
+        },
+        {
+          "naam": "JBL",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=2542&shop=JBL&link=aHR0cHMlM0ElMkYlMkZ3d3cuYXdpbjEuY29tJTJGY3JlYWQucGhwJTNGcyUzRDM1NzM2OTIlMjZ2JTNENzIyMDklMjZxJTNENDgzODc5JTI2ciUzRDMyODg0MSUyNmNsaWNrcmVmJTNEU0tfMTU2Mjg="
+        }
+      ]
+    },
+    {
+      "naam": "Sport",
+      "winkels": [
+        {
+          "naam": "Nike",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3277&shop=Nike+NL&link=aHR0cHMlM0ElMkYlMkZ3d3cuYXdpbjEuY29tJTJGYXdjbGljay5waHAlM0ZnaWQlM0QzNjI5NzYlMjZtaWQlM0QxNjMzMiUyNmF3aW5hZmZpZCUzRDMyODg0MSUyNmxpbmtpZCUzRDIzODM1OTAlMjZjbGlja3JlZiUzRFNLXzE1NjI4"
+        },
+        {
+          "naam": "Plutosport",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=114&shop=Plutosport&link=aHR0cCUzQSUyRiUyRnd3dy5hd2luMS5jb20lMkZhd2NsaWNrLnBocCUzRmdpZCUzRDMxOTg4MCUyNm1pZCUzRDgzNDIlMjZhd2luYWZmaWQlM0QzMjg4NDElMjZsaW5raWQlM0QyMDIwNjE5JTI2Y2xpY2tyZWYlM0RTS18xNTYyOA=="
+        },
+        {
+          "naam": "Reebok",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3252&shop=Reebok+NL&link=aHR0cHMlM0ElMkYlMkZyZWVib2sucHJmLmhuJTJGY2xpY2slMkZjYW1yZWYlM0ExMTAwbHpYOUUlMkZwdWJyZWYlM0FTS18xNTYyOCUyRiU1QnBfaWQlM0ExMGwyMjkxMSU1RA=="
+        },
+        {
+          "naam": "Jako Teamkleding",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3776&shop=Jako+Teamkleding+NL&link=aHR0cHMlM0ElMkYlMkZ3d3cuYXdpbjEuY29tJTJGY3JlYWQucGhwJTNGYXdpbm1pZCUzRDI2ODk4JTI2YXdpbmFmZmlkJTNEMzI4ODQxJTI2Y2xpY2tyZWYlM0RTS18xNTYyOA=="
+        },
+        {
+          "naam": "Polar",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3840&shop=Polar+NL&link=aHR0cHMlM0ElMkYlMkZ0cmFjay53ZWJnYWlucy5jb20lMkZjbGljay5odG1sJTNGd2djYW1wYWlnbmlkJTNEMTUxMDE2NSUyNndncHJvZ3JhbWlkJTNEMjkzMTM1JTI2Y2xpY2tyZWYlM0RTS18xNTYyOA=="
+        },
+        {
+          "naam": "Bergzeit",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3869&shop=Bergzeit+&link=aHR0cHMlM0ElMkYlMkZ3d3cuYXdpbjEuY29tJTJGY3JlYWQucGhwJTNGYXdpbm1pZCUzRDI0NzczJTI2YXdpbmFmZmlkJTNEMzI4ODQxJTI2Y2xpY2tyZWYlM0RTS18xNTYyOA=="
+        },
+        {
+          "naam": "Pinhigh.nl",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=2802&shop=Pinhigh.nl&link=aHR0cCUzQSUyRiUyRnd3dy5waW5oaWdoLm5sJTJGZ29sZmFmZmlsaWF0ZXMlMkZpbmRleC5hc3B4JTNGdHQlM0QzNDg2XzEyXzk1NDcxX1NLMTU2MjglMjZyJTNE"
+        },
+        {
+          "naam": "Soccerfanshop.nl",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=2492&shop=Soccerfanshop.nl&link=aHR0cCUzQSUyRiUyRnd3dy5zb2NjZXJmYW5zaG9wLm5sJTJGdHRyLnBocCUyRiUzRnR0JTNEOTc1MF8xMl85NTQ3MV9TSzE1NjI4JTI2ciUzRA=="
+        }
+      ]
+    },
+    {
+      "naam": "Kleding",
+      "winkels": [
+        {
+          "naam": "WE Fashion",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=127&shop=WE+Fashion&link=aHR0cHMlM0ElMkYlMkZwaW4ud2VmYXNoaW9uLmNvbSUyRnQlMkZ0JTNGYSUzRDE4NDA5NTQ5MjIlMjZhcyUzRDE1NzQzOTI5MTYlMjZ0JTNEMiUyNnRrJTNEMSUyNmVwaSUzRFNLXzE1NjI4"
+        },
+        {
+          "naam": "Jeans Centre",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3313&shop=Jeans+Centre+NL&link=aHR0cHMlM0ElMkYlMkZ3d3cuYXdpbjEuY29tJTJGY3JlYWQucGhwJTNGYXdpbm1pZCUzRDkyNDclMjZhd2luYWZmaWQlM0QzMjg4NDElMjZjbGlja3JlZiUzRFNLXzE1NjI4"
+        },
+        {
+          "naam": "Bjorn Borg",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=60&shop=Bjorn+Borg&link=aHR0cHMlM0ElMkYlMkZ0by5iam9ybmJvcmcuY29tJTJGdCUyRnQlM0ZhJTNEMTIxMjY5NzE1OCUyNmFzJTNEMTU3NDM5MjkxNiUyNnQlM0QyJTI2dGslM0QxJTI2ZXBpJTNEU0tfMTU2Mjg="
+        },
+        {
+          "naam": "About You",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3094&shop=About+You+&link=aHR0cHMlM0ElMkYlMkZjbGsudHJhZGVkb3VibGVyLmNvbSUyRmNsaWNrJTNGcCUzRDM4MzczMSUyNmElM0QyMDQwOTgzJTI2RVBJJTNEU0tfMTU2Mjg="
+        },
+        {
+          "naam": "Sissy Boy",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3837&shop=Sissy+Boy+NL&link=aHR0cHMlM0ElMkYlMkZnby5zaXNzeS1ib3kuY29tJTJGdCUyRnQlM0ZhJTNEMTc0MTc5OTc0NSUyNmFzJTNEMTU3NDM5MjkxNiUyNnQlM0QyJTI2dGslM0QxJTI2ZXBpJTNEU0tfMTU2Mjg="
+        },
+        {
+          "naam": "Schuurman Schoenen",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3033&shop=Schuurman+Schoenen+&link=aHR0cCUzQSUyRiUyRnd3dy5hd2luMS5jb20lMkZhd2NsaWNrLnBocCUzRmdpZCUzRDMxODM3MyUyNm1pZCUzRDg0NzIlMjZhd2luYWZmaWQlM0QzMjg4NDElMjZsaW5raWQlM0QyMDE0OTM2JTI2Y2xpY2tyZWYlM0RTS18xNTYyOA=="
+        },
+        {
+          "naam": "Lyle & Scott",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3753&shop=Lyle+%26+Scott&link=aHR0cHMlM0ElMkYlMkZ3d3cuYXdpbjEuY29tJTJGY3JlYWQucGhwJTNGYXdpbm1pZCUzRDI0NDY5JTI2YXdpbmFmZmlkJTNEMzI4ODQxJTI2Y2xpY2tyZWYlM0RTS18xNTYyOA=="
+        },
+        {
+          "naam": "Bos Men Shop",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3043&shop=Bos+Men+Shop&link=aHR0cHMlM0ElMkYlMkZ3d3cuYXdpbjEuY29tJTJGY3JlYWQucGhwJTNGYXdpbm1pZCUzRDgyMzMlMjZhd2luYWZmaWQlM0QzMjg4NDElMjZjbGlja3JlZiUzRFNLXzE1NjI4JTI2cCUzRGh0dHBzJTNBJTJGJTJGd3d3LmJvc21lbnNob3Aubmw="
+        },
+        {
+          "naam": "Guess",
+          "link": "https://www.sponsorkliks.com/link.php?club=15628&shop_id=3927&shop=Guess&link=aHR0cHMlM0ElMkYlMkZ3d3cuYXdpbjEuY29tJTJGY3JlYWQucGhwJTNGYXdpbm1pZCUzRDEyMjgxJTI2YXdpbmFmZmlkJTNEMzI4ODQxJTI2Y2xpY2tyZWYlM0RTS18xNTYyOA=="
+        }
+      ]
+    }
+  ]
+}
