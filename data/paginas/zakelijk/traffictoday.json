@@ -1,22 +1,27 @@
 {
+  "tonen": true,
   "titel": "TrafficToday",
-  "tekst": "",
   "logo": "/images/logos/traffictoday.png",
+  "link": "https://www.traffictoday.nl/",
+  "tekst": "",
   "partners": [
     {
       "naam": "Boeketcadeau",
       "logo": "/images/logos/boeketcadeau.png",
-      "link": ""
+      "link": "https://www.boeketcadeau.nl/",
+      "tonen": true
     },
     {
       "naam": "inShared",
       "logo": "/images/logos/inshared.png",
-      "link": ""
+      "link": "https://www.inshared.nl/",
+      "tonen": true
     },
     {
       "naam": "Rotimshop",
       "logo": "/images/logos/rotimshop.png",
-      "link": ""
+      "link": "https://www.rotimshop.nl/",
+      "tonen": true
     }
   ]
 }

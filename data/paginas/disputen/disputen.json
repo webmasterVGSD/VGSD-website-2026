@@ -1,0 +1,52 @@
+{
+  "disputen": [
+    {
+      "tonen": true,
+      "naam": "Hellas",
+      "logo": "/images/photos/disputen/hellas-logo.png",
+      "motto": "",
+      "foto": {
+        "src": "/images/photos/disputen/hellas-foto.jpg",
+        "positie": "50% 50%"
+      },
+      "fotoHeel": false,
+      "tekst": "Er bestaat een dispuut dat in dichte nevelen van mysterie gehuld wordt. Zo nu en dan wordt er een wolkensluier opgelicht en komt er een klein stukje van de mythe in het daglicht te staan. Zo ook nu. Hellas heet het dispuut. Het dispuut bestaat uit een groot aantal Helden. Elke bijeenkomst weer wordt er uren doorgepraat over de heldendaden die door de Helden verricht zijn. De een heeft op de renbaan grote snelheden behaald, de ander heeft de degens gekruist; weer een ander heeft een berg beklommen en een vierde heeft de zeven zeeën bevaren. Nadat men uitverteld is en de Helden in een ontspannen stilte de anijsdrank Ouzo genuttigd heeft worden de flessen olijfolie extra vierge van stal gehaald… Deze Helden verzorgen niet alleen het lichaam, maar ook de geest. Regelmatig worden de grote denkers van deze en vroegere tijden uit de kast getrokken en wordt hier uitgebreid over gefilosofeerd. Ook de democratie en het ganse politieke bestel wordt niet vergeten. De grote leiders van dit dispuut, de proedros en de hellanotamieia, voeren de Helden ook regelmatig aan naar theater- en filmvoorstellingen. Naast inspanning van geest en lichaam is er ook tijd voor ontspanning. De beste tijd van het jaar hiervoor is toch wel het Hellasweekend. Wanneer de Hellastent van zolder wordt gehaald, de grill gereed wordt gezet en het paard van Troje weer bij zijn ruif wordt weggetrokken beginnen al onze Griekse vezels weer te trillen van verlangen om Heldendaden te verrichten."
+    },
+    {
+      "tonen": true,
+      "naam": "Ludus",
+      "logo": "/images/photos/disputen/ludus-logo.png",
+      "motto": "I’m a man you don’t meet every day",
+      "foto": {
+        "src": "",
+        "positie": "50% 50%"
+      },
+      "fotoHeel": false,
+      "tekst": "“Luduuus…”, klinkt het uit het donker. Het is ver weg, maar toch duidelijk te verstaan. Wie zijn ze, wat willen ze. Ineens zijn ze overal, als een stel jonge honden. Zwarte truien, wilde bewegingen. Ze lijken niet te stoppen, trommelen op alles wat ze tegenkomen en klimmen in alles wat hoger is dan zijzelf. Schreeuwend, lachend. Ludus is het ideaal. Ludus is leven, het doorbreken van de dagelijkse sleur, om vervolgens grote daden neer te zetten en angsten te overwinnen. Fabriekspanden worden bezet, hijskranen worden beklommen, gigantische snelheden worden behaald en koude wateren worden overwonnen. Ludus beweegt vrij over de apenrots. Tegelijk is Ludus ontspannen, niets moet en alles mag, als een stel kameraden beweegt het gezelschap zich voort. Vaak gaat dit gepaard met veel vlees, wijn en sigaren, een vuurtje en een mooie omgeving. Bras- en slemppartijen zijn niet ongewoon voor het gezelschap, maar wat duidelijk is, Ludus heeft een goede tijd."
+    },
+    {
+      "tonen": true,
+      "naam": "Plenum",
+      "logo": "/images/photos/disputen/plenum-logo.png",
+      "motto": "Plenum, het dispuut van de Franse Lelie en het goede leven.",
+      "foto": {
+        "src": "",
+        "positie": "50% 50%"
+      },
+      "fotoHeel": false,
+      "tekst": "Opgericht op 3 april 1990, vervult Dispuut Plenum sindsdien een speciale plek binnen de VGSD. Met een bovengemiddelde hoeveelheid aandacht voor de maag wordt menig dispuutsavond tot een waar feest voor het smaakorgaan. De liefde van de man (en menig vrouw) gaat door de maag, en dat geldt zeker voor de rechtgeaarde Bourgondiër. U begrijpt, onze voorliefde voor pannekoeken (geschreven zonder die nieuwerwetse ‘n’ in het midden) en borrelgarnituur komt niet uit de lucht vallen. Onder het genot van goed voedsel en de edele drank wijn, of het wat ruigere speciaalbier, worden alle facetten van het goede leven belicht. Wat dat precies is, is sterk afhankelijk van de Bourgondiërs zelve. Onder de zinspreuk ‘mater laete est..’ proberen wij de aard van de ware Bourgondiër in onszelf naar boven te halen en te genieten van het goede leven dat ons door God gegeven wordt."
+    },
+    {
+      "tonen": true,
+      "naam": "Ad Fontes",
+      "logo": "",
+      "motto": "Van de f.t. Paulus, schriftsteller van Ad Fontes door de wil van de synode. Aan u, de lezer.",
+      "foto": {
+        "src": "/images/photos/disputen/ad-fontes.jpg",
+        "positie": "50% 50%"
+      },
+      "fotoHeel": true,
+      "tekst": "Gegroet zij u, student, aankomend student of willekeurig wereldwijdeweb-surfend creatuur – iedereen mag zich welkom voelen hier – die bij wijze van een door ons onbekende, maar voor u misschien wel bekende manier, terecht is gekomen bij dit bericht.\n\nOp de zeventiende dag van het tweeduizend-en-negentiende jaar na Christus is ons jonge dispuut tot leven gewekt en gedoopt onder de naam Ad Fontes, hetgeen betekent: ‘Tot de bron’. In deze korte tijd dat wij, schepselen, pelgrims – of hoe u ons ook maar wilt noemen – nog op deze oude zondige aardbodem rondlopen, zullen wij onderzoeken en streven de schepping en alles wat daaronder valt in het licht van Gods woord te zien en hiernaar, zo goed als wij kunnen, te leven, waarvoor ook u, lezer, natuurlijk van harte uitgenodigd bent.\n\nIk groet u met een eigenhandig getypte groet. Hopelijk zien wij u snel een keer verschijnen op een van onze avonden – de deur staat namelijk altijd voor u open met uitzondering van elk moment dat niet eens in de twee weken op de uitverkoren dinsdagavond valt.\n\nf.t. Paulus"
+    }
+  ]
+}

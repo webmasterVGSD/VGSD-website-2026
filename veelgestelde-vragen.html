@@ -205,6 +205,7 @@
 
 <!-- HEADER -->
 <header class="sticky top-0 z-50 bg-warm-50/90 backdrop-blur-sm border-b border-ink-900/5">
+  <!-- Menu: niet hier aanpassen maar in scripts/menu-bijwerken.mjs (zet het op alle pagina's gelijk). -->
   <div class="max-w-container mx-auto px-5 sm:px-8">
     <div class="h-[72px] flex items-center justify-between gap-4">
       <a href="index.html#top" class="flex items-center gap-2.5 shrink-0">
@@ -215,36 +216,31 @@
       <nav class="hidden xl:flex items-center gap-6 font-medium text-[15px] text-ink-700">
         <a href="activiteiten.html" class="nav-link">Activiteiten</a>
         <a href="open-avonden.html" class="nav-link">Open avonden</a>
-
         <div class="relative">
           <button type="button" data-dropdown-trigger="over-ons-panel" aria-expanded="false" aria-controls="over-ons-panel" class="nav-link flex items-center gap-1">
             Over ons
             <i class="ph ph-caret-down text-xs caret"></i>
           </button>
           <div id="over-ons-panel" class="dropdown-panel absolute left-0 top-full mt-3 w-[30rem] rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_20px_45px_-16px_rgba(58,14,24,0.25)] p-6 grid grid-cols-2 gap-6">
-            <!-- TODO: onderstaande links wijzen nog naar "#": koppelen aan de echte pagina's zodra die bestaan. -->
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Wie we zijn</p>
-                <ul class="mt-3 space-y-1">
-                  <li><a href="geschiedenis.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Geschiedenis</a></li>
-                  <li><a href="verbanden.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Verbanden</a></li>
-                  <li><a href="besturen.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Besturen</a></li>
-                </ul>
-              </div>
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Onderdelen van de vereniging</p>
-                <ul class="mt-3 space-y-1">
-                  <li><a href="#" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Disputen</a></li>
-                  <li><a href="kasten.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Kasten (verenigingshuizen)</a></li>
-                  <li><a href="vvgsd.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">VVGSD (het voetbalteam)</a></li>
-                </ul>
-              </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Wie we zijn</p>
+              <ul class="mt-3 space-y-1">
+                <li><a href="geschiedenis.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Geschiedenis</a></li>
+                <li><a href="verbanden.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Verbanden</a></li>
+                <li><a href="besturen.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Besturen</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Onderdelen van de vereniging</p>
+              <ul class="mt-3 space-y-1">
+                <li><a href="disputen.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Disputen</a></li>
+                <li><a href="kasten.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Kasten (verenigingshuizen)</a></li>
+                <li><a href="vvgsd.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">VVGSD (het voetbalteam)</a></li>
+              </ul>
             </div>
           </div>
-
-        <!-- TODO: "Fotoalbum" wijst nog naar "#": koppel aan de echte pagina zodra die bestaat. -->
-        <a href="#" class="nav-link">Fotoalbum</a>
-
+        </div>
+        <a href="fotoalbum.html" class="nav-link">Fotoalbum</a>
         <div class="relative">
           <button type="button" data-dropdown-trigger="contact-panel" aria-expanded="false" aria-controls="contact-panel" class="nav-link flex items-center gap-1">
             Contact
@@ -252,17 +248,14 @@
           </button>
           <div id="contact-panel" class="dropdown-panel absolute left-0 top-full mt-3 w-56 rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_20px_45px_-16px_rgba(58,14,24,0.25)] p-3">
             <a href="index.html#contact" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Contact</a>
-            <!-- TODO: onderstaande links wijzen nog naar "#": koppelen aan de echte pagina's zodra die bestaan. -->
-            <a href="#" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Wonen in Delft</a>
-            <a href="#" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Langskomen</a>
+            <a href="wonen-in-delft.html" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Wonen in Delft</a>
+            <a href="langskomen.html" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Langskomen</a>
           </div>
         </div>
-
         <a href="veelgestelde-vragen.html" aria-current="page" class="nav-link text-brand-600">Veelgestelde vragen</a>
       </nav>
 
       <div class="hidden xl:flex items-center gap-4 shrink-0">
-        <!-- TODO: "Log in" wijst nog naar "#": koppelen zodra die functionaliteit bestaat. -->
         <div class="flex items-center gap-3 text-[13px] text-ink-500">
           <a href="zakelijk.html" class="btn hover:text-brand-600">Zakelijk</a>
           <span class="text-ink-900/10">|</span>
@@ -282,6 +275,7 @@
   <div id="mobile-nav" class="mobile-menu xl:hidden border-t border-ink-900/5 bg-warm-50">
     <nav class="max-w-container mx-auto px-5 sm:px-8 py-4 flex flex-col gap-1 font-medium text-ink-700">
       <a href="activiteiten.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Activiteiten</a>
+
       <a href="open-avonden.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Open avonden</a>
 
       <button type="button" data-accordion-trigger="over-ons-accordion" aria-expanded="false" aria-controls="over-ons-accordion" class="px-2 py-2.5 rounded-lg hover:bg-brand-50 flex items-center justify-between">
@@ -294,12 +288,12 @@
         <a href="verbanden.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Verbanden</a>
         <a href="besturen.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Besturen</a>
         <p class="px-2 pt-2 text-xs font-semibold uppercase tracking-wide text-ink-500">Onderdelen van de vereniging</p>
-        <a href="#" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Disputen</a>
+        <a href="disputen.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Disputen</a>
         <a href="kasten.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Kasten (verenigingshuizen)</a>
         <a href="vvgsd.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">VVGSD (het voetbalteam)</a>
       </div>
 
-      <a href="#" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Fotoalbum</a>
+      <a href="fotoalbum.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Fotoalbum</a>
 
       <button type="button" data-accordion-trigger="contact-accordion" aria-expanded="false" aria-controls="contact-accordion" class="px-2 py-2.5 rounded-lg hover:bg-brand-50 flex items-center justify-between">
         Contact
@@ -307,11 +301,11 @@
       </button>
       <div id="contact-accordion" class="accordion-panel pl-4">
         <a href="index.html#contact" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Contact</a>
-        <a href="#" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Wonen in Delft</a>
-        <a href="#" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Langskomen</a>
+        <a href="wonen-in-delft.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Wonen in Delft</a>
+        <a href="langskomen.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Langskomen</a>
       </div>
 
-      <a href="veelgestelde-vragen.html" aria-current="page" class="block px-2 py-2.5 rounded-lg bg-brand-50 text-brand-600 font-semibold">Veelgestelde vragen</a>
+      <a href="veelgestelde-vragen.html" aria-current="page" class="px-2 py-2.5 rounded-lg bg-brand-50 text-brand-600 font-semibold">Veelgestelde vragen</a>
 
       <div class="mt-2 pt-3 border-t border-ink-900/5 flex items-center gap-4 px-2 text-[13px] text-ink-500">
         <a href="zakelijk.html" class="hover:text-brand-600">Zakelijk</a>

@@ -507,6 +507,70 @@ collections:
                   label: Tekst
                   widget: string
                 hint: Bijvoorbeeld de steden van de zusterverenigingen. Mag leeg blijven.
+  - name: disputen
+    label: Disputen
+    icon: groups
+    files:
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/disputen/intro.json
+        fields:
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+      - name: disputen
+        label: Disputen
+        file: data/paginas/disputen/disputen.json
+        fields:
+          - name: disputen
+            label: Disputen
+            label_singular: Dispuut
+            widget: list
+            collapsed: true
+            summary: '{{naam}}'
+            hint: Slepen verandert de volgorde op de site.
+            fields:
+              - name: tonen
+                label: Tonen op de site
+                widget: boolean
+                default: true
+                hint: Zet uit om dit dispuut tijdelijk van de site te halen.
+              - name: naam
+                label: Naam
+                widget: string
+              - name: logo
+                label: Logo (optioneel)
+                widget: image
+                required: false
+                media_folder: /images/photos/disputen
+                public_folder: /images/photos/disputen
+                hint: Liefst een PNG met transparante achtergrond. Komt in een rondje naast de naam.
+              - name: motto
+                label: Motto of ondertitel (optioneel)
+                widget: string
+                required: false
+              - name: foto
+                label: Foto (optioneel)
+                widget: vgsd-foto-activiteiten
+                required: false
+                media_folder: /images/photos/disputen
+                public_folder: /images/photos/disputen
+                hint: >-
+                  Upload de foto, sleep hem in het kader om te bepalen welk deel zichtbaar blijft, en
+                  klik op Opslaan. Zonder foto loopt de tekst over de volle breedte.
+              - name: fotoHeel
+                label: Foto helemaal tonen (niet bijsnijden)
+                widget: boolean
+                default: false
+                required: false
+                hint: Aanzetten voor een logo of tekening, zoals bij Ad Fontes. Het bijsnijden hierboven telt dan niet.
+              - name: tekst
+                label: Tekst
+                widget: text
+                hint: "Laat een lege regel tussen alinea's. Opmaak: **vet** en [linktekst](adres)."
   - name: kasten
     label: Kasten
     icon: house
@@ -828,6 +892,168 @@ collections:
           - name: tekst
             label: Tekst onder de titel
             widget: text
+  - name: fotoalbum
+    label: Fotoalbum
+    icon: photo_library
+    files:
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/fotoalbum/intro.json
+        fields:
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+      - name: fotos
+        label: "Foto's"
+        file: data/paginas/fotoalbum/fotos.json
+        fields:
+          - name: fotos
+            label: "Foto's"
+            label_singular: Foto
+            widget: list
+            collapsed: true
+            summary: '{{titel}}'
+            hint: >-
+              Slepen verandert de volgorde op de site. Foto's worden in hun eigen verhouding getoond
+              (staand of liggend), dus bijsnijden is niet nodig.
+            fields:
+              - name: tonen
+                label: Tonen op de site
+                widget: boolean
+                default: true
+              - name: foto
+                label: Foto
+                widget: image
+                media_folder: /images/photos/fotoalbum
+                public_folder: /images/photos/fotoalbum
+                hint: Maak de foto vóór het uploaden liefst niet groter dan 1600 pixels breed.
+              - name: titel
+                label: Onderschrift (optioneel)
+                widget: string
+                required: false
+                hint: Bijvoorbeeld "Dies Natalis 2024". Staat onderin de foto.
+  - name: wonen_in_delft
+    label: Wonen in Delft
+    icon: bed
+    files:
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/wonen-in-delft/intro.json
+        fields:
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+      - name: info
+        label: Tekst en foto
+        file: data/paginas/wonen-in-delft/info.json
+        fields:
+          - name: tekst
+            label: Tekst
+            widget: text
+            hint: >-
+              Laat een lege regel tussen alinea's. Opmaak: **vet** en [linktekst](adres), bijvoorbeeld
+              [de kastenpagina](kasten.html).
+          - name: foto
+            label: Foto
+            widget: vgsd-foto-activiteiten
+            media_folder: /images/photos/Kasten
+            public_folder: /images/photos/Kasten
+          - name: fotoAlt
+            label: Korte omschrijving van de foto
+            widget: string
+            required: false
+            hint: Voor schermlezers en zoekmachines.
+      - name: contact
+        label: Rood contactblok
+        file: data/paginas/wonen-in-delft/contact.json
+        fields:
+          - name: tonen
+            label: Tonen op de site
+            widget: boolean
+            default: true
+          - name: titel
+            label: Titel
+            widget: string
+          - name: tekst
+            label: Tekst
+            widget: text
+          - name: email
+            label: E-mailadres
+            widget: string
+            hint: >-
+              Waar de mailknop naartoe gaat. Staat niet in de broncode van de pagina, dus spambots
+              vinden het niet.
+          - name: whatsappTekst
+            label: Voorgetypt WhatsApp-bericht
+            widget: string
+            hint: Het nummer is het WhatsApp-nummer uit Instellingen.
+  - name: langskomen
+    label: Langskomen
+    icon: door_open
+    files:
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/langskomen/intro.json
+        fields:
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+      - name: info
+        label: Tekst en foto
+        file: data/paginas/langskomen/info.json
+        fields:
+          - name: tekst
+            label: Tekst
+            widget: text
+            hint: "Laat een lege regel tussen alinea's. Opmaak: **vet** en [linktekst](adres)."
+          - name: foto
+            label: Foto
+            widget: vgsd-foto-activiteiten
+            media_folder: /images/photos/langskomen
+            public_folder: /images/photos/langskomen
+          - name: fotoAlt
+            label: Korte omschrijving van de foto
+            widget: string
+            required: false
+            hint: Voor schermlezers en zoekmachines.
+      - name: aanmelden
+        label: Aanmelden (rood blok met keuzes)
+        file: data/paginas/langskomen/aanmelden.json
+        fields:
+          - name: tonen
+            label: Tonen op de site
+            widget: boolean
+            default: true
+          - name: titel
+            label: Titel
+            widget: string
+          - name: tekst
+            label: Tekst
+            widget: text
+          - name: email
+            label: E-mailadres
+            widget: string
+            hint: >-
+              Waar de knop "Liever per mail" naartoe gaat. De WhatsApp-knop gebruikt het nummer uit
+              Instellingen. Er wordt niets opgeslagen: de bezoeker verstuurt het bericht zelf.
+          - name: studies
+            label: Studies om mee te lopen
+            label_singular: Studie
+            widget: list
+            field:
+              name: studie
+              label: Studie
+              widget: string
+            hint: Verschijnen in de keuzelijst als "Ja, met ...".
   - name: veelgestelde_vragen
     label: Veelgestelde vragen
     icon: help
@@ -892,6 +1118,11 @@ collections:
         label: Sponsors en partners (logo's)
         file: data/paginas/zakelijk/partners.json
         fields:
+          - name: tonen
+            label: Tonen op de site
+            widget: boolean
+            default: true
+            hint: Zet uit om dit blok tijdelijk van de site te halen.
           - name: titel
             label: Kopje boven de logo's
             widget: string
@@ -903,6 +1134,10 @@ collections:
             summary: '{{naam}}'
             hint: Slepen verandert de volgorde op de site.
             fields:
+              - name: tonen
+                label: Tonen op de site
+                widget: boolean
+                default: true
               - name: naam
                 label: Naam van het bedrijf
                 widget: string
@@ -919,7 +1154,9 @@ collections:
                 label: Website (optioneel)
                 widget: string
                 required: false
-                hint: Met een adres (https://...) wordt het logo klikbaar. Leeg = niet klikbaar.
+                hint: >-
+                  Het adres van de website (https://...). Een klik op het logo opent die website. Leeg =
+                  niet klikbaar.
       - name: actie
         label: Uitgelichte sponsoractie (Poliswijzer)
         file: data/paginas/zakelijk/actie.json
@@ -928,7 +1165,7 @@ collections:
             label: Tonen op de site
             widget: boolean
             default: true
-            hint: Zet uit als de actie is afgelopen; dan verdwijnt het hele blok.
+            hint: Alleen aan rond de jaarwisseling (overstapperiode zorgverzekering). Uit = het hele blok verdwijnt.
           - name: titel
             label: Titel
             widget: string
@@ -947,11 +1184,18 @@ collections:
           - name: link
             label: Link achter de knop
             widget: string
-            hint: De unieke link van de VGSD, zodat de bijdrage bij ons terechtkomt.
+            hint: >-
+              De unieke link van de VGSD, zodat de bijdrage bij ons terechtkomt. Geldt ook voor een
+              klik op het logo.
       - name: sponsorkliks
         label: SponsorKliks
         file: data/paginas/zakelijk/sponsorkliks.json
         fields:
+          - name: tonen
+            label: Tonen op de site
+            widget: boolean
+            default: true
+            hint: Zet uit om dit blok tijdelijk van de site te halen.
           - name: titel
             label: Titel
             widget: string
@@ -1024,19 +1268,33 @@ collections:
         label: Partner worden (rood blok)
         file: data/paginas/zakelijk/partnerWorden.json
         fields:
+          - name: tonen
+            label: Tonen op de site
+            widget: boolean
+            default: true
+            hint: Zet uit om dit blok tijdelijk van de site te halen.
           - name: titel
             label: Titel
             widget: string
           - name: tekst
             label: Tekst
             widget: text
+            hint: Laat een lege regel tussen alinea's.
+          - name: email
+            label: E-mailadres voor sponsoring
+            widget: string
             hint: >-
-              Laat een lege regel tussen alinea's. Het mailadres ernaast is het PR-adres uit
-              Instellingen → Contactgegevens.
+              Staat naast de tekst en achter de mailknop. Staat niet in de broncode van de pagina,
+              dus spambots vinden het niet.
       - name: traffictoday
         label: TrafficToday (onderaan)
         file: data/paginas/zakelijk/traffictoday.json
         fields:
+          - name: tonen
+            label: Tonen op de site
+            widget: boolean
+            default: true
+            hint: Zet uit om dit blok tijdelijk van de site te halen.
           - name: titel
             label: Titel
             widget: string
@@ -1046,6 +1304,10 @@ collections:
             required: false
             media_folder: /images/logos
             public_folder: /images/logos
+          - name: link
+            label: Website van TrafficToday (optioneel)
+            widget: string
+            required: false
           - name: tekst
             label: Tekst (optioneel)
             widget: text
@@ -1058,6 +1320,10 @@ collections:
             summary: '{{naam}}'
             hint: Slepen verandert de volgorde op de site.
             fields:
+              - name: tonen
+                label: Tonen op de site
+                widget: boolean
+                default: true
               - name: naam
                 label: Naam van het bedrijf
                 widget: string
@@ -1074,7 +1340,9 @@ collections:
                 label: Website (optioneel)
                 widget: string
                 required: false
-                hint: Met een adres (https://...) wordt het logo klikbaar. Leeg = niet klikbaar.
+                hint: >-
+                  Het adres van de website (https://...). Een klik op het logo opent die website. Leeg =
+                  niet klikbaar.
   - name: instellingen
     label: Instellingen
     icon: settings

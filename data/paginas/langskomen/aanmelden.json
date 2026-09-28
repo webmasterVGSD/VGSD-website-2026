@@ -1,0 +1,21 @@
+{
+  "tonen": true,
+  "titel": "Laat weten dat je komt",
+  "tekst": "Vul hieronder in wat je wilt; je bericht gaat via WhatsApp (of mail) rechtstreeks naar ons. We spreken dan samen een avond af.",
+  "email": "pr@vgsd.nl",
+  "studies": [
+    "Bouwkunde",
+    "Civiele Techniek",
+    "Elektrotechniek",
+    "Industrieel Ontwerpen",
+    "Life Science & Technology",
+    "Lucht- en Ruimtevaarttechniek",
+    "Maritieme Techniek",
+    "Molecular Science & Technology",
+    "Technische Bestuurskunde",
+    "Technische Informatica",
+    "Technische Natuurkunde",
+    "Technische Wiskunde",
+    "Werktuigbouwkunde"
+  ]
+}

@@ -224,6 +224,7 @@
 
 <!-- HEADER -->
 <header class="sticky top-0 z-50 bg-warm-50/90 backdrop-blur-sm border-b border-ink-900/5">
+  <!-- Menu: niet hier aanpassen maar in scripts/menu-bijwerken.mjs (zet het op alle pagina's gelijk). -->
   <div class="max-w-container mx-auto px-5 sm:px-8">
     <div class="h-[72px] flex items-center justify-between gap-4">
       <a href="index.html#top" class="flex items-center gap-2.5 shrink-0">
@@ -234,36 +235,31 @@
       <nav class="hidden xl:flex items-center gap-6 font-medium text-[15px] text-ink-700">
         <a href="activiteiten.html" class="nav-link">Activiteiten</a>
         <a href="open-avonden.html" class="nav-link">Open avonden</a>
-
         <div class="relative">
           <button type="button" data-dropdown-trigger="over-ons-panel" aria-expanded="false" aria-controls="over-ons-panel" class="nav-link flex items-center gap-1">
             Over ons
             <i class="ph ph-caret-down text-xs caret"></i>
           </button>
           <div id="over-ons-panel" class="dropdown-panel absolute left-0 top-full mt-3 w-[30rem] rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_20px_45px_-16px_rgba(58,14,24,0.25)] p-6 grid grid-cols-2 gap-6">
-            <!-- TODO: onderstaande links wijzen nog naar "#": koppelen aan de echte pagina's zodra die bestaan. -->
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Wie we zijn</p>
-                <ul class="mt-3 space-y-1">
-                  <li><a href="geschiedenis.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Geschiedenis</a></li>
-                  <li><a href="verbanden.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Verbanden</a></li>
-                  <li><a href="besturen.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Besturen</a></li>
-                </ul>
-              </div>
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Onderdelen van de vereniging</p>
-                <ul class="mt-3 space-y-1">
-                  <li><a href="#" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Disputen</a></li>
-                  <li><a href="kasten.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Kasten (verenigingshuizen)</a></li>
-                  <li><a href="vvgsd.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">VVGSD (het voetbalteam)</a></li>
-                </ul>
-              </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Wie we zijn</p>
+              <ul class="mt-3 space-y-1">
+                <li><a href="geschiedenis.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Geschiedenis</a></li>
+                <li><a href="verbanden.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Verbanden</a></li>
+                <li><a href="besturen.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Besturen</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Onderdelen van de vereniging</p>
+              <ul class="mt-3 space-y-1">
+                <li><a href="disputen.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Disputen</a></li>
+                <li><a href="kasten.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Kasten (verenigingshuizen)</a></li>
+                <li><a href="vvgsd.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">VVGSD (het voetbalteam)</a></li>
+              </ul>
             </div>
           </div>
-
-        <!-- TODO: "Fotoalbum" wijst nog naar "#": koppel aan de echte pagina zodra die bestaat. -->
-        <a href="#" class="nav-link">Fotoalbum</a>
-
+        </div>
+        <a href="fotoalbum.html" class="nav-link">Fotoalbum</a>
         <div class="relative">
           <button type="button" data-dropdown-trigger="contact-panel" aria-expanded="false" aria-controls="contact-panel" class="nav-link flex items-center gap-1">
             Contact
@@ -271,18 +267,14 @@
           </button>
           <div id="contact-panel" class="dropdown-panel absolute left-0 top-full mt-3 w-56 rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_20px_45px_-16px_rgba(58,14,24,0.25)] p-3">
             <a href="index.html#contact" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Contact</a>
-            <!-- TODO: onderstaande links wijzen nog naar "#": koppelen aan de echte pagina's zodra die bestaan. -->
-            <a href="#" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Wonen in Delft</a>
-            <a href="#" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Langskomen</a>
+            <a href="wonen-in-delft.html" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Wonen in Delft</a>
+            <a href="langskomen.html" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Langskomen</a>
           </div>
         </div>
-
-        <!-- TODO: "Veelgestelde vragen" wijst nog naar "#": koppel aan de echte pagina zodra die bestaat. -->
         <a href="veelgestelde-vragen.html" class="nav-link">Veelgestelde vragen</a>
       </nav>
 
       <div class="hidden xl:flex items-center gap-4 shrink-0">
-        <!-- TODO: "Log in" wijst nog naar "#": koppelen zodra die functionaliteit bestaat. -->
         <div class="flex items-center gap-3 text-[13px] text-ink-500">
           <a href="zakelijk.html" aria-current="page" class="btn font-semibold text-brand-600">Zakelijk</a>
           <span class="text-ink-900/10">|</span>
@@ -302,6 +294,7 @@
   <div id="mobile-nav" class="mobile-menu xl:hidden border-t border-ink-900/5 bg-warm-50">
     <nav class="max-w-container mx-auto px-5 sm:px-8 py-4 flex flex-col gap-1 font-medium text-ink-700">
       <a href="activiteiten.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Activiteiten</a>
+
       <a href="open-avonden.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Open avonden</a>
 
       <button type="button" data-accordion-trigger="over-ons-accordion" aria-expanded="false" aria-controls="over-ons-accordion" class="px-2 py-2.5 rounded-lg hover:bg-brand-50 flex items-center justify-between">
@@ -314,12 +307,12 @@
         <a href="verbanden.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Verbanden</a>
         <a href="besturen.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Besturen</a>
         <p class="px-2 pt-2 text-xs font-semibold uppercase tracking-wide text-ink-500">Onderdelen van de vereniging</p>
-        <a href="#" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Disputen</a>
+        <a href="disputen.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Disputen</a>
         <a href="kasten.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Kasten (verenigingshuizen)</a>
         <a href="vvgsd.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">VVGSD (het voetbalteam)</a>
       </div>
 
-      <a href="#" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Fotoalbum</a>
+      <a href="fotoalbum.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Fotoalbum</a>
 
       <button type="button" data-accordion-trigger="contact-accordion" aria-expanded="false" aria-controls="contact-accordion" class="px-2 py-2.5 rounded-lg hover:bg-brand-50 flex items-center justify-between">
         Contact
@@ -327,8 +320,8 @@
       </button>
       <div id="contact-accordion" class="accordion-panel pl-4">
         <a href="index.html#contact" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Contact</a>
-        <a href="#" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Wonen in Delft</a>
-        <a href="#" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Langskomen</a>
+        <a href="wonen-in-delft.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Wonen in Delft</a>
+        <a href="langskomen.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Langskomen</a>
       </div>
 
       <a href="veelgestelde-vragen.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Veelgestelde vragen</a>
@@ -361,8 +354,10 @@
     </div>
   </section>
 
+  <!-- Elk blok hieronder verdwijnt als "Tonen" in de beheerpagina uit staat (data-inhoud-tonen). -->
+
   <!-- SPONSORS EN PARTNERS -->
-  <section class="pb-16 sm:pb-20">
+  <section data-inhoud-tonen="partners.tonen" class="pb-16 sm:pb-20">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <h2 data-inhoud="partners.titel" class="reveal font-display font-semibold text-2xl text-ink-900">Onze sponsors en partners</h2>
       <div data-inhoud-lijst="partners.partners" class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -381,13 +376,13 @@
     </div>
   </section>
 
-  <!-- UITGELICHTE SPONSORACTIE (bv. Poliswijzer). Verdwijnt als "Tonen" in de beheerpagina uit staat. -->
-  <section id="actie" class="pb-16 sm:pb-20">
+  <!-- UITGELICHTE SPONSORACTIE (bv. Poliswijzer rond de jaarwisseling) -->
+  <section data-inhoud-tonen="actie.tonen" class="pb-16 sm:pb-20">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] p-7 sm:p-10 grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] gap-8 items-center">
-        <div class="flex items-center justify-center rounded-xl bg-white p-6 sm:p-8 min-h-[8rem]">
+        <a data-inhoud-href="actie.link" href="#" target="_blank" rel="noopener sponsored" class="card-tilt flex items-center justify-center rounded-xl bg-white p-6 sm:p-8 min-h-[8rem]">
           <img data-inhoud-foto="actie.logo" data-inhoud-alt="actie.titel" alt="" class="max-h-20 w-auto max-w-full object-contain" loading="lazy">
-        </div>
+        </a>
         <div>
           <p class="text-xs font-semibold uppercase tracking-wide text-brand-600">Sponsoractie</p>
           <h2 data-inhoud="actie.titel" class="mt-2 font-display font-semibold text-2xl text-ink-900"></h2>
@@ -402,11 +397,13 @@
   </section>
 
   <!-- SPONSORKLIKS -->
-  <section class="py-16 sm:py-24 bg-warm-100">
+  <section data-inhoud-tonen="sponsorkliks.tonen" class="py-16 sm:py-24 bg-warm-100">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-10 lg:gap-16">
         <div class="reveal">
-          <img src="/images/logos/sponsorkliks.png" alt="SponsorKliks" class="h-14 w-auto" loading="lazy">
+          <a data-inhoud-href="sponsorkliks.link" href="#" target="_blank" rel="noopener" class="inline-block">
+            <img src="/images/logos/sponsorkliks.png" alt="SponsorKliks" class="h-14 w-auto" loading="lazy">
+          </a>
           <h2 data-inhoud="sponsorkliks.titel" class="mt-6 font-display font-bold text-3xl sm:text-4xl leading-tight tracking-tight text-ink-900"></h2>
           <div data-inhoud-rijk="sponsorkliks.tekst" data-alinea-klasse="mt-4 text-ink-700 leading-relaxed max-w-[60ch]"></div>
           <div class="mt-7 flex flex-wrap items-center gap-4">
@@ -455,7 +452,7 @@
   </section>
 
   <!-- PARTNER WORDEN -->
-  <section class="py-16 sm:py-24">
+  <section data-inhoud-tonen="partnerWorden.tonen" class="py-16 sm:py-24">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal rounded-[1.75rem] bg-brand-600 px-8 py-12 sm:px-14 sm:py-14 grid lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-10 items-center">
         <div>
@@ -464,10 +461,10 @@
         </div>
         <div class="rounded-2xl bg-warm-50/10 border border-warm-50/15 p-6 sm:p-7">
           <p class="text-sm font-semibold uppercase tracking-wide text-brand-100">Neem contact op</p>
-          <!-- Het adres staat bewust niet in de HTML maar komt uit Instellingen (via js/site.js), zodat spambots die de
-               broncode doorzoeken het niet vinden. -->
-          <p class="mt-2 font-display font-semibold text-xl text-warm-50 break-all" data-site-tekst="contact.emailPr"></p>
-          <a href="#" data-site-mailto="contact.emailPr" data-mail-onderwerp="Partnerschap met de VGSD" class="btn btn-primary mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-warm-50 text-brand-700 px-6 py-3 text-[15px] font-semibold shadow-sm w-full sm:w-auto">
+          <!-- Het adres staat bewust niet in de HTML maar komt uit partnerWorden.json (via js/site.js), zodat
+               spambots die de broncode doorzoeken het niet vinden. -->
+          <p data-inhoud="partnerWorden.email" class="mt-2 font-display font-semibold text-xl text-warm-50 break-all"></p>
+          <a href="#" data-inhoud-mailto="partnerWorden.email" data-mail-onderwerp="Partnerschap met de VGSD" class="btn btn-primary mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-warm-50 text-brand-700 px-6 py-3 text-[15px] font-semibold shadow-sm w-full sm:w-auto">
             <i class="ph ph-envelope-simple"></i>
             Stuur ons een mail
           </a>
@@ -477,11 +474,13 @@
   </section>
 
   <!-- TRAFFICTODAY -->
-  <section class="pb-20 sm:pb-28">
+  <section data-inhoud-tonen="traffictoday.tonen" class="pb-20 sm:pb-28">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal flex flex-wrap items-center gap-x-5 gap-y-3">
         <h2 data-inhoud="traffictoday.titel" class="font-display font-semibold text-2xl text-ink-900">TrafficToday</h2>
-        <img data-inhoud-foto="traffictoday.logo" alt="" class="h-8 w-auto" loading="lazy">
+        <a data-inhoud-href="traffictoday.link" href="#" target="_blank" rel="noopener" class="inline-block">
+          <img data-inhoud-foto="traffictoday.logo" alt="TrafficToday" class="h-8 w-auto" loading="lazy">
+        </a>
       </div>
       <div data-inhoud-rijk="traffictoday.tekst" data-alinea-klasse="mt-3 text-ink-700 leading-relaxed max-w-[60ch]"></div>
       <div data-inhoud-lijst="traffictoday.partners" class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -622,11 +621,6 @@
       menuToggle.setAttribute('aria-expanded', 'false');
       menuToggle.innerHTML = '<i class="ph ph-list text-2xl"></i>';
     });
-  });
-
-  // Sponsoractie verbergen als "Tonen" in de beheerpagina uit staat.
-  VGSD.inhoud.then(({ pagina }) => {
-    if (!(pagina.actie && pagina.actie.tonen)) document.getElementById('actie').remove();
   });
 
   VGSD.initReveal();
