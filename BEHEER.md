@@ -21,6 +21,7 @@ staat in formulieren op de beheerpagina.
 | **Fotoalbum** | De introtekst en de foto's (met onderschrift, volgorde, tijdelijk uitzetten) |
 | **Wonen in Delft** | De teksten, de foto, en het rode contactblok (mailadres en voorgetypt WhatsApp-bericht) |
 | **Langskomen** | De teksten, de foto, en het aanmeldblok: mailadres en de studies waarmee iemand kan meelopen |
+| **Contact** | De contactblokken (naam van de abactis, mailadressen, telefoonnummers), het WhatsApp-blok en de tegels onderaan. Het postadres komt uit Instellingen |
 | **Veelgestelde vragen** | De introtekst, de vragen en antwoorden (toevoegen, aanpassen, volgorde) en het rode blok onderaan |
 | **Zakelijk (sponsors)** | De pagina `zakelijk.html`: logo's van sponsors en partners (met link naar hun website), de uitgelichte sponsoractie (Poliswijzer; alleen aan rond de jaarwisseling), SponsorKliks (tekst, uitleg, uitgelichte winkels en winkels per categorie), het blok "Partner worden" (met eigen mailadres voor sponsoring) en de logo's onder TrafficToday |
 | **Instellingen** | WhatsApp-nummer, adres, e-mailadressen, telefoonnummer, Instagram-link, het rode blok "Nieuwsgierig geworden?" dat onder meerdere pagina's staat, en de teksten in de footer |
@@ -116,7 +117,7 @@ in (https://...): dan opent een klik op het logo die website. Gebruik liefst een
 haalt een sponsor weg.
 
 Het mailadres bij "Partner worden" pas je aan in **Zakelijk (sponsors) → Partner worden** (veld
-"E-mailadres voor sponsoring"). Net als de mailadressen op Wonen in Delft en Langskomen staat het
+"E-mailadres voor sponsoring"). Net als de mailadressen op Wonen in Delft, Langskomen en Contact staat het
 bewust niet in de HTML van de pagina maar wordt het door het script ingevuld, zodat spambots die de
 broncode doorzoeken het niet vinden. Er zijn daarom ook geen formulieren die iets opslaan: bezoekers
 mailen of appen gewoon. Op Langskomen maakt het keuzeblok alleen een voorgetypt bericht, dat de

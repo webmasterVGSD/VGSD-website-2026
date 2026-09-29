@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Geschiedenis | VGSD</title>
-<meta name="description" content="Hoe de VGSD in 1961 in Delft is ontstaan en met welk doel de vereniging werd opgericht.">
+<title>Contact | VGSD</title>
+<meta name="description" content="Neem contact op met de VGSD, de christelijke studentenvereniging in Delft: bestuur, websitebeheer, WhatsApp en adres.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,28 +182,10 @@
       transition: none;
     }
   }
-
-  /* TIJDLIJN */
-  .tijdlijn {
-    border-left: 2px solid #F3D9DD;
-  }
-  .tijdlijn-stip--nu {
-    box-shadow: 0 0 0 4px #FDFAF6, 0 0 0 9px #F3D9DD !important;
-  }
-  .tijdlijn-stip {
-    position: absolute;
-    left: -2.05rem;
-    top: 0.35rem;
-    width: 0.85rem;
-    height: 0.85rem;
-    border-radius: 9999px;
-    background-color: #7A1F35;
-    box-shadow: 0 0 0 4px #FDFAF6;
-  }
 </style>
 </head>
 
-<body class="font-body text-ink-900 antialiased" data-pagina="paginas/geschiedenis" data-blokken="intro tijdlijn">
+<body class="font-body text-ink-900 antialiased" data-pagina="paginas/contact" data-blokken="intro personen snel doorverwijzen">
 
 <!-- WHATSAPP FLOATING BUTTON -->
 <!-- Nummer komt uit data/instellingen/whatsapp.json (zie js/site.js). -->
@@ -225,7 +207,7 @@
         <a href="activiteiten.html" class="nav-link">Activiteiten</a>
         <a href="open-avonden.html" class="nav-link">Open avonden</a>
         <div class="relative">
-          <button type="button" data-dropdown-trigger="over-ons-panel" aria-expanded="false" aria-controls="over-ons-panel" class="nav-link flex items-center gap-1 text-brand-600">
+          <button type="button" data-dropdown-trigger="over-ons-panel" aria-expanded="false" aria-controls="over-ons-panel" class="nav-link flex items-center gap-1">
             Over ons
             <i class="ph ph-caret-down text-xs caret"></i>
           </button>
@@ -233,7 +215,7 @@
             <div>
               <p class="text-xs font-semibold uppercase tracking-wide text-ink-500">Wie we zijn</p>
               <ul class="mt-3 space-y-1">
-                <li><a href="geschiedenis.html" aria-current="page" class="block px-2 py-1.5 rounded-lg bg-brand-50 text-brand-600 font-semibold">Geschiedenis</a></li>
+                <li><a href="geschiedenis.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Geschiedenis</a></li>
                 <li><a href="verbanden.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Verbanden</a></li>
                 <li><a href="besturen.html" class="block px-2 py-1.5 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Besturen</a></li>
               </ul>
@@ -250,12 +232,12 @@
         </div>
         <a href="fotoalbum.html" class="nav-link">Fotoalbum</a>
         <div class="relative">
-          <button type="button" data-dropdown-trigger="contact-panel" aria-expanded="false" aria-controls="contact-panel" class="nav-link flex items-center gap-1">
+          <button type="button" data-dropdown-trigger="contact-panel" aria-expanded="false" aria-controls="contact-panel" class="nav-link flex items-center gap-1 text-brand-600">
             Contact
             <i class="ph ph-caret-down text-xs caret"></i>
           </button>
           <div id="contact-panel" class="dropdown-panel absolute left-0 top-full mt-3 w-56 rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_20px_45px_-16px_rgba(58,14,24,0.25)] p-3">
-            <a href="contact.html" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Contact</a>
+            <a href="contact.html" aria-current="page" class="block px-3 py-2 rounded-lg bg-brand-50 text-brand-600 font-semibold">Contact</a>
             <a href="wonen-in-delft.html" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Wonen in Delft</a>
             <a href="langskomen.html" class="block px-3 py-2 rounded-lg text-ink-700 hover:bg-brand-50 hover:text-brand-600">Langskomen</a>
           </div>
@@ -286,13 +268,13 @@
 
       <a href="open-avonden.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Open avonden</a>
 
-      <button type="button" data-accordion-trigger="over-ons-accordion" aria-expanded="true" aria-controls="over-ons-accordion" class="px-2 py-2.5 rounded-lg hover:bg-brand-50 flex items-center justify-between">
+      <button type="button" data-accordion-trigger="over-ons-accordion" aria-expanded="false" aria-controls="over-ons-accordion" class="px-2 py-2.5 rounded-lg hover:bg-brand-50 flex items-center justify-between">
         Over ons
         <i class="ph ph-caret-down text-sm caret"></i>
       </button>
-      <div id="over-ons-accordion" class="accordion-panel open pl-4">
+      <div id="over-ons-accordion" class="accordion-panel pl-4">
         <p class="px-2 pt-2 text-xs font-semibold uppercase tracking-wide text-ink-500">Wie we zijn</p>
-        <a href="geschiedenis.html" aria-current="page" class="block px-2 py-2 rounded-lg bg-brand-50 text-brand-600 font-semibold">Geschiedenis</a>
+        <a href="geschiedenis.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Geschiedenis</a>
         <a href="verbanden.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Verbanden</a>
         <a href="besturen.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Besturen</a>
         <p class="px-2 pt-2 text-xs font-semibold uppercase tracking-wide text-ink-500">Onderdelen van de vereniging</p>
@@ -303,12 +285,12 @@
 
       <a href="fotoalbum.html" class="px-2 py-2.5 rounded-lg hover:bg-brand-50">Fotoalbum</a>
 
-      <button type="button" data-accordion-trigger="contact-accordion" aria-expanded="false" aria-controls="contact-accordion" class="px-2 py-2.5 rounded-lg hover:bg-brand-50 flex items-center justify-between">
+      <button type="button" data-accordion-trigger="contact-accordion" aria-expanded="true" aria-controls="contact-accordion" class="px-2 py-2.5 rounded-lg hover:bg-brand-50 flex items-center justify-between">
         Contact
         <i class="ph ph-caret-down text-sm caret"></i>
       </button>
-      <div id="contact-accordion" class="accordion-panel pl-4">
-        <a href="contact.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Contact</a>
+      <div id="contact-accordion" class="accordion-panel open pl-4">
+        <a href="contact.html" aria-current="page" class="block px-2 py-2 rounded-lg bg-brand-50 text-brand-600 font-semibold">Contact</a>
         <a href="wonen-in-delft.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Wonen in Delft</a>
         <a href="langskomen.html" class="block px-2 py-2 rounded-lg hover:bg-brand-50">Langskomen</a>
       </div>
@@ -333,50 +315,96 @@
   <section class="pt-16 pb-10 sm:pt-20 sm:pb-14">
     <div class="max-w-container mx-auto px-5 sm:px-8">
       <div class="reveal max-w-2xl">
-        <h1 id="geschiedenis-titel" data-inhoud="intro.titel" class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
-          Geschiedenis
+        <h1 data-inhoud="intro.titel" class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
+          Contact
         </h1>
-        <p id="geschiedenis-tekst" data-inhoud="intro.tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[52ch]">
-          Hoe de VGSD in 1961 in Delft ontstond, en waar de vereniging sindsdien voor staat.
-        </p>
+        <p data-inhoud="intro.tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[56ch]"></p>
       </div>
     </div>
   </section>
 
-  <!-- TIJDLIJN -->
-  <section class="pb-20 sm:pb-28">
-    <div class="max-w-container mx-auto px-5 sm:px-8">
-      <div class="reveal max-w-2xl">
-        <h2 id="geschiedenis-sectietitel" data-inhoud="tijdlijn.titel" class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Van onvrede tot oprichting</h2>
-        <p id="geschiedenis-sectietekst" data-inhoud="tijdlijn.tekst" class="mt-3 text-ink-700 leading-relaxed max-w-[60ch]">
-          De geschiedenis van de VGSD gaat terug tot 1961, maar het verhaal begint al iets eerder.
-        </p>
+  <!-- CONTACTPERSONEN + SNEL CONTACT -->
+  <section class="pb-16 sm:pb-20">
+    <div class="max-w-container mx-auto px-5 sm:px-8 grid lg:grid-cols-[1.25fr_1fr] gap-6 lg:gap-10 items-start">
+
+      <!-- Contactpersonen komen uit data/paginas/contact/personen.json (beheerpagina: Contact).
+           Mailadressen en telefoonnummers staan bewust niet in de HTML (tegen spambots). -->
+      <div data-inhoud-lijst="personen.personen" class="flex flex-col gap-6">
+        <template>
+          <article class="reveal rounded-2xl bg-warm-50 border border-ink-900/5 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] p-7 sm:p-8">
+            <div class="flex items-center gap-3">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-brand-50 text-brand-600">
+                <i data-inhoud-icoon="icoon" class="ph ph-envelope-simple text-xl"></i>
+              </span>
+              <h2 data-inhoud="titel" class="font-display font-bold text-2xl text-ink-900"></h2>
+            </div>
+            <div data-inhoud-rijk="tekst" data-alinea-klasse="mt-4 text-ink-700 leading-relaxed [&_a]:font-semibold [&_a]:text-brand-600 [&_a:hover]:underline"></div>
+            <p class="mt-4 leading-snug">
+              <span data-inhoud="naam" data-inhoud-optioneel class="block font-semibold text-ink-900"></span>
+              <span data-inhoud="functie" data-inhoud-optioneel class="block text-sm text-ink-500"></span>
+            </p>
+            <div class="mt-6 flex flex-col sm:flex-row flex-wrap gap-3">
+              <a href="#" data-inhoud-mailto="email" data-inhoud-optioneel class="btn btn-primary inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 text-warm-50 px-5 py-2.5 text-[15px] font-semibold shadow-sm">
+                <i class="ph ph-envelope-simple text-lg"></i>
+                <span data-inhoud="email"></span>
+              </a>
+              <a href="#" data-inhoud-tel="telefoon" data-inhoud-optioneel class="btn inline-flex items-center justify-center gap-2 rounded-full border border-ink-900/15 text-ink-900 px-5 py-2.5 text-[15px] font-semibold hover:border-brand-600 hover:text-brand-600">
+                <i class="ph ph-phone text-lg"></i>
+                <span data-inhoud="telefoon"></span>
+              </a>
+            </div>
+          </article>
+        </template>
       </div>
 
-      <ol id="geschiedenis-tijdlijn" class="reveal tijdlijn mt-10 max-w-2xl pl-8 space-y-10">
-        <!-- Stappen worden hier automatisch ingevuld vanuit data/paginas/geschiedenis/tijdlijn.json (zie admin/config.yml en het script onderaan de pagina). -->
-      </ol>
-    </div>
-  </section>
+      <div class="space-y-6">
+        <div data-inhoud-tonen="snel.tonen" class="reveal rounded-2xl bg-brand-600 p-7 sm:p-8">
+          <h2 data-inhoud="snel.titel" class="font-display font-bold text-2xl text-warm-50"></h2>
+          <div data-inhoud-rijk="snel.tekst" data-alinea-klasse="mt-3 text-brand-100 leading-relaxed"></div>
+          <div class="mt-6 flex flex-col sm:flex-row flex-wrap gap-3">
+            <a href="#" id="contact-wa" data-wa class="btn btn-primary inline-flex items-center justify-center gap-2 rounded-full bg-warm-50 text-brand-700 px-6 py-3 text-[15px] font-semibold shadow-sm">
+              <i class="ph-fill ph-whatsapp-logo text-lg"></i>
+              Stuur een WhatsApp
+            </a>
+            <a href="#" data-site-social="instagram" target="_blank" rel="noopener" class="btn inline-flex items-center justify-center gap-2 rounded-full border border-warm-50/40 text-warm-50 px-6 py-3 text-[15px] font-semibold">
+              <i class="ph ph-instagram-logo text-lg"></i>
+              Instagram
+            </a>
+          </div>
+        </div>
 
-  <!-- CTA BAND -->
-  <section class="pb-24 sm:pb-32">
-    <div class="max-w-container mx-auto px-5 sm:px-8">
-      <div class="reveal rounded-[1.75rem] bg-brand-600 px-8 py-12 sm:px-14 sm:py-14 text-center">
-        <h2 data-site-tekst="cta.titel" class="font-display font-bold text-2xl sm:text-3xl text-warm-50">
-          Nieuwsgierig geworden?
-        </h2>
-        <p data-site-tekst="cta.tekst" class="mt-3 text-brand-100 max-w-md mx-auto">
-          Kom gewoon een keer langs bij een open avond, vrijblijvend en zonder poespas.
-        </p>
-        <div class="mt-7 flex flex-wrap items-center justify-center gap-4">
-          <a href="open-avonden.html" class="btn btn-primary inline-flex items-center justify-center rounded-full bg-warm-50 text-brand-700 px-7 py-3.5 text-[15px] font-semibold shadow-sm">
-            <span data-site-tekst="cta.knopOpenAvonden">Bekijk open avonden</span>
-          </a>
-          <a href="index.html#word-lid" class="btn inline-flex items-center justify-center rounded-full border border-warm-50/40 text-warm-50 px-7 py-3.5 text-[15px] font-semibold">
-            <span data-site-tekst="cta.knopLidWorden">Lid worden</span>
+        <div class="reveal rounded-2xl bg-warm-100 p-7 sm:p-8">
+          <h2 class="font-display font-bold text-xl text-ink-900">Postadres</h2>
+          <p class="mt-3 flex items-start gap-2.5 text-ink-700 leading-relaxed">
+            <i class="ph ph-map-pin mt-1 text-brand-600"></i>
+            <span>Abactiaat der VGSD<br><span data-site-adres></span></span>
+          </p>
+          <a href="#" id="contact-route" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-[15px] font-semibold text-brand-600 hover:underline">
+            Bekijk op de kaart <i class="ph ph-arrow-up-right text-sm"></i>
           </a>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOORVERWIJZEN -->
+  <section data-inhoud-tonen="doorverwijzen.tonen" class="pb-24 sm:pb-32">
+    <div class="max-w-container mx-auto px-5 sm:px-8">
+      <h2 data-inhoud="doorverwijzen.titel" class="reveal font-display font-bold text-2xl sm:text-3xl text-ink-900"></h2>
+      <div data-inhoud-lijst="doorverwijzen.links" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <template>
+          <a href="#" data-inhoud-href="link" class="reveal group block rounded-2xl bg-warm-50 border border-ink-900/5 p-6 shadow-[0_8px_24px_-12px_rgba(58,14,24,0.12)] transition hover:border-brand-300 hover:-translate-y-0.5">
+            <span class="grid h-11 w-11 place-items-center rounded-full bg-brand-50 text-brand-600">
+              <i data-inhoud-icoon="icoon" class="ph ph-arrow-right text-xl"></i>
+            </span>
+            <h3 class="mt-4 font-display font-semibold text-lg text-ink-900 flex items-center gap-1.5">
+              <span data-inhoud="titel"></span>
+              <i class="ph ph-arrow-right text-sm text-brand-600 transition group-hover:translate-x-1"></i>
+            </h3>
+            <p data-inhoud="tekst" class="mt-1.5 text-ink-700 text-[15px] leading-relaxed"></p>
+          </a>
+        </template>
       </div>
     </div>
   </section>
@@ -506,47 +534,18 @@
     });
   });
 
+  // WhatsApp-knop met de voorgetypte tekst uit de beheerpagina, en de kaartlink bij het adres.
+  VGSD.inhoud.then(({ pagina, site }) => {
+    const knop = document.getElementById('contact-wa');
+    const tekst = pagina.snel && pagina.snel.whatsappTekst;
+    if (knop && site.whatsapp) knop.href = VGSD.waLink(site, tekst);
+    const route = document.getElementById('contact-route');
+    const adres = site.contact && site.contact.adres;
+    if (route && adres) route.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(adres.replace(/\n/g, ', '))}`;
+    else if (route) route.remove();
+  });
+
   VGSD.initReveal();
-
-  // Geschiedenispagina: bouwt de tijdlijn vanuit data/paginas/geschiedenis/tijdlijn.json
-  // (bewerkbaar via de beheerpagina, Geschiedenis > Tijdlijn). De teksten erboven worden door
-  // js/site.js ingevuld (data-inhoud-attributen).
-  function maakTijdlijnStap(stap) {
-    const li = document.createElement('li');
-    li.className = 'relative';
-
-    const stip = document.createElement('span');
-    stip.className = stap.huidig ? 'tijdlijn-stip tijdlijn-stip--nu' : 'tijdlijn-stip';
-    li.appendChild(stip);
-
-    const periode = document.createElement('p');
-    periode.className = 'font-display font-semibold text-brand-600 text-sm tracking-wide';
-    periode.textContent = stap.periode;
-    li.appendChild(periode);
-
-    const titel = document.createElement('h3');
-    titel.className = 'mt-1 font-display font-semibold text-lg text-ink-900';
-    titel.textContent = stap.titel;
-    li.appendChild(titel);
-
-    const tekst = document.createElement('p');
-    tekst.className = 'mt-1.5 text-ink-700 leading-relaxed';
-    tekst.textContent = stap.tekst;
-    li.appendChild(tekst);
-
-    return li;
-  }
-
-  function renderTijdlijn(tijdlijn) {
-    const lijst = document.getElementById('geschiedenis-tijdlijn');
-    if (!lijst) return;
-    lijst.replaceChildren(...tijdlijn.map(maakTijdlijnStap));
-    VGSD.initReveal();
-  }
-
-  VGSD.inhoud
-    .then(({ pagina }) => renderTijdlijn((pagina.tijdlijn && pagina.tijdlijn.stappen) || []))
-    .catch((fout) => console.error('VGSD: geschiedenis laden mislukt.', fout));
 </script>
 
 </body>

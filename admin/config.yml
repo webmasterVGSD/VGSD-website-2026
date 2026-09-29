@@ -1343,6 +1343,128 @@ collections:
                 hint: >-
                   Het adres van de website (https://...). Een klik op het logo opent die website. Leeg =
                   niet klikbaar.
+  - name: contact
+    label: Contact
+    icon: contact_mail
+    files:
+      - name: intro
+        label: Tekst bovenaan de pagina
+        file: data/paginas/contact/intro.json
+        fields:
+          - name: titel
+            label: Titel (H1)
+            widget: string
+          - name: tekst
+            label: Tekst onder de titel
+            widget: text
+      - name: personen
+        label: Contactpersonen (abactis, websitebeheer, ...)
+        file: data/paginas/contact/personen.json
+        fields:
+          - name: personen
+            label: Contactblokken
+            label_singular: Contactblok
+            widget: list
+            collapsed: true
+            summary: '{{titel}} — {{email}}'
+            hint: >-
+              Slepen verandert de volgorde op de site. Na een bestuurswissel hier de naam van de nieuwe
+              abactis invullen.
+            fields:
+              - name: tonen
+                label: Tonen op de site
+                widget: boolean
+                default: true
+              - name: titel
+                label: Titel
+                widget: string
+                hint: Bijvoorbeeld "Algemene zaken".
+              - name: icoon
+                label: Icoon
+                widget: string
+                required: false
+                hint: >-
+                  De naam van een icoon van phosphoricons.com, zonder "ph-" ervoor (bijvoorbeeld
+                  "envelope-simple" of "code").
+              - name: tekst
+                label: Tekst
+                widget: text
+                hint: "Laat een lege regel tussen alinea's. Opmaak: **vet** en [linktekst](adres)."
+              - name: naam
+                label: Naam (optioneel)
+                widget: string
+                required: false
+              - name: functie
+                label: Functie (optioneel)
+                widget: string
+                required: false
+                hint: Bijvoorbeeld "Abactis". Komt klein onder de naam.
+              - name: email
+                label: E-mailadres (optioneel)
+                widget: string
+                required: false
+                hint: Staat niet in de broncode van de pagina, dus spambots vinden het niet. Leeg = geen mailknop.
+              - name: telefoon
+                label: Telefoonnummer (optioneel)
+                widget: string
+                required: false
+                hint: Bijvoorbeeld "06 12 34 56 78". Leeg = geen belknop.
+      - name: snel
+        label: Rood blok (WhatsApp en Instagram)
+        file: data/paginas/contact/snel.json
+        fields:
+          - name: tonen
+            label: Tonen op de site
+            widget: boolean
+            default: true
+          - name: titel
+            label: Titel
+            widget: string
+          - name: tekst
+            label: Tekst
+            widget: text
+          - name: whatsappTekst
+            label: Voorgetypt WhatsApp-bericht
+            widget: string
+            hint: >-
+              Het nummer is het WhatsApp-nummer uit Instellingen, de Instagram-link komt ook uit
+              Instellingen. Het postadres naast dit blok komt uit Instellingen → Contactgegevens.
+      - name: doorverwijzen
+        label: Tegels onderaan ("Waar ben je naar op zoek?")
+        file: data/paginas/contact/doorverwijzen.json
+        fields:
+          - name: tonen
+            label: Tonen op de site
+            widget: boolean
+            default: true
+          - name: titel
+            label: Titel
+            widget: string
+          - name: links
+            label: Tegels
+            label_singular: Tegel
+            widget: list
+            collapsed: true
+            summary: '{{titel}}'
+            fields:
+              - name: tonen
+                label: Tonen op de site
+                widget: boolean
+                default: true
+              - name: icoon
+                label: Icoon
+                widget: string
+                hint: De naam van een icoon van phosphoricons.com, zonder "ph-" ervoor.
+              - name: titel
+                label: Titel
+                widget: string
+              - name: tekst
+                label: Korte tekst
+                widget: string
+              - name: link
+                label: Link
+                widget: string
+                hint: Een pagina van de site (bijvoorbeeld "langskomen.html") of een volledig adres.
   - name: instellingen
     label: Instellingen
     icon: settings

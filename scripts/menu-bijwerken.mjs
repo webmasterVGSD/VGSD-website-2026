@@ -41,7 +41,7 @@ const MENU = [
     tekst: 'Contact',
     id: 'contact',
     items: [
-      { tekst: 'Contact', href: 'index.html#contact' },
+      { tekst: 'Contact', href: 'contact.html' },
       { tekst: 'Wonen in Delft', href: 'wonen-in-delft.html' },
       { tekst: 'Langskomen', href: 'langskomen.html' },
     ],

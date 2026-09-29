@@ -1,0 +1,11 @@
+{
+  "tonen": true,
+  "titel": "Waar ben je naar op zoek?",
+  "links": [
+    { "tonen": true, "icoon": "door-open", "titel": "Langskomen", "tekst": "Proef de sfeer op een donderdagavond of loop mee met je studie.", "link": "langskomen.html" },
+    { "tonen": true, "icoon": "calendar-blank", "titel": "Open avonden", "tekst": "Bekijk wanneer de volgende open avond is en meld je aan.", "link": "open-avonden.html" },
+    { "tonen": true, "icoon": "house-line", "titel": "Wonen in Delft", "tekst": "Op zoek naar een kamer in een van onze verenigingshuizen?", "link": "wonen-in-delft.html" },
+    { "tonen": true, "icoon": "handshake", "titel": "Zakelijk", "tekst": "Sponsoring, partnerschappen en SponsorKliks.", "link": "zakelijk.html" },
+    { "tonen": true, "icoon": "question", "titel": "Veelgestelde vragen", "tekst": "Misschien staat je antwoord er al tussen.", "link": "veelgestelde-vragen.html" }
+  ]
+}

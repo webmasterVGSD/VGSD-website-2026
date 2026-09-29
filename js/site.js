@@ -168,6 +168,7 @@
   //   data-inhoud-alt="pad"       -> alt-tekst van een <img>
   //   data-inhoud-href="pad"      -> link
   //   data-inhoud-mailto="pad"    -> href wordt mailto:<waarde> (optioneel data-mail-onderwerp="...")
+  //   data-inhoud-tel="pad"       -> href wordt tel:<waarde>
   //   data-inhoud-tonen="pad"     -> element weghalen als die waarde uit staat (vinkje "Tonen" in het
   //                                  beheer); zo kan een blok tijdelijk van de site
   //   data-inhoud-icoon="pad"     -> Phosphor-icoon op een <i> (naam zonder "ph-")
@@ -304,6 +305,7 @@
     vul('inhoud-mailto', (el, w) => {
       el.href = `mailto:${w}${el.dataset.mailOnderwerp ? `?subject=${encodeURIComponent(el.dataset.mailOnderwerp)}` : ''}`;
     });
+    vul('inhoud-tel', (el, w) => { el.href = `tel:${telLink(w)}`; });
     vul('inhoud-icoon', (el, w) => {
       el.className = el.className.replace(/\bph-(?!fill\b)[\w-]+/g, '').trim();
       el.classList.add(`ph-${w}`);
