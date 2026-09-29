@@ -338,11 +338,11 @@
   <!-- INTRO -->
   <section class="pt-16 pb-10 sm:pt-20 sm:pb-14">
     <div class="max-w-container mx-auto px-5 sm:px-8">
-      <div class="reveal max-w-2xl">
+      <div class="reveal">
         <h1 data-inhoud="intro.titel" class="font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight text-ink-900">
           Langskomen
         </h1>
-        <p data-inhoud="intro.tekst" class="mt-5 text-lg text-ink-700 leading-relaxed max-w-[56ch]"></p>
+        <p data-inhoud="intro.tekst" class="mt-5 text-lg text-ink-700 leading-relaxed"></p>
       </div>
     </div>
   </section>
@@ -367,7 +367,7 @@
       <div class="reveal rounded-[1.75rem] bg-brand-600 px-6 py-10 sm:px-14 sm:py-14 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] gap-10">
         <div>
           <h2 data-inhoud="aanmelden.titel" class="font-display font-bold text-2xl sm:text-3xl text-warm-50"></h2>
-          <div data-inhoud-rijk="aanmelden.tekst" data-alinea-klasse="mt-4 text-brand-100 leading-relaxed max-w-[50ch]"></div>
+          <div data-inhoud-rijk="aanmelden.tekst" data-alinea-klasse="mt-4 text-brand-100 leading-relaxed"></div>
         </div>
 
         <form id="langskomen-form" class="rounded-2xl bg-warm-50 p-6 sm:p-8 space-y-5" novalidate>
@@ -543,6 +543,15 @@
     const form = document.getElementById('langskomen-form');
     if (!form) return;
     const aanmelden = pagina.aanmelden || {};
+    // Valt terug op deze zinnen als een veld in de beheerpagina leeg is.
+    const STANDAARD_BERICHT = {
+      begin: 'Hoi! Ik ben {naam} en ik zou graag een keer op een donderdagavond bij de VGSD langskomen.',
+      studie: 'Het lijkt me ook leuk om een dag mee te lopen met iemand die {studie} studeert.',
+      eten: 'Als het kan, eet ik die avond graag mee bij een van de verenigingshuizen.',
+      slapen: 'Als het kan, blijf ik na afloop graag slapen bij een van de verenigingshuizen.',
+      etenEnSlapen: 'Als het kan, eet ik die avond graag mee bij een van de verenigingshuizen en blijf ik daar ook slapen.',
+      afsluiting: 'Wanneer zou het jullie uitkomen?\n\nGroetjes, {naam}',
+    };
     const studie = document.getElementById('lk-studie');
     (aanmelden.studies || []).forEach((naam) => {
       const optie = document.createElement('option');
@@ -560,11 +569,18 @@
         return null;
       }
       const keuze = (veld) => (form.querySelector(`input[name="${veld}"]:checked`) || {}).value === 'ja';
-      const regels = [`Hoi! Ik ben ${naam} en ik wil graag een keer langskomen op een donderdagavond.`];
-      if (studie.value) regels.push(`Ik zou graag meelopen met iemand die ${studie.value} studeert.`);
-      if (keuze('lk-eten')) regels.push('Ik wil graag mee-eten bij een verenigingshuis.');
-      if (keuze('lk-slapen')) regels.push('Ik zou graag blijven slapen bij een verenigingshuis.');
-      return regels.join(' ');
+      // De zinnen komen uit de beheerpagina (Langskomen → Aanmelden → Opbouw van het bericht).
+      const z = { ...STANDAARD_BERICHT, ...(aanmelden.bericht || {}) };
+      const vul = (zin) => String(zin || '').replace(/\{naam\}/g, naam).replace(/\{studie\}/g, studie.value).trim();
+      const eten = keuze('lk-eten');
+      const slapen = keuze('lk-slapen');
+      const zinnen = [z.begin];
+      if (studie.value) zinnen.push(z.studie);
+      if (eten && slapen) zinnen.push(z.etenEnSlapen);
+      else if (eten) zinnen.push(z.eten);
+      else if (slapen) zinnen.push(z.slapen);
+      const hoofdtekst = zinnen.map(vul).filter(Boolean).join(' ');
+      return [hoofdtekst, vul(z.afsluiting)].filter(Boolean).join('\n\n');
     }
 
     form.addEventListener('submit', (event) => {

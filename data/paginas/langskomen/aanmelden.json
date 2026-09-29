@@ -17,5 +17,13 @@
     "Technische Natuurkunde",
     "Technische Wiskunde",
     "Werktuigbouwkunde"
-  ]
+  ],
+  "bericht": {
+    "begin": "Hoi! Ik ben {naam} en ik zou graag een keer op een donderdagavond bij de VGSD langskomen.",
+    "studie": "Het lijkt me ook leuk om een dag mee te lopen met iemand die {studie} studeert.",
+    "eten": "Als het kan, eet ik die avond graag mee bij een van de verenigingshuizen.",
+    "slapen": "Als het kan, blijf ik na afloop graag slapen bij een van de verenigingshuizen.",
+    "etenEnSlapen": "Als het kan, eet ik die avond graag mee bij een van de verenigingshuizen en blijf ik daar ook slapen.",
+    "afsluiting": "Wanneer zou het jullie uitkomen?\n\nGroetjes, {naam}"
+  }
 }

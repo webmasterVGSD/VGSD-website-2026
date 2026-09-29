@@ -20,7 +20,7 @@ staat in formulieren op de beheerpagina.
 | **VVGSD** | De teksten op de drie voetbalpagina's, groepsfoto, topscorers, wedstrijdverslagen, en (indien nodig) de handmatige invoer/instellingen voor de stand en het wedstrijdschema |
 | **Fotoalbum** | De introtekst en de foto's (met onderschrift, volgorde, tijdelijk uitzetten) |
 | **Wonen in Delft** | De teksten, de foto, en het rode contactblok (mailadres en voorgetypt WhatsApp-bericht) |
-| **Langskomen** | De teksten, de foto, en het aanmeldblok: mailadres en de studies waarmee iemand kan meelopen |
+| **Langskomen** | De teksten, de foto, en het aanmeldblok: mailadres, de studies waarmee iemand kan meelopen en de zinnen waaruit het voorgetypte bericht wordt opgebouwd (met {naam} en {studie} als invulplekken) |
 | **Contact** | De contactblokken (naam van de abactis, mailadressen, telefoonnummers), het WhatsApp-blok en de tegels onderaan. Het postadres komt uit Instellingen |
 | **Veelgestelde vragen** | De introtekst, de vragen en antwoorden (toevoegen, aanpassen, volgorde) en het rode blok onderaan |
 | **Zakelijk (sponsors)** | De pagina `zakelijk.html`: logo's van sponsors en partners (met link naar hun website), de uitgelichte sponsoractie (Poliswijzer; alleen aan rond de jaarwisseling), SponsorKliks (tekst, uitleg, uitgelichte winkels en winkels per categorie), het blok "Partner worden" (met eigen mailadres voor sponsoring) en de logo's onder TrafficToday |

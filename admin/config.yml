@@ -1054,6 +1054,34 @@ collections:
               label: Studie
               widget: string
             hint: Verschijnen in de keuzelijst als "Ja, met ...".
+          - name: bericht
+            label: Opbouw van het voorgetypte bericht
+            widget: object
+            collapsed: true
+            hint: >-
+              Het bericht wordt uit deze zinnen samengesteld, afhankelijk van wat de bezoeker kiest.
+              {naam} wordt de ingevulde naam, {studie} de gekozen studie. Zinnen die niet van
+              toepassing zijn worden weggelaten.
+            fields:
+              - name: begin
+                label: Begin (altijd)
+                widget: text
+              - name: studie
+                label: Als iemand wil meelopen met een studie
+                widget: text
+              - name: eten
+                label: Als iemand alleen wil mee-eten
+                widget: text
+              - name: slapen
+                label: Als iemand alleen wil blijven slapen
+                widget: text
+              - name: etenEnSlapen
+                label: Als iemand wil mee-eten én blijven slapen
+                widget: text
+              - name: afsluiting
+                label: Afsluiting (altijd, op een nieuwe regel)
+                widget: text
+                hint: Een Enter in dit veld wordt ook een nieuwe regel in het bericht.
   - name: veelgestelde_vragen
     label: Veelgestelde vragen
     icon: help
