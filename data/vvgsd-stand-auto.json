@@ -1,5 +1,5 @@
 {
-  "bijgewerkt": "2026-09-29T09:14:14.839Z",
+  "bijgewerkt": "2026-09-29T12:16:06.963Z",
   "teams": [
     {
       "positie": 1,
@@ -39,6 +39,18 @@
     },
     {
       "positie": 4,
+      "naam": "De Raafschap",
+      "gespeeld": 3,
+      "gewonnen": 2,
+      "gelijk": 0,
+      "verloren": 1,
+      "doelpuntenVoor": 25,
+      "doelpuntenTegen": 10,
+      "doelsaldo": 15,
+      "punten": 6
+    },
+    {
+      "positie": 5,
       "naam": "Zware Jongens",
       "gespeeld": 2,
       "gewonnen": 2,
@@ -50,7 +62,7 @@
       "punten": 6
     },
     {
-      "positie": 5,
+      "positie": 6,
       "naam": "VV De Benenbrekers",
       "gespeeld": 2,
       "gewonnen": 2,
@@ -62,7 +74,7 @@
       "punten": 6
     },
     {
-      "positie": 6,
+      "positie": 7,
       "naam": "Club Tower Brugge",
       "gespeeld": 3,
       "gewonnen": 1,
@@ -74,7 +86,7 @@
       "punten": 4
     },
     {
-      "positie": 7,
+      "positie": 8,
       "naam": "VVvTP – A",
       "gespeeld": 3,
       "gewonnen": 1,
@@ -86,7 +98,7 @@
       "punten": 4
     },
     {
-      "positie": 8,
+      "positie": 9,
       "naam": "MTT Gunners",
       "gespeeld": 3,
       "gewonnen": 1,
@@ -95,18 +107,6 @@
       "doelpuntenVoor": 16,
       "doelpuntenTegen": 6,
       "doelsaldo": 10,
-      "punten": 3
-    },
-    {
-      "positie": 9,
-      "naam": "De Raafschap",
-      "gespeeld": 2,
-      "gewonnen": 1,
-      "gelijk": 0,
-      "verloren": 1,
-      "doelpuntenVoor": 17,
-      "doelpuntenTegen": 10,
-      "doelsaldo": 7,
       "punten": 3
     },
     {
@@ -148,13 +148,13 @@
     {
       "positie": 13,
       "naam": "Ampel 2",
-      "gespeeld": 2,
+      "gespeeld": 3,
       "gewonnen": 0,
       "gelijk": 1,
-      "verloren": 1,
+      "verloren": 2,
       "doelpuntenVoor": 1,
-      "doelpuntenTegen": 8,
-      "doelsaldo": -7,
+      "doelpuntenTegen": 16,
+      "doelsaldo": -15,
       "punten": 1
     },
     {

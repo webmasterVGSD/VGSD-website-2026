@@ -1,5 +1,5 @@
 {
-  "bijgewerkt": "2026-09-29T09:14:14.839Z",
+  "bijgewerkt": "2026-09-29T12:16:06.963Z",
   "wedstrijden": [
     {
       "datum": "2026-09-14",
@@ -215,9 +215,9 @@
       "tijd": "19:00",
       "thuis": "Ampel 2",
       "uit": "De Raafschap",
-      "gespeeld": false,
-      "thuisScore": null,
-      "uitScore": null,
+      "gespeeld": true,
+      "thuisScore": 0,
+      "uitScore": 8,
       "veld": "Football Field 2A",
       "wedstrijdnummer": 20
     },
