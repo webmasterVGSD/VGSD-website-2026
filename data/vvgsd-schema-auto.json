@@ -1,5 +1,5 @@
 {
-  "bijgewerkt": "2026-10-04T11:21:13.338Z",
+  "bijgewerkt": "2026-10-04T18:13:02.572Z",
   "wedstrijden": [
     {
       "datum": "2026-09-14",
@@ -226,9 +226,9 @@
       "tijd": "19:00",
       "thuis": "VV De Benenbrekers",
       "uit": "Natte Honden",
-      "gespeeld": false,
-      "thuisScore": null,
-      "uitScore": null,
+      "gespeeld": true,
+      "thuisScore": 5,
+      "uitScore": 2,
       "veld": "Hockey Field 1A",
       "wedstrijdnummer": 21
     },

@@ -1,5 +1,5 @@
 {
-  "bijgewerkt": "2026-10-04T11:21:13.338Z",
+  "bijgewerkt": "2026-10-04T18:13:02.572Z",
   "teams": [
     {
       "positie": 1,
@@ -27,6 +27,18 @@
     },
     {
       "positie": 3,
+      "naam": "VV De Benenbrekers",
+      "gespeeld": 3,
+      "gewonnen": 3,
+      "gelijk": 0,
+      "verloren": 0,
+      "doelpuntenVoor": 15,
+      "doelpuntenTegen": 6,
+      "doelsaldo": 9,
+      "punten": 9
+    },
+    {
+      "positie": 4,
       "naam": "Jiyan",
       "gespeeld": 3,
       "gewonnen": 3,
@@ -38,7 +50,7 @@
       "punten": 9
     },
     {
-      "positie": 4,
+      "positie": 5,
       "naam": "De Raafschap",
       "gespeeld": 3,
       "gewonnen": 2,
@@ -50,7 +62,7 @@
       "punten": 6
     },
     {
-      "positie": 5,
+      "positie": 6,
       "naam": "Zware Jongens",
       "gespeeld": 2,
       "gewonnen": 2,
@@ -59,18 +71,6 @@
       "doelpuntenVoor": 11,
       "doelpuntenTegen": 2,
       "doelsaldo": 9,
-      "punten": 6
-    },
-    {
-      "positie": 6,
-      "naam": "VV De Benenbrekers",
-      "gespeeld": 2,
-      "gewonnen": 2,
-      "gelijk": 0,
-      "verloren": 0,
-      "doelpuntenVoor": 10,
-      "doelpuntenTegen": 4,
-      "doelsaldo": 6,
       "punten": 6
     },
     {
@@ -112,13 +112,13 @@
     {
       "positie": 10,
       "naam": "Natte Honden",
-      "gespeeld": 2,
+      "gespeeld": 3,
       "gewonnen": 1,
       "gelijk": 0,
-      "verloren": 1,
-      "doelpuntenVoor": 7,
-      "doelpuntenTegen": 8,
-      "doelsaldo": -1,
+      "verloren": 2,
+      "doelpuntenVoor": 9,
+      "doelpuntenTegen": 13,
+      "doelsaldo": -4,
       "punten": 3
     },
     {
