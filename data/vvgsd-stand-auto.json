@@ -1,5 +1,5 @@
 {
-  "bijgewerkt": "2026-10-09T09:14:38.094Z",
+  "bijgewerkt": "2026-10-09T12:15:47.210Z",
   "teams": [
     {
       "positie": 1,
@@ -63,6 +63,18 @@
     },
     {
       "positie": 6,
+      "naam": "MTT Gunners",
+      "gespeeld": 4,
+      "gewonnen": 2,
+      "gelijk": 0,
+      "verloren": 2,
+      "doelpuntenVoor": 17,
+      "doelpuntenTegen": 6,
+      "doelsaldo": 11,
+      "punten": 6
+    },
+    {
+      "positie": 7,
       "naam": "Zware Jongens",
       "gespeeld": 3,
       "gewonnen": 2,
@@ -74,7 +86,7 @@
       "punten": 6
     },
     {
-      "positie": 7,
+      "positie": 8,
       "naam": "Natte Honden",
       "gespeeld": 4,
       "gewonnen": 2,
@@ -86,7 +98,7 @@
       "punten": 6
     },
     {
-      "positie": 8,
+      "positie": 9,
       "naam": "Club Tower Brugge",
       "gespeeld": 4,
       "gewonnen": 1,
@@ -98,7 +110,7 @@
       "punten": 4
     },
     {
-      "positie": 9,
+      "positie": 10,
       "naam": "Team Tesla",
       "gespeeld": 3,
       "gewonnen": 1,
@@ -110,7 +122,7 @@
       "punten": 4
     },
     {
-      "positie": 10,
+      "positie": 11,
       "naam": "VVvTP – A",
       "gespeeld": 3,
       "gewonnen": 1,
@@ -120,18 +132,6 @@
       "doelpuntenTegen": 9,
       "doelsaldo": -5,
       "punten": 4
-    },
-    {
-      "positie": 11,
-      "naam": "MTT Gunners",
-      "gespeeld": 3,
-      "gewonnen": 1,
-      "gelijk": 0,
-      "verloren": 2,
-      "doelpuntenVoor": 16,
-      "doelpuntenTegen": 6,
-      "doelsaldo": 10,
-      "punten": 3
     },
     {
       "positie": 12,
@@ -172,13 +172,13 @@
     {
       "positie": 15,
       "naam": "Ampel 2",
-      "gespeeld": 3,
+      "gespeeld": 4,
       "gewonnen": 0,
       "gelijk": 1,
-      "verloren": 2,
+      "verloren": 3,
       "doelpuntenVoor": 1,
-      "doelpuntenTegen": 16,
-      "doelsaldo": -15,
+      "doelpuntenTegen": 17,
+      "doelsaldo": -16,
       "punten": 1
     },
     {
