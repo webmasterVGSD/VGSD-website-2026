@@ -1,8 +1,20 @@
 {
-  "bijgewerkt": "2026-10-13T06:19:03.482Z",
+  "bijgewerkt": "2026-10-13T09:15:20.136Z",
   "teams": [
     {
       "positie": 1,
+      "naam": "De uitgelootgieters",
+      "gespeeld": 5,
+      "gewonnen": 4,
+      "gelijk": 0,
+      "verloren": 1,
+      "doelpuntenVoor": 32,
+      "doelpuntenTegen": 4,
+      "doelsaldo": 28,
+      "punten": 12
+    },
+    {
+      "positie": 2,
       "naam": "DHL dreamteam",
       "gespeeld": 4,
       "gewonnen": 4,
@@ -14,31 +26,43 @@
       "punten": 12
     },
     {
-      "positie": 2,
+      "positie": 3,
       "naam": "Jiyan",
-      "gespeeld": 4,
+      "gespeeld": 5,
       "gewonnen": 4,
       "gelijk": 0,
-      "verloren": 0,
-      "doelpuntenVoor": 22,
-      "doelpuntenTegen": 12,
-      "doelsaldo": 10,
+      "verloren": 1,
+      "doelpuntenVoor": 24,
+      "doelpuntenTegen": 15,
+      "doelsaldo": 9,
       "punten": 12
     },
     {
-      "positie": 3,
-      "naam": "De uitgelootgieters",
+      "positie": 4,
+      "naam": "MTT Gunners",
+      "gespeeld": 5,
+      "gewonnen": 3,
+      "gelijk": 0,
+      "verloren": 2,
+      "doelpuntenVoor": 21,
+      "doelpuntenTegen": 6,
+      "doelsaldo": 15,
+      "punten": 9
+    },
+    {
+      "positie": 5,
+      "naam": "Zware Jongens",
       "gespeeld": 4,
       "gewonnen": 3,
       "gelijk": 0,
       "verloren": 1,
-      "doelpuntenVoor": 26,
-      "doelpuntenTegen": 4,
-      "doelsaldo": 22,
+      "doelpuntenVoor": 17,
+      "doelpuntenTegen": 10,
+      "doelsaldo": 7,
       "punten": 9
     },
     {
-      "positie": 4,
+      "positie": 6,
       "naam": "VV De Benenbrekers",
       "gespeeld": 4,
       "gewonnen": 3,
@@ -50,43 +74,43 @@
       "punten": 9
     },
     {
-      "positie": 5,
-      "naam": "De Raafschap",
-      "gespeeld": 3,
-      "gewonnen": 2,
-      "gelijk": 0,
-      "verloren": 1,
-      "doelpuntenVoor": 25,
-      "doelpuntenTegen": 10,
-      "doelsaldo": 15,
-      "punten": 6
-    },
-    {
-      "positie": 6,
-      "naam": "MTT Gunners",
-      "gespeeld": 4,
-      "gewonnen": 2,
-      "gelijk": 0,
-      "verloren": 2,
-      "doelpuntenVoor": 17,
-      "doelpuntenTegen": 6,
-      "doelsaldo": 11,
-      "punten": 6
-    },
-    {
       "positie": 7,
-      "naam": "Zware Jongens",
-      "gespeeld": 3,
+      "naam": "VVvTP – A",
+      "gespeeld": 5,
       "gewonnen": 2,
-      "gelijk": 0,
-      "verloren": 1,
-      "doelpuntenVoor": 14,
-      "doelpuntenTegen": 8,
-      "doelsaldo": 6,
-      "punten": 6
+      "gelijk": 1,
+      "verloren": 2,
+      "doelpuntenVoor": 7,
+      "doelpuntenTegen": 14,
+      "doelsaldo": -7,
+      "punten": 7
     },
     {
       "positie": 8,
+      "naam": "De Raafschap",
+      "gespeeld": 5,
+      "gewonnen": 2,
+      "gelijk": 0,
+      "verloren": 3,
+      "doelpuntenVoor": 26,
+      "doelpuntenTegen": 19,
+      "doelsaldo": 7,
+      "punten": 6
+    },
+    {
+      "positie": 9,
+      "naam": "DreamTeamTeam",
+      "gespeeld": 5,
+      "gewonnen": 2,
+      "gelijk": 0,
+      "verloren": 3,
+      "doelpuntenVoor": 28,
+      "doelpuntenTegen": 24,
+      "doelsaldo": 4,
+      "punten": 6
+    },
+    {
+      "positie": 10,
       "naam": "Natte Honden",
       "gespeeld": 4,
       "gewonnen": 2,
@@ -98,7 +122,19 @@
       "punten": 6
     },
     {
-      "positie": 9,
+      "positie": 11,
+      "naam": "Al-Cohol",
+      "gespeeld": 5,
+      "gewonnen": 2,
+      "gelijk": 0,
+      "verloren": 3,
+      "doelpuntenVoor": 12,
+      "doelpuntenTegen": 13,
+      "doelsaldo": -1,
+      "punten": 6
+    },
+    {
+      "positie": 12,
       "naam": "Club Tower Brugge",
       "gespeeld": 4,
       "gewonnen": 1,
@@ -110,52 +146,16 @@
       "punten": 4
     },
     {
-      "positie": 10,
-      "naam": "Team Tesla",
-      "gespeeld": 3,
-      "gewonnen": 1,
-      "gelijk": 1,
-      "verloren": 1,
-      "doelpuntenVoor": 5,
-      "doelpuntenTegen": 4,
-      "doelsaldo": 1,
-      "punten": 4
-    },
-    {
-      "positie": 11,
-      "naam": "VVvTP – A",
-      "gespeeld": 3,
-      "gewonnen": 1,
-      "gelijk": 1,
-      "verloren": 1,
-      "doelpuntenVoor": 4,
-      "doelpuntenTegen": 9,
-      "doelsaldo": -5,
-      "punten": 4
-    },
-    {
-      "positie": 12,
-      "naam": "DreamTeamTeam",
-      "gespeeld": 4,
-      "gewonnen": 1,
-      "gelijk": 0,
-      "verloren": 3,
-      "doelpuntenVoor": 24,
-      "doelpuntenTegen": 21,
-      "doelsaldo": 3,
-      "punten": 3
-    },
-    {
       "positie": 13,
-      "naam": "Al-Cohol",
+      "naam": "Team Tesla",
       "gespeeld": 4,
       "gewonnen": 1,
-      "gelijk": 0,
-      "verloren": 3,
+      "gelijk": 1,
+      "verloren": 2,
       "doelpuntenVoor": 8,
-      "doelpuntenTegen": 10,
-      "doelsaldo": -2,
-      "punten": 3
+      "doelpuntenTegen": 8,
+      "doelsaldo": 0,
+      "punten": 4
     },
     {
       "positie": 14,
@@ -172,13 +172,13 @@
     {
       "positie": 15,
       "naam": "Ampel 2",
-      "gespeeld": 4,
+      "gespeeld": 5,
       "gewonnen": 0,
       "gelijk": 1,
-      "verloren": 3,
-      "doelpuntenVoor": 1,
-      "doelpuntenTegen": 17,
-      "doelsaldo": -16,
+      "verloren": 4,
+      "doelpuntenVoor": 4,
+      "doelpuntenTegen": 21,
+      "doelsaldo": -17,
       "punten": 1
     },
     {
