@@ -1,5 +1,5 @@
 {
-  "bijgewerkt": "2026-11-02T10:38:12.728Z",
+  "bijgewerkt": "2026-11-02T21:28:00.110Z",
   "teams": [
     {
       "positie": 1,
@@ -39,6 +39,18 @@
     },
     {
       "positie": 4,
+      "naam": "Club Tower Brugge",
+      "gespeeld": 7,
+      "gewonnen": 4,
+      "gelijk": 1,
+      "verloren": 2,
+      "doelpuntenVoor": 42,
+      "doelpuntenTegen": 13,
+      "doelsaldo": 29,
+      "punten": 13
+    },
+    {
+      "positie": 5,
       "naam": "De uitgelootgieters",
       "gespeeld": 6,
       "gewonnen": 4,
@@ -50,7 +62,7 @@
       "punten": 13
     },
     {
-      "positie": 5,
+      "positie": 6,
       "naam": "MTT Gunners",
       "gespeeld": 7,
       "gewonnen": 3,
@@ -60,18 +72,6 @@
       "doelpuntenTegen": 6,
       "doelsaldo": 15,
       "punten": 11
-    },
-    {
-      "positie": 6,
-      "naam": "Club Tower Brugge",
-      "gespeeld": 6,
-      "gewonnen": 3,
-      "gelijk": 1,
-      "verloren": 2,
-      "doelpuntenVoor": 37,
-      "doelpuntenTegen": 12,
-      "doelsaldo": 25,
-      "punten": 10
     },
     {
       "positie": 7,
@@ -88,13 +88,13 @@
     {
       "positie": 8,
       "naam": "VVvTP – A",
-      "gespeeld": 6,
+      "gespeeld": 7,
       "gewonnen": 3,
       "gelijk": 1,
-      "verloren": 2,
-      "doelpuntenVoor": 11,
-      "doelpuntenTegen": 14,
-      "doelsaldo": -3,
+      "verloren": 3,
+      "doelpuntenVoor": 12,
+      "doelpuntenTegen": 19,
+      "doelsaldo": -7,
       "punten": 10
     },
     {
