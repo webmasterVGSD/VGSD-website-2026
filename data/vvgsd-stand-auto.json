@@ -1,5 +1,5 @@
 {
-  "bijgewerkt": "2026-11-03T05:39:16.465Z",
+  "bijgewerkt": "2026-11-03T13:44:31.824Z",
   "teams": [
     {
       "positie": 1,
@@ -63,6 +63,18 @@
     },
     {
       "positie": 6,
+      "naam": "Zware Jongens",
+      "gespeeld": 6,
+      "gewonnen": 4,
+      "gelijk": 0,
+      "verloren": 2,
+      "doelpuntenVoor": 24,
+      "doelpuntenTegen": 15,
+      "doelsaldo": 9,
+      "punten": 12
+    },
+    {
+      "positie": 7,
       "naam": "MTT Gunners",
       "gespeeld": 7,
       "gewonnen": 3,
@@ -74,7 +86,7 @@
       "punten": 11
     },
     {
-      "positie": 7,
+      "positie": 8,
       "naam": "Natte Honden",
       "gespeeld": 7,
       "gewonnen": 3,
@@ -86,7 +98,7 @@
       "punten": 10
     },
     {
-      "positie": 8,
+      "positie": 9,
       "naam": "VVvTP – A",
       "gespeeld": 7,
       "gewonnen": 3,
@@ -96,18 +108,6 @@
       "doelpuntenTegen": 19,
       "doelsaldo": -7,
       "punten": 10
-    },
-    {
-      "positie": 9,
-      "naam": "Zware Jongens",
-      "gespeeld": 5,
-      "gewonnen": 3,
-      "gelijk": 0,
-      "verloren": 2,
-      "doelpuntenVoor": 19,
-      "doelpuntenTegen": 14,
-      "doelsaldo": 5,
-      "punten": 9
     },
     {
       "positie": 10,
@@ -184,13 +184,13 @@
     {
       "positie": 16,
       "naam": "Booterbal",
-      "gespeeld": 6,
+      "gespeeld": 7,
       "gewonnen": 0,
       "gelijk": 0,
-      "verloren": 6,
-      "doelpuntenVoor": 6,
-      "doelpuntenTegen": 73,
-      "doelsaldo": -67,
+      "verloren": 7,
+      "doelpuntenVoor": 7,
+      "doelpuntenTegen": 78,
+      "doelsaldo": -71,
       "punten": 0
     }
   ]
