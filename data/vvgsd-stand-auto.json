@@ -1,9 +1,9 @@
 {
-  "bijgewerkt": "2026-11-05T01:19:37.311Z",
+  "bijgewerkt": "2026-11-05T10:26:17.014Z",
   "teams": [
     {
       "positie": 1,
-      "naam": "DHL dreamteam",
+      "naam": "DD",
       "gespeeld": 7,
       "gewonnen": 7,
       "gelijk": 0,
@@ -15,7 +15,7 @@
     },
     {
       "positie": 2,
-      "naam": "VV De Benenbrekers",
+      "naam": "VB",
       "gespeeld": 7,
       "gewonnen": 5,
       "gelijk": 0,
@@ -27,7 +27,7 @@
     },
     {
       "positie": 3,
-      "naam": "Jiyan",
+      "naam": "JI",
       "gespeeld": 7,
       "gewonnen": 5,
       "gelijk": 0,
@@ -39,7 +39,7 @@
     },
     {
       "positie": 4,
-      "naam": "Club Tower Brugge",
+      "naam": "TB",
       "gespeeld": 7,
       "gewonnen": 4,
       "gelijk": 1,
@@ -51,7 +51,7 @@
     },
     {
       "positie": 5,
-      "naam": "De uitgelootgieters",
+      "naam": "UI",
       "gespeeld": 6,
       "gewonnen": 4,
       "gelijk": 1,
@@ -63,7 +63,7 @@
     },
     {
       "positie": 6,
-      "naam": "Zware Jongens",
+      "naam": "ZJ",
       "gespeeld": 6,
       "gewonnen": 4,
       "gelijk": 0,
@@ -75,7 +75,7 @@
     },
     {
       "positie": 7,
-      "naam": "MTT Gunners",
+      "naam": "MG",
       "gespeeld": 7,
       "gewonnen": 3,
       "gelijk": 2,
@@ -87,7 +87,7 @@
     },
     {
       "positie": 8,
-      "naam": "Natte Honden",
+      "naam": "NH",
       "gespeeld": 7,
       "gewonnen": 3,
       "gelijk": 1,
@@ -99,7 +99,7 @@
     },
     {
       "positie": 9,
-      "naam": "VVvTP – A",
+      "naam": "VA",
       "gespeeld": 7,
       "gewonnen": 3,
       "gelijk": 1,
@@ -111,7 +111,7 @@
     },
     {
       "positie": 10,
-      "naam": "De Raafschap",
+      "naam": "RA",
       "gespeeld": 7,
       "gewonnen": 2,
       "gelijk": 2,
@@ -123,7 +123,7 @@
     },
     {
       "positie": 11,
-      "naam": "Team Tesla",
+      "naam": "TE",
       "gespeeld": 6,
       "gewonnen": 2,
       "gelijk": 2,
@@ -135,7 +135,7 @@
     },
     {
       "positie": 12,
-      "naam": "Al-Cohol",
+      "naam": "AC",
       "gespeeld": 7,
       "gewonnen": 2,
       "gelijk": 1,
@@ -147,7 +147,7 @@
     },
     {
       "positie": 13,
-      "naam": "DreamTeamTeam",
+      "naam": "DR",
       "gespeeld": 6,
       "gewonnen": 2,
       "gelijk": 0,
@@ -159,7 +159,7 @@
     },
     {
       "positie": 14,
-      "naam": "VVGSD",
+      "naam": "VV",
       "gespeeld": 7,
       "gewonnen": 2,
       "gelijk": 0,
@@ -171,7 +171,7 @@
     },
     {
       "positie": 15,
-      "naam": "Ampel 2",
+      "naam": "2",
       "gespeeld": 7,
       "gewonnen": 0,
       "gelijk": 1,
@@ -183,7 +183,7 @@
     },
     {
       "positie": 16,
-      "naam": "Booterbal",
+      "naam": "BO",
       "gespeeld": 7,
       "gewonnen": 0,
       "gelijk": 0,
