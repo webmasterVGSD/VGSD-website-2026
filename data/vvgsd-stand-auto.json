@@ -1,5 +1,5 @@
 {
-  "bijgewerkt": "2026-11-21T10:42:29.993Z",
+  "bijgewerkt": "2026-11-21T18:46:47.725Z",
   "teams": [
     {
       "positie": 1,
@@ -64,14 +64,14 @@
     {
       "positie": 6,
       "naam": "TB",
-      "gespeeld": 8,
-      "gewonnen": 4,
+      "gespeeld": 9,
+      "gewonnen": 5,
       "gelijk": 2,
       "verloren": 2,
-      "doelpuntenVoor": 44,
+      "doelpuntenVoor": 50,
       "doelpuntenTegen": 15,
-      "doelsaldo": 29,
-      "punten": 14
+      "doelsaldo": 35,
+      "punten": 17
     },
     {
       "positie": 7,
@@ -136,13 +136,13 @@
     {
       "positie": 12,
       "naam": "RA",
-      "gespeeld": 8,
+      "gespeeld": 9,
       "gewonnen": 2,
       "gelijk": 3,
-      "verloren": 3,
+      "verloren": 4,
       "doelpuntenVoor": 31,
-      "doelpuntenTegen": 24,
-      "doelsaldo": 7,
+      "doelpuntenTegen": 30,
+      "doelsaldo": 1,
       "punten": 9
     },
     {
