@@ -1,28 +1,28 @@
 {
-  "bijgewerkt": "2026-11-24T08:46:09.541Z",
+  "bijgewerkt": "2026-11-24T19:59:08.622Z",
   "teams": [
     {
       "positie": 1,
       "naam": "DD",
-      "gespeeld": 9,
-      "gewonnen": 9,
+      "gespeeld": 10,
+      "gewonnen": 10,
       "gelijk": 0,
       "verloren": 0,
-      "doelpuntenVoor": 61,
+      "doelpuntenVoor": 72,
       "doelpuntenTegen": 12,
-      "doelsaldo": 49,
-      "punten": 27
+      "doelsaldo": 60,
+      "punten": 30
     },
     {
       "positie": 2,
       "naam": "JI",
-      "gespeeld": 9,
+      "gespeeld": 10,
       "gewonnen": 7,
       "gelijk": 0,
-      "verloren": 2,
+      "verloren": 3,
       "doelpuntenVoor": 51,
-      "doelpuntenTegen": 25,
-      "doelsaldo": 26,
+      "doelpuntenTegen": 36,
+      "doelsaldo": 15,
       "punten": 21
     },
     {
@@ -52,13 +52,13 @@
     {
       "positie": 5,
       "naam": "VB",
-      "gespeeld": 9,
+      "gespeeld": 10,
       "gewonnen": 6,
       "gelijk": 0,
-      "verloren": 3,
-      "doelpuntenVoor": 42,
-      "doelpuntenTegen": 30,
-      "doelsaldo": 12,
+      "verloren": 4,
+      "doelpuntenVoor": 43,
+      "doelpuntenTegen": 35,
+      "doelsaldo": 8,
       "punten": 18
     },
     {
@@ -88,17 +88,41 @@
     {
       "positie": 8,
       "naam": "TE",
-      "gespeeld": 8,
-      "gewonnen": 3,
+      "gespeeld": 9,
+      "gewonnen": 4,
       "gelijk": 2,
       "verloren": 3,
-      "doelpuntenVoor": 24,
-      "doelpuntenTegen": 16,
-      "doelsaldo": 8,
-      "punten": 11
+      "doelpuntenVoor": 27,
+      "doelpuntenTegen": 18,
+      "doelsaldo": 9,
+      "punten": 14
     },
     {
       "positie": 9,
+      "naam": "RA",
+      "gespeeld": 10,
+      "gewonnen": 3,
+      "gelijk": 3,
+      "verloren": 4,
+      "doelpuntenVoor": 36,
+      "doelpuntenTegen": 31,
+      "doelsaldo": 5,
+      "punten": 12
+    },
+    {
+      "positie": 10,
+      "naam": "DR",
+      "gespeeld": 10,
+      "gewonnen": 3,
+      "gelijk": 1,
+      "verloren": 6,
+      "doelpuntenVoor": 37,
+      "doelpuntenTegen": 40,
+      "doelsaldo": -3,
+      "punten": 10
+    },
+    {
+      "positie": 11,
       "naam": "NH",
       "gespeeld": 9,
       "gewonnen": 3,
@@ -110,19 +134,7 @@
       "punten": 10
     },
     {
-      "positie": 10,
-      "naam": "AC",
-      "gespeeld": 9,
-      "gewonnen": 3,
-      "gelijk": 1,
-      "verloren": 5,
-      "doelpuntenVoor": 20,
-      "doelpuntenTegen": 36,
-      "doelsaldo": -16,
-      "punten": 10
-    },
-    {
-      "positie": 11,
+      "positie": 12,
       "naam": "VA",
       "gespeeld": 9,
       "gewonnen": 3,
@@ -134,19 +146,19 @@
       "punten": 10
     },
     {
-      "positie": 12,
-      "naam": "RA",
-      "gespeeld": 9,
-      "gewonnen": 2,
-      "gelijk": 3,
-      "verloren": 4,
-      "doelpuntenVoor": 31,
-      "doelpuntenTegen": 30,
-      "doelsaldo": 1,
-      "punten": 9
+      "positie": 13,
+      "naam": "AC",
+      "gespeeld": 10,
+      "gewonnen": 3,
+      "gelijk": 1,
+      "verloren": 6,
+      "doelpuntenVoor": 20,
+      "doelpuntenTegen": 38,
+      "doelsaldo": -18,
+      "punten": 10
     },
     {
-      "positie": 13,
+      "positie": 14,
       "naam": "VV",
       "gespeeld": 8,
       "gewonnen": 3,
@@ -158,27 +170,15 @@
       "punten": 9
     },
     {
-      "positie": 14,
-      "naam": "DR",
-      "gespeeld": 9,
-      "gewonnen": 2,
-      "gelijk": 1,
-      "verloren": 6,
-      "doelpuntenVoor": 35,
-      "doelpuntenTegen": 40,
-      "doelsaldo": -5,
-      "punten": 7
-    },
-    {
       "positie": 15,
       "naam": "2",
-      "gespeeld": 8,
+      "gespeeld": 9,
       "gewonnen": 0,
       "gelijk": 1,
-      "verloren": 7,
-      "doelpuntenVoor": 7,
-      "doelpuntenTegen": 52,
-      "doelsaldo": -45,
+      "verloren": 8,
+      "doelpuntenVoor": 9,
+      "doelpuntenTegen": 55,
+      "doelsaldo": -46,
       "punten": 1
     },
     {
